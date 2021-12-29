@@ -16,7 +16,8 @@ module EZeat888
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
+    # 設定時區為臺北時間
+    config.time_zone = "Taipei"
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
