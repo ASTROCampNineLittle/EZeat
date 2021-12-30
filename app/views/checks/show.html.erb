@@ -1,0 +1,117 @@
+
+<div class="bg-gray-100 max-w-screen-md container mx-auto pb-4">
+
+	<div class="border-b-2 px-4 py-10">	
+		<div class="flex pb-3">
+
+			<div class="flex-1">
+				<div class="w-10 h-10 bg-red-400 border-2 border-red-400 mx-auto rounded-full text-lg text-white flex items-center">
+					<span class="text-center w-full">1</span>
+				</div>
+			</div>
+
+			<div class="w-1/4 align-center items-center align-middle content-center flex">
+				<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+					<div class="bg-red-400 text-xs leading-none py-1 text-center rounded " style="width: 100%"></div>
+				</div>
+			</div>
+		
+			<div class="flex-1">
+				<div class="w-10 h-10 bg-red-400 border-2 border-red-400 mx-auto rounded-full text-lg text-white flex items-center">
+					<span class="text-center w-full">2</span>
+				</div>
+			</div>
+		
+			<div class="w-1/4 align-center items-center align-middle content-center flex">
+				<div class="w-full rounded items-center align-middle align-center flex-1">
+					<div class="bg-gray-400 text-xs leading-none py-1 text-center rounded " style="width: 100%"></div>
+				</div>
+			</div>
+		
+			<div class="flex-1">
+				<div class="w-10 h-10 bg-white border-2 border-red-400 mx-auto rounded-full text-lg text-red-400 flex items-center">
+					<span class="text-center w-full">3</span>
+				</div>
+			</div>
+
+		</div>
+		
+		<div class="flex text-lg content-center text-center py-1">
+			<div class="w-1/4 text-sm text-red-500">
+				選擇餐卷
+			</div>
+
+			<div class="w-1/3 align-center items-center align-middle content-center flex">
+			</div>
+
+			<div class="w-1/4 text-sm text-red-500">
+				確認訂位資訊
+			</div>
+
+			<div class="w-1/3 align-center items-center align-middle content-center flex">
+			</div>
+			
+			<div class="w-1/4 text-sm text-red-500">
+				確認訂單結果
+			</div>
+		</div>
+	</div>
+
+
+
+		<div class="pl-4 py-10 w-full text-lg font-bold border-b-2  bg-white">
+			<div>餐廳：遠東Café – 香格里拉台北遠東國際大飯店</div>
+			<div>日期：12月23日 (四)</div>
+			<div>時間：15:15</div>
+			<div>人數：２人</div>
+		</div>
+
+<h3 class="bg-gray-300 text-black text-lg py-3 pl-6 border-b-2">確認購買明細</h3>
+
+		<div class="pl-4 py-10 w-full text-lg font-bold border-b-2  bg-gray-100">
+			<div>EZTABLE 2021 聖誕跨年，週六日、12/31 下午茶吃到飽優惠價 $1080/人 (原價$1188)</div>
+			<div>數量：$1080 Ｘ2</div>
+			<div class="text-red-500 py-4">總計：$2160</div>
+		</div>
+
+
+<h3 class="bg-gray-300 text-black text-lg py-3 pl-6 border-b-2">填寫訂位資料</h3>
+
+<%= form_with model: @user ,class:"py-10", url: "http://localhost:3000/payments/new", method: "get" do |form| %>
+    <%#  下列三個欄位預設抓登入的user,目前是設定抓1號id的使用者 %>
+		<div class="md:flex md:items-center mb-6">
+			<div class="md:w-1/6">
+				<%= form.label :username, '訂位人', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+			</div>
+			<div class="md:w-9/12">
+				<%= form.text_field :username , class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+			</div>
+		</div>
+		 
+		<div class="md:flex md:items-center mb-6">
+			<div class="md:w-1/6">
+				<%= form.label :tele, '電話', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+			</div>
+			<div class="md:w-9/12">
+				<%= form.text_field :tele, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+			</div>
+		</div>
+		 
+		<div class="md:flex md:items-center mb-6">
+			<div class="md:w-1/6">
+				<%= form.label :email, 'E-mail', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+			</div>
+			<div class="md:w-9/12">
+				<%= form.text_field :email, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+			</div>
+		</div>
+		 
+		<div class="flex justify-center">
+				<div class="md:w-10/12">
+					<%= form.submit value="確認資料。使用信用卡付款", class:"bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-4 my-6 rounded focus:outline-none focus:shadow-outline w-full cursor-pointer" %>
+				</div>
+		</div>
+
+<% end %>
+
+</div>
