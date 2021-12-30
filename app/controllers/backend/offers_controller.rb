@@ -2,11 +2,17 @@ class Backend::OffersController < ApplicationController
   before_action :set_offer, only: [:edit, :update, :destroy]
   layout "backend"
 
+<<<<<<< HEAD
 
   def index
     @open_date = OpenDate.find(params[:open_date_id])
     @offers = @open_date.offers.all
     
+=======
+  def index
+    @open_date = OpenDate.find(params[:open_date_id])
+    @offers = @open_date.offers.all
+>>>>>>> a5aaebc647f61e2be8ab8158c31bc2757903dd6a
   end
 
   def new
@@ -42,7 +48,6 @@ class Backend::OffersController < ApplicationController
     redirect_to backend_open_date_offers_path(origin_open_date), notice: '刪除成功'
   end
 
-
   private
   def offer_params
     params.require(:offer).permit(:ok_time, :capacity)
@@ -53,5 +58,3 @@ class Backend::OffersController < ApplicationController
   end
 
 end
-
-
