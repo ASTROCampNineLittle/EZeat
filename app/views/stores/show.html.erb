@@ -38,7 +38,7 @@
 
   <div class="flex">
     <section class="bg-white w-2/3 container mx-auto pb-4 ml-12 mr-6 drop-shadow-lg rounded-lg -mt-6 z-10">
-      <h3 class="text-center text-3xl py-4 text-orange-500"><%#= @store.name %></h3>
+      <h3 class="text-center text-3xl py-4 text-orange-500"><%= @store.name %></h3>
       <h3 class="text-center text-base py-4">餐卷</h3>
       <div class="text-left pl-6 text-base">
       【歡慶歲末】2021聖誕跨年 95 折起＋ 2% EZCASH 回饋<br>
@@ -71,8 +71,8 @@
       <h3 class="text-center text-3xl py-4">餐廳資訊</h3>
         <table>
           <tr>
-            <div class="text-left pl-6 text-base"><%#= @store.tel %></div>
-            <div class="text-left pl-6 text-base"><%#= @store.address %></div>
+            <div class="text-left pl-6 text-base"><%= @store.tel %></div>
+            <div class="text-left pl-6 text-base"><%= @store.address %></div>
           </tr>
         </table>
     </section>
