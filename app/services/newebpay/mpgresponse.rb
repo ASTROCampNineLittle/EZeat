@@ -39,9 +39,8 @@ module Newebpay
 
       def strippadding(data)
         last_word = data[-1].ord
-        last_word_chr = slast.chr
-        string_match = /#{slastc}{#{slast}}/ =~ data
-        debugger
+        last_word_chr = last_word.chr
+        string_match = /#{last_word_chr}{#{last_word}}/ =~ data
         if !string_match.nil?
           data[0, string_match]
         else
