@@ -1,43 +1,67 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="container mx-auto max-w-screen-md">
+  <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+      <div>
+        <img class="mx-auto h-12 w-auto" src="https://by3301files.storage.live.com/y4pCOcWALhX-67jROfOeGOyvt89Q0g5bk3unsqJI_A1TuhLEbYm5ueDO1Cx4QDKLo9dHOUHWRR4Dp-gaZeC68OKF4IFzreMqxInqay62sQP6kTRUy1z_bIu1gknYBIGQaWnZVJ1ZtsEzF2Pqk0VN5k6OIOGlri3v0SdukpQYSktRCJPVMfOzPR9llkqDI81j-R9/EZeat1.png?psid=1&width=1136&height=363" alt="EZeat">
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          個人檔案
+        </h2>
+      </div>
+      <div class="rounded-md shadow-sm -space-y-px">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "users/shared/error_messages", resource: resource %>
+            <div class="field">
+                <%= f.label :name, "大名" %><br />
+                <%= f.text_field :name, autofocus: true, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+            </div>
+            <div class="field">
+                <%= f.label :tel, "電話" %><br />
+                <%= f.text_field :tel, autofocus: true, autocomplete: "tele", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+            </div>
+            <div class="field">
+              <%= f.label :gender, "性別" %><br />
+              <div class="flex mx-auto h-8 space-x-3">
+                <%= f.radio_button :gender, 0, :checked => true, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %>男
+                <%= f.radio_button :gender, 1, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %>女
+                <%= f.radio_button :gender, 2, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %>不表示
+              </div>
+            </div>          
+            <div class="field">
+                <%= f.label :email, "信箱" %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+            </div>
+            <div class="field">
+                <%= f.label :password, "密碼" %>
+                <% if @minimum_password_length %>
+                <em>(最少需要<%= @minimum_password_length %>碼)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+            </div>
+            <div class="field">
+                <%= f.label :password_confirmation, "確認新密碼" %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %></label>
+            </div>
+            <div class="field">
+                <%= f.label :current_password, "請輸入舊密碼驗證" %><br />
+                <%= f.password_field :current_password, autocomplete: "current-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %></label>
+            </div>
+          </div>
+          <div class="group relative w-full flex justify-center ">
+            <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+              <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+              </svg>
+            </span>
+            <%= f.submit value="更新", notice: "更新成功", class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+          </div>
+          <div>  
+        <% end %>
+          <h6 class="mt-6 text-center font-extrabold text-gray-900">
+            不喜歡我們的服務嗎？
+          </h6>
+          <%= button_to "取消帳號", registration_path(resource_name), data: { confirm: "你確定嗎？" }, method: :delete, class: "group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"  %><br>
+          <%= link_to "回上一頁", :back, class:"group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      </div>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

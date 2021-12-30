@@ -20,10 +20,10 @@
       <div class="w-36 hidden md:flex items-center justify-end md:flex-1 lg:w-0">
         <% if signed_in? %>
         <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
-          <%= current_user.username %>，您好
+          <%= current_user.name %>，您好
         </div>
         <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
-          <%= link_to "個人檔案(not yet)", root_path %>
+          <%= link_to "個人檔案", edit_user_registration_path %>
         </div>
         <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
           <%= button_to "登出", destroy_user_session_path, method: 'delete', notice: "登出成功" %>
