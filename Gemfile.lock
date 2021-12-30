@@ -100,8 +100,10 @@ GEM
     foreman (0.87.2)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
+    geocoder (1.7.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    gmaps4rails (2.1.2)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.5)
@@ -135,8 +137,6 @@ GEM
     msgpack (1.4.2)
     nio4r (2.5.8)
     nokogiri (1.12.5-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.2.3)
@@ -260,6 +260,8 @@ DEPENDENCIES
   figaro (~> 1.2)
   foreman (~> 0.87.2)
   friendly_id (~> 5.4, >= 5.4.2)
+  geocoder
+  gmaps4rails
   jbuilder (~> 2.7)
   kaminari (~> 1.2, >= 1.2.1)
   listen (~> 3.3)

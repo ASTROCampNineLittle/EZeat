@@ -1,0 +1,55 @@
+<span class="flex text-xl">
+  <div class="mr-4">公司：<%= @company.name %></div>
+  <div class="mr-4">聯絡電話：<%= @company.tel%></div>
+</span>
+
+<h2>分店清單</h2>
+<!-- component -->
+<table class="min-w-full border-collapse block md:table">
+		<thead class="block md:table-header-group">
+			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">分店名稱</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">餐飲類型</th>
+        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">電話</th>
+        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">分店地址</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">分店介紹</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">編輯分店資訊</th>
+			</tr>
+		</thead>
+		<tbody class="block md:table-row-group">
+      <% @stores.each do |store| %>
+        <tr class="bg-white-300 border border-grey-500 md:border-none block md:table-row">
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">分店名稱</span><%= store.name %></td>
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">餐飲類型</span><%= store.food_type %></td>
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">電話</span><%= store.tel %></td>
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">分店地址</span><%= store.address %></td>
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">分店介紹</span>...</td>
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+            <span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">
+              <%= link_to edit_backend_store_path(store) do %>
+                修改資料
+              <% end %>
+            </button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">
+              <%= link_to backend_store_path(store) do %>
+                查看分店資料
+              <% end %>
+            </button>
+            <button >
+              <%= button_to "刪除分店", backend_store_path(store), method: :delete, data: {confirm: "確定刪除?"}, class:"bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded"  %>
+            </button>
+            <button >
+              <%= button_to "新增方案", new_backend_store_dish_path(store),method: 'get', class:"bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded"  %>
+            </button>
+          </td>
+        </tr>
+      <% end %>
+	</tbody>
+</table>
+
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">
+  <%= link_to new_backend_company_store_path(@company) do %>
+    新增分店
+  <% end %>
+</button>
