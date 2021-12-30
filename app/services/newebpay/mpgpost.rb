@@ -1,8 +1,8 @@
 module Newebpay
   class Mpgpost
-    attr_accessor :info
     # 4000-2211-1111-1111（一次付清測試卡號）
-    
+    attr_accessor :info
+
     def initialize( merchant_id: nil , key: nil, iv: nil)
       @key = key || ENV["newebpay_key"] 
       @iv  = iv || ENV["newebpay_iv"] 

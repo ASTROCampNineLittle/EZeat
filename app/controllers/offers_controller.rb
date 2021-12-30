@@ -1,5 +1,4 @@
 class OffersController < ApplicationController
-
   def index
   end
 
@@ -8,5 +7,4 @@ class OffersController < ApplicationController
 
   def edit
   end
-
 end
