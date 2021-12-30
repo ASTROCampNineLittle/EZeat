@@ -3,6 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+
+# Bundle gmaps related gems
+gem 'gmaps4rails'
+gem 'geocoder'
+
 #foreman 
 gem 'foreman', '~> 0.87.2'
 

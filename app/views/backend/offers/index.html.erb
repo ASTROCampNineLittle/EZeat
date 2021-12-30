@@ -1,0 +1,40 @@
+<h1>方案名稱：<%= @open_date.dish.name %></h1>
+<h2>日期：<%=@open_date.availible_date%></h2>
+<!-- component -->
+<table class="min-w-full border-collapse block md:table">
+		<thead class="block md:table-header-group">
+			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">開放訂位時段</th>
+        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">開放座位數</th>
+      </tr>
+		</thead>
+
+		<tbody class="block md:table-row-group">
+      <% @offers.each do |offer| %>
+        <tr class="bg-white-300 border border-grey-500 md:border-none block md:table-row">
+
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">開放訂位時段</span>
+            <%= offer.availible_time %>
+          </td>          
+ 
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+            <span class="inline-block w-1/3 md:hidden font-bold">開放座位數</span>
+            <button>
+              <%= offer.capacity %>
+              <%= link_to edit_backend_offer_path(offer), class: "inline-block bg-stone-400 hover:bg-stone-500 text-white font-bold py-1 px-2 border border-stone-400 rounded" do %>
+                修改資料
+              <% end %>
+
+              <%= link_to "刪除", backend_offer_path(offer), data: { "turbo-method": :delete, confirm: "確定刪除?" }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded inline-block" %>
+          </td>
+
+        </tr>
+      <% end %>
+	</tbody>
+</table>
+
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">
+  <%= link_to new_backend_open_date_offer_path(@open_date) do %>
+     新增可訂位時段
+  <% end %>
+</button>
