@@ -8,4 +8,11 @@ Rails.application.routes.draw do
   end
 
   root "pages#index"
+
+  resources :stores
+  resources :offers , only: [:index , :show] 
+  resources :checks , only: [:index , :show]
+  resources :payments , only: [:index, :new] do
+    post :confirm
+  end
 end
