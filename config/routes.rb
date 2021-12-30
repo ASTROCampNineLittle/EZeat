@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
+  resources :stores
+  resources :offers , only: [:index , :show] 
+  resources :checks , only: [:index , :show]
+  resources :payments , only: [:index, :new] do
+    post :confirm
+  end
   
   #backend related routes
   namespace :backend do
@@ -31,8 +37,5 @@ Rails.application.routes.draw do
     resources :open_dates, only: [] do
       resources :offers, except: [:show], shallow: true
     end
-
   end
-
-
 end
