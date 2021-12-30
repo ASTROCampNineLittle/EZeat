@@ -1,0 +1,45 @@
+<h1>分店名稱：<%= @store.name %></h1>
+<h2>方案清單</h2>
+<!-- component -->
+<table class="min-w-full border-collapse block md:table">
+		<thead class="block md:table-header-group">
+			<tr class="border border-grey-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">方案名稱</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">方案價格</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">方案介紹</th>
+				<th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">方案目前狀態</th>
+        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-grey-500 text-left block md:table-cell">編輯方案資訊</th>
+			</tr>
+		</thead>
+    
+		<tbody class="block md:table-row-group">
+      <% @dishes.each do |dish| %>
+        <tr class="bg-white-300 border border-grey-500 md:border-none block md:table-row">
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">方案名稱</span><%= dish.name %></td>
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">方案價格</span><%= dish.price %></td>
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">方案介紹</span><%= dish.intro %></td>
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">開放狀態</span>
+            <%= if dish.status == false
+              dish.status = "未開放"
+            else
+              dish.status = "開放中"
+            end%>
+            <%= link_to "修改資料", edit_backend_dish_path(dish), class:"bg-stone-400 hover:bg-stone-500 text-white font-bold py-1 px-2 border border-stone-400 rounded"%>
+            <%= link_to "刪除方案", backend_dish_path(dish), data: { "turbo-method": :delete, confirm: "確定刪除?" }, class:"bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded" %>
+          </td>
+          <td class="p-2 md:border md:border-grey-500 text-left block md:table-cell">
+            <span class="inline-block w-1/3 md:hidden font-bold">Actions</span>
+            <button>
+              <%= link_to "可訂位時段", backend_dish_open_dates_path(dish), class:"bg-lime-500 hover:bg-lime-700 text-white font-bold py-1 px-2 border border-lime-500 rounded"  %>
+            </button>
+          </td>
+        </tr>
+      <% end %>
+	</tbody>
+</table>
+
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded">
+  <%= link_to new_backend_store_dish_path(@store) do %>
+    新增方案
+  <% end %>
+</button>

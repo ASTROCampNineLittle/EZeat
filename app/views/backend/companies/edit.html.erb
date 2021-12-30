@@ -1,0 +1,62 @@
+<div class='w-full max-w-sm'>
+
+  <div class="md:flex md:items-center mb-6">
+    <div class=" ">
+     <h1 class='block text-gray-500 font-bold text-2xl md:text-right mb-1 md:mb-0 pr-4'>修改公司資料</h1>
+    </div>
+  </div>
+
+  <%= form_with model: [:backend, @company], class: " " do |form| %>
+
+    <div class="md:flex md:items-center mb-6">
+      <div class="md:w-1/3">
+        <%= form.label :name, '公司名稱', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+      </div>
+      <div class="md:w-2/3">
+        <%= form.text_field :name, class: 'bg-red-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+      </div>
+    </div>
+
+    <div class="md:flex md:items-center mb-6">
+      <div class="md:w-1/3">
+        <%= form.label :address, '公司地址', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+      </div>
+      <div class="md:w-2/3">
+        <%= form.text_field :address, class: 'bg-red-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+      </div>
+    </div>
+
+    <div class="md:flex md:items-center mb-6">
+      <div class="md:w-1/3">
+        <%= form.label :tel, '聯絡電話', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+      </div>
+      <div class="md:w-2/3">
+        <%= form.text_field :tel, class: 'bg-red-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+      </div>
+    </div>
+
+    <div class="md:flex md:items-center mb-6">
+      <div class="md:w-1/3">
+        <%= form.label :manager_name, '負責人姓名', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+      </div>
+      <div class="md:w-2/3">
+        <%= form.text_field :manager_name, class: 'bg-red-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+      </div>
+    </div>
+
+
+    <div class="md:flex md:items-center justify-end">
+      <div class=" "></div>
+      <div class=" ">
+        <%= form.submit value="儲存資料", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+
+        <%= button_to backend_company_path(@company), class: 'bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
+          取消
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
+
