@@ -8,7 +8,7 @@ ruby '3.0.0'
 gem 'gmaps4rails'
 gem 'geocoder'
 
-#foreman 
+# The Process manager
 gem 'foreman', '~> 0.87.2'
 
 # Create pretty URLs and work with human-friendly strings as if they were numeric ids
@@ -28,6 +28,12 @@ gem 'aasm', '~> 5.2'
 
 # As the paginator
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
+
+# Translations for the devise gem
+gem 'devise-i18n', '~> 1.10', '>= 1.10.1'
+
+# The locale data and translations to internationalize rails
+gem 'rails-i18n', '~> 7.0', '>= 7.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
