@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: one
+  name: MyString
+  food_type: 1
+  tel: MyString
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+  intro: MyText
+
+two:
+  company: two
+  name: MyString
+  food_type: 1
+  tel: MyString
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+  intro: MyText
