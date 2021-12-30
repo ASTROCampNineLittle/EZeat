@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_29_140419) do
+ActiveRecord::Schema.define(version: 2021_12_30_043731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,48 @@ ActiveRecord::Schema.define(version: 2021_12_29_140419) do
     t.string "manager_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.string "name"
+    t.integer "price"
+    t.boolean "status"
+    t.text "intro"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_id"], name: "index_dishes_on_store_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.bigint "open_date_id", null: false
+    t.time "availible_time"
+    t.integer "capacity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["open_date_id"], name: "index_offers_on_open_date_id"
+  end
+
+  create_table "open_dates", force: :cascade do |t|
+    t.bigint "dish_id", null: false
+    t.date "availible_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_open_dates_on_dish_id"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.string "name"
+    t.integer "food_type"
+    t.string "tel"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.text "intro"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_stores_on_company_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,4 +92,8 @@ ActiveRecord::Schema.define(version: 2021_12_29_140419) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "dishes", "stores"
+  add_foreign_key "offers", "open_dates"
+  add_foreign_key "open_dates", "dishes"
+  add_foreign_key "stores", "companies"
 end
