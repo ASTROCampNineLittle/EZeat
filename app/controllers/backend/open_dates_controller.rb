@@ -5,7 +5,6 @@ class Backend::OpenDatesController < ApplicationController
   def index
     @dish = Dish.find(params[:dish_id])
     @open_dates = @dish.open_dates.all
-    
   end
 
   def new
