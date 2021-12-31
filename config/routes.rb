@@ -45,4 +45,9 @@ Rails.application.routes.draw do
       resources :offers, except: [:show], shallow: true
     end
   end
+
+  # 未來用來處理Routing Error 頁面用的，目前可先關起來
+  # match '*path', :to => "errors#not_found_404", :via => :all
+  match "/404", :to => "errors#not_found_404", :via => :all
+  match "/500", :to => "errors#not_found_500", :via => :all
 end

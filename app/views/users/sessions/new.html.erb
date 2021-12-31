@@ -1,57 +1,50 @@
 <div class="container mx-auto max-w-screen-md">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= render "users/shared/error_messages", resource: resource %>
-    <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-md w-full space-y-8">
-        <div>
-          <img class="mx-auto h-12 w-auto" src="https://by3301files.storage.live.com/y4pCOcWALhX-67jROfOeGOyvt89Q0g5bk3unsqJI_A1TuhLEbYm5ueDO1Cx4QDKLo9dHOUHWRR4Dp-gaZeC68OKF4IFzreMqxInqay62sQP6kTRUy1z_bIu1gknYBIGQaWnZVJ1ZtsEzF2Pqk0VN5k6OIOGlri3v0SdukpQYSktRCJPVMfOzPR9llkqDI81j-R9/EZeat1.png?psid=1&width=1136&height=363" alt="EZeat">
-          <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            登入
-          </h2>
-          <p class="mt-2 text-center text-sm text-gray-600">
-            或
-            <a class="font-medium text-indigo-600 hover:text-indigo-500">
-              <%= link_to "註冊", new_user_registration_path %>
-            </a>
-          </p>
-        </div>
-        <input type="hidden" name="remember" value="true">
-          <div class="rounded-md shadow-sm -space-y-px">
+  <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+      <div>
+        <img class="mx-auto h-12 w-auto" src="https://by3301files.storage.live.com/y4pCOcWALhX-67jROfOeGOyvt89Q0g5bk3unsqJI_A1TuhLEbYm5ueDO1Cx4QDKLo9dHOUHWRR4Dp-gaZeC68OKF4IFzreMqxInqay62sQP6kTRUy1z_bIu1gknYBIGQaWnZVJ1ZtsEzF2Pqk0VN5k6OIOGlri3v0SdukpQYSktRCJPVMfOzPR9llkqDI81j-R9/EZeat1.png?psid=1&width=1136&height=363" alt="EZeat">
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          登入
+        </h2>
+        <p class="mt-2 text-center text-sm text-gray-600">
+          或
+          <%= link_to "註冊", new_user_registration_path, class:"font-medium text-indigo-600 hover:text-indigo-500" %>
+        </p>
+      </div>
+        <div class="rounded-md shadow-sm -space-y-px">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "users/shared/error_messages", resource: resource %>
             <div class="field">
-              <label for="email-address" class="sr-only">信箱</label>
-                <%= f.label :email, "信箱" %><br />
+                <%= f.label :email %>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
             </div>
             <div class="field">
-              <label for="password" class="sr-only">密碼</label>
-                <%= f.label :password, "密碼" %><br />
+                <%= f.label :password %>
                 <%= f.password_field :password, autocomplete: "current-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
             </div>
-          </div>
-        <div class="flex items-center justify-between">
-          <div class="items-center">
-            <% if devise_mapping.rememberable? %>
-              <div class="flex h-4 w-48 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me, class: "ml-2 text-sm text-gray-900", value: "記住我" %>
+            <div class="flex items-center justify-between">
+              <div class="items-center">
+                <% if devise_mapping.rememberable? %>
+                  <div class="flex h-4 w-48 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me, class: "ml-2 text-sm text-gray-900" %>
+                  </div>
+                <% end %>
+              </div>       
+              <div class="text-sm">
+                <%= link_to '忘記密碼？', new_password_path(resource_name), class:"font-medium text-indigo-600 hover:text-indigo-500" %>
               </div>
-            <% end %>
-          </div>       
-          <div class="text-sm">
-            <a class="font-medium text-indigo-600 hover:text-indigo-500">
-              <%= link_to '忘記密碼？', new_password_path(resource_name) %>
-            </a>
-          </div>
+            </div>
+            <div class="group relative w-full mt-2 flex justify-center">
+              <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+              <%= f.submit notice: "登入成功", class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+            </div>
         </div>
-        <div class="group relative w-full flex justify-center">
-          <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-            <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-            </svg>
-          </span>
-          <%= f.submit value="登入", notice: "登入成功", class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
-        </div>
-      </div>
+        <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

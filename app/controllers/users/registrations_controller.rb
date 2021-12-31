@@ -1,7 +1,15 @@
 class Users::RegistrationsController < Devise::RegistrationsController 
   before_action :authenticate_user!
-  before_action :permitted_params_for_sign_up, only: [:create]
-  before_action :permitted_params_for_update, only: [:update]
+  before_action :permitted_params_for_sign_up, only: [:create], if: :devise_controller?
+  before_action :permitted_params_for_update, only: [:update], if: :devise_controller?
+
+  def edit
+    if resource.save
+    else
+      render :edit
+    end
+  end
+
 
   private
 

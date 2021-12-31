@@ -10,12 +10,17 @@ module.exports = {
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+      // 設定讓tailwindcss container 內的元素都能置中
+      center: true,
     screens: {
       sm: '640px',
       md: '768px',
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+      'tablet': '640px',
+      'laptop': '1024px',
+      'desktop': '1280px',
     },
     colors: {
       transparent: 'transparent',

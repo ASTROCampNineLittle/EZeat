@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="wrapper_for_error_pages">
   <head>
     <title>EZeat888</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,10 +11,8 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= render 'shared/frontend/navbar' %>
+  <body class="wrapper_for_error_pages">
     <%= render 'shared/flash_message' if notice  %>
     <%= yield %>
-    <%= render 'shared/footer' %>
   </body>
 </html>
