@@ -1,0 +1,3 @@
+class LocalesController < ApplicationController
+  
+end

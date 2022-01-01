@@ -10,7 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-
   private
 
   def permitted_params_for_sign_up

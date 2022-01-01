@@ -116,6 +116,7 @@ zh-TW:
       already_signed_out: 成功登出了。
       new:
         sign_in: 登入
+        sign_out: 登出
       signed_in: 成功登入了。
       signed_out: 成功登出了。
     shared:
@@ -127,7 +128,7 @@ zh-TW:
         sign_in: 登入
         sign_in_with_provider: 用 %{provider} 登入
         sign_up: 註冊
-      minimum_password_length: "（最少%{count}個字符）"
+      minimum_password_length: "（最少%{count}個英數字元）"
     unlocks:
       new:
         resend_unlock_instructions: 重發解鎖說明信件

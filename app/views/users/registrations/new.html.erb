@@ -4,11 +4,11 @@
       <div>
         <img class="mx-auto h-12 w-auto" src="https://by3301files.storage.live.com/y4pCOcWALhX-67jROfOeGOyvt89Q0g5bk3unsqJI_A1TuhLEbYm5ueDO1Cx4QDKLo9dHOUHWRR4Dp-gaZeC68OKF4IFzreMqxInqay62sQP6kTRUy1z_bIu1gknYBIGQaWnZVJ1ZtsEzF2Pqk0VN5k6OIOGlri3v0SdukpQYSktRCJPVMfOzPR9llkqDI81j-R9/EZeat1.png?psid=1&width=1136&height=363" alt="EZeat" >
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          註冊
+          <%= t 'devise.registrations.new.sign_up' %>
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
-          或
-          <%= link_to "sign_in", user_session_path, class:"font-medium text-indigo-600 hover:text-indigo-500" %>
+          <%= t 'common.phrase.or' %>
+          <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"font-medium text-indigo-600 hover:text-indigo-500") %>
         </p>
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -25,9 +25,9 @@
             <div class="gender">
               <%= f.label :gender %>
               <div class="flex mx-auto h-6 space-x-3">
-                <%= f.radio_button :gender, 0, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %>男
-                <%= f.radio_button :gender, 1, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %>女
-                <%= f.radio_button :gender, 2, :checked => true, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %>不表示
+                <%= f.radio_button :gender, 0, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.male' %>
+                <%= f.radio_button :gender, 1, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.female' %>
+                <%= f.radio_button :gender, 2, :checked => true, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.prefer_not_to_disclose' %>
               </div>
             </div>          
             <div class="field">
@@ -37,7 +37,7 @@
             <div class="field">
               <%= f.label :password %>
               <% if @minimum_password_length %>
-                <em>(最少需要<%= @minimum_password_length %>碼)</em>
+                <em><%= t'devise.shared.minimum_password_length', count: @minimum_password_length %></em>
               <% end %>
                 <%= f.password_field :password, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
             </div>
