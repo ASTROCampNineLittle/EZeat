@@ -1,24 +1,37 @@
 # 中文語系的設定檔，也有層級之分，注意都是用空白鍵設定縮排，而非tab 鍵
 # 在rails console 下可這麼確認文字是否有吃到翻譯文件，如：
-# I18n.t("site_language", scope: "common.navigation", locale: "zh-TW")
-# I18n.t("字串/功能文字", scope: "層級，對應到下方的翻譯", locale :"zh-TW, en 或jp，該項為選填")
+# I18n.t('site_language', scope: 'common.navigation', locale: 'zh-TW')
+# I18n.t('字串/功能文字', scope: '層級，對應到下方的翻譯', locale :'zh-TW, en 或jp，該項為選填')
 # 在網頁上則是這樣使用：
-# <%= t("site_language", scope: "common.navigation") %>
+# <%= t('site_language', scope: 'common.navigation') %>
 # 或
-# <%= t("common.navigation.site_language") %>
+# <%= t('common.navigation.site_language') %>
 # 甚至有更懶人版本：
 # <%= t '.site_language' %>
 zh-TW:
   common:
     navigation:
+      navigate: '導覽'
       site_language: '網站語言'
       home_page: '首頁'
       faq: '常見問題'
       become_our_partners: '餐廳合作'
       blog: '部落格文章'
-    profile: '個人檔案'
+      profile: '個人檔案'
+    footer:
+      content:
+        yummy: '好吃喔'
+        subscribe: '訂閱我們'
+      links:
+        inner_link: '網內連結'
+        temp_link: '暫用連結'
+        contact_us: '聯絡我們'
     phrase:
       or: '或'
+    site_languages:
+        chinese: '中文版'
+        english: 'English'
+        japanese: '日文版'
   notice:
   hello: '%{name}，您好'
   activerecord:
@@ -29,13 +42,17 @@ zh-TW:
         temp: 'divider'
         male: '男'
         female: '女'
-        prefer_not_to_disclose: "不表示"
+        prefer_not_to_disclose: '不表示'
     errors:
       messages:
         record_invalid: '校驗失敗: %{errors}'
         restrict_dependent_destroy:
           has_one: 由於 %{record} 需要此記錄，所以無法移除記錄
           has_many: 由於 %{record} 需要此記錄，所以無法移除記錄
+  helpers:
+    placeholder:
+      message:
+        email: '您的信箱'
   date:
     abbr_day_names:
     - 周日
@@ -68,9 +85,9 @@ zh-TW:
     - 星期五
     - 星期六
     formats:
-      default: "%Y-%m-%d"
-      long: "%Y年%m月%d日"
-      short: "%m月%d日"
+      default: '%Y-%m-%d'
+      long: '%Y年%m月%d日'
+      short: '%m月%d日'
     month_names:
     - 
     - 一月
@@ -112,22 +129,22 @@ zh-TW:
         other: 不到 %{count} 分鐘
       over_x_years:
         one: 一年多
-        other: "%{count} 年多"
+        other: '%{count} 年多'
       x_seconds:
         one: 一秒
-        other: "%{count} 秒"
+        other: '%{count} 秒'
       x_minutes:
         one: 一分鐘
-        other: "%{count} 分鐘"
+        other: '%{count} 分鐘'
       x_days:
         one: 一天
-        other: "%{count} 天"
+        other: '%{count} 天'
       x_months:
         one: 一個月
-        other: "%{count} 個月"
+        other: '%{count} 個月'
       x_years:
         one: 一年
-        other: "%{count} 年"
+        other: '%{count} 年'
     prompts:
       second: 秒
       minute: 分
@@ -136,7 +153,7 @@ zh-TW:
       month: 月
       year: 年
   errors:
-    format: "%{attribute}%{message}"
+    format: '%{attribute}%{message}'
     messages:
       accepted: 必須是可被接受的
       blank: 不能為空白
@@ -176,7 +193,7 @@ zh-TW:
   time:
     am: 上午
     formats:
-      default: "%Y年%m月%d日 %A %H:%M:%S %Z"
-      long: "%Y年%m月%d日 %H:%M"
-      short: "%m月%d日 %H:%M"
+      default: '%Y年%m月%d日 %A %H:%M:%S %Z'
+      long: '%Y年%m月%d日 %H:%M'
+      short: '%m月%d日 %H:%M'
     pm: 下午

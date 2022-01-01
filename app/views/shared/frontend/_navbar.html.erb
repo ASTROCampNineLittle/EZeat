@@ -22,21 +22,19 @@
         <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
           <%= t(:hello, name: current_user.name) %>
         </div>
-          <%= link_to(t('common.profile'), edit_user_registration_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
+          <%= link_to(t('common.navigation.profile'), edit_user_registration_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
           <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
         <% else %>
           <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
           <%= link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
         <% end %>
-        <%= link_to "中文版", :locale => "zh-TW" %>
-        <%= link_to "English Version", :locale => "en" %>
-        <%= link_to "JP Version", :locale => "ja" %>
       </div>
 
       <nav class="md:mr-auto">
         <div class="relative inline-block text-left">
 
-          <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-200" type="button">導覽 
+          <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-200" type="button">
+            <%= t 'common.navigation.navigate' %> 
             <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
@@ -69,34 +67,24 @@
 
       <nav class="md:mr-auto">
         <div class="relative inline-block text-left">
-
-          <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-200" type="button">導覽 
+          <button id="dropdownLgButton" data-dropdown-toggle="dropdownLg" class="inline-flex justify-center w-full rounded-md border border-red-700 shadow-sm px-4 py-2 bg-orange-300 text-sm font-medium text-gray-700 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-100 focus:ring-orange-200" type="button">
+            <%= t 'common.navigation.site_language' %> 
             <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
-          
-          <div id="dropdownInformation" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-            <% if signed_in? %>
-              <div class="py-3 px-4 text-gray-900 dark:text-white">
-                <span class="block text-sm"><%= current_user.name %></span>
-                <span class="block text-sm font-medium truncat"><%= current_user.email %></span>
-              </div>
-            <% end %>
-            <ul class="py-1" aria-labelledby="dropdownInformationButton">
-              <li>
-                <%= link_to(t('common.navigation.home_page'), root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+          <div id="dropdownLg" class="hidden z-10 w-44 text-base list-none bg-orange-300 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+            <ul class="py-1" aria-labelledby="dropdownLgButton">
+              <li class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
+                <%= link_to(t('common.site_languages.chinese'), :locale => "zh-TW") %>
               </li>
-              <li>
-                <%= link_to(t('common.navigation.faq'), root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+              <li class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
+                <%= link_to(t('common.site_languages.english'), :locale => "en") %>
               </li>
-              <li>
-                <%= link_to(t('common.navigation.become_our_partners'), new_backend_company_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+              <li class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
+                <%= link_to(t('common.site_languages.japanese'), :locale => "ja") %>
               </li>
             </ul>
-              <div class="py-1">
-                <%= link_to(t('common.navigation.blog'), root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
-              </div>
           </div> 
         </div>
       </nav>

@@ -4,11 +4,11 @@
       <div>
         <img class="mx-auto h-12 w-auto" src="https://by3301files.storage.live.com/y4pCOcWALhX-67jROfOeGOyvt89Q0g5bk3unsqJI_A1TuhLEbYm5ueDO1Cx4QDKLo9dHOUHWRR4Dp-gaZeC68OKF4IFzreMqxInqay62sQP6kTRUy1z_bIu1gknYBIGQaWnZVJ1ZtsEzF2Pqk0VN5k6OIOGlri3v0SdukpQYSktRCJPVMfOzPR9llkqDI81j-R9/EZeat1.png?psid=1&width=1136&height=363" alt="EZeat">
         <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          登入
+          <%= t 'devise.sessions.new.sign_in' %>
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
-          或
-          <%= link_to "註冊", new_user_registration_path, class:"font-medium text-indigo-600 hover:text-indigo-500" %>
+          <%= t 'common.phrase.or' %>
+          <%= link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class:"font-medium text-indigo-600 hover:text-indigo-500") %>
         </p>
       </div>
         <div class="rounded-md shadow-sm -space-y-px">
@@ -32,7 +32,7 @@
                 <% end %>
               </div>       
               <div class="text-sm">
-                <%= link_to '忘記密碼？', new_password_path(resource_name), class:"font-medium text-indigo-600 hover:text-indigo-500" %>
+                <%= link_to(t('devise.shared.links.forgot_your_password'), new_password_path(resource_name), class:"font-medium text-indigo-600 hover:text-indigo-500") %>
               </div>
             </div>
             <div class="group relative w-full mt-2 flex justify-center">
@@ -41,7 +41,7 @@
                   <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                 </svg>
               </span>
-              <%= f.submit notice: "登入成功", class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+              <%= f.submit t('devise.sessions.new.sign_in'), class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
             </div>
         </div>
         <% end %>
