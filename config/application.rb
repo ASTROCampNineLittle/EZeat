@@ -25,11 +25,11 @@ module EZeat888
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
 
     # 設定預設語系
-    config.i18n.default_locale = :"zh-TW"
+    config.i18n.default_locale = 'zh-TW'
+    I18n.available_locales = [:'zh-TW', :zh, :en, :ja]
 
     # 若缺少該語系則以哪個語系取代
-    config.i18n.fallbacks = true 
-    config.i18n.fallbacks = "zh-TW"
+    config.i18n.fallbacks = {:ja => :'zh-TW', :en => :'zh-TW' }
 
     # 設定路徑錯誤時的錯誤畫面
     config.exceptions_app = self.routes
