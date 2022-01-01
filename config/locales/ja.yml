@@ -1,11 +1,11 @@
 # 中文語系的設定檔，也有層級之分，注意都是用空白鍵設定縮排，而非tab 鍵
 # 在rails console 下可這麼確認文字是否有吃到翻譯文件，如：
-# I18n.t("site_language", scope: "common.navigation", locale: "zh-TW")
-# I18n.t("字串/功能文字", scope: "層級，對應到下方的翻譯", locale :"zh-TW, en 或jp，該項為選填")
+# I18n.t('site_language', scope: 'common.navigation', locale: 'zh-TW')
+# I18n.t('字串/功能文字', scope: '層級，對應到下方的翻譯', locale :'zh-TW, en 或jp，該項為選填')
 # 在網頁上則是這樣使用：
-# <%= t("site_language", scope: "common.navigation") %>
+# <%= t('site_language', scope: 'common.navigation') %>
 # 或
-# <%= t("common.navigation.site_language") %>
+# <%= t('common.navigation.site_language') %>
 # 甚至有更懶人版本：
 # <%= t '.site_language' %>
 ja:
