@@ -202,7 +202,7 @@
 	</g>
 </svg>
 <div class="content">
-	<h3>哈囉？有人在嗎？！？</h3>
-	<p>這沒你想像中的可怕，只是你搜尋的頁面找不到而已；也許這是2021年的<span> 惡夢 </span>呢！？</p>
-	<p>要不要回<%= link_to "首頁", root_path, class:"underline hover:no-underline decoration-yellow" %>或<%= link_to "上一頁", :back, class:"underline hover:no-underline decoration-yellow" %>呢？
+	<h3><%= t 'notice.error_pages.not_found_404_title' %></h3>
+	<p><%= raw(t 'notice.error_pages.not_found_404_content') %></p>
+	<p>
 </div>

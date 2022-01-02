@@ -29,6 +29,10 @@ en:
     phrase:
       or: 'or'
   notice:
+    error_pages:
+      not_found_404_title: 'Hello?? Is somebody there?!?'
+      not_found_404_content: 'We know it’s scary, but the page you’re trying to reach can’t be found. Perhaps it was just a<span> bad </span>link dream?<br>
+      How about going back to <a href="/" class="underline hover:no-underline decoration-yellow">Home Page</a> or <a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">previous one</a> ?'
   hello: 'Hello, %{name}'
   activerecord:
     models:
