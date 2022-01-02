@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   around_action :switch_locale
 
   private
+
   # 設定語系
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale

@@ -28,6 +28,11 @@ zh-TW:
         contact_us: '聯絡我們'
     phrase:
       or: '或'
+  authenticate:
+    signed_in_checker:
+      common: '該功能僅限會員使用，敬請先註冊並登入會員'
+      become_partner: '欲成為餐廳夥伴，敬請先註冊並登入會員'
+      proceed_to_payment: '確認訂單資料前，敬請先註冊並登入會員'
     site_languages:
         chinese: '中文版'
         english: 'English'
