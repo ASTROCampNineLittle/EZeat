@@ -28,6 +28,11 @@ en:
         contact_us: 'Contact us'
     phrase:
       or: 'or'
+  authenticate:
+    signed_in_checker:
+      common: 'Please sign in first.'
+      become_partner: 'To apply for partnership, please register and sign in first.'
+      proceed_to_payment: 'To proceed your order, please register and sign in first.'
   notice:
     error_pages:
       not_found_404_title: 'Hello?? Is somebody there?!?'

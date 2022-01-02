@@ -1,5 +1,8 @@
 class Backend::CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update, :destroy]
+  # 驗證須登入才能繼續的行為
+  # before_action SignedInChecker, only: [:new, :edit, :update, :destroy]
+  
   layout "backend"
 
   def new
