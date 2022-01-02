@@ -33,6 +33,10 @@ zh-TW:
         english: 'English'
         japanese: '日文版'
   notice:
+    error_pages:
+      not_found_404_title: '哈囉？有人在嗎？！？'
+      not_found_404_content: '這沒你想像中的可怕，只是你搜尋的頁面找不到而已；也許這是2021年的<span> 惡夢 </span>呢！？<br>
+      要不要回<a href="/" class="underline hover:no-underline decoration-yellow">首頁</a>或<a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">上一頁</a>呢？'
   hello: '%{name}，您好'
   activerecord:
     models:

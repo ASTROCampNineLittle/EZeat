@@ -34,7 +34,7 @@ class Backend::CompaniesController < ApplicationController
 
   private
     def company_params
-      params.require(:company).permit(:name, :address, :tele, :manager_name )
+      params.require(:company).permit(:name, :address, :tel, :manager_name )
     end
 
     def set_company

@@ -42,12 +42,12 @@ Rails.application.routes.draw do
       end
     end
   
-    # 未來可用來處理Routing Error 頁面用的，目前先關起來，要看畫面可打 http://localhost:3000/users/404
+    # 未來可用來處理Routing Error 頁面用的，目前先關起來，要看畫面可打 http://localhost:3000/users
     # match '*path', :to => "errors#not_found_404", :via => :all
     match '/404', :to => 'errors#not_found_404', :via => :all
-    match '/500', :to => 'errors#not_found_500', :via => :all
+    match '/500', :to => 'errors#not_found_404', :via => :all
     # 看畫面用，之後要刪除
-    get 'users/404', to: 'errors#render_404'
+    get 'users', to: 'errors#render_404'
 
   end
 end

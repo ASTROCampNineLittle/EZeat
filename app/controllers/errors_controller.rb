@@ -7,7 +7,7 @@ class ErrorsController < ApplicationController
   end
 
   def not_found_500
-    render 'errors/not_found_500.html', :layout => 'error_pages', status: 500
+    render 'errors/not_found_404.html', :layout => 'error_pages', status: 500
   end
 
   def render_404
