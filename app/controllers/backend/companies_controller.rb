@@ -7,8 +7,8 @@ class Backend::CompaniesController < ApplicationController
   end
 
   def create
-    company = Company.new(company_params)
 
+    company = Company.new(company_params)
     if company.save
       redirect_to backend_company_stores_path(company), notice: '新增公司成功'
     else

@@ -56,49 +56,33 @@
 		</div>
 	</div>
 
-	<a href="http://localhost:3000/stores">
+	<%= params[:date] %>
+	<%= params[:people] %>
+
+	<%= link_to store_path(@store) do %>
 		<div	class="inline-block mr-2 mt-5 flex justify-center w-full">
 					<button type="button"
 					class="focus:outline-none text-red-500 tracking-widest py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-white hover:bg-red-500 hover:text-white w-11/12">12/24(五) 13:00, 2人
 					</button>
 		</div>
-	</a>
+	<% end %>
 	<div class="text-center text-gray-500 text-xs tracking-widest pt-2 pb-6">✲ 點擊可回前頁，更改訂位日期及時間。</div>
 
 
 	<section>
-
-		<h3 class="bg-gray-300 text-black text-lg py-3 pl-6">優惠方案(1/2)</h3>
-		<div class="py-3 pl-6">
-		【壽星限時方案】加碼贈送麵線乙份！<br>
-		★ 午晚餐訂位並預付 $500 /人，享現場9折優惠<br>
-		★ 壽星方案，午晚餐訂位並預付 $500 /人，享現場9折優惠，加贈送麵線乙份！<br>
-		★ 限當月壽星本人使用，點餐前需向服務人員出示相關證件方可兌換！<br>
-		</div>
-      <a href="http://localhost:3000/checks/show">
-				<div class="flex justify-center w-full my-6">
-						<button type="button"
-						class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-11/12">選此方案
-						</button>
+		<% @dishes.each do |dish| %>
+			<div class="flex items-center justify-between bg-orange-200 pl-8 py-2">
+				<h3 class="text-left text-lg font-medium"><%= dish.name %></h3>
+					<span class="text-red-500 text-3xl pr-8 font-bold">＄<%= dish.price %></span>
 				</div>
-			</a>
-	</section>
-
-	<section>
-		<h3 class="bg-gray-300 text-black text-lg py-3 pl-6">優惠方案(2/2)</h3>
-		<div class="py-3 pl-6">
-		【壽星限時方案】加碼贈送麵線乙份！<br>
-		★ 午晚餐訂位並預付 $1000 /人，享現場8折優惠<br>
-		★ 壽星方案，午晚餐訂位並預付 $1000 /人，享現場9折優惠，加贈送麵線乙份！<br>
-		★ 限當月壽星本人使用，點餐前需向服務人員出示相關證件方可兌換！<br>
-		</div>
-			<a href="http://localhost:3000/checks/show">
+				<div class="text-left px-8 py-4 text-base leading-8"><%= simple_format(dish.intro) %></div>
+					<%= link_to  check_path(dish) do %>
 				<div class="flex justify-center w-full my-6">
-						<button type="button"
-						class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-11/12">選此方案
-						</button>
-				</div>
-			</a>
-	</section>
+					<button type="button"
+					class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-11/12">選此方案
+					</button>
+			</div>
+				<% end %>
+		<% end %>
 
 </div>
