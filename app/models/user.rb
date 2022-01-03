@@ -10,4 +10,12 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, if: -> { self.email.present? }
 
   has_one :company
+  
+  # before_save :set_users_role
+
+  # private
+
+  #   def set_users_role
+  #     super.role = 2 if Users.role.nil?
+  #   end
 end
