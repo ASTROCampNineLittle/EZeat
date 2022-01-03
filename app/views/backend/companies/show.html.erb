@@ -1,5 +1,4 @@
 <div class='w-full max-w-sm'>
-
   <div class="md:flex md:items-center mb-6">
     <div class=" ">
      <h1 class='block text-gray-500 font-bold text-2xl md:text-right mb-1 md:mb-0 pr-4'>公司資料</h1>
@@ -43,21 +42,17 @@
     </div>
 
     <div class="md:flex mb-6 justify-end">
-
       <div class="md:w-1/2">
-          <%= link_to new_backend_company_store_path(@company), class: 'bg-red-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
-            新增分店
-          <% end %>
+        <%= link_to new_backend_company_store_path(@company), class: 'bg-red-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
+          新增分店
+        <% end %>
       </div>
 
       <div class=" ">
-          <%= link_to edit_backend_company_path(@company), class: 'bg-red-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
+        <%= link_to edit_backend_company_path(@company), class: 'bg-red-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
             修改資料
-          <% end %>
+        <% end %>
       </div>
     </div>
-
-
-
 </div>
 
