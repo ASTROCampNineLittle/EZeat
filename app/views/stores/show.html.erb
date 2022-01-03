@@ -1,22 +1,21 @@
 <%= stylesheet_link_tag "slideshow.css" %>
-
-<div class="bg-gray-100 max-w-screen-xl container mx-auto pb-4">
-    <!-- Slide show start -->
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="/image/1.jpeg"></div>
-        <div class="swiper-slide"><img src="/image/2.jpeg"></div>
-        <div class="swiper-slide"><img src="/image/3.jpeg"></div>
-        <div class="swiper-slide"><img src="/image/4.jpeg"></div>
-        <div class="swiper-slide"><img src="/image/5.jpeg"></div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
+<div class="bg-gray-100 max-w-screen-xl container mx-auto pb-10">
+  <!-- Slide show start -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="/image/1.jpeg"></div>
+      <div class="swiper-slide"><img src="/image/2.jpeg"></div>
+      <div class="swiper-slide"><img src="/image/3.jpeg"></div>
+      <div class="swiper-slide"><img src="/image/4.jpeg"></div>
+      <div class="swiper-slide"><img src="/image/5.jpeg"></div>
     </div>
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-     <script>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
       var swiper = new Swiper(".mySwiper", {
         spaceBetween: 30,
         centeredSlides: true,
@@ -34,132 +33,80 @@
         },
       });
     </script>
-    <!-- Slide show end -->
+  <!-- Slide show end -->
 
   <div class="flex">
-    <section class="bg-white w-2/3 container mx-auto pb-4 ml-12 mr-6 drop-shadow-lg rounded-lg -mt-6 z-10">
-      <h3 class="text-center text-3xl py-4 text-orange-500"><%= @store.name %></h3>
-      <h3 class="text-center text-base py-4">餐卷</h3>
-      <div class="text-left pl-6 text-base">
-      【歡慶歲末】2021聖誕跨年 95 折起＋ 2% EZCASH 回饋<br>
-      下訂日期：2021/ 11/ 24 - 2022/ 01/ 02<br>
-      用餐日期：2021/ 11/ 24 - 2022/ 01/ 02<br>
-      ★ 平日午餐 吃到飽 特別優惠價$1049/人(原價 $1099)<br>
-      ★ 平日晚餐 吃到飽 特別優惠價$1154/人(原價 $1209)<br>
-      ★ 平日下午茶 吃到飽 特別優惠價$734/人(原價 $769)<br>
-
-      ★ 假日下午茶 吃到飽 特別優惠價$855/人(原價 $879)<br>
-      ★ 假日午晚餐 吃到飽 特別優惠價$1283/人(原價 $1319)<br>
-
-      ➤ 12/31 適用假日價格<br>
-      ➤ 若需變更用餐人數，請聯繫EZTABLE客服團隊修改訂單<br>
-      ➤ 本優惠之相關活動辦法、未盡事項或變更，餐廳保有活動變更之權利及活動最終解釋權<br>
-      ➤ 以上價格皆內含服務費<br>
-      ➤ 請預訂全部成人人數。若孩童欲一同前往，請於「特殊需求」欄位備註「幾位大人幾位小孩」及所需娃娃椅，兒童 80~100 公分需酌收 150 元清潔費：100~140 公分半價計費；140 公分以上以成人價計費，孩童餐費可於現場付費！<br>
-
-      --------------------------------------------<br>
-
-      為了擁有更安心的用餐環境，請大家務必配合取餐配戴口罩及手套<br>
-      保護自己等於保護他人，也請體諒我們的嚴格防疫<br>
-      #我們用心防疫您們安心用餐<br>
-      豐FOOD持續保持，防疫走在最前端不鬆懈<br>
-      大家一定要好好照顧健康!! 我們一起堅持!!<br>
-    </div>
+  
+    <section class="bg-white w-2/3 container mx-auto ml-12 mr-6 drop-shadow-lg rounded-lg -mt-6 z-10">
+      <h1 class="text-3xl pl-5 text-black tracking-widest py-8"><%= @store.name %></h1>
+      <span class="ml-5 mb-5 px-3 py-1 bg-red-200 rounded-full inline-block"><%= @store.food_type %>料理</span>
+        <% @dishes.each do |dish| %>
+          <div class="flex items-center justify-between bg-orange-200 pl-8 py-2">
+            <h3 class="text-left text-lg font-medium"><%= dish.name %></h3>
+            <span class="text-red-500 text-3xl pr-8 font-bold">＄<%= dish.price %></span>
+          </div>
+          <div class="text-left px-8 py-4 text-base shadow-orange leading-8"><%= simple_format(dish.intro) %></div>
+        <% end %>
     </section>
 
     <section class="bg-white w-1/3 container mx-auto pb-4 ml-6 mr-12 drop-shadow-lg rounded-lg -mt-6 z-10">
-      <h3 class="text-center text-3xl py-4">餐廳資訊</h3>
-        <table>
-          <tr>
-            <div class="text-left pl-6 text-base"><%= @store.tel %></div>
-            <div class="text-left pl-6 text-base"><%= @store.address %></div>
-          </tr>
-        </table>
+      <div class="sticky top-1">
+        <h3 class="text-center text-xl py-4 tracking-widest">餐廳資訊</h3>
+        <iframe width="380" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["googlemap_api"] %>&q=<%= @store.address %>" ></iframe>
+          <div class="text-left pl-6 text-base flex pt-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            </svg>
+            <div class="pl-2 tracking-widest text-base font-bold">地址</div>
+          </div>
+          <div class="pl-12 text-sm py-2 pb-5 tracking-wide text-gray-500"><%= @store.address %></div>
+
+          <div class="text-left pl-6 text-base flex">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <div class="pl-2 tracking-widest text-base font-bold">電話</div>
+          </div>
+          <div class="pl-12 text-sm py-2 pb-5 tracking-wide text-gray-500"><%= @store.tel %></div>
+
+          <div class="text-left pl-6 text-base flex">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+            </svg>
+            <div class="pl-2 tracking-widest text-base font-bold">營業時間</div>
+          </div>
+          <div class="pl-12 text-sm py-2 tracking-wide text-gray-500">Open: 3:00 pm</div>
+          <div class="pl-12 text-sm pb-5 tracking-wide text-gray-500">Close: 10:00 pm</div>
+      </div>
     </section>
   </div>
-  
-
-
-  <h3 class="text-center text-3xl py-4">餐廳資訊</h3>
-
-
 
   <div>
-    <%#= @store.name 分店名稱%>
-    <%#= @store.type 分店類型%>
-    <%#= @store.intro 分店簡介%>
-    <%#= @store.addresss 分店地址%>
-
-    <%#= 藉由分店的名稱id 抓 @dish.name 方案名稱 %>
-    <%#= 藉由分店的名稱id 抓 @dish.price 方案價格%>
-    <%#= 藉由分店的名稱id 抓 @dish.into 方案簡介%>
-
-
-    <h3 class="flex justify-between items-center bg-orange-300 text-black text-lg py-3 px-6 border-b-2">餐廳地點
-      <button type="button"
-      class="focus:outline-none text-red-500 text-base py-2 px-3 border-b-4 border-red-300 rounded-md bg-white hover:bg-red-500 hover:text-white w-1/6">查看地圖
-      </button>
-    </h3>
-
-		<div class="w-full text-lg font-bold border-b-2  bg-gray-100">
-      <div class="py-6 border-b-2 pl-8">
-        <div class="text-gray-400 text-sm py-1">
-          地址
-        </div>
-        
-        <div class="">
-          台北市松山區慶城街18之1號2樓
-        </div>
-      </div>
-      <div class="py-6 border-b-2 pl-8">
-        <div class="text-gray-400 text-sm py-1">
-          交通方式
-        </div>
-        <div class="">
-          大眾運輸：捷運中央公園站,步行約 10 分鐘
-        </div>
-        <div class="">
-          停車資訊：飯店備有停車場
-        </div>
-      </div>
-			<div class="py-6 pl-8">
-        <div>當點下右上角查看地圖,這格會打開看到Google Map,平常是收起狀態</div>
-      </div>
-		</div>
-
-    <h3 class="flex justify-between items-center bg-orange-300 text-black text-lg py-3 px-6 border-b-2">
-    選擇日期及人數</h3>
-    <div>
-    </div>
+    <h3 class="bg-orange-200 text-black text-xl py-3 px-6 mt-10 text-center tracking-widest font-extralight">選 擇 日 期 及 人 數</h3>
 
     <div class="inline-block flex justify-center w-full pt-10">
-      <select class="focus:outline-none text-red-600 text-base py-2.5 text-center rounded-full border border-red-600 hover:bg-red-50 w-11/12 appearance-none cursor-pointer">
-          <option>１人</option>
-          <option selected>２人</option>
-          <option>３人</option>
-          <option>４人</option>
-          <option>５人</option>
-          <option>６人</option>
-          <option>７人</option>
-          <option>８人</option>
-          <option>９人</option>
-          <option>10人</option>
-          <option>10人以上，請撥打電話服務</option>
+      <select class="focus:outline-none text-red-600 text-base py-2.5 text-center rounded-full border border-red-600 hover:bg-red-50 w-3/4 appearance-none cursor-pointer">
+        <option>１人</option>
+        <option selected>２人</option>
+        <option>３人</option>
+        <option>４人</option>
+        <option>５人</option>
+        <option>６人</option>
+        <option>７人</option>
+        <option>８人</option>
+        <option>９人</option>
+        <option>10人</option>
+        <option>10人以上，請撥打電話服務</option>
       </select>
     </div>
 
-
-
-    <a href="http://localhost:3000/offers">
-    <div class="inline-block mr-2 mt-5 flex justify-center w-full">
-      <button type="button"
-      class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-11/12 ">立即訂位
-      </button>
-    </div>
-    </a>
-
-    
+    <%= link_to offers_path do %>
+      <div class="inline-block my-5 flex justify-center w-full">
+        <button type="button"
+        class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-3/4 ">立即定位
+        </button>
+      </div>
+    <% end %>
 
   </div>
-
 </div>
