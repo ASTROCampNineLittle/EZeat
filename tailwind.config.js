@@ -990,8 +990,5 @@ module.exports = {
     wordBreak: ['responsive'],
     zIndex: ['responsive', 'focus-within', 'focus'],
   },
-  // 引進flowbite 樣式，dropdown menu 才能正常使用
-  plugins: [
-    require('@themesberg/flowbite/plugin')
-]
+  plugins: [],
 }
