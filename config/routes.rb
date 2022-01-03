@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, controllers: { 
     registrations: 'users/registrations',
   }
@@ -9,7 +10,19 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
-  
+  get 'search', to: 'pages#search'
+  get 'myorder', to: 'pages#myorder'
+  get 'verification', to: 'pages#verification'
+  get 'channel', to: 'pages#channel'
+
+
+  resources :stores
+  resources :offers , only: [:index , :show] 
+  resources :checks , only: [:index , :show]
+  resources :payments , only: [:index, :new] do
+    post :confirm
+  end
+
   #backend related routes
   namespace :backend do
     resources :companies, except: [:show] do
@@ -31,8 +44,5 @@ Rails.application.routes.draw do
     resources :open_dates, only: [] do
       resources :offers, except: [:show], shallow: true
     end
-
   end
-
-
 end

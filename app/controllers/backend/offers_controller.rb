@@ -42,7 +42,7 @@ class Backend::OffersController < ApplicationController
 
   private
   def offer_params
-    params.require(:offer).permit(:ok_time, :capacity)
+    params.require(:offer).permit(:availible_time, :capacity)
   end
 
   def set_offer
