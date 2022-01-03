@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   devise_for :users, controllers: { 
     registrations: 'users/registrations',
   }
@@ -9,6 +10,13 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
+  get 'search', to: 'pages#search'
+  get 'myorder', to: 'pages#myorder'
+  get 'verification', to: 'pages#verification'
+  get 'channel', to: 'pages#channel'
+  
+  
+  
   resources :stores, only: [:index , :show] do
     resources :offers, only: [:index], shallow: true
   end
