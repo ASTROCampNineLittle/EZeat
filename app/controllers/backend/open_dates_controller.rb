@@ -41,7 +41,7 @@ class Backend::OpenDatesController < ApplicationController
 
   private
     def open_date_params
-      params.require(:open_date).permit(:ok_date, :is_open, offer_attributes: [:line_1])
+      params.require(:open_date).permit(:availible_date)
     end
 
     def set_open_date
