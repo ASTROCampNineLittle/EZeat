@@ -10,12 +10,17 @@ module.exports = {
   presets: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+      // 設定讓tailwindcss container 內的元素都能置中
+      center: true,
     screens: {
       sm: '640px',
       md: '768px',
       lg: '1024px',
       xl: '1280px',
       '2xl': '1536px',
+      'tablet': '640px',
+      'laptop': '1024px',
+      'desktop': '1280px',
     },
     extend: {
       boxShadow: {
@@ -26,6 +31,21 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+<<<<<<< HEAD
+=======
+      stone: {
+        50: '#fafaf9',
+        100: '#f5f5f4',
+        200: '#e7e5e4',
+        300: '#d6d3d1',
+        400: '#a8a29e',
+        500: '#78716c',
+        600: '#57534e',
+        700: '#44403c',
+        800: '#292524',
+        900: '#1c1917',
+      },
+>>>>>>> dev
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -37,6 +57,7 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
+      lime: colors.lime,
     },
     spacing: {
       px: '1px',
