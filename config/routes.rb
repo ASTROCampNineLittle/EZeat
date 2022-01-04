@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   resources :stores, only: [:index , :show] do
     resources :offers, only: [:index], shallow: true
   end
+  
   resources :checks , only: [:index , :show]
+
   resources :payments , only: [:index, :new] do
     post :confirm
   end
