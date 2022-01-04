@@ -31,8 +31,6 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-<<<<<<< HEAD
-=======
       stone: {
         50: '#fafaf9',
         100: '#f5f5f4',
@@ -45,7 +43,6 @@ module.exports = {
         800: '#292524',
         900: '#1c1917',
       },
->>>>>>> dev
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
