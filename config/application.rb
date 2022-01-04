@@ -16,18 +16,22 @@ module EZeat888
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
 
+    # config.eager_load_paths << Rails.root.join("extras")
+
     # 設定時區為臺北時間
     config.time_zone = "Taipei"
-    # config.eager_load_paths << Rails.root.join("extras")
 
     # 設定載入路徑
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
 
     # 設定預設語系
-    config.i18n.default_locale = :"zh-TW"
+    config.i18n.default_locale = 'zh-TW'
+    I18n.available_locales = [:'zh-TW', :zh, :en, :ja]
 
-    # default locale when translation missing
-    # config.i18n.fallbacks = :"zh-TW"
+    # 若缺少該語系則以哪個語系取代
+    config.i18n.fallbacks = {:ja => :'zh-TW', :en => :'zh-TW' }
 
+    # 設定路徑錯誤時的錯誤畫面
+    config.exceptions_app = self.routes
   end
 end

@@ -4,7 +4,7 @@
     <div class="flex justify-between items-center border-gray-100 py-6 md:justify-between md:space-x-10">
       <div class="flex justify-between lg:w-0 lg:flex-1">
         <div class="relative">
-          <input class="border-2 border-primary bg-red transition h-8 px-2 pr-6 rounded-md focus:outline-none w-full text-black text-xs" type="search" name="search" placeholder="Search(按放大鏡)"/>
+          <input class="border-2 border-primary bg-red transition h-8 px-2 pr-6 rounded-md focus:outline-none w-full text-black text-xs" name="search" placeholder="Search(按放大鏡)"/>
           <%= link_to search_path do %>
             <button type="submit" class="absolute right-3 top-3">
               <svg class="text-black h-3 w-3 fill-current" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve" width="512px" height="512px">
@@ -20,64 +20,73 @@
       <div class="w-36 hidden md:flex items-center justify-end md:flex-1 lg:w-0">
         <% if signed_in? %>
         <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
-          <%= current_user.username %>，您好
+          <%= t(:hello, name: current_user.name) %>
         </div>
-        <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
-          <%= link_to "個人檔案(not yet)", root_path %>
-        </div>
-        <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
-          <%= button_to "登出", destroy_user_session_path, method: 'delete', notice: "登出成功" %>
-        </div>
+          <%= link_to(t('common.navigation.profile'), edit_user_registration_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
+          <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
         <% else %>
-        <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
-          <%= link_to "登入", user_session_path %>
-        </div>
-        <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
-          <%= link_to "註冊", new_user_registration_path %>
-        </div>
+          <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
+          <%= link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
         <% end %>
       </div>
 
       <nav class="md:mr-auto">
-
         <div class="relative inline-block text-left">
-          <div>
-            <button type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-200" id="menu-button" aria-expanded="true" aria-haspopup="true">
-              導覽
-              <!-- Heroicon name: solid/chevron-down -->
-              <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button>
-          </div>
 
-          <!--
-            Dropdown menu, show/hide based on menu state.
+          <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-200" type="button">
+            <%= t 'common.navigation.navigate' %> 
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
 
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-          <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline- z-10" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
-            <div class="py-1" role="none">
-              <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
-              <div class="text-gray-700 block px-2 py-2 mx-2 text-sm hover:bg-gray-100 hover:rounded-md" role="menuitem" tabindex="-1" id="menu-item-0">
-                <%= link_to "首頁", root_path %>
+          <div id="dropdownInformation" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+            <% if signed_in? %>
+              <div class="py-3 px-4 text-gray-900 dark:text-white">
+                <span class="block text-sm"><%= current_user.name %></span>
+                <span class="block text-sm font-medium truncat"><%= current_user.email %></span>
               </div>
-              <div class="text-gray-700 block px-2 py-2 mx-2 text-sm hover:bg-gray-100 hover:rounded-md" role="menuitem" tabindex="-1" id="menu-item-1">常見問題</div>
-              <div class="text-gray-700 block px-2 py-2 mx-2 text-sm hover:bg-gray-100 hover:rounded-md" role="menuitem" tabindex="-1" id="menu-item-1">
-                <%= link_to "餐廳合作", root_path %>
+            <% end %>
+            <ul class="py-1" aria-labelledby="dropdownInformationButton">
+              <li>
+                <%= link_to(t('common.navigation.home_page'), root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+              </li>
+              <li>
+                <%= link_to(t('common.navigation.faq'), root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+              </li>
+              <li>
+                <%= link_to(t('common.navigation.become_our_partners'), new_backend_company_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+              </li>
+            </ul>
+              <div class="py-1">
+                <%= link_to(t('common.navigation.blog'), root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
               </div>
-              <div class="text-gray-700 block px-2 py-2 mx-2 text-sm hover:bg-gray-100 hover:rounded-md" role="menuitem" tabindex="-1" id="menu-item-2">部落格文章</div>
-            </div>
-          </div>
+          </div> 
         </div>
+      </nav>
 
-
-  
+      <nav class="md:mr-auto">
+        <div class="relative inline-block text-left">
+          <button id="dropdownLgButton" data-dropdown-toggle="dropdownLg" class="inline-flex justify-center w-full rounded-md border border-red-700 shadow-sm px-4 py-2 bg-orange-300 text-sm font-medium text-gray-700 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-100 focus:ring-orange-200" type="button">
+            <%= t 'common.navigation.site_language' %> 
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="dropdownLg" class="hidden z-10 w-44 text-base list-none bg-orange-300 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+            <ul class="py-1" aria-labelledby="dropdownLgButton">
+              <li class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
+                <%= link_to(t('common.site_languages.chinese'), :locale => "zh-TW") %>
+              </li>
+              <li class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
+                <%= link_to(t('common.site_languages.english'), :locale => "en") %>
+              </li>
+              <li class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
+                <%= link_to(t('common.site_languages.japanese'), :locale => "ja") %>
+              </li>
+            </ul>
+          </div> 
+        </div>
       </nav>
       
     </div>
