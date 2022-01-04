@@ -89,8 +89,8 @@ ActiveRecord::Schema.define(version: 2022_01_02_123029) do
     t.integer "role"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "companies_id"
-    t.index ["companies_id"], name: "index_users_on_companies_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -101,5 +101,5 @@ ActiveRecord::Schema.define(version: 2022_01_02_123029) do
   add_foreign_key "offers", "open_dates"
   add_foreign_key "open_dates", "dishes"
   add_foreign_key "stores", "companies"
-  add_foreign_key "users", "companies", column: "companies_id"
+  add_foreign_key "users", "companies"
 end

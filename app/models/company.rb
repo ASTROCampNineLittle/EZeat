@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
   has_many :stores
-  belongs_to :users
+  belongs_to :user
 
   # private
 

@@ -1,19 +1,22 @@
 class Backend::CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update, :destroy]
   # 驗證須登入才能繼續的行為
-  # before_action SignedInChecker, only: [:new, :edit, :update, :destroy]
+  before_action SignedInChecker, only: [:new, :edit, :update, :destroy]
   
   layout "backend"
+
+  include Devise
 
   def new
     @company = Company.new
   end
 
   def create
-    company = Company.new(company_params)
+    company = current_user.create_company(company_params)
 
     if company.save
-      redirect_to backend_company_stores_path(company), notice: '新增公司成功'
+      # redirect_to backend_company_stores_path(@company), notice: '新增公司成功'
+      redirect_to root_path
     else
       render :new
     end

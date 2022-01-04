@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # 將語系設定在所有子網址前
-  scope "(:locale)", :locale => /zh-TW|en|ja|tr/ do
+  scope "(:locale)", :locale => /zh-TW|en|ja/ do
 
     devise_for :users, controllers: { 
       registrations: 'users/registrations',
