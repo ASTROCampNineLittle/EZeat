@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # 將語系設定在所有子網址前
-  scope "(:locale)", :locale => /zh-TW|en|ja/ do
+  # scope "(:locale)", :locale => /zh-TW|en|ja/ do
 
     devise_for :users, controllers: { 
       registrations: 'users/registrations',
@@ -54,5 +54,5 @@ Rails.application.routes.draw do
     # 看畫面用，之後要刪除
     get 'users', to: 'errors#render_404'
 
-  end
+  # end
 end
