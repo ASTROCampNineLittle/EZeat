@@ -1,0 +1,208 @@
+# 中文語系的設定檔，也有層級之分，注意都是用空白鍵設定縮排，而非tab 鍵
+# 在rails console 下可這麼確認文字是否有吃到翻譯文件，如：
+# I18n.t('site_language', scope: 'common.navigation', locale: 'zh-TW')
+# I18n.t('字串/功能文字', scope: '層級，對應到下方的翻譯', locale :'zh-TW, en 或jp，該項為選填')
+# 在網頁上則是這樣使用：
+# <%= t('site_language', scope: 'common.navigation') %>
+# 或
+# <%= t('common.navigation.site_language') %>
+# 甚至有更懶人版本：
+# <%= t '.site_language' %>
+zh-TW:
+  common:
+    navigation:
+      navigate: '導覽'
+      site_language: '網站語言'
+      home_page: '首頁'
+      faq: '常見問題'
+      become_our_partners: '餐廳合作'
+      blog: '部落格文章'
+      profile: '個人檔案'
+    footer:
+      content:
+        yummy: '好吃喔'
+        subscribe: '訂閱我們'
+      links:
+        inner_link: '網內連結'
+        temp_link: '暫用連結'
+        contact_us: '聯絡我們'
+    phrase:
+      or: '或'
+  authenticate:
+    signed_in_checker:
+      common: '該功能僅限會員使用，敬請先註冊並登入會員'
+      become_partner: '欲成為餐廳夥伴，敬請先註冊並登入會員'
+      proceed_to_payment: '確認訂單資料前，敬請先註冊並登入會員'
+    site_languages:
+        chinese: '中文版'
+        english: 'English'
+        japanese: '日文版'
+  notice:
+    error_pages:
+      not_found_404_title: '哈囉？有人在嗎？！？'
+      not_found_404_content: '這沒你想像中的可怕，只是你搜尋的頁面找不到而已；也許這是2021年的<span> 惡夢 </span>呢！？<br>
+      要不要回<a href="/" class="underline hover:no-underline decoration-yellow">首頁</a>或<a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">上一頁</a>呢？'
+  hello: '%{name}，您好'
+  activerecord:
+    models:
+      user: '使用者'
+    attributes:
+      user:
+        temp: 'divider'
+        male: '男'
+        female: '女'
+        prefer_not_to_disclose: '不表示'
+    errors:
+      messages:
+        record_invalid: '校驗失敗: %{errors}'
+        restrict_dependent_destroy:
+          has_one: 由於 %{record} 需要此記錄，所以無法移除記錄
+          has_many: 由於 %{record} 需要此記錄，所以無法移除記錄
+  helpers:
+    placeholder:
+      message:
+        email: '您的信箱'
+  date:
+    abbr_day_names:
+    - 周日
+    - 周一
+    - 周二
+    - 周三
+    - 周四
+    - 周五
+    - 周六
+    abbr_month_names:
+    - 
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 星期日
+    - 星期一
+    - 星期二
+    - 星期三
+    - 星期四
+    - 星期五
+    - 星期六
+    formats:
+      default: '%Y-%m-%d'
+      long: '%Y年%m月%d日'
+      short: '%m月%d日'
+    month_names:
+    - 
+    - 一月
+    - 二月
+    - 三月
+    - 四月
+    - 五月
+    - 六月
+    - 七月
+    - 八月
+    - 九月
+    - 十月
+    - 十一月
+    - 十二月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 大約一小時
+        other: 大約 %{count} 小時
+      about_x_months:
+        one: 大約一個月
+        other: 大約 %{count} 個月
+      about_x_years:
+        one: 大約一年
+        other: 大約 %{count} 年
+      almost_x_years:
+        one: 接近一年
+        other: 接近 %{count} 年
+      half_a_minute: 半分鐘
+      less_than_x_seconds:
+        one: 不到一秒
+        other: 不到 %{count} 秒
+      less_than_x_minutes:
+        one: 不到一分鐘
+        other: 不到 %{count} 分鐘
+      over_x_years:
+        one: 一年多
+        other: '%{count} 年多'
+      x_seconds:
+        one: 一秒
+        other: '%{count} 秒'
+      x_minutes:
+        one: 一分鐘
+        other: '%{count} 分鐘'
+      x_days:
+        one: 一天
+        other: '%{count} 天'
+      x_months:
+        one: 一個月
+        other: '%{count} 個月'
+      x_years:
+        one: 一年
+        other: '%{count} 年'
+    prompts:
+      second: 秒
+      minute: 分
+      hour: 時
+      day: 日
+      month: 月
+      year: 年
+  errors:
+    format: '%{attribute}%{message}'
+    messages:
+      accepted: 必須是可被接受的
+      blank: 不能為空白
+      confirmation: 與 %{attribute} 須一致
+      empty: 不能留空
+      equal_to: 必須等於 %{count}
+      even: 必須是偶數
+      exclusion: 是被保留的關鍵字
+      greater_than: 必須大於 %{count}
+      greater_than_or_equal_to: 必須大於或等於 %{count}
+      inclusion: 沒有包含在列表中
+      invalid: 是無效的
+      less_than: 必須小於 %{count}
+      less_than_or_equal_to: 必須小於或等於 %{count}
+      model_invalid: '校驗失敗: %{errors}'
+      not_a_number: 不是數字
+      not_an_integer: 必須是整數
+      odd: 必須是奇數
+      other_than: 不可以是 %{count} 個字
+      present: 必須是空白
+      required: 必須存在
+      taken: 已經被使用
+      too_long:
+        one: 過長（最長是一個字）
+        other: 過長（最長是 %{count} 個字）
+      too_short:
+        one: 過短（最短是一個字）
+        other: 過短（最短是 %{count} 個字）
+      wrong_length:
+        one: 字數錯誤 (必須是一個字)
+        other: 字數錯誤 (必須是 %{count} 個字)
+    template:
+      body: 以下欄位發生問題：
+      header:
+        one: 有 1 個錯誤發生使得「%{model}」無法被儲存。
+        other: 有 %{count} 個錯誤發生使得「%{model}」無法被儲存。
+  time:
+    am: 上午
+    formats:
+      default: '%Y年%m月%d日 %A %H:%M:%S %Z'
+      long: '%Y年%m月%d日 %H:%M'
+      short: '%m月%d日 %H:%M'
+    pm: 下午
