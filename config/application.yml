@@ -1,3 +1,7 @@
 newebpay_key: "I2aNLz8ZvTIoZ0dFmdUoiuZnHOLXOuRb"
 newebpay_iv: "CsgvvcZDk7x1OkcP"
 newebpay_merchant_id: "MS328690401"
+
+aws_access_key_id: "AKIAWTKKYLIKAM5K3FGU"
+aws_secret_access_key: "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"
+fog_directory: "ezeat"
