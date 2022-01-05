@@ -6,7 +6,6 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
-    "@themesberg/flowbite": "^1.2.0",
     "autoprefixer": "9",
     "postcss": "7",
     "stimulus": "^3.0.1",

@@ -45,16 +45,16 @@
                 餐廳名稱
                 <input placeholder="請輸入餐廳名稱" class="block w-full p-2 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner rounded" required />
               </label>
-              <label type="date" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">
+              <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase">
                   日期
                   <input placeholder="2021/12/25" class="block w-full p-2 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner rounded" required />
               </label>
               <div class="flex justify-between">
-                <label type="time" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">
+                <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase">
                   時間
                   <input placeholder="19:00" class="block w-full p-2 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner rounded" required />
                 </label>
-                <label type="number" class="block mt-2 text-xs font-semibold text-gray-600 uppercase w-2/5">
+                <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase w-2/5">
                   人數
                   <input name="password-confirm" placeholder="2" autocomplete="new-password" class="block w-full p-2 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner rounded" required />
                 </label>
@@ -76,19 +76,18 @@
 <%# 關於餐廳 %>
 <div class="w-full h-full my-10">
 <div class="w-10/12 h-full m-auto">
+
   <%# 精選餐廳 %>
-
-
   <div class="w-10/12 m-auto p-8 border border-gray-300 rounded-md my-5 shadow-xl">
     <h1 class="border-b-2 border-gray-300">精選餐廳</h1>
       <div class="flex mt-3 flex-wrap">
           <% @stores.each do |store| %>
             <div class="w-1/3 p-3">
-              <%#= link_to store_path(store) %>
-                <div class="bg-pink-100 w-full h-32"><img src="" alt=""></div>
+              <%= link_to store_path(store) do %>
+                <div class="bg-orange-100 w-full h-32"><img src="" alt=""></div>
                 <div class="text-lg font-bold"><%= store.name %></div>
                 <div class="text-sm text-gray-500"><%= store.intro %></div>
-              <%# end %>
+              <% end %>
             </div>
           <% end %>
       </div>
