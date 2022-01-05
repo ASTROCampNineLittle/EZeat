@@ -88,7 +88,8 @@
                   <%= image_tag store.image_url if store.image_url.present? %>
                 </div>
                 <div class="text-lg font-bold"><%= store.name %></div>
-                <div class="text-sm text-gray-500"><%= store.intro %></div>
+                <!-- 用truncate helper 限制最多顯示的字元 -->
+                <div class="text-sm text-gray-500"><%= truncate(store.intro, :length => 110) %></div>
               <% end %>
             </div>
           <% end %>

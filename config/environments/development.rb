@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # 讓devise 的mailer 暫時能以port 3000 傳接資料
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # ngrok 的host config 貼這裡就能運作了
+  # config.hosts << "一串token"
 end
