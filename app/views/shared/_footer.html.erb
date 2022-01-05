@@ -109,7 +109,11 @@
         </h2>
         <ul class="mb-8 space-y-2 text-sm list-none">
           <li>
-            <%= link_to(t('common.navigation.become_our_partners'), new_backend_company_path, class:"text-gray-600 hover:text-gray-800") %>
+            <% if has_company %>
+              <%= link_to(t('common.navigation.backend_management'), backend_company_stores_path(current_user.company.id), class:"text-gray-600 hover:text-gray-800") %>
+            <% else %>
+              <%= link_to(t('common.navigation.become_our_partners'), new_backend_company_path, class:"text-gray-600 hover:text-gray-800") %>
+            <% end %>
           </li>
         </ul>
       </div>
