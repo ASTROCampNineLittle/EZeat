@@ -33,5 +33,8 @@ module EZeat888
 
     # 設定路徑錯誤時的錯誤畫面
     config.exceptions_app = self.routes
+
+    # 假資料也能設定語系，但目前只有地址能成功改中文...
+    Faker::Config.locale = :en
   end
 end
