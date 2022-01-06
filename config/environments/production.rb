@@ -66,8 +66,8 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { host: ENV["WEB_PATH"]} #production的絕對網址
+  config.action_mailer.raise_delivery_errors = false # 上線後要改true
+  config.action_mailer.default_url_options = { host: ENV["WEB_PATH"] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
 
@@ -75,8 +75,8 @@ Rails.application.configure do
   port: 587,
   domain: "gmail.com",
   authentication: "plain",
-  user_name: ENV["soistdaslife@gmail.com"],
-  password: ENV["Qza72google"],
+  user_name: ENV["GMAIL_USERNAME"],
+  password: ENV["GMAIL_PASSWORD"],
   enable_starttls_auto: true
 }
 
