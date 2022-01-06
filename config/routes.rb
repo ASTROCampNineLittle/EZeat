@@ -4,10 +4,11 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 
   devise_scope :user do
-    get 'user/profile', to: 'users/profiles#profile'
+    get 'user/profile', to: 'users/profiles#profile', as: :user_root
     get 'user/edit', to: 'users/registrations#edit'
   end
 

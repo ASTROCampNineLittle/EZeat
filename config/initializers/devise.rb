@@ -143,7 +143,7 @@ Devise.setup do |config|
   # without confirming their account.
   # Default is 0.days, meaning the user cannot access the website without
   # confirming their account.
-  # 未驗證的帳號可登入3 天
+  # 未驗證的帳號可先登入2 天
   config.allow_unconfirmed_access_for = 2.days
 
   # A period that the user is allowed to confirm their account before their
