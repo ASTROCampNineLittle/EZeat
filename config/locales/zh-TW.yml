@@ -36,6 +36,9 @@ zh-TW:
           status: '狀態： '
           verified: '已完成驗證'
           pending: '等待驗證中'
+    profile:
+      edit: '修改檔案'
+      order: '我的訂單'
   authenticate:
     signed_in_checker:
       common: '該功能僅限會員使用，敬請先註冊並登入會員'
