@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2022_01_04_051621) do
     t.string "manager_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 

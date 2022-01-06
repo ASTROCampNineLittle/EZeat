@@ -33,21 +33,21 @@
       <nav class="md:mr-auto">
         <div class="relative inline-block text-left">
 
-          <button id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation" class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-200" type="button">
+          <button onclick="displayNav()" id="navDropDownBtn" data-dropdown-toggle="navDropDown" class="navDBtn inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-200" type="button">
             <%= t 'common.navigation.navigate' %> 
             <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
 
-          <div id="dropdownInformation" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+          <div id="navDropDown" class="navDropDownContent hidden z-15 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
             <% if signed_in? %>
               <div class="py-3 px-4 text-gray-900 dark:text-white">
                 <span class="block text-sm"><%= current_user.name %></span>
                 <span class="block text-sm font-medium truncat"><%= current_user.email %></span>
               </div>
             <% end %>
-            <ul class="py-1" aria-labelledby="dropdownInformationButton">
+            <ul class="py-1" aria-labelledby="navDropDownBtn">
               <li>
                 <%= link_to(t('common.navigation.home_page'), root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
               </li>
@@ -77,7 +77,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
-          <div id="dropdownLg" class="hidden z-10 w-44 text-base list-none bg-orange-300 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+          <div id="dropdownLg" class="hidden z-15 w-44 text-base list-none bg-orange-300 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
             <ul class="py-1" aria-labelledby="dropdownLgButton">
               <li class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
                 <%= link_to(t('common.site_languages.chinese'), :locale => "zh-TW") %>
@@ -96,3 +96,30 @@
     </div>
   </div>
 </div>
+
+<script>
+
+  function displayNav() {
+    document.getElementById("navDropDown").classList.toggle("show");
+    }
+
+  window.onclick = function(event) {
+    if (!event.target.matches('#navDropDownBtn')) {
+      var dropdowns = document.getElementsByClassName("navDropDownContent");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+  
+</script>
+
+<style>
+  .show {
+    display: block;
+  }
+</style>
