@@ -29,6 +29,13 @@ zh-TW:
         contact_us: '聯絡我們'
     phrase:
       or: '或'
+  devise:
+    patch:
+      registrations:
+        pending_status:
+          status: '狀態： '
+          verified: '已完成驗證'
+          pending: '等待驗證中'
   authenticate:
     signed_in_checker:
       common: '該功能僅限會員使用，敬請先註冊並登入會員'
@@ -73,7 +80,7 @@ zh-TW:
     - 周五
     - 周六
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -99,7 +106,7 @@ zh-TW:
       long: '%Y年%m月%d日'
       short: '%m月%d日'
     month_names:
-    - 
+    -
     - 一月
     - 二月
     - 三月

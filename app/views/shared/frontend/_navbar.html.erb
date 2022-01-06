@@ -22,7 +22,7 @@
         <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
           <%= t(:hello, name: current_user.name) %>
         </div>
-          <%= link_to(t('common.navigation.profile'), edit_user_registration_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
+          <%= link_to(t('common.navigation.profile'), user_profile_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
           <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
         <% else %>
           <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
@@ -34,7 +34,7 @@
         <div class="relative inline-block text-left">
 
           <button onclick="displayNav()" id="navDropDownBtn" data-dropdown-toggle="navDropDown" class="navDBtn inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-200" type="button">
-            <%= t 'common.navigation.navigate' %> 
+            <%= t 'common.navigation.navigate' %>
             <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
@@ -65,14 +65,14 @@
               <div class="py-1">
                 <%= link_to(t('common.navigation.blog'), root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
               </div>
-          </div> 
+          </div>
         </div>
       </nav>
 
       <nav class="md:mr-auto">
         <div class="relative inline-block text-left">
           <button id="dropdownLgButton" data-dropdown-toggle="dropdownLg" class="inline-flex justify-center w-full rounded-md border border-red-700 shadow-sm px-4 py-2 bg-orange-300 text-sm font-medium text-gray-700 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-100 focus:ring-orange-200" type="button">
-            <%= t 'common.navigation.site_language' %> 
+            <%= t 'common.navigation.site_language' %>
             <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
@@ -89,10 +89,10 @@
                 <%= link_to(t('common.site_languages.japanese'), :locale => "ja") %>
               </li>
             </ul>
-          </div> 
+          </div>
         </div>
       </nav>
-      
+
     </div>
   </div>
 </div>
@@ -115,7 +115,7 @@
       }
     }
   }
-  
+
 </script>
 
 <style>

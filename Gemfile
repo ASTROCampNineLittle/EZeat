@@ -30,10 +30,10 @@ gem 'aasm', '~> 5.2'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 
 # Translations for the devise gem
-# gem 'devise-i18n', '~> 1.10', '>= 1.10.1'
+gem 'devise-i18n', '~> 1.10', '>= 1.10.1'
 
 # The locale data and translations to internationalize rails
-# gem 'rails-i18n', '~> 7.0', '>= 7.0.1'
+gem 'rails-i18n', '~> 7.0', '>= 7.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'

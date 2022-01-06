@@ -70,13 +70,14 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV["WEB_PATH"]} #production的絕對網址
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address: "smtp-mail.outlook.com",
+
+  address: "smtp.gmail.com",
   port: 587,
-  domain: "outlook.office365.com",
+  domain: "gmail.com",
   authentication: "plain",
-  user_name: ENV["AstroEZEat@outlook.com"],
-  password: ENV["ZZcc1234"],
-  enable_starttls_auto: true 
+  user_name: ENV["soistdaslife@gmail.com"],
+  password: ENV["Qza72google"],
+  enable_starttls_auto: true
 }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to

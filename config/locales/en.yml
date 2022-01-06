@@ -29,6 +29,13 @@ en:
         contact_us: 'Contact us'
     phrase:
       or: 'or'
+  devise:
+    patch:
+      registrations:
+        pending_status:
+          status: 'Status: '
+          verified: 'verified'
+          pending: 'pending'
   authenticate:
     signed_in_checker:
       common: 'Please sign in first.'
