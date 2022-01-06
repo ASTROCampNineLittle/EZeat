@@ -58,28 +58,38 @@
 
 	<%= link_to store_path(@store) do %>
 		<div	class="inline-block mr-2 mt-5 flex justify-center w-full">
-					<button type="button"
-					class="focus:outline-none text-red-500 tracking-widest py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-white hover:bg-red-500 hover:text-white w-11/12"><%= params[:date] %>,<%= params[:people] %>
-					</button>
+			<button type="button"
+			class="focus:outline-none text-red-500 tracking-widest py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-white hover:bg-red-500 hover:text-white w-11/12"><%= params[:availible_date] %>,<%= params[:people] %>
+			</button>
 		</div>
 	<% end %>
 	<div class="text-center text-gray-500 text-xs tracking-widest pt-2 pb-6">✲ 點擊可回前頁，更改訂位日期及時間。</div>
 
 
-	<section>
+	<section class="mx-auto">
 		<% @dishes.each do |dish| %>
 			<div class="flex items-center justify-between bg-orange-200 pl-8 py-2">
 				<h3 class="text-left text-lg font-medium"><%= dish.name %></h3>
-					<span class="text-red-500 text-3xl pr-8 font-bold">＄<%= dish.price %></span>
-				</div>
-				<div class="text-left px-8 py-4 text-base leading-8"><%= simple_format(dish.intro) %></div>
-					<%= link_to  check_path(dish) do %>
+				<span class="text-red-500 text-3xl pr-8 font-bold">＄<%= dish.price %></span>
+			</div>
+			<div class="text-left px-8 py-4 text-base leading-8"><%= simple_format(dish.intro) %></div>
+
+			<div class="ml-7">
+				<% dish.open_dates.each do |open_date| %>
+				  <% open_date.offers.each do |offer| %>
+						<button type="button" class="mx-2 my-1 focus:outline-none text-red-500 tracking-widest py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-white hover:bg-red-500 hover:text-white w-1/6"><%= offer.availible_time.strftime("%k：%M")%></button>
+					<% end %>
+				<% end %>
+			</div>
+
+			<%= link_to  check_path(dish) do %>
 				<div class="flex justify-center w-full my-6">
 					<button type="button"
 					class="focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-11/12">選此方案
 					</button>
-			</div>
-				<% end %>
-		<% end %>
+				</div>
+			<% end %>
 
+		<% end %>
+	</section>
 </div>

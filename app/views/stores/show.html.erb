@@ -91,7 +91,8 @@
               <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
               </svg>
             </div>
-            <%= form.select(:date, [["１/１"], ["１/２"], ["１/３"], ["１/４"], ["１/５"]], {selected: "default"}, { :class => 'focus:outline-none text-red-600 text-base py-2.5 text-center rounded-full border border-red-600 hover:bg-red-50 w-full appearance-none cursor-pointer'}) %>
+            <%= form.collection_select(:availible_date, OpenDate.all, :id, :availible_date, class:'focus:outline-none text-red-600 text-base py-2.5 text-center rounded-full border border-red-600 hover:bg-red-50 w-full appearance-none cursor-pointer') %>
+            <%#= form.select(:date, [["１/１"], ["１/２"], ["１/３"], ["１/４"], ["１/５"]], {selected: "default"}, { :class => 'focus:outline-none text-red-600 text-base py-2.5 text-center rounded-full border border-red-600 hover:bg-red-50 w-full appearance-none cursor-pointer'}) %>
             <div class="relative right-40">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-3" viewBox="0 0 24 24" stroke="#dc2625" fill="none">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -105,6 +106,7 @@
               </svg>
             </div>
             <%= form.select(:people, [["１人"], ["２人","２人"], ["３人"], ["４人"], ["５人"], ["６人"], ["７人"], ["８人"], ["９人"], ["10人"]], {selected: "２人"}, { :class => 'focus:outline-none text-red-600 text-base py-2.5 text-center rounded-full border border-red-600 hover:bg-red-50 w-full appearance-none cursor-pointer'}) %>
+            <%#= form.collection_select(:availible_date, 0, OpenDate.all, :id, :availible_date) %>
             <div class="relative right-40">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-3" viewBox="0 0 24 24" stroke="#dc2625" fill="none">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -112,9 +114,16 @@
             </div>
           </div>
           <div class = "cursor-pointer" >
-            <%= form.submit '立即定位', class: 'focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full' %>
+            <%= form.submit '立即訂位', class: 'focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full' %>
           </div>
         <% end %>
       </div>
 </div>
 
+
+<%= form_with url: store_offers_path(@store) , method: "get" do |form| %>
+<%= form.select(:date, [["１/１"], ["１/２"], ["１/３"], ["１/４"], ["１/５"]], {selected: "default"}, { :class => ''}) %>
+<%= form.collection_select(:availible_date, OpenDate.all, :id, :availible_date) %>
+<%= form.select(:people, [["１人"], ["２人","２人"], ["３人"], ["４人"], ["５人"], ["６人"], ["７人"], ["８人"], ["９人"], ["10人"]], {selected: "２人"}, { :class => ''}) %>
+<%= form.submit '立即訂位', class: '' %>
+<% end %>
