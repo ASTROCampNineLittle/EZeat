@@ -7,6 +7,11 @@ class Backend::CompaniesController < ApplicationController
 
   include Devise
 
+  def index
+    @user = current_user
+    @company = @user.company
+  end
+
   def new
     @company = Company.new
   end
