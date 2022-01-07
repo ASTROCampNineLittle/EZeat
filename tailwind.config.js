@@ -22,6 +22,12 @@ module.exports = {
       'laptop': '1024px',
       'desktop': '1280px',
     },
+    extend: {
+      boxShadow: {
+        blue: '0 4px 14px 0 rgba(19, 51, 81, 0.39)',
+        orange: 'inset 0 4px 14px 0 rgba(255,140,0,0.20)',
+      },
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',

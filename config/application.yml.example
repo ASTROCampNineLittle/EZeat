@@ -1,3 +1,9 @@
 newebpay_key: "secreat"
 newebpay_iv: "secreat"
 newebpay_merchant_id: "secreat"
+
+googlemap_api: "YOUR_KEY"
+
+aws_access_key_id: "YOUR_KEY"
+aws_secret_access_key: "YOUR_KEY"
+fog_directory: "YOUR_KEY"
