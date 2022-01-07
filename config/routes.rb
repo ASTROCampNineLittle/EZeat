@@ -17,14 +17,29 @@ Rails.application.routes.draw do
   get 'verification', to: 'pages#verification'
   get 'channel', to: 'pages#channel'
   
-  resources :stores, only: [:index , :show] do
+
+  resources :stores, except: [] do
     resources :offers, only: [:index], shallow: true
+    resources :open_dates, only: [:show, :index]
+    resources :dishes, only: [:show, :index], shallow: true
+  end
+
+  resources :open_dates, except: [] do
+    resources :offers, only: [:show, :index], shallow: true
   end
   
   resources :checks , only: [:index , :show]
 
-  resources :payments , only: [:index, :new] do
+  resources :payments , only: [:index, :new, :create] do
     post :confirm
+  end
+
+  resources :stores, only: [:index, :show] do
+    resources :dishes, only: [:index, :show] do
+      resources :open_dates, only: [:index, :show] do
+        resources :offers, only: [:index, :show, :new], shallow: true
+      end
+    end
   end
   
   #backend related routes

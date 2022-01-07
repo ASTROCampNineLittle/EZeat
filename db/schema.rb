@@ -26,34 +26,6 @@ ActiveRecord::Schema.define(version: 2022_01_02_123029) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
-  create_table "dishes", force: :cascade do |t|
-    t.bigint "store_id", null: false
-    t.string "name"
-    t.integer "price"
-    t.boolean "status"
-    t.text "intro"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["store_id"], name: "index_dishes_on_store_id"
-  end
-
-  create_table "offers", force: :cascade do |t|
-    t.bigint "open_date_id", null: false
-    t.time "availible_time"
-    t.integer "capacity"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["open_date_id"], name: "index_offers_on_open_date_id"
-  end
-
-  create_table "open_dates", force: :cascade do |t|
-    t.bigint "dish_id", null: false
-    t.date "availible_date"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["dish_id"], name: "index_open_dates_on_dish_id"
-  end
-
   create_table "stores", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.string "name"
@@ -67,7 +39,35 @@ ActiveRecord::Schema.define(version: 2022_01_02_123029) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_stores_on_company_id"
   end
+  
+  create_table "dishes", force: :cascade do |t|
+    t.bigint "store_id", null: false
+    t.string "name"
+    t.integer "price"
+    t.boolean "status"
+    t.text "intro"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["store_id"], name: "index_dishes_on_store_id"
+  end
 
+  create_table "open_dates", force: :cascade do |t|
+    t.bigint "dish_id", null: false
+    t.date "availible_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_open_dates_on_dish_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.bigint "open_date_id", null: false
+    t.time "availible_time"
+    t.integer "capacity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["open_date_id"], name: "index_offers_on_open_date_id"
+  end
+  
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
