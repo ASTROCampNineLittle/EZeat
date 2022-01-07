@@ -47,7 +47,7 @@
         </div>
         <div class="text-left px-8 py-4 text-base leading-8"><%= simple_format(dish.intro) %></div>
         <div class="mx-8">
-          <%= link_to "選此方案", store_dish_path(dish) , class:"text-white text-sm py-2.5 px-5 my-6 border-b-4 border-red-700 rounded-md bg-red-500 hover:bg-red-400 inline-block text-center w-full" %>
+          <%= link_to "選此方案", store_dish_path(id: dish, store_id: @store) , class:"text-white text-sm py-2.5 px-5 my-6 border-b-4 border-red-700 rounded-md bg-red-500 hover:bg-red-400 inline-block text-center w-full" %>
         </div>
       <% end %>  
     </section>

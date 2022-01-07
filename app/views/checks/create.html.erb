@@ -1,4 +1,3 @@
-
 <div class="bg-gray-100 max-w-screen-md container mx-auto pb-4">
 
 	<div class="border-b-2 px-4 py-10">	
@@ -58,21 +57,13 @@
 	</div>
 
 
-
-		
-
 <h3 class="bg-gray-300 text-black text-lg py-3 pl-6 border-b-2">確認購買明細</h3>
 
-		<div class="pl-4 py-10 w-full text-lg font-bold border-b-2  bg-gray-100">
-			<% def total%>
-			<% (params[:order_price].to_i)*(params[:order_people].to_i) %>
-			<% end%>
-			<div>餐卷：<%= params[:order_dish] %></div>
-			<div>日期：<%= params[:order_date] %></div>
-			<div>時間：<%= params[:order_time] %></div>
-			<div>人數：<%= params[:order_people] %>人</div>
-			<div>總額：＄<%= params[:order_price] %>　Ｘ　<%= params[:order_people] %>人　＝　＄<%=total%></div>
-		</div>
+	<div class="text-left text-lg font-medium border-t-2 border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">餐卷：<%= params[:order_dish] %></div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">日期：<%= params[:order_date] %></div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">時間：<%= params[:order_time] %></div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">人數：<%= params[:order_people] %>人</div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">總額：＄<%= params[:order_price] %>　Ｘ　<%= params[:order_people] %>人　＝　＄<%= @amount %></div>
 
 
 <h3 class="bg-gray-300 text-black text-lg py-3 pl-6 border-b-2">填寫訂位資料</h3>
