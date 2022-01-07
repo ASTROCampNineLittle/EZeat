@@ -3,10 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
-
-# Bundle gmaps related gems
-gem 'gmaps4rails'
-gem 'geocoder'
+#Bundle carrierwave & AWS related Gems
+gem 'carrierwave', '~> 2.2', '>= 2.2.2'
+gem 'mini_magick', '~> 4.11'
+gem 'fog-aws', '~> 3.12'
 
 # The Process manager
 gem 'foreman', '~> 0.87.2'

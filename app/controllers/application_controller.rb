@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   around_action :switch_locale
 
+  helper_method :has_company
+
   private
 
   # 設定語系
@@ -13,6 +15,14 @@ class ApplicationController < ActionController::Base
   def switch_locale(&action)
     locale = params[:locale] || I18n.default_locale
     I18n.with_locale(locale, &action)
+  end
+
+  # 確認是否有公司
+  def has_company
+    if signed_in?
+      check_company = current_user.company
+      !check_company.nil?
+    end
   end
 end
 

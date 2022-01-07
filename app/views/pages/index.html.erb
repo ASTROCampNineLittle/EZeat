@@ -84,9 +84,12 @@
           <% @stores.each do |store| %>
             <div class="w-1/3 p-3">
               <%= link_to store_path(store) do %>
-                <div class="bg-orange-100 w-full h-32"><img src="" alt=""></div>
+                <div class="">
+                  <%= image_tag store.image_url if store.image_url.present? %>
+                </div>
                 <div class="text-lg font-bold"><%= store.name %></div>
-                <div class="text-sm text-gray-500"><%= store.intro %></div>
+                <!-- 用truncate helper 限制最多顯示的字元 -->
+                <div class="text-sm text-gray-500"><%= truncate(store.intro, :length => 110) %></div>
               <% end %>
             </div>
           <% end %>

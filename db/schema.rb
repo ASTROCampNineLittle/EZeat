@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_080704) do
     t.text "intro"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
     t.index ["company_id"], name: "index_stores_on_company_id"
   end
 
