@@ -3,7 +3,7 @@ namespace :db do
   task :new_oops => :environment do
 
     # 產生假分店
-    com = Company.random
+    com = Company.last
     5.times do |i|
       com.stores.create(name: Faker::Restaurant.name,
                         food_type: (1..10).to_a.sample,
@@ -14,18 +14,18 @@ namespace :db do
     end
 
     # 產生假方案
-    store = Store.last
+    sto = Store.last
     5.times do |i|
-      store.dishes.create(name: Faker::Food.ethnic_category,
+      sto.dishes.create(name: Faker::Food.ethnic_category,
                       price: (100..1000).to_a.sample,
                       status: 1,
                       intro: Faker::Food.description)
     end
 
     # 產生假時段
-      dish = Dish.last
+      dis = Dish.last
       5.times do |i|
-      dish.open_dates.create(availible_date: Time.now)
+      dis.open_dates.create(availible_date: Time.now)
     end
 
     # 產生假餐券
