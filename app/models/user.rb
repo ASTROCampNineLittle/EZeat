@@ -5,12 +5,23 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
   # 註冊帳號時的信箱驗證功能，開發時可先關閉
   devise :confirmable
-  devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  devise :omniauthable, omniauth_providers: [:google_oauth2]
 
   validates :name, :tel, presence: true
   validates :email, uniqueness: true, if: -> { self.email.present? }
 
   has_one :company
+
+  def self.create_from_provider_data(provider_data)
+    where(email: provider_data.info.email).first_or_create do |user|
+      user.email = provider_data.info.email
+      user.password = Devise.friendly_token[0, 20]
+      user.name = provider_data.info.last_name
+      user.provider = provider_data.provider
+      user.uid = provider_data.uid
+    end
+  end
+
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info

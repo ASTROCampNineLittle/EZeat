@@ -957,11 +957,6 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@popperjs/core@^2.9.3":
-  version "2.11.2"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.2.tgz#830beaec4b4091a9e9398ac50f865ddea52186b9"
-  integrity sha512-92FRmppjjqz29VMJ2dn+xdyXZBrMlE42AV6Kq6BwjWV7CNUW1hs2FtxSNLQE+gJhaZ6AAmYuO9y8dshhcBl7vA==
-
 "@rails/actioncable@^6.0.0":
   version "6.1.4"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.1.4.tgz#c3c5a9f8302c429af9722b6c50ab48049016d2a3"
@@ -1022,14 +1017,6 @@
     webpack-assets-manifest "^3.1.1"
     webpack-cli "^3.3.12"
     webpack-sources "^1.4.3"
-
-"@themesberg/flowbite@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@themesberg/flowbite/-/flowbite-1.2.0.tgz#0b1a4a7d9dd8ff21492026bab60a3dd8331f1ebf"
-  integrity sha512-8o70vUnxZHQhrVEmRahYK0pv+RC2NByABll0W7vT17krpfWMKxVhTpKeuQtirgqKuzXlMFeNocx4GVbA0OKkog==
-  dependencies:
-    "@popperjs/core" "^2.9.3"
-    mini-svg-data-uri "^1.4.3"
 
 "@types/glob@^7.1.1":
   version "7.2.0"
@@ -3431,11 +3418,6 @@ homedir-polyfill@^1.0.1:
   dependencies:
     parse-passwd "^1.0.0"
 
-hotkeys-js@>=3:
-  version "3.8.7"
-  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.8.7.tgz#c16cab978b53d7242f860ca3932e976b92399981"
-  integrity sha512-ckAx3EkUr5XjDwjEHDorHxRO2Kb7z6Z2Sxul4MbBkN8Nho7XDslQsgMJT+CiJ5Z4TgRxxvKHEpuLE3imzqy4Lg==
-
 hpack.js@^2.1.6:
   version "2.1.6"
   resolved "https://registry.yarnpkg.com/hpack.js/-/hpack.js-2.1.6.tgz#87774c0949e513f42e84575b3c45681fade2a0b2"
@@ -4361,11 +4343,6 @@ mini-css-extract-plugin@^0.9.0:
     normalize-url "1.9.1"
     schema-utils "^1.0.0"
     webpack-sources "^1.1.0"
-
-mini-svg-data-uri@^1.4.3:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/mini-svg-data-uri/-/mini-svg-data-uri-1.4.3.tgz#43177b2e93766ba338931a3e2a84a3dfd3a222b8"
-  integrity sha512-gSfqpMRC8IxghvMcxzzmMnWpXAChSA+vy4cia33RgerMS8Fex95akUyQZPbxJJmeBGiGmK7n/1OpUX8ksRjIdA==
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
@@ -6560,20 +6537,6 @@ static-extend@^0.1.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
-
-stimulus-dropdown@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/stimulus-dropdown/-/stimulus-dropdown-1.0.0.tgz#82140436aac1b54ef5e3bdf3badecd13e5516534"
-  integrity sha512-srYoYCXFm7TsSxAys8eIxsWQ2a0kbzsD3PcnjUrIrFRXzMyMBEWIBOSoESIrfdtsVL531k9KsAZlQZbMw9Ggnw==
-  dependencies:
-    stimulus-use "^0.25.3"
-
-stimulus-use@^0.25.3:
-  version "0.25.4"
-  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.25.4.tgz#5b909b546e0bff24e9cd5811391c513b8c5a10af"
-  integrity sha512-Rr4m4PpcOni7y4KiwUMdCuUJ5IPE2LEELwoz8e+VB3jbfPb9DNjrurCTKCWT5BiPBrn9OEfhnWJIRPcbxUpQvQ==
-  dependencies:
-    hotkeys-js ">=3"
 
 stimulus@^3.0.1:
   version "3.0.1"

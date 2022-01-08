@@ -1,4 +1,4 @@
-<div class="max-w-full bg-orange-500 h-20">
+<div class="max-w-full bg-orange-500 h-20 navbar">
   <div class="mx-2 px-2 h-20">
     <div class="flex border-gray-100 h-full">
 
@@ -29,16 +29,19 @@
           <% end %>
         </div>
       </div>
+
+      <!-- onmouseenter="displayNav()"  -->
+
       <div class="flex" style="width: 20%">
         <div class="self-center" style="width: 45%">
-          <div class="dropDown">
-            <button onclick="displayNav()" class="navDBtn inline-flex rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-orange-200">
+          <div class="dropDown" id="mouseTarget">
+            <button class="inline-flex rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-100 focus:ring-orange-200">
               <%= t 'common.navigation.navigate' %>
               <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="navDropDown" class="navDropDownContent hidden absolute right-25 text-base bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+            <div id="navDropDown" class="hidden z-30 absolute right-25 text-base bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
               <% if signed_in? %>
                 <div class="py-3 px-4 text-gray-900 dark:text-white">
                   <span class="block text-sm"><%= current_user.name %></span>
@@ -66,14 +69,14 @@
         <div class="" style="width: 5%">
         </div>
         <div class="self-center justify-end" style="width: 50%">
-          <div class="dropDown">
-            <button onclick="displayNavLg()" class="navLgDBtn inline-flex rounded-md border border-red-700 shadow-sm px-4 py-2 bg-orange-300 text-sm font-medium text-gray-700 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-orange-100 focus:ring-orange-200">
+          <div class="dropDown" id="mouseTargetLg">
+            <button class="inline-flex rounded-md border border-red-700 shadow-sm px-4 py-2 bg-orange-300 text-sm font-medium text-gray-700 hover:bg-orange-200 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-orange-100 focus:ring-orange-200">
               <%= t 'common.navigation.site_language' %>
               <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="navDropDownLg" class="navDropDownLgContent hidden absolute right-25 text-base bg-orange-300 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+            <div id="navDropDownLg" class="hidden z-30 absolute right-25 text-base bg-orange-300 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
               <ul class="py-1">
                 <li class="py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
                   <%= link_to(t('common.site_languages.chinese'), :locale => "zh-TW") %>
@@ -92,45 +95,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  function displayNav() {
-    document.getElementById("navDropDown").classList.toggle("show");
-    }
-
-  window.onclick = function(event) {
-    if (!event.target.matches('.navDBtn')) {
-      var dropdowns = document.getElementsByClassName("navDropDownContent");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
-  function displayNavLg() {
-    document.getElementById("navDropDownLg").classList.toggle("show");
-    }
-
-  window.onclick = function(event) {
-    if (!event.target.matches('.navLgDBtn')) {
-      var dropdowns = document.getElementsByClassName("navDropDownLgContent");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-</script>
-
-<style>
-  .show {
-    display: block;
-  }
-</style>

@@ -96,30 +96,3 @@
     </div>
   </div>
 </div>
-
-<script>
-
-  function displayNav() {
-    document.getElementById("navDropDown").classList.toggle("show");
-    }
-
-  window.onclick = function(event) {
-    if (!event.target.matches('#navDropDownBtn')) {
-      var dropdowns = document.getElementsByClassName("navDropDownContent");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
-</script>
-
-<style>
-  .show {
-    display: block;
-  }
-</style>

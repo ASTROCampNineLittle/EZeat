@@ -9,12 +9,9 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import  "../application.css"
 
-const application = Application.start()
-application.register("dropdown", Dropdown)
-
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 import "controllers"
-import "scripts"
+import '../scripts'
