@@ -42,6 +42,18 @@
       </div>
     </div>
 
+    <div class="md:flex md:items-center mb-6">
+      <% @dish.images.each do |dish| %>
+       <%= image_tag dish.image_url if dish.image_url.present? %>
+      <% end %>  
+      <%= form.fields_for :images do |image| %>
+        <div class="form-group">
+          <%= image.label :image, "更新圖片" %>
+          <%= image.file_field :image, class: "" %>
+        </div>
+      <% end %>
+    </div>
+
     <div class="md:flex md:items-center justify-end">
       <div class=" "></div>
       <div class=" ">

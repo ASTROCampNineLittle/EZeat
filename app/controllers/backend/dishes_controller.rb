@@ -5,10 +5,12 @@ class Backend::DishesController < ApplicationController
   def index
     @store = Store.find(params[:store_id])
     @dishes = @store.dishes.all
+    # @current_open_date = OpenDate.select(availible_date: > DateTime.current.to_date)
   end
 
   def new
     @dish = Dish.new
+    @dish.images.build
   end
 
   def create
@@ -41,7 +43,7 @@ class Backend::DishesController < ApplicationController
 
   private
     def dish_params
-      params.require(:dish).permit(:name, :price, :start_date, :end_date, :status, :intro )
+      params.require(:dish).permit(:name, :price, :start_date, :end_date, :status, :intro, images_attributes: [ :image ] )
     end
 
     def set_dish

@@ -68,7 +68,7 @@
       <div class=" ">
         <%= form.submit value="儲存資料", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
 
-        <%= link_to backend_company_stores_path(params[:company_id]), method: 'get', class: 'bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
+        <%= link_to backend_company_path(params[:company_id]), method: 'get', class: 'bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
           取消
         <% end %>
       </div>

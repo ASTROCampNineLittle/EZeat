@@ -3,8 +3,12 @@ class Backend::StoresController < ApplicationController
   layout "backend"
 
   def index
-    @company = Company.find(params[:company_id])
+    @company = current_user.company
     @stores = @company.stores.all
+  end
+
+  def show
+    @dishes = @store.dishes.all
   end
 
   def new
@@ -20,9 +24,6 @@ class Backend::StoresController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show 
   end
 
   def edit

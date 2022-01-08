@@ -4,17 +4,20 @@
     <div class="flex justify-between items-center border-gray-100 py-6 md:justify-between md:space-x-10">
       <div class="flex justify-between lg:w-0 lg:flex-1">
         <div class="w-24">
-          <%= link_to "EZeat後台", backend_companies_path, class:"" %>
+          <%= link_to "EZeat後台", backend_company_path(current_user.company), class:"" %>
           </a>
         </div>
       </div>
 
       <div class="w-36 hidden md:flex items-center justify-end md:flex-1 lg:w-0">
         <% if signed_in? %>
-        <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
-          <%= t(:hello, name: current_user.name) %>
-        </div>
-          <%= link_to(t('common.navigation.profile'), edit_user_registration_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
+          <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
+            <%= link_to "變更#{current_user.company.name }資料", edit_backend_company_path(current_user.company) %>
+          </div>
+          <% current_user.company.stores.each do |store| %>
+            <%= link_to "#{store.name}", backend_store_path(store), class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md" %>
+          <%end%>
+
           <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
         <% else %>
           <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
