@@ -10,6 +10,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def after_sign_up_path_for(resource_or_scope)
+    stored_location_for(resource_or_scope) || super
+  end
+
   private
     def permitted_params_for_sign_up
       devise_parameter_sanitizer.permit(:sign_up, keys: [:tel, :gender, :role, :name, :company_id, :fb_uid, :fb_token, :google_uid, :google_token])
