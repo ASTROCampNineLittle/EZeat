@@ -2,7 +2,6 @@
 
 	<div class="border-b-2 px-4 py-10">	
 		<div class="flex pb-3">
-
 			<div class="flex-1">
 				<div class="w-10 h-10 bg-red-400 border-2 border-red-400 mx-auto rounded-full text-lg text-white flex items-center">
 					<span class="text-center w-full">1</span>
@@ -32,7 +31,6 @@
 					<span class="text-center w-full">3</span>
 				</div>
 			</div>
-
 		</div>
 		
 		<div class="flex text-lg content-center text-center py-1">
@@ -55,17 +53,24 @@
 			</div>
 		</div>
 	</div>
+
 	<section class=" w-full container mx-auto drop-shadow-lg">
 		<div class="flex items-center justify-between bg-orange-200 pl-8 py-2  border-t-2 border-gray-500">
 			<h3 class="text-left text-lg font-medium">餐卷：<%= @dish.name %></h3>
 			<span class="text-red-500 text-3xl pr-8 font-bold">＄<%= @dish.price %></span>
 		</div>
+
 		<div class="text-left text-lg font-medium border-t-2 border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">日期：<%= @open_date.availible_date %></div>
 		<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-white py-3">時間：尚未決定 </div>		
 		<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-white py-3 mb-4">人數：尚未決定 </div>
 
 	
-	<%= form_with url: new_check_path , method: "get" do |form| %>
+		<%= form_with url: new_check_path , method: "get" do |form| %>
+			<%= form.hidden_field :open_date_id, value: params[:id] %>
+			<%= form.hidden_field :order_price, value: @dish.price %>
+			<%= form.hidden_field :order_dish, value: @dish.name %>
+			<%= form.hidden_field :order_price, value: @dish.price %>
+			<%= form.hidden_field :order_date, value: @open_date.availible_date %>
 
 			<div class='flex flex-wrap justify-center'>
 				<% @offers.each do |offers| %>
@@ -77,19 +82,15 @@
 					</div>
 				<% end %>
 			</div>
-			<%= form.hidden_field :open_date_id, value: params[:id] %>
-			<%= form.hidden_field :order_price, value: @dish.price %>
-			<%= form.hidden_field :order_dish, value: @dish.name %>
-			<%= form.hidden_field :order_price, value: @dish.price %>
-			<%= form.hidden_field :order_date, value: @open_date.availible_date %>
+
 			<div class="mx-6">
 				<%= form.select(:order_people, [["1"], ["2","2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"], ["10"]], {selected: "2"}, { :class => 'text-red-600 text-base py-2.5 text-center rounded-full border border-red-600 hover:bg-red-50 w-full appearance-none cursor-pointer my-6'}) %>
 			</div>
-			<div class="mx-6">
-			<%= form.submit '送出 時間及人數', class: 'focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer' %>
-			</div>
 
-	<% end %>
+			<div class="mx-6">
+				<%= form.submit '送出 時間及人數', class: 'focus:outline-none text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer' %>
+			</div>
+		<% end %>
 
 		<div class="flex flex-row-reverse mr-6 mt-5 mb-2"><%= link_to "↻ 返回前頁改選", :back , class:'text-sm text-gray-500 hover:underline hover:text-orange-500'%></div>
 	</section>

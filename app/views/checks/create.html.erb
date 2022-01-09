@@ -30,26 +30,46 @@
 					<span class="text-center w-full">3</span>
 				</div>
 			</div>
-
 		</div>
 		
 		<div class="flex text-lg content-center text-center py-1">
-			<div class="w-1/4 text-sm text-red-500">選擇餐卷</div>
-			<div class="w-1/3 align-center items-center align-middle content-center flex"></div>
-			<div class="w-1/4 text-sm text-red-500">確認訂位資訊</div>
-			<div class="w-1/3 align-center items-center align-middle content-center flex"></div>
-			<div class="w-1/4 text-sm text-red-500">確認訂單結果</div>
+			<div class="w-1/4 text-sm text-red-500">
+				選擇餐卷
+			</div>
+
+			<div class="w-1/3 align-center items-center align-middle content-center flex">
+			</div>
+
+			<div class="w-1/4 text-sm text-red-500">
+				確認訂位資訊
+			</div>
+
+			<div class="w-1/3 align-center items-center align-middle content-center flex">
+			</div>
+			
+			<div class="w-1/4 text-sm text-red-500">
+				確認訂單結果
+			</div>
 		</div>
 	</div>
 
 	<h3 class="bg-gray-300 text-black text-lg py-3 pl-6 border-b-2">確認購買明細</h3>
 
-	<div class="text-left text-lg font-medium border-t-2 border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">餐卷：<%= params[:order_dish] %></div>
-	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">日期：<%= params[:order_date] %></div>
-	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">時間：<%= params[:order_time] %></div>
-	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">人數：<%= params[:order_people] %>人</div>
-	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">總額：＄<%= params[:order_price] %>　Ｘ　<%= params[:order_people] %>人　＝　＄<%= @ezeat_amount %></div>
-
+	<div class="text-left text-lg font-medium border-t-2 border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">
+		餐卷：<%= params[:order_dish] %>
+	</div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">
+		日期：<%= params[:order_date] %>
+	</div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">
+		時間：<%= params[:order_time] %>
+	</div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">
+		人數：<%= params[:order_people] %>人
+	</div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">
+		總額：＄<%= params[:order_price] %>　Ｘ　<%= params[:order_people] %>人　＝　＄<%= @ezeat_amount %>
+	</div>
 
 	<h3 class="bg-gray-300 text-black text-lg py-3 pl-6 border-b-2">填寫訂位資料</h3>
 

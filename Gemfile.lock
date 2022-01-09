@@ -171,7 +171,7 @@ GEM
     msgpack (1.4.2)
     multi_json (1.15.0)
     nio4r (2.5.8)
-    nokogiri (1.12.5-arm64-darwin)
+    nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
@@ -289,6 +289,7 @@ GEM
     zeitwerk (2.5.3)
 
 PLATFORMS
+  x86_64-linux
   arm64-darwin-20
   x86_64-darwin-20
   x86_64-linux

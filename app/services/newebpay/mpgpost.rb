@@ -23,9 +23,10 @@ module Newebpay
     private
 
     def set_info()
+      # 目前先用成立訂單的最後一筆抓資料,未來應該寫篩選屬於該使用者的訂單
       @order = Order.last
       @user = User.last
-      # 目前先用成立訂單的最後一筆抓資料,未來應該寫篩選屬於該使用者的訂單
+      
       @info[:MerchantID] = @merchant_id
       @info[:MerchantOrderNo] = @order.order_number
       @info[:Amt] = @order.ezeat_amount
