@@ -1,4 +1,3 @@
-
 <div class="bg-gray-100 max-w-screen-md container mx-auto pb-4">
 
 	<div class="border-b-2 px-4 py-10">	
@@ -58,42 +57,33 @@
 	</div>
 
 
-
-		<div class="pl-4 py-10 w-full text-lg font-bold border-b-2  bg-white">
-			<div>餐廳：遠東Café – 香格里拉台北遠東國際大飯店</div>
-			<div>日期：12月23日 (四)</div>
-			<div>時間：15:15</div>
-			<div>人數：２人</div>
-		</div>
-
 <h3 class="bg-gray-300 text-black text-lg py-3 pl-6 border-b-2">確認購買明細</h3>
 
-		<div class="pl-4 py-10 w-full text-lg font-bold border-b-2  bg-gray-100">
-			<div>EZTABLE 2021 聖誕跨年，週六日、12/31 下午茶吃到飽優惠價 $1080/人 (原價$1188)</div>
-			<div>數量：$1080 Ｘ2</div>
-			<div class="text-red-500 py-4">總計：$2160</div>
-		</div>
+	<div class="text-left text-lg font-medium border-t-2 border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">餐卷：<%= params[:order_dish] %></div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">日期：<%= params[:order_date] %></div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">時間：<%= params[:order_time] %></div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">人數：<%= params[:order_people] %>人</div>
+	<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-orange-200 py-3">總額：＄<%= params[:order_price] %>　Ｘ　<%= params[:order_people] %>人　＝　＄<%= @amount %></div>
 
 
 <h3 class="bg-gray-300 text-black text-lg py-3 pl-6 border-b-2">填寫訂位資料</h3>
 
-<%= form_with model: @user ,class:"py-10", url: "http://localhost:3000/payments/new", method: "get" do |form| %>
-    <%#  下列三個欄位預設抓登入的user,目前是設定抓1號id的使用者 %>
+<%= form_with model: @user ,class:"py-10", url:payments_path, method: "post" do |form| %>
 		<div class="md:flex md:items-center mb-6">
 			<div class="md:w-1/6">
-				<%= form.label :username, '訂位人', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+				<%= form.label :name, '訂位人', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
 			</div>
 			<div class="md:w-9/12">
-				<%= form.text_field :username , class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+				<%= form.text_field :name , class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
 			</div>
 		</div>
 		 
 		<div class="md:flex md:items-center mb-6">
 			<div class="md:w-1/6">
-				<%= form.label :tele, '電話', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+				<%= form.label :tel, '電話', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
 			</div>
 			<div class="md:w-9/12">
-				<%= form.text_field :tele, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+				<%= form.text_field :tel, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
 			</div>
 		</div>
 		 
@@ -108,10 +98,10 @@
 		 
 		<div class="flex justify-center">
 				<div class="md:w-10/12">
-					<%= form.submit value="確認資料。使用信用卡付款", class:"bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-4 my-6 rounded focus:outline-none focus:shadow-outline w-full cursor-pointer" %>
+					<%= form.submit value="確認資料。使用信用卡付款", class:"bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-4 mt-6 rounded focus:outline-none focus:shadow-outline w-full cursor-pointer" %>
 				</div>
 		</div>
-
 <% end %>
 
+		<div class="flex flex-row-reverse mr-16 mb-3"><%= link_to "↻ 返回前頁改選", :back , class:'text-sm text-gray-500 hover:underline hover:text-orange-500'%></div>
 </div>
