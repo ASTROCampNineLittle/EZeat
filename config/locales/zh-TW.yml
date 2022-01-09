@@ -39,6 +39,8 @@ zh-TW:
     profile:
       edit: '修改檔案'
       order: '我的訂單'
+      welcome: '歡迎再次使用EZeat！您上次的登入日期為：'
+      welcome_registered: '歡迎加入EZeat！'
   authenticate:
     signed_in_checker:
       common: '該功能僅限會員使用，敬請先註冊並登入會員'

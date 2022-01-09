@@ -37,7 +37,10 @@ en:
           verified: 'verified'
           pending: 'pending'
     profile:
-      edit: '修改檔案'
+      edit: 'Edit profile'
+      order: 'My order'
+      welcome: 'Hello there, EZeat fans! Your last session was at:'
+      welcome_registered: 'Welcome aboard!'
   authenticate:
     signed_in_checker:
       common: 'Please sign in first.'

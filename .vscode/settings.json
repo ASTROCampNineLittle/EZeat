@@ -1,4 +1,9 @@
 {
   "files.eol": "\n",
+
+  // 可以自動消除空白
   "files.trimTrailingWhitespace": true,
+
+  // tab 會限制成空2 格
+  "editor.tabSize": 2,
 }

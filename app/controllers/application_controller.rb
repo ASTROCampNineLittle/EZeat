@@ -4,7 +4,19 @@ class ApplicationController < ActionController::Base
 
   helper_method :has_company
 
+  after_action :clear_attached_unit # UPDATED
+
   private
+
+  def clear_attached_unit
+    p 88888888888
+    session[:attached_unit_path] = nil unless keep_attached_unit_path?
+  end
+
+  def keep_attached_unit_path? # UPDATED
+    p 90000000009090
+    @keep_attached_unit_path
+  end
 
   # 設定語系
   def set_locale
@@ -17,20 +29,18 @@ class ApplicationController < ActionController::Base
     I18n.with_locale(locale, &action)
   end
 
+  def signed_in_checker
+    unless current_user.present?
+      flash[:notice] = I18n.t 'authenticate.signed_in_checker.common'
+      # redirect_to new_user_session_path
+    end
+  end
+
   # 確認是否有公司
   def has_company
     if signed_in?
       check_company = current_user.company
       !check_company.nil?
-    end
-  end
-end
-
-class SignedInChecker
-  def self.before(controller)
-    unless controller.send(:signed_in?)
-      controller.flash[:notice] = I18n.t 'authenticate.signed_in_checker.common'
-      controller.redirect_to controller.user_session_path
     end
   end
 end

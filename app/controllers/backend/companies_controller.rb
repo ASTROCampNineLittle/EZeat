@@ -1,11 +1,19 @@
 class Backend::CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update, :destroy]
   # 驗證須登入才能繼續的行為
-  before_action SignedInChecker, only: [:new, :edit, :update, :destroy]
-  
+  before_action :signed_in_checker, only: [:new, :edit, :update, :destroy]
+  # before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+
   layout "backend"
 
   include Devise
+
+  before_action :attach_unit, only: [:new, :edit, :update, :destroy]
+
+  def attach_unit
+    p 444444444444
+    session[:attached_unit_path] = request.url if request.get? && !request.xhr?
+  end
 
   def new
     @company = Company.new

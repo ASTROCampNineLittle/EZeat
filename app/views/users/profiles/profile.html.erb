@@ -1,21 +1,24 @@
 <section class="text-gray-600 body-font">
-  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+  <div class="container mx-auto flex py-12 items-center justify-center flex-col">
+    <h2 class="my-2 text-3xl font-extrabold text-gray-900">
+      <%= t 'common.navigation.profile' %>
+    </h2>
     <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
     <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
         <%= t(current_user.name) %>
       </h1>
-      <% if !current_user.last_sign_in_at.nil? %>
-      <p class="mb-8 leading-relaxed">
-            歡迎回來！您上次的登入日期為：
-          <%= current_user.last_sign_in_at.strftime("%Y-%m-%d") %>
-          <% else %>
-            歡迎註冊成為會員！
-          <% end %>
-      </p>
+        <% if !current_user.last_sign_in_at.nil? %>
+          <p class="mb-8 leading-relaxed">
+            <%= t 'devise.profile.welcome' %>
+            <%= current_user.last_sign_in_at.strftime("%Y-%m-%d") %>
+        <% else %>
+            <%= t 'devise.profile.welcome_registered' %>
+          </p>
+        <% end %>
       <div class="flex justify-center">
         <%= link_to(t('devise.profile.edit'), edit_user_registration_path, class: "ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg") %>
-        <%= link_to(t('devise.profile.order'), edit_user_registration_path, class: "ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg") %>
+        <%= link_to(t('devise.profile.order'), myorder_path, class: "ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg") %>
       </div>
     </div>
   </div>

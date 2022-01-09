@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_08_094711) do
+ActiveRecord::Schema.define(version: 2022_01_09_080704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,24 +55,25 @@ ActiveRecord::Schema.define(version: 2022_01_08_094711) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "offer_id", null: false
+    t.bigint "open_date_id", null: false
     t.string "name"
     t.string "tel"
     t.string "email"
-    t.string "dish_name"
-    t.string "dish_number"
+    t.string "user_email"
+    t.string "order_dish"
+    t.string "order_number"
     t.date "order_date"
     t.string "order_time"
     t.integer "order_people"
     t.integer "ezeat_amount"
-    t.integer "order_status"
-    t.integer "newebpay_amount"
+    t.string "order_state"
+    t.bigint "newebpay_amount"
     t.string "newebpay_time"
     t.integer "newebpay_number"
-    t.integer "newebpay_card6no"
+    t.bigint "newebpay_card6no"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["offer_id"], name: "index_orders_on_offer_id"
+    t.index ["open_date_id"], name: "index_orders_on_open_date_id"
   end
 
   create_table "stores", force: :cascade do |t|
@@ -112,8 +113,8 @@ ActiveRecord::Schema.define(version: 2022_01_08_094711) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "company_id"
-    t.string "fb_uid"
-    t.string "fb_token"
+    t.string "facebook_uid"
+    t.string "facebook_token"
     t.string "google_uid"
     t.string "google_token"
     t.index ["company_id"], name: "index_users_on_company_id"
@@ -126,7 +127,7 @@ ActiveRecord::Schema.define(version: 2022_01_08_094711) do
   add_foreign_key "dishes", "stores"
   add_foreign_key "offers", "open_dates"
   add_foreign_key "open_dates", "dishes"
-  add_foreign_key "orders", "offers"
+  add_foreign_key "orders", "open_dates"
   add_foreign_key "stores", "companies"
   add_foreign_key "users", "companies"
 end
