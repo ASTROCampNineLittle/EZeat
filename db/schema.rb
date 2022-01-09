@@ -54,6 +54,27 @@ ActiveRecord::Schema.define(version: 2022_01_08_094711) do
     t.index ["dish_id"], name: "index_open_dates_on_dish_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "offer_id", null: false
+    t.string "name"
+    t.string "tel"
+    t.string "email"
+    t.string "dish_name"
+    t.string "dish_number"
+    t.date "order_date"
+    t.string "order_time"
+    t.integer "order_people"
+    t.integer "ezeat_amount"
+    t.integer "order_status"
+    t.integer "newebpay_amount"
+    t.string "newebpay_time"
+    t.integer "newebpay_number"
+    t.integer "newebpay_card6no"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["offer_id"], name: "index_orders_on_offer_id"
+  end
+
   create_table "stores", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.string "name"
@@ -105,6 +126,7 @@ ActiveRecord::Schema.define(version: 2022_01_08_094711) do
   add_foreign_key "dishes", "stores"
   add_foreign_key "offers", "open_dates"
   add_foreign_key "open_dates", "dishes"
+  add_foreign_key "orders", "offers"
   add_foreign_key "stores", "companies"
   add_foreign_key "users", "companies"
 end

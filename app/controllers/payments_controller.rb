@@ -5,7 +5,7 @@ class PaymentsController < ApplicationController
     @orders = Order.all
   end
   
-  def new
+  def create
     @form_info = Newebpay::Mpgpost.new.form_info
   end
 

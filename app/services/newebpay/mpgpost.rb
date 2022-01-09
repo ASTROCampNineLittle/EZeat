@@ -24,7 +24,7 @@ module Newebpay
     
     def ezeat_random_number
       ezeat = "EZeat"
-      timestamp = Time.now.strftime("%m%d%k%M")
+      timestamp = Time.now.strftime("%m%d%H%M")
       ezeat_time = ezeat.insert(-1,timestamp)
       number = rand(0...999).to_s.rjust(3, '0')
       return ezeat_time_random = ezeat_time.insert(-1,number)
