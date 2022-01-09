@@ -65,7 +65,7 @@
 		<div class="text-left text-lg font-medium border-b-2 border-gray-500 pl-8 bg-white py-3 mb-4">人數：尚未決定 </div>
 
 	
-	<%= form_with url: checks_path , method: "post" do |form| %>
+	<%= form_with url: new_check_path , method: "get" do |form| %>
 
 			<div class='flex flex-wrap justify-center'>
 				<% @offers.each do |offers| %>
@@ -77,6 +77,8 @@
 					</div>
 				<% end %>
 			</div>
+			<%= form.hidden_field :open_date_id, value: params[:id] %>
+			<%= form.hidden_field :order_price, value: @dish.price %>
 			<%= form.hidden_field :order_dish, value: @dish.name %>
 			<%= form.hidden_field :order_price, value: @dish.price %>
 			<%= form.hidden_field :order_date, value: @open_date.availible_date %>

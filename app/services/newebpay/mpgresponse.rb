@@ -1,26 +1,22 @@
 module Newebpay
   class Mpgresponse
     # 使用 attr_reader 可以更方便取用這些資訊
-    attr_reader :status, :message, :result, :order_no, :trans_no, :amt, :pay_time, :card_last4num
+    attr_reader :status, :message, :result, :order_number, :newebpay_number, :newebpay_amount, :newebpay_time, :newebpay_card6no
 
     def initialize(params)
       # 解密需要 key 跟 Hash 來解開
       @key = ENV["newebpay_key"] 
       @iv  = ENV["newebpay_iv"]
+      
       # 將藍新回傳的 params 丟到 decrypy 做解密
       response = decrypy(params)
-      @status = response['Status']
-      @message = response['Message']
-      @result = response['Result']
-      @order_no = @result["MerchantOrderNo"]
-      @trade_no = @result["TradeNo"]
-      @amt = @result["Amt"]
-      @pay_time = @result["PayTime"]  
-      @card_last4num = @result["Card4No"]
-    end
-
-    def success?()
-      @status === 'SUCCESS'
+      @status = response["Status"]
+      @message = response["Message"]
+      @order_number = response.dig("Result", "MerchantOrderNo")
+      @newebpay_number = response.dig("Result", "TradeNo")
+      @newebpay_amount = response.dig("Result", "Amt")
+      @newebpay_time = response.dig("Result", "PayTime")
+      @newebpay_card6no = response.dig("Result", "Card6No")
     end
 
     private
