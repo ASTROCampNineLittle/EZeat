@@ -21,7 +21,7 @@
           <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
             <%= t(:hello, name: current_user.name) %>
           </div>
-            <%= link_to(t('common.navigation.profile'), user_root_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
+            <%= link_to(t('common.navigation.profile'), root_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
             <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
           <% else %>
             <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>

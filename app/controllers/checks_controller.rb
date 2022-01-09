@@ -1,4 +1,6 @@
 class ChecksController < ApplicationController
+  before_action :signed_in_checker, only: [:create]
+
   def index
   end
 

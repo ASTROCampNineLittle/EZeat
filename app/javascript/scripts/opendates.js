@@ -1,15 +1,10 @@
 document.addEventListener('turbolinks:load', () => {
 
-  const chooseSeats = document.getElementById("chooseSeats");
-  const seatSeletor = document.getElementById("seatSelector");
-  const chooseTime = document.getElementById("chooseTime");
-  const timeSelector = document.getElementById("timeSelector")
-
   window.printSeatValue = function() {
-    chooseSeats.innerHTML = seatSeletor.value
+    document.getElementById("chooseSeats").innerHTML = document.getElementById("seatSelector").value
   };
 
   window.printTimeValue = function() {
-    chooseTime.innerHTML = timeSelector.value
+    document.getElementById("chooseTime").innerHTML = document.getElementById("timeSelector").value
   };
 })

@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get 'user/profile', to: 'users/profiles#profile', as: :user_root
+    get 'user/profile', to: 'users/profiles#profile'
+    # , as: :user_root
     get 'user/edit', to: 'users/registrations#edit'
   end
 
