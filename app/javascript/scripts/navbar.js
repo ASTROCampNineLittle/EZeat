@@ -1,4 +1,3 @@
-
 document.addEventListener('turbolinks:load', () => {
 
   const mouseTarget = document.getElementById("mouseTarget");
