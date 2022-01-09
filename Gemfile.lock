@@ -291,8 +291,9 @@ GEM
     zeitwerk (2.5.3)
 
 PLATFORMS
-  x86_64-linux
   arm64-darwin-20
+  x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   aasm (~> 5.2)
