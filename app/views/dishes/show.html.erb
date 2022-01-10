@@ -68,9 +68,13 @@
 
 	<div class="mx-6">
 		<% @dish.open_dates.each do |open_date| %>
-			<%= link_to(store_dish_open_date_path(id: open_date, dish_id: @dish, store_id: @store), class:"mx-2 my-2 text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-1/10 inline-block") do %>
-				<%= open_date.availible_date %>
-			<% end %>
+			<%# @open_times.availible_time.each do |open_time| %>
+				<% if open_date.availible_date >= DateTime.current.to_date %>
+					<%= link_to(store_dish_open_date_path(id: open_date, dish_id: @dish, store_id: @store), class:"mx-2 my-2 text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-1/10 inline-block") do %>
+					<%= open_date.availible_date %>
+					<% end %>
+				<% end %>
+			<%# end %>
 		<% end %>
 	</div>
 	
