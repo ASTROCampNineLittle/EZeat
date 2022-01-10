@@ -48,5 +48,4 @@ class Backend::OffersController < ApplicationController
   def set_offer
     @offer = Offer.find(params[:id])
   end
-
 end

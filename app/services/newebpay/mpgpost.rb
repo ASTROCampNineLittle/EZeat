@@ -21,29 +21,21 @@ module Newebpay
     end
 
     private
-    
-    def ezeat_random_number
-      ezeat = "EZeat"
-      timestamp = Time.now.strftime("%m%d%k%M")
-      ezeat_time = ezeat.insert(-1,timestamp)
-      number = rand(0...999).to_s.rjust(3, '0')
-      return ezeat_time_random = ezeat_time.insert(-1,number)
-    end
 
     def set_info()
+      # 目前先用成立訂單的最後一筆抓資料,未來應該寫篩選屬於該使用者的訂單
+      @order = Order.last
+      @user = User.last
+      
       @info[:MerchantID] = @merchant_id
-      @info[:MerchantOrderNo] = ezeat_random_number.to_s
-      @info[:Amt] = 100
-      @info[:ItemDesc] = "5x餐卷好好吃"
-      @info[:Email] = "dreamorange830@gmail.com"
-      # @info[:Amt] = project.price
-      # @info[:ItemDesc] = project.name 
-      # @info[:Email] = user.email
+      @info[:MerchantOrderNo] = @order.order_number
+      @info[:Amt] = @order.ezeat_amount
+      @info[:ItemDesc] = @order.order_dish 
+      @info[:Email] = @user.email
       @info[:TimeStamp] = Time.now.to_i 
       @info[:RespondType] = "JSON"
       @info[:Version] = "1.5"
-      @info[:ReturnURL] = "http://localhost:3000/payments/:payment_id/confirm"
-      # id: params[:id], order: 123 => project/3&order=123
+      @info[:ReturnURL] = "http://localhost:3000/payments/:user_id/confirm"
       @info[:NotifyURL] = ""
       @info[:LoginType] = 0 
       @info[:CREDIT] =  1

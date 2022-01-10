@@ -18,7 +18,6 @@ class Backend::CompaniesController < ApplicationController
 
   def create
     company = current_user.create_company(company_params)
-
     if company.save
       redirect_to backend_company_path(current_user.company.id), notice: '新增公司成功'
     else
