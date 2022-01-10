@@ -1,12 +1,10 @@
-
 <div class="bg-red-300 align-center" >
-  <%= search_form_for @store do |f| %>
-    <%= f.label :name_cont, "商店名稱" %>
-    <%= f.search_field :name_cont, placeholder: "商店名稱" %>
-    <%= f.submit %>
-  <% end %>
+	<%= search_form_for @q do |f| %>
+	  <%= f.label :name_cont, "角色名稱" %>
+		<%= f.search_field :name_cont, placeholder: "角色名稱" %>
+		<%= f.submit "搜尋" %>
+	<% end %>
 </div>
-
 
 <section class="antialiased text-gray-600 w-full m-auto my-10">
     <div class="flexjustify-center h-full">

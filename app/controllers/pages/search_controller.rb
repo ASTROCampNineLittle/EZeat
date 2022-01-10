@@ -1,8 +1,13 @@
 class Pages::SearchController < ApplicationController
-  def index
-    @store = Store.ransack(params[:q])
-    @result = @store.result(distinct: true)
+  before_action :set_q, only: [:index, :search]
 
-    a
+  def search
+    @results = @q.result
+  end
+
+  private
+
+  def set_q
+    @q = User.ransack(params[:q])
   end
 end

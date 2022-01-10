@@ -4,14 +4,14 @@ module Newebpay
     attr_accessor :info
 
     def initialize( merchant_id: nil , key: nil, iv: nil)
-      @key = key || ENV["newebpay_key"] 
-      @iv  = iv || ENV["newebpay_iv"] 
-      @merchant_id = merchant_id || ENV["newebpay_merchant_id"] 
+      @key = key || ENV["newebpay_key"]
+      @iv  = iv || ENV["newebpay_iv"]
+      @merchant_id = merchant_id || ENV["newebpay_merchant_id"]
       @info = {}
       set_info()
     end
 
-    def form_info 
+    def form_info
       {
         MerchantID: @merchant_id,
         TradeInfo: trade_info,
@@ -21,7 +21,7 @@ module Newebpay
     end
 
     private
-    
+
     def ezeat_random_number
       ezeat = "EZeat"
       timestamp = Time.now.strftime("%m%d%H%M")
@@ -37,15 +37,15 @@ module Newebpay
       @info[:ItemDesc] = "5x餐卷好好吃"
       @info[:Email] = "dreamorange830@gmail.com"
       # @info[:Amt] = project.price
-      # @info[:ItemDesc] = project.name 
+      # @info[:ItemDesc] = project.name
       # @info[:Email] = user.email
-      @info[:TimeStamp] = Time.now.to_i 
+      @info[:TimeStamp] = Time.now.to_i
       @info[:RespondType] = "JSON"
       @info[:Version] = "1.5"
       @info[:ReturnURL] = "http://localhost:3000/payments/:payment_id/confirm"
       # id: params[:id], order: 123 => project/3&order=123
       @info[:NotifyURL] = ""
-      @info[:LoginType] = 0 
+      @info[:LoginType] = 0
       @info[:CREDIT] =  1
       @info[:VACC] = 0
       # ----選填區-----
@@ -53,7 +53,7 @@ module Newebpay
       # @info[:OrderComment]  =  "字數上限300字,可以帶資料庫的餐卷描述"
       # ----選填區-----
     end
-    
+
     def trade_info
       aes_encode(url_encoded_query_string)
     end
