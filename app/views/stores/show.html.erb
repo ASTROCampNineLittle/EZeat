@@ -43,11 +43,11 @@
       <% @dishes.each do |dish| %>
         <div class="flex items-center justify-between bg-orange-200 pl-8 py-2">
           <h3 class="text-left text-lg font-medium"><%= dish.name %></h3>
-          <span class="text-red-500 text-3xl pr-8 font-bold">＄<%= dish.price %></span>
+          <span class="text-red-500 text-3xl pr-8 font-bold">＄<%= dish.price.to_s.gsub(/(\d)(?=(\d{3})+$)/,'\1,') %></span>
         </div>
         <div class="text-left px-8 py-4 text-base leading-8"><%= simple_format(dish.intro) %></div>
         <div class="mx-8">
-          <%= link_to "選此方案", store_dish_path(id: dish, store_id: @store) , class:"text-white text-sm py-2.5 px-5 my-6 border-b-4 border-red-700 rounded-md bg-red-500 hover:bg-red-400 inline-block text-center w-full" %>
+          <%= link_to "選 此 方 案", store_dish_path(id: dish, store_id: @store) , class:"text-white text-base text-center my-5 py-2.5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer inline-block" %>
         </div>
       <% end %>  
     </section>
@@ -83,4 +83,4 @@
       </div>
     </section>
   </div>
-
+</div>

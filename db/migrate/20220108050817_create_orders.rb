@@ -1,12 +1,12 @@
 class CreateOrders < ActiveRecord::Migration[6.1]
   def change
     create_table :orders do |t|
-      t.references :offer, null: false, foreign_key: true
+      t.references :open_date, null: false, foreign_key: true
       t.string :name
       t.string :tel
       t.string :email
-      t.string :dish_name     
-      t.string :dish_number
+      t.string :order_dish
+      t.string :order_number
       t.date :order_date
       t.string :order_time
       t.integer :order_people
