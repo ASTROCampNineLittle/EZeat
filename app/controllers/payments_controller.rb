@@ -1,19 +1,16 @@
 class PaymentsController < ApplicationController
-  skip_before_action :verify_authenticity_token, :only => [ :confirm]
+  skip_before_action :verify_authenticity_token, :only => [:confirm]
 
-  def index
-    @orders = Order.all
-  end
-
-  def create
+  def new
     @form_info = Newebpay::Mpgpost.new.form_info
   end
 
   def confirm
     @response = Newebpay::Mpgresponse.new(params[:TradeInfo])
-    # @order = Order.find_by(MerchanOrderNo: response.result[:MerchantOrderNo])
-    #               .update(card_4no: response.result[:Card4no],
-    #                       Paytime: response.result[:Paytime],
-    #                       TradeNo: response.result[:TradeNo],)
+    @order = Order.find_by(order_number: @response.order_number)
+    trade_result_update = @order.update(newebpay_amount: @response.newebpay_amount.to_i,
+                                        newebpay_time: @response.newebpay_time,
+                                        newebpay_card6no: @response.newebpay_card6no,
+                                        order_status: 1)
   end
 end

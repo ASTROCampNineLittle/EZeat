@@ -15,28 +15,25 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  # get 'search', to: 'pages#search'
-  get 'myorder', to: 'pages#myorder'
-  get 'verification', to: 'pages#verification'
+  get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
-
-  namespace :pages do
-    resources :search, only: [:index] do
-    end
-  end
+  get 'myorder', to: 'pages#myorder'
+  get 'mytickets', to: 'pages#mytickets'
 
   #frontend related routes
-  resources :stores, only: [:index, :show] do
-    resources :dishes, only: [:index, :show] do
-      resources :open_dates, only: [:index, :show] do
+  resources :stores, only: [:show] do
+    resources :dishes, only: [:show] do
+      resources :open_dates, only: [:show] do
       end
     end
   end
 
-  resources :checks , only: [:index , :show, :create]
+  resources :checks , only: [:new, :create]
 
-  resources :payments , only: [:index, :new, :create] do
-    post :confirm
+  resources :payments , only: [:new] do
+    member do
+      post :confirm
+    end
   end
 
   #backend related routes
@@ -47,6 +44,10 @@ Rails.application.routes.draw do
 
     resources :stores, only: [] do
       resources :dishes, except: [:show], shallow: true
+    end
+
+    resources :dishes, only: [] do
+      resources :open_dates, except: [:show], shallow: true
     end
 
     resources :dishes, only: [] do

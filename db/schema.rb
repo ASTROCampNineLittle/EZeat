@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_135030) do
+ActiveRecord::Schema.define(version: 2022_01_09_061818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,28 @@ ActiveRecord::Schema.define(version: 2022_01_09_135030) do
     t.index ["dish_id"], name: "index_open_dates_on_dish_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "open_date_id", null: false
+    t.string "name"
+    t.string "tel"
+    t.string "email"
+    t.string "order_dish"
+    t.string "order_number"
+    t.date "order_date"
+    t.string "order_time"
+    t.integer "order_people"
+    t.integer "ezeat_amount"
+    t.integer "order_status"
+    t.bigint "newebpay_amount"
+    t.string "newebpay_time"
+    t.integer "newebpay_number"
+    t.bigint "newebpay_card6no"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "user_email"
+    t.index ["open_date_id"], name: "index_orders_on_open_date_id"
+  end
+
   create_table "stores", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.string "name"
@@ -74,6 +96,16 @@ ActiveRecord::Schema.define(version: 2022_01_09_135030) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
     t.index ["company_id"], name: "index_stores_on_company_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer "use_status", default: 0
+    t.bigint "order_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_tickets_on_order_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -108,6 +140,9 @@ ActiveRecord::Schema.define(version: 2022_01_09_135030) do
   add_foreign_key "dishes", "stores"
   add_foreign_key "offers", "open_dates"
   add_foreign_key "open_dates", "dishes"
+  add_foreign_key "orders", "open_dates"
   add_foreign_key "stores", "companies"
+  add_foreign_key "tickets", "orders"
+  add_foreign_key "tickets", "users"
   add_foreign_key "users", "companies"
 end

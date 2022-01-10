@@ -1,7 +1,9 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  connect() {
-    this.element.submit();
+  connect(){
+    setTimeout(() => {
+      this.element.submit()
+    }, 100); 
   }
 }
