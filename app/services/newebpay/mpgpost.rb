@@ -35,14 +35,13 @@ module Newebpay
       @info[:TimeStamp] = Time.now.to_i 
       @info[:RespondType] = "JSON"
       @info[:Version] = "1.5"
-      @info[:ReturnURL] = "http://localhost:3000/payments/:user_id/confirm"
+      @info[:ReturnURL] = "http://localhost:3000/payments/:id/confirm"
       @info[:NotifyURL] = ""
       @info[:LoginType] = 0 
       @info[:CREDIT] =  1
       @info[:VACC] = 0
       # ----選填區-----
       # @info[:ClientBackURL] =  "返回上一頁的網址"
-      # @info[:OrderComment]  =  "字數上限300字,可以帶資料庫的餐卷描述"
       # ----選填區-----
     end
     

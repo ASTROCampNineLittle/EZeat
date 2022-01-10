@@ -1,9 +1,14 @@
 class ChecksController < ApplicationController
   def new
     @user = User.last
-    @ezeat_amount = (params[:order_price].to_i)*(params[:order_people].to_i)
-    @ezeat_random_number = ezeat_random_number
     @order = Order.new
+    @open_date = OpenDate.find(params[:open_date_id])
+    @store = @open_date.dish.store
+    @ezeat_amount = (params[:order_price].to_i)*(params[:order_people].to_i)
+    @ezeat_amount_commify = @ezeat_amount.to_s.gsub(/(\d)(?=(\d{3})+$)/,'\1,')
+    @dish_price_commify = params[:order_price].gsub(/(\d)(?=(\d{3})+$)/,'\1,')
+    # 參考來源 https://stackoverflow.com/questions/3696555/explain-ruby-commify-large-integer-method
+    @ezeat_random_number = ezeat_random_number
   end
 
   def create
@@ -14,6 +19,7 @@ class ChecksController < ApplicationController
       render
     end
   end
+
 
   private
   def order_params

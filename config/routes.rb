@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   get 'search', to: 'pages#search'
-  get 'myorder', to: 'pages#myorder'
-  get 'verification', to: 'pages#verification'
   get 'channel', to: 'pages#channel'
+  get 'myorder', to: 'pages#myorder'
+  get 'mytickets', to: 'pages#mytickets'
   
   #frontend related routes
   resources :stores, only: [:show] do
