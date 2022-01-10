@@ -6,14 +6,14 @@ export default class extends Controller {
   add_offer(event) {
     event.preventDefault();
 
-    let content = this.templateTarget.innerHTML.replace(/ADD_TIME/g, new Date().getTime());
+    let content = this.templateTarget.innerHTML.replace(/ADD_OFFER/g, new Date().getTime());
     this.linkTarget.insertAdjacentHTML('beforebegin', content);
   }
 
   delete_offer(event) {
     event.preventDefault();
 
-    let inputColumn = event.target.closest('.date-fields');
+    let inputColumn = event.target.closest('.offer-fields');
     if(inputColumn.dataset.newRecord == "true") {
       inputColumn.remove();
     } else {
