@@ -23,6 +23,7 @@ class Backend::OpenDatesController < ApplicationController
   end
 
   def edit
+    @dish = @open_date.dish
   end
 
   def update
@@ -41,7 +42,8 @@ class Backend::OpenDatesController < ApplicationController
 
   private
     def open_date_params
-      params.require(:open_date).permit(:availible_date)
+      params.require(:open_date).permit(:availible_date, 
+                                        offers_attributes: [ :id, :availible_time, :capacity, :_destroy ])
     end
 
     def set_open_date

@@ -20,7 +20,7 @@ class Backend::StoresController < ApplicationController
     @store = @company.stores.create(store_params)
 
     if @store.save
-      redirect_to backend_company_stores_path(params[:company_id]), notice: '新增分店成功'
+      redirect_to backend_company_path(params[:company_id]), notice: '新增分店成功'
     else
       render :new
     end
@@ -31,7 +31,7 @@ class Backend::StoresController < ApplicationController
 
   def update 
     if @store.update(store_params)
-      redirect_to backend_company_stores_path(@store.company), notice: '修改分店成功'
+      redirect_to backend_company_path(@store.company), notice: '修改分店成功'
     else
       render :edit
     end

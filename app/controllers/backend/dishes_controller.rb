@@ -5,7 +5,6 @@ class Backend::DishesController < ApplicationController
   def index
     @store = Store.find(params[:store_id])
     @dishes = @store.dishes.all
-    # @current_open_date = OpenDate.select(availible_date: > DateTime.current.to_date)
   end
 
   def new
@@ -25,13 +24,16 @@ class Backend::DishesController < ApplicationController
   end
 
   def edit
+    @store = @dish.store
+    @dish.open_dates.build
   end
 
   def update
+    @store = @dish.store
     if @dish.update(dish_params)
       redirect_to backend_store_dishes_path(@dish.store)
     else
-      render :edit
+      render :index
     end
   end
 
@@ -43,7 +45,14 @@ class Backend::DishesController < ApplicationController
 
   private
     def dish_params
-      params.require(:dish).permit(:name, :price, :start_date, :end_date, :status, :intro, images_attributes: [ :image ] )
+      params.require(:dish).permit(:name,
+                                   :price, 
+                                   :start_date, 
+                                   :end_date, 
+                                   :status, 
+                                   :intro, 
+                                   images_attributes: [ :image ], 
+                                   open_dates_attributes: [ :id, :availible_date, :_destroy ])
     end
 
     def set_dish

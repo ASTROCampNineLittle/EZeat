@@ -18,26 +18,45 @@
       <% @dishes.each do |dish| %>
         <tr class="bg-white-300 border border-gray-500 md:border-none block md:table-row">
           <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">可訂位日期</span>
-            <div data-controller="dish-form">
+            <div data-controller="dish-form">         
               <%= form_with model: [:backend, dish] do |form| %>
-                <% dish.open_dates.sort_by{ |open_date| open_date.availible_date }.each do |open_date|%>
-                <% if open_date.availible_date >= DateTime.current.to_date %>
-                  <%= link_to "#{open_date.availible_date}", edit_backend_open_date_path(open_date), class:"bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 border border-green-500 rounded" %>
+                <% dish.open_dates.sort_by{ |open_date| open_date.availible_date }.each do |open_date| %>
+                  <% if open_date.availible_date >= DateTime.current.to_date %>
+                    <%= form.fields_for open_date do |created_date| %>
+                      <div class="date-fields" data-new-record="<%= form.object.new_record?%>">
+                        
+                        <%= form.date_field :availible_date, placehoder: '可訂位日期', class: 'bg-white-500 hover:bg-gray-300 text-black font-bold py-1 px-2 border border-black-500 rounded' %>
+
+                        <%=link_to "刪除", "#", class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded", data: {action: 'dish-form#delete_date'} %>
+
+                        <%= form.hidden_field :_destroy %>
+
+                        <%=link_to "編輯可訂位時段及人數", edit_backend_open_date_path(open_date), class: "bg-green-200 hover:bg-green-400 text-balck font-bold py-1 px-2 border border-green-200 rounded"%>
+                      </div>
+                    <% end %>
+                    
+                  <% end %>
                 <% end %>
-              <%end%>
 
-              <template data-target="dish-form.template">
-                <%= form.fields_for :open_dates, OpenDate.new, child_index: "ADD_DATE" do |date|%>
-                  <%= render "date_fields", form: date %>
-                <%end%>
-              </template>
+                <template data-target="dish-form.template">
+                    <%= form.fields_for :open_dates, OpenDate.new, child_index: "ADD_DATE" do |date|%>
+                      <div class="date-fields" data-new-record="<%= form.object.new_record?%>">
+                        
+                        <%= form.date_field :availible_date, placehoder: '可訂位日期', class: 'bg-white-500 hover:bg-gray-300 text-black font-bold py-1 px-2 border border-black-500 rounded' %>
 
-              <div data-target="dish-form.link">
-                <%=link_to "新增", "#", class: "bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 border border-gray-400 rounded", data: {action: "dish-form#add_date"} %>
+                        <%=link_to "刪除", "#", class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded", data: {action: 'dish-form#delete_date'} %>
+
+                        <%= form.hidden_field :_destroy %>
+                      </div>
+                    <%end%>
+                </template>
+
+                <div data-target="dish-form.link">
+                  <%=link_to "新增", "#", class: "bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 border border-gray-400 rounded", data: {action: "dish-form#add_date"} %>
                 
-                <%= form.submit value="更新日期", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-              </div>
-            <% end %>
+                  <%= form.submit value="更新日期", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+                </div>
+              <% end %>
             </div> 
           </td>
 

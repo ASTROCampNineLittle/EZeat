@@ -1,0 +1,8 @@
+              <%= form_with model: [:backend, dish] do |form| %>
+                <% dish.open_dates.sort_by{ |open_date| open_date.availible_date }.each do |open_date| %>
+                  <% if open_date.availible_date >= DateTime.current.to_date %>
+                    <%= form.fields_for open_date do |open_date| %>
+                      <%= render "date_fields", form: open_date %>
+                    <% end %>
+                  <% end %>
+                <% end %>

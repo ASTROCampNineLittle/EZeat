@@ -1,6 +1,8 @@
 class OpenDate < ApplicationRecord
   belongs_to :dish
-  has_many :offers
+
+  has_many :offers, dependent: :destroy
+  accepts_nested_attributes_for :offers, reject_if: :all_blank, allow_destroy: true
 
   validate :date_cannot_be_in_the_past
 
