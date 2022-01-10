@@ -3,14 +3,14 @@ namespace :db do
   task :new_oops => :environment do
 
     # 產生假公司
-    us = User.first
-    1.times do |i|
-      us.create_company(name: Faker::Restaurant.name,
-                        address: Faker::Address.full_address,
-                        tel: Faker::PhoneNumber.cell_phone,
-                        manager_name: Faker::Games::Pokemon
-                        )
-    end
+    # us = User.first
+    # 1.times do |i|
+    #   us.create_company(name: Faker::Restaurant.name,
+    #                     address: Faker::Address.full_address,
+    #                     tel: Faker::PhoneNumber.cell_phone,
+    #                     manager_name: Faker::Games::Pokemon
+    #                     )
+    # end
 
     # 產生假分店
     com = Company.first

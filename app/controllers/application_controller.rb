@@ -1,9 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :store_user_location!, if: :storable_location?
-
   around_action :switch_locale
-
   helper_method :has_company
 
   private
@@ -37,8 +35,7 @@ class ApplicationController < ActionController::Base
   # 確認是否有公司
   def has_company
     if signed_in?
-      check_company = current_user.company
-      !check_company.nil?
+      current_user.company.present?
     end
   end
 end

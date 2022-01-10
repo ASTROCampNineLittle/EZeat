@@ -9,17 +9,21 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get 'user/profile', to: 'users/profiles#profile'
-    # , as: :user_root
+    get 'user/profile', to: 'users/profiles#profile', as: :user_root
     get 'user/edit', to: 'users/registrations#edit'
   end
 
   root 'pages#index'
 
-  get 'search', to: 'pages#search'
+  # get 'search', to: 'pages#search'
   get 'myorder', to: 'pages#myorder'
   get 'verification', to: 'pages#verification'
   get 'channel', to: 'pages#channel'
+
+  namespace :pages do
+    resources :search, only: [:index] do
+    end
+  end
 
   #frontend related routes
   resources :stores, only: [:index, :show] do

@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
   def index
     @orders = Order.all
   end
-  
+
   def create
     @form_info = Newebpay::Mpgpost.new.form_info
   end
@@ -12,8 +12,8 @@ class PaymentsController < ApplicationController
   def confirm
     @response = Newebpay::Mpgresponse.new(params[:TradeInfo])
     # @order = Order.find_by(MerchanOrderNo: response.result[:MerchantOrderNo])
-    #               .update(card_4no: response.result[:Card4no], 
-    #                       Paytime: response.result[:Paytime], 
+    #               .update(card_4no: response.result[:Card4no],
+    #                       Paytime: response.result[:Paytime],
     #                       TradeNo: response.result[:TradeNo],)
   end
 end

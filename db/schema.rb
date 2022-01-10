@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_080704) do
+ActiveRecord::Schema.define(version: 2022_01_09_135030) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 2022_01_09_080704) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "companies_users", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "comapny_id"
+    t.index ["comapny_id"], name: "index_companies_users_on_comapny_id"
+    t.index ["user_id"], name: "index_companies_users_on_user_id"
   end
 
   create_table "dishes", force: :cascade do |t|
@@ -52,28 +59,6 @@ ActiveRecord::Schema.define(version: 2022_01_09_080704) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["dish_id"], name: "index_open_dates_on_dish_id"
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.bigint "open_date_id", null: false
-    t.string "name"
-    t.string "tel"
-    t.string "email"
-    t.string "user_email"
-    t.string "order_dish"
-    t.string "order_number"
-    t.date "order_date"
-    t.string "order_time"
-    t.integer "order_people"
-    t.integer "ezeat_amount"
-    t.string "order_state"
-    t.bigint "newebpay_amount"
-    t.string "newebpay_time"
-    t.integer "newebpay_number"
-    t.bigint "newebpay_card6no"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["open_date_id"], name: "index_orders_on_open_date_id"
   end
 
   create_table "stores", force: :cascade do |t|
@@ -113,10 +98,6 @@ ActiveRecord::Schema.define(version: 2022_01_09_080704) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "company_id"
-    t.string "facebook_uid"
-    t.string "facebook_token"
-    t.string "google_uid"
-    t.string "google_token"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -127,7 +108,6 @@ ActiveRecord::Schema.define(version: 2022_01_09_080704) do
   add_foreign_key "dishes", "stores"
   add_foreign_key "offers", "open_dates"
   add_foreign_key "open_dates", "dishes"
-  add_foreign_key "orders", "open_dates"
   add_foreign_key "stores", "companies"
   add_foreign_key "users", "companies"
 end

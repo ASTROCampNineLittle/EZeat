@@ -1,8 +1,8 @@
 namespace :db do
   desc "產生假會員"
   task :new_users => :environment do
-    5.times do |i|
-      User.create(name: Faker::Games::Pokemon,
+    2.times do |i|
+      User.create(name: Faker::Games::Pokemon.name,
                   email: "pica@p#{i}",
                   password: '111',
                   password_confirmation: '111',

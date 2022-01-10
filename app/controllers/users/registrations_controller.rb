@@ -23,5 +23,3 @@ class Users::RegistrationsController < Devise::RegistrationsController
       devise_parameter_sanitizer.permit(:account_update, keys: [:tel, :gender, :role, :name])
     end
 end
-
-

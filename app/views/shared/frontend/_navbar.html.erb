@@ -1,16 +1,8 @@
 <div class="max-w-full bg-orange-500 h-20 navbar">
   <div class="mx-2 px-2 h-20">
     <div class="flex border-gray-100 h-full">
-
       <div class="self-center" style="width: 45%">
-        <input class="border-2 border-primary bg-red transition h-11 px-2 pr-6 rounded-md focus:outline-none text-black text-m bg-pink-300" name="search" placeholder="Search(按放大鏡)"/>
-        <%= link_to search_path do %>
-          <button type="submit" class="absolute right-3 top-3">
-            <!-- <svg class="text-black h-3 w-3 fill-current" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve" width="512px" height="512px">
-              <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
-            </svg> -->
-          </button>
-        <% end %>
+        <%= link_to "Search", pages_search_index_path, class: "h-10 w-30 border-2 border-primary bg-red transition rounded-md focus:outline-none text-black text-m bg-pink-300" %>
       </div>
       <div class="self-center" style="width: 10%">
           <img class="w-24 mx-auto" src="https://by3301files.storage.live.com/y4mzjoap9d2rbMvwtVEWPkWuVfu8dPIk2SqMiC08ssWXyDUvlf4R5NOxcmQMUyfVMG8z-80kuXDKVbFTfn2xDqNVE4lmPuMHsa6HxzNpOLveaF4tjqaa9kXVrqLFy1-e-_UZH2OQWXWpHm5tGBUVMBr6RVRRhXEm8xj8aAb402btqe89l9IqHMmFBjpF171pN9D6YbfZtzWrxjzClrj5vWzWw/EZeat2.png?psid=1&width=1149&height=430">
@@ -21,7 +13,7 @@
           <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
             <%= t(:hello, name: current_user.name) %>
           </div>
-            <%= link_to(t('common.navigation.profile'), root_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
+            <%= link_to(t('common.navigation.profile'), user_root_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
             <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
           <% else %>
             <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
@@ -31,7 +23,7 @@
       </div>
       <div class="flex" style="width: 20%">
         <div class="self-center" style="width: 45%">
-          <div class="dropDown" id="mouseTarget">
+          <div class="dropDown" id="navTarget">
             <button class="inline-flex rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-100 focus:ring-orange-200">
               <%= t 'common.navigation.navigate' %>
               <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +61,7 @@
         <div class="" style="width: 5%">
         </div>
         <div class="self-center justify-end" style="width: 50%">
-          <div class="dropDown" id="mouseTargetLg">
+          <div class="dropDown" id="navTargetLg">
             <button class="inline-flex rounded-md border border-red-700 shadow-sm px-4 py-2 bg-orange-300 text-sm font-medium text-gray-700 hover:bg-orange-200 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-orange-100 focus:ring-orange-200">
               <%= t 'common.navigation.site_language' %>
               <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

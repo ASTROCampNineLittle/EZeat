@@ -1,6 +1,13 @@
-<%#= stylesheet_link_tag "slideshow.css" %>
 
-<%# table %>
+<div class="bg-red-300 align-center" >
+  <%= search_form_for @store do |f| %>
+    <%= f.label :name_cont, "商店名稱" %>
+    <%= f.search_field :name_cont, placeholder: "商店名稱" %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+
 <section class="antialiased text-gray-600 w-full m-auto my-10">
     <div class="flexjustify-center h-full">
         <!-- Table -->
@@ -10,7 +17,7 @@
                     <div class="flex justify-between">
                         <label class="block mt-2 text-xs font-semibold text-gray-600 uppercase w-2/6">
                         餐廳名稱
-                            <input placeholder="請輸入餐廳名稱" class="block w-full p-2 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner rounded" required />
+                            <input placeholder="請輸入餐廳名稱1" class="block w-full p-2 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner rounded" required />
                         </label>
                         <label type="date" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">
                         日期

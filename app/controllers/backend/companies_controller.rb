@@ -1,11 +1,11 @@
 class Backend::CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update, :destroy]
   before_action :signed_in_checker, only: [:new, :edit, :update, :destroy]
+  around_action :redirect_to_owned_company, only: [:new, :create]
 
   layout "backend"
 
   def new
-    session[:return_to] = request.referer
     @company = Company.new
   end
 
@@ -32,6 +32,12 @@ class Backend::CompaniesController < ApplicationController
   def destroy
     @company.destroy
     redirect_to root_path
+  end
+
+  def redirect_to_owned_company
+    if !current_user.company.nil?
+      redirect_to backend_company_stores_path(current_user.company.id)
+    end
   end
 
   private
