@@ -1,0 +1,8 @@
+<div class="date-fields" data-new-record="<%= form.object.new_record?%>">
+  
+  <%= form.date_field :availible_date, placehoder: '可訂位日期', class: 'bg-white-500 hover:bg-gray-300 text-black font-bold py-1 px-2 border border-black-500 rounded' %>
+
+  <%=link_to "刪除", "#", class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded", data: {action: 'dish-form#delete_date'} %>
+
+  <%= form.hidden_field :_destroy %>
+</div>

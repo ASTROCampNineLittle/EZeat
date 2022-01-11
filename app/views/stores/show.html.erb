@@ -3,11 +3,11 @@
   <!-- Slide show start -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="/image/1.jpeg"></div>
-      <div class="swiper-slide"><img src="/image/2.jpeg"></div>
-      <div class="swiper-slide"><img src="/image/3.jpeg"></div>
-      <div class="swiper-slide"><img src="/image/4.jpeg"></div>
-      <div class="swiper-slide"><img src="/image/5.jpeg"></div>
+
+        <div class="swiper-slide">
+        <%= image_tag @store.image_url if @store.image_url.present? %>
+        </div>
+
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
