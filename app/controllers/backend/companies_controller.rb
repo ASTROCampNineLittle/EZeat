@@ -1,7 +1,7 @@
 class Backend::CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update, :destroy]
   before_action :signed_in_checker, only: [:new, :edit, :update, :destroy]
-  around_action :redirect_to_owned_company, only: [:new, :create]
+  around_action :redirect_to_owned_company, only: [:new, :create], if: :has_company
 
   layout "backend"
 
@@ -35,14 +35,16 @@ class Backend::CompaniesController < ApplicationController
   end
 
   def redirect_to_owned_company
-    if !current_user.company.nil?
+    if current_user.present? && current_user.company.present?
       redirect_to backend_company_stores_path(current_user.company.id)
+    else
+      render :new
     end
   end
 
   private
     def company_params
-      params.require(:company).permit(:name, :address, :tel, :manager_name )
+      params.require(:company).permit(:name, :address, :tel, :manager_name)
     end
 
     def set_company

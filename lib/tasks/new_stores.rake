@@ -11,7 +11,6 @@ namespace :db do
                         address: Faker::Address.full_address,
                         tel: Faker::PhoneNumber.cell_phone,
                         intro: Faker::Restaurant.description
-                        # image: (Rails.root + "public/uploads/store/image/12/store_test.png")
                         )
     end
   end
