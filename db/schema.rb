@@ -26,11 +26,12 @@ ActiveRecord::Schema.define(version: 2022_01_09_135030) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
-  create_table "companies_users", id: false, force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "comapny_id"
-    t.index ["comapny_id"], name: "index_companies_users_on_comapny_id"
-    t.index ["user_id"], name: "index_companies_users_on_user_id"
+  create_table "dish_images", force: :cascade do |t|
+    t.integer "dish_id"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_dish_images_on_dish_id"
   end
 
   create_table "dishes", force: :cascade do |t|

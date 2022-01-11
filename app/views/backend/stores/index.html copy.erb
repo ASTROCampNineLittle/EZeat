@@ -1,7 +1,6 @@
 <span class="flex text-xl">
   <div class="mr-4">公司：<%= @company.name %></div>
   <div class="mr-4">聯絡電話：<%= @company.tel%></div>
-  <div class="mr-4">負責人：<%= @company.manager_name%></div>
 </span>
 
 <h2>分店清單</h2>
@@ -38,5 +37,8 @@
 	</tbody>
 </table>
 
-<%= link_to "新增分店", new_backend_company_store_path(@company),
+<%= link_to "新增分店", new_backend_company_store_path(@company), 
 class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"%>
+    
+<%= link_to "編輯公司資料", edit_backend_company_path(@company), 
+class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded" %>

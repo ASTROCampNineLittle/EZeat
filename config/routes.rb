@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
   #backend related routes
   namespace :backend do
-    resources :companies, except: [:show] do
+    resources :companies, except: [:index] do
       resources :stores, shallow: true
     end
 

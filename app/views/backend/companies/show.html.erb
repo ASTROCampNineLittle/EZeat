@@ -1,58 +1,83 @@
-<div class='w-full max-w-sm'>
-  <div class="md:flex md:items-center mb-6">
-    <div class=" ">
-     <h1 class='block text-gray-500 font-bold text-2xl md:text-right mb-1 md:mb-0 pr-4'>公司資料</h1>
+<div class="w-10/12 h-full m-auto">
+	<div class="border-b-2 px-4 py-10">	
+		<div class="flex pb-3">
+
+			<div class="flex-1">
+				<div class="w-10 h-10 bg-red-400 border-2 border-red-400 mx-auto rounded-full text-lg text-white flex items-center">
+					<span class="text-center w-full">1</span>
+				</div>
+			</div>
+
+			<div class="w-1/4 align-center items-center align-middle content-center flex">
+				<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
+					<div class="bg-red-400 text-xs leading-none py-1 text-center rounded " style="width: 100%"></div>
+				</div>
+			</div>
+		
+			<div class="flex-1">
+				<div class="w-10 h-10 bg-red-400 border-2 border-red-400 mx-auto rounded-full text-lg text-white flex items-center">
+					<span class="text-center w-full">2</span>
+				</div>
+			</div>
+		
+			<div class="w-1/4 align-center items-center align-middle content-center flex">
+				<div class="w-full rounded items-center align-middle align-center flex-1">
+					<div class="bg-gray-400 text-xs leading-none py-1 text-center rounded " style="width: 100%"></div>
+				</div>
+			</div>
+		
+			<div class="flex-1">
+				<div class="w-10 h-10 bg-white border-2 border-red-400 mx-auto rounded-full text-lg text-red-400 flex items-center">
+					<span class="text-center w-full">3</span>
+				</div>
+			</div>
+
+		</div>
+		
+		<div class="flex text-lg content-center text-center py-1">
+			<div class="w-1/4 text-sm text-red-500">
+				選擇餐卷
+			</div>
+
+			<div class="w-1/3 align-center items-center align-middle content-center flex">
+			</div>
+
+			<div class="w-1/4 text-sm text-red-500">
+				確認訂位資訊
+			</div>
+
+			<div class="w-1/3 align-center items-center align-middle content-center flex">
+			</div>
+			
+			<div class="w-1/4 text-sm text-red-500">
+				確認訂單結果
+			</div>
+		</div>
+	</div>
+
+  <%# 選擇分店 %>
+    <div class="m-auto p-8 border border-gray-300 rounded-md my-5 shadow-xl">
+      <h1 class="border-b-2 border-gray-300">選擇分店</h1>
+
+      <div class="flex mt-3 flex-wrap text-center">
+        <% @company.stores.each do |store| %>
+          <div class="w-1/3 p-3">
+            <%= link_to backend_store_path(store) do %>
+              <div class="">
+                <%= image_tag store.image_url if store.image_url.present? %>
+              </div>
+              <div class="text-lg font-bold"><%= store.name %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="flex justify-evenly">
+        <div>
+          <%= link_to "新增分店", new_backend_company_store_path(@company), class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-40 border border-blue-700 rounded "%>
+        </div>
+      </div>
+      
+    </div>
+
     </div>
   </div>
-
-    <div class="md:flex md:items-center mb-6">
-      <div class="md:w-1/3">
-        <p class='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'>公司名稱 </p>
-      </div>
-      <div class="md:w-2/3 bg-white-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
-        <%=  @company.name %>
-      </div>
-    </div>
-
-    <div class="md:flex md:items-center mb-6">
-      <div class="md:w-1/3">
-        <p class='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'>公司地址 </p>
-      </div>
-      <div class="md:w-2/3 bg-white-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
-        <%= @company.address %>
-      </div>
-    </div>
-
-    <div class="md:flex md:items-center mb-6">
-      <div class="md:w-1/3">
-        <p class='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'>聯絡電話</p>
-      </div>
-      <div class="md:w-2/3 bg-white-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
-        <%= @company.tel %>
-      </div>
-    </div>
-
-    <div class="md:flex md:items-center mb-6">
-      <div class="md:w-1/3">
-        <p class='block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4'>負責人姓名 </p>
-      </div>
-      <div class="md:w-2/3 bg-white-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500">
-        <%= @company.manager_name%>
-      </div>
-    </div>
-
-    <div class="md:flex mb-6 justify-end">
-      <div class="md:w-1/2">
-        <%= link_to new_backend_company_store_path(@company), class: 'bg-red-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
-          新增分店
-        <% end %>
-      </div>
-
-      <div class=" ">
-        <%= link_to edit_backend_company_path(@company), class: 'bg-red-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' do %>
-            修改資料
-        <% end %>
-      </div>
-    </div>
-</div>
-

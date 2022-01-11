@@ -9,6 +9,7 @@ class Backend::DishesController < ApplicationController
 
   def new
     @dish = Dish.new
+    @dish.images.build
   end
 
   def create
@@ -23,13 +24,17 @@ class Backend::DishesController < ApplicationController
   end
 
   def edit
+    @store = @dish.store
+    @dish.open_dates.build
+    @images = @dish.images
   end
 
   def update
+    @store = @dish.store
     if @dish.update(dish_params)
       redirect_to backend_store_dishes_path(@dish.store)
     else
-      render :edit
+      render :index
     end
   end
 
@@ -41,7 +46,14 @@ class Backend::DishesController < ApplicationController
 
   private
     def dish_params
-      params.require(:dish).permit(:name, :price, :start_date, :end_date, :status, :intro )
+      params.require(:dish).permit(:name,
+                                   :price, 
+                                   :start_date, 
+                                   :end_date, 
+                                   :status, 
+                                   :intro, 
+                                   images_attributes: [ :image ], 
+                                   open_dates_attributes: [ :id, :availible_date, :_destroy ])
     end
 
     def set_dish
