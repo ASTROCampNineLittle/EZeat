@@ -28,7 +28,7 @@ class Backend::OpenDatesController < ApplicationController
 
   def update
     if @open_date.update(open_date_params)
-      redirect_to edit_backend_store_dishes_path(@open_date.dish.store), notice: '修改日期成功'
+      redirect_to backend_store_dishes_path(@open_date.dish.store), notice: '修改日期成功'
     else
       render :edit
     end
