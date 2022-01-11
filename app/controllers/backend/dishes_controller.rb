@@ -25,6 +25,7 @@ class Backend::DishesController < ApplicationController
 
   def edit
     @store = @dish.store
+    @dish.open_dates.build
     @images = @dish.images
   end
 
