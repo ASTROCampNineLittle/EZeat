@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # 將語系設定在所有子網址前，先暫時槓掉避免影響其他路徑
   # scope "(:locale)", :locale => /zh-TW|en|ja/ do
 
-  devise_for :users, controllers: { 
+  devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
 
@@ -32,10 +32,10 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  
+
   #backend related routes
   namespace :backend do
-    resources :companies, except: [:show] do
+    resources :companies, except: [:index] do
       resources :stores, shallow: true
     end
 

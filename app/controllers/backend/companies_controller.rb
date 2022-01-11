@@ -11,10 +11,15 @@ class Backend::CompaniesController < ApplicationController
     @company = Company.new
   end
 
+  def show
+    @user = current_user
+    @company = @user.company
+  end
+
   def create
     company = current_user.create_company(company_params)
     if company.save
-      redirect_to backend_company_stores_path(current_user.company.id), notice: '新增公司成功'
+      redirect_to backend_company_path(current_user.company.id), notice: '新增公司成功'
     else
       render :new
     end
