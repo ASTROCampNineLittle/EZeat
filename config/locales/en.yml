@@ -12,7 +12,7 @@ en:
   common:
     navigation:
       navigate: 'Navigate'
-      site_language: 'Site Language'
+      site_language: 'Language'
       home_page: 'Home Page'
       faq: 'Frequently Asked Questions'
       become_our_partners: 'Become Our Partners'
@@ -29,6 +29,18 @@ en:
         contact_us: 'Contact us'
     phrase:
       or: 'or'
+  devise:
+    patch:
+      registrations:
+        pending_status:
+          status: 'Status: '
+          verified: 'verified'
+          pending: 'pending'
+    profile:
+      edit: 'Edit profile'
+      order: 'My order'
+      welcome: 'Hello there, EZeat fans! Your last session was at:'
+      welcome_registered: 'Welcome aboard!'
   authenticate:
     signed_in_checker:
       common: 'Please sign in first.'

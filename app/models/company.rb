@@ -1,6 +1,7 @@
 class Company < ApplicationRecord
   has_many :stores
   belongs_to :user
+  accepts_nested_attributes_for :stores
 
   # private
 

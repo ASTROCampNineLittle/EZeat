@@ -2,21 +2,29 @@ Rails.application.routes.draw do
   # 將語系設定在所有子網址前，先暫時槓掉避免影響其他路徑
   # scope "(:locale)", :locale => /zh-TW|en|ja/ do
 
-  devise_for :users, controllers: { 
+  devise_for :users, controllers: {
     registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
   devise_scope :user do
-    get 'user/profile', to: 'users/registrations#edit'
+    get 'user/profile', to: 'users/profiles#profile', as: :user_root
+    get 'user/edit', to: 'users/registrations#edit'
   end
 
   root 'pages#index'
 
-  get 'search', to: 'pages#search'
-  get 'myorder', to: 'pages#myorder'
-  get 'verification', to: 'pages#verification'
+  # get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
-  
+  get 'myorder', to: 'pages#myorder'
+  get 'mytickets', to: 'pages#mytickets'
+
+  namespace :pages do
+    resources :search, only: [:index] do
+    end
+  end
+
   #frontend related routes
   resources :stores, only: [:show] do
     resources :dishes, only: [:show] do
@@ -26,16 +34,16 @@ Rails.application.routes.draw do
   end
 
   resources :checks , only: [:new, :create]
-  
+
   resources :payments , only: [:new] do
     member do
       post :confirm
     end
   end
-  
+
   #backend related routes
   namespace :backend do
-    resources :companies, except: [:show] do
+    resources :companies, except: [:index] do
       resources :stores, shallow: true
     end
 
@@ -44,7 +52,7 @@ Rails.application.routes.draw do
     end
 
     resources :dishes, only: [] do
-      resources :offers, except: [:show], shallow: true
+      resources :open_dates, except: [:show], shallow: true
     end
 
     resources :dishes, only: [] do

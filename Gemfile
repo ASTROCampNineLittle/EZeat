@@ -3,10 +3,22 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
-#Bundle carrierwave & AWS related Gems
+# Bundle carrierwave & AWS related Gems
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'mini_magick', '~> 4.11'
 gem 'fog-aws', '~> 3.12'
+
+# # framework for multiple-provider authentication.
+# gem 'omniauth', '~> 2.0', '>= 2.0.4'
+
+# Facebook OAuth2 Strategy for OmniAuth
+gem 'omniauth-facebook', '~> 9.0'
+
+# Google OAuth2 strategy for OmniAuth
+gem 'omniauth-google-oauth2', '~> 1.0'
+
+# Implementing a CSRF token verifier
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 # The Process manager
 gem 'foreman', '~> 0.87.2'
@@ -25,6 +37,9 @@ gem 'ruby-enum', '~> 0.9.0'
 
 # A continuation of the acts-as-state-machine
 gem 'aasm', '~> 5.2'
+
+# The MetaSearch's functionality
+gem 'ransack', '~> 2.5'
 
 # As the paginator
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
@@ -67,7 +82,7 @@ group :development, :test do
 
   # For generating fake data
   gem 'faker', '~> 2.19'
-  
+
   # Configuration using ENV and a single YAML file
   gem 'figaro', '~> 1.2'
 
