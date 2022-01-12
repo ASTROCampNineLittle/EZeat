@@ -12,8 +12,6 @@ class PagesController < ApplicationController
     @foodtype6_stores = @stores.where(food_type: "美式")
     @foodtype7_stores = @stores.where(food_type: "法式")
     @foodtype8_stores = @stores.where(food_type: "德式")
-
-    @images = DishImage.all
   end
 
   def myorder
