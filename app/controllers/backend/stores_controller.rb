@@ -3,8 +3,12 @@ class Backend::StoresController < ApplicationController
   layout "backend"
 
   def index
-    @company = Company.find(params[:company_id])
+    @company = current_user.company
     @stores = @company.stores.all
+  end
+
+  def show
+    @dishes = @store.dishes.all
   end
 
   def new
@@ -16,21 +20,18 @@ class Backend::StoresController < ApplicationController
     @store = @company.stores.create(store_params)
 
     if @store.save
-      redirect_to backend_company_stores_path(params[:company_id]), notice: '新增分店成功'
+      redirect_to backend_company_path(params[:company_id]), notice: '新增分店成功'
     else
       render :new
     end
   end
 
-  def show 
-  end
-
   def edit
   end
 
-  def update 
+  def update
     if @store.update(store_params)
-      redirect_to backend_company_stores_path(@store.company), notice: '修改分店成功'
+      redirect_to backend_company_path(@store.company), notice: '修改分店成功'
     else
       render :edit
     end
@@ -44,7 +45,7 @@ class Backend::StoresController < ApplicationController
 
   private
     def store_params
-      params.require(:store).permit(:name, :food_type, :tel, :address, :intro, :image)
+      params.require(:store).permit(:name, :food_type, :tel, :address, :intro, :image, :remote_image_url)
     end
 
     def set_store

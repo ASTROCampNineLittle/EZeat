@@ -1,4 +1,9 @@
 class ChecksController < ApplicationController
+  before_action :signed_in_checker
+
+  def index
+  end
+
   def new
     @user = User.last
     @order = Order.new

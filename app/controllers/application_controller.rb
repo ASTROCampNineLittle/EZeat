@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  before_action :store_user_location!, if: :storable_location?
   around_action :switch_locale
-
   helper_method :has_company
 
   private
@@ -17,20 +17,25 @@ class ApplicationController < ActionController::Base
     I18n.with_locale(locale, &action)
   end
 
+  def storable_location?
+    request.get? && is_navigational_format? && !request.xhr? && !devise_controller?
+  end
+
+  def store_user_location!
+    store_location_for(:user, request.fullpath)
+  end
+
+  def signed_in_checker
+    unless current_user.present?
+      flash[:notice] = I18n.t 'authenticate.signed_in_checker.common'
+      redirect_to new_user_session_path
+    end
+  end
+
   # 確認是否有公司
   def has_company
     if signed_in?
-      check_company = current_user.company
-      !check_company.nil?
-    end
-  end
-end
-
-class SignedInChecker
-  def self.before(controller)
-    unless controller.send(:signed_in?)
-      controller.flash[:notice] = I18n.t 'authenticate.signed_in_checker.common'
-      controller.redirect_to controller.user_session_path
+      current_user.company.present?
     end
   end
 end
