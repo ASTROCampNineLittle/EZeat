@@ -4,14 +4,14 @@ module Newebpay
     attr_accessor :info
 
     def initialize( merchant_id: nil , key: nil, iv: nil)
-      @key = key || ENV["newebpay_key"] 
-      @iv  = iv || ENV["newebpay_iv"] 
-      @merchant_id = merchant_id || ENV["newebpay_merchant_id"] 
+      @key = key || ENV["newebpay_key"]
+      @iv  = iv || ENV["newebpay_iv"]
+      @merchant_id = merchant_id || ENV["newebpay_merchant_id"]
       @info = {}
       set_info()
     end
 
-    def form_info 
+    def form_info
       {
         MerchantID: @merchant_id,
         TradeInfo: trade_info,
@@ -26,25 +26,25 @@ module Newebpay
       # 目前先用成立訂單的最後一筆抓資料,未來應該寫篩選屬於該使用者的訂單
       @order = Order.last
       @user = User.last
-      
+
       @info[:MerchantID] = @merchant_id
       @info[:MerchantOrderNo] = @order.order_number
       @info[:Amt] = @order.ezeat_amount
-      @info[:ItemDesc] = @order.order_dish 
+      @info[:ItemDesc] = @order.order_dish
       @info[:Email] = @user.email
-      @info[:TimeStamp] = Time.now.to_i 
+      @info[:TimeStamp] = Time.now.to_i
       @info[:RespondType] = "JSON"
       @info[:Version] = "1.5"
       @info[:ReturnURL] = "http://localhost:3000/payments/:id/confirm"
       @info[:NotifyURL] = ""
-      @info[:LoginType] = 0 
+      @info[:LoginType] = 0
       @info[:CREDIT] =  1
       @info[:VACC] = 0
       # ----選填區-----
       # @info[:ClientBackURL] =  "返回上一頁的網址"
       # ----選填區-----
     end
-    
+
     def trade_info
       aes_encode(url_encoded_query_string)
     end

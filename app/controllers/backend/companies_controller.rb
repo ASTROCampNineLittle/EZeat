@@ -1,11 +1,9 @@
 class Backend::CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update, :destroy]
-  # 驗證須登入才能繼續的行為
-  before_action SignedInChecker, only: [:new, :edit, :update, :destroy]
-  
-  layout "backend"
+  before_action :signed_in_checker, only: [:new, :edit, :update, :destroy]
+  around_action :redirect_to_owned_company, only: [:new, :create], if: :has_company
 
-  include Devise
+  layout "backend"
 
   def new
     @company = Company.new
@@ -41,9 +39,17 @@ class Backend::CompaniesController < ApplicationController
     redirect_to root_path
   end
 
+  def redirect_to_owned_company
+    if current_user.present? && current_user.company.present?
+      redirect_to backend_company_stores_path(current_user.company.id)
+    else
+      render :new
+    end
+  end
+
   private
     def company_params
-      params.require(:company).permit(:name, :address, :tel, :manager_name )
+      params.require(:company).permit(:name, :address, :tel, :manager_name)
     end
 
     def set_company

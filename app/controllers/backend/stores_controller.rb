@@ -29,7 +29,7 @@ class Backend::StoresController < ApplicationController
   def edit
   end
 
-  def update 
+  def update
     if @store.update(store_params)
       redirect_to backend_company_path(@store.company), notice: '修改分店成功'
     else
@@ -45,7 +45,7 @@ class Backend::StoresController < ApplicationController
 
   private
     def store_params
-      params.require(:store).permit(:name, :food_type, :tel, :address, :intro, :image)
+      params.require(:store).permit(:name, :food_type, :tel, :address, :intro, :image, :remote_image_url)
     end
 
     def set_store
