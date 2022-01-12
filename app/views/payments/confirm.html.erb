@@ -1,5 +1,5 @@
 <div class="bg-gray-100 max-w-screen-md container mx-auto pb-4">
-	<div class="px-4 py-10">	
+	<div class="px-4 py-10">
     <div class="flex pb-3 -mx-0.5">
       <div class="flex-1">
 				<div class="w-10 h-10 bg-white border-2 border-green-400 mx-auto rounded-full text-xl text-green-400 flex items-center">
@@ -51,7 +51,7 @@
 	<h3 class="bg-orange-100 text-black text-4xl py-14 pl-6 border-b-2 text-center ">交易結果：
 		<% if @response.status === "SUCCESS"%>
 		<%= "😉 購買票卷成功！" %>
-		<% else %>    
+		<% else %>
 		<%= "😕 購買票卷失敗！" %><br>
 		<span class="py-5"><%= @response.message %></span>
 		<% end%>

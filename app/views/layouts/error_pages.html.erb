@@ -7,17 +7,16 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TimelineMax.min.js"></script>
   </head>
 
   <body class="wrapper_for_error_pages">
-    <%= render 'shared/flash_message' if notice  %>
+    <%= render 'shared/flash_message' if notice %>
     <%= yield %>
     <script>
-      var 
+      var
         yetiTL, chatterTL,
             furLightColor = "#FFF",
             furDarkColor = "#67b1e0",
@@ -45,7 +44,7 @@
         yetiTL = new TimelineMax({paused: true, repeat: -1, repeatDelay: 0, delay: 0});
         yetiTL
           .addCallback(function() {
-            chatterTL.play();	
+            chatterTL.play();
           }, "0")
           .to(['#armL', '#flashlightFront'], .075, {x: 7}, "2.5")
           .to(['#armL', '#flashlightFront'], .075, {x: 0}, "2.575")
@@ -92,21 +91,21 @@
 
         function goDark() {
           TweenMax.set('#light', {visibility: "hidden"});
-          
+
           TweenMax.set('.lettersSide', {fill: lettersSideDark, stroke: lettersStrokeDark});
           TweenMax.set('.lettersFront', {fill: lettersFrontDark, stroke: lettersStrokeDark});
           TweenMax.set('#lettersShadow', {opacity: .05});
-          
+
           TweenMax.set('.hlFur', {fill: furDarkColor});
           TweenMax.set('.hlSkin', {fill: skinDarkColor});
         }
         function goLight() {
           TweenMax.set('#light', {visibility: "visible"});
-          
+
           TweenMax.set('.lettersSide', {fill: lettersSideLight, stroke: lettersStrokeLight});
           TweenMax.set('.lettersFront', {fill: lettersFrontLight, stroke: lettersStrokeLight});
           TweenMax.set('#lettersShadow', {opacity: .2});
-          
+
           TweenMax.set('.hlFur', {fill: furLightColor});
           TweenMax.set('.hlSkin', {fill: skinLightColor});
         }

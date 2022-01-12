@@ -12,7 +12,7 @@ zh-TW:
   common:
     navigation:
       navigate: '導覽'
-      site_language: '網站語言'
+      site_language: '語言'
       home_page: '首頁'
       faq: '常見問題'
       become_our_partners: '餐廳合作'
@@ -29,6 +29,18 @@ zh-TW:
         contact_us: '聯絡我們'
     phrase:
       or: '或'
+  devise:
+    patch:
+      registrations:
+        pending_status:
+          status: '狀態： '
+          verified: '已完成驗證'
+          pending: '等待驗證中'
+    profile:
+      edit: '修改檔案'
+      order: '我的訂單'
+      welcome: '歡迎再次使用EZeat！您上次的登入日期為：'
+      welcome_registered: '歡迎加入EZeat！'
   authenticate:
     signed_in_checker:
       common: '該功能僅限會員使用，敬請先註冊並登入會員'
@@ -73,7 +85,7 @@ zh-TW:
     - 周五
     - 周六
     abbr_month_names:
-    - 
+    -
     - 1月
     - 2月
     - 3月
@@ -99,7 +111,7 @@ zh-TW:
       long: '%Y年%m月%d日'
       short: '%m月%d日'
     month_names:
-    - 
+    -
     - 一月
     - 二月
     - 三月
