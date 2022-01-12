@@ -1,3 +1,31 @@
 class Order < ApplicationRecord
   belongs_to :open_date
+
+  include AASM
+
+  aasm(:order_status, namespace: :order, column: "order_status") do
+    state :pending, initial: true
+    state :succeded, :failed
+
+    event :succed do
+      transitions from: :pending, to: :succeded
+    end
+
+    event :fail do
+      transitions from: :pending, to: :failed
+    end
+  end
+
+  # aasm(:ticket, column: "ticket") do
+  #   state :waiting, initial: true
+  #   state :opend, :closed
+
+  #   event :open do
+  #     transitions from: :waiting, to: :opened
+  #   end
+
+  #   event :close do
+  #     transitions from: :opened, to: :closed
+  #   end
+  # end
 end

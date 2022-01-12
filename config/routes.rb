@@ -14,17 +14,17 @@ Rails.application.routes.draw do
 
   get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
-  get 'myorder', to: 'pages#myorder'
-  get 'mytickets', to: 'pages#mytickets'
+
   
   #frontend related routes
+  
   resources :stores, only: [:show] do
     resources :dishes, only: [:show] do
       resources :open_dates, only: [:show] do
       end
     end
   end
-
+  
   resources :checks , only: [:new, :create]
   
   resources :payments , only: [:new] do
@@ -33,20 +33,22 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :myorders , only: [:index, :show]
+  
   #backend related routes
   namespace :backend do
     resources :companies, except: [:show] do
       resources :stores, shallow: true
     end
-
+    
     resources :stores, only: [] do
       resources :dishes, except: [:show], shallow: true
     end
-
+    
     resources :dishes, only: [] do
       resources :offers, except: [:show], shallow: true
     end
-
+    
     resources :dishes, only: [] do
       resources :open_dates, except: [:show], shallow: true
     end

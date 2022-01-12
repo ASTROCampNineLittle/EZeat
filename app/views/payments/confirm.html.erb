@@ -53,13 +53,13 @@
 		<%= "😉 購買票卷成功！" %>
 		<% else %>    
 		<%= "😕 購買票卷失敗！" %><br>
-		<span><%= @response.message %></span>
+		<span class="py-5"><%= @response.message %></span>
 		<% end%>
 	</h3>
 
 	<div class="flex flex-between text-lg bg-gray-300">
 		<h3 class="bg-gray-300 text-black py-3 pl-6 border-b-2 flex-grow font-semibold inline-block ">購買明細</h3>
-		<span><%= link_to "查看我的票卷", myorder_path,
+		<span><%= link_to "查看我的票卷", myorders_path,
 		  class:'text-red-500 text-base py-3 pr-6 hover:underline hover:text-orange-500 flex-none inline-block'%>
 		</span>
 	</div>

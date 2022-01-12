@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_061818) do
+ActiveRecord::Schema.define(version: 2022_01_11_073420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2022_01_09_061818) do
     t.string "order_time"
     t.integer "order_people"
     t.integer "ezeat_amount"
-    t.integer "order_status"
+    t.string "order_status"
     t.bigint "newebpay_amount"
     t.string "newebpay_time"
     t.integer "newebpay_number"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 2022_01_09_061818) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "user_email"
+    t.string "ticket"
     t.index ["open_date_id"], name: "index_orders_on_open_date_id"
   end
 
