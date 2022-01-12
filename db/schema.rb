@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 2022_01_09_135030) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+  create_table "companies_users", id: false, force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "comapny_id"
+    t.index ["comapny_id"], name: "index_companies_users_on_comapny_id"
+    t.index ["user_id"], name: "index_companies_users_on_user_id"
+  end
+
   create_table "dish_images", force: :cascade do |t|
     t.integer "dish_id"
     t.string "image"
