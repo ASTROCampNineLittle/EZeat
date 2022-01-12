@@ -60,6 +60,8 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+gem 'ransack', '~> 2.5'
+
 group :development, :test do
 
   # Helper for killing N+1 queries and unused eager loading.
