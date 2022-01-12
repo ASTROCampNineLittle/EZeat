@@ -1,4 +1,9 @@
 class ChecksController < ApplicationController
+  before_action :signed_in_checker
+
+  def index
+  end
+
   def new
     @user = User.last
     @order = Order.new
@@ -22,7 +27,7 @@ class ChecksController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:open_date_id, :name, :tel, :email, :user_email, :order_dish, :order_number, :order_date, :order_time, :order_people, :ezeat_amount)
+    params.require(:order).permit(:open_date_id, :name, :tel, :email, :user_email, :order_dish, :order_number, :order_date, :order_time, :order_people, :ezeat_amount, :order_status)
   end
 
   def ezeat_random_number
