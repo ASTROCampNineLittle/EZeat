@@ -64,8 +64,8 @@
 		</span>
 	</div>
 	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">餐卷：<%= @order.order_dish %></div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">時間：<%= @order.order_date %></div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">日期：<%= @order.order_time %></div>
+	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">日期：<%= @order.order_date %></div>
+	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">時間：<%= @order.order_time[11..15] %></div>
 	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">人數：<%= @order.order_people %></div>
 	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">交易金額：<%= @order.newebpay_amount %></div>
 	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">藍新交易時間：<%= @order.newebpay_time %></div>
