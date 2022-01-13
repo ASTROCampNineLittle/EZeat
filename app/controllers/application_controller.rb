@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   around_action :switch_locale
   helper_method :has_company
 
-  include ErrorsMessages
-
   private
 
   # 設定語系
@@ -32,10 +30,6 @@ class ApplicationController < ActionController::Base
       flash[:notice] = I18n.t 'authenticate.signed_in_checker.common'
       redirect_to new_user_session_path
     end
-  end
-
-  def authenticate!
-    current_user || devise_controller? || ( authentication_error and return false )
   end
 
   # 確認是否有公司

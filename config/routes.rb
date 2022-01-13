@@ -20,13 +20,25 @@ Rails.application.routes.draw do
   get 'myorder', to: 'pages#myorder'
   get 'mytickets', to: 'pages#mytickets'
 
-  namespace :pages do
-    resources :search, only: [:index] do
+  # namespace :pages do
+  #   resources :search, only: [:index] do
+  #   end
+  # end
+
+    resources :pages do
+      collection do
+        get :search_result
+      end
     end
-  end
+
+    # resources :stores do
+    #   collection do
+    #     match 'search' => 'stores#search', via: [:get, :post], as: :search
+    #   end
+    # end
 
   #frontend related routes
-  resources :stores, only: [:show] do
+  resources :stores, only: [:show, :index] do
     resources :dishes, only: [:show] do
       resources :open_dates, only: [:show] do
       end
@@ -69,7 +81,7 @@ Rails.application.routes.draw do
   match '/404', :to => 'errors#not_found_404', :via => :all
   match '/500', :to => 'errors#not_found_404', :via => :all
   # 看畫面用，之後要刪除
-  get 'users', to: 'errors#render_404'
+  get 'users', to: 'errors#not_found_404'
 
   # end
 end

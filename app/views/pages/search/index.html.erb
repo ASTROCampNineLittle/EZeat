@@ -6,6 +6,18 @@
 	<% end %>
 </div>
 
+<%# @search_result.each do |result| %>
+  <!-- <div class="container flex justify-between mx-auto">
+    <div><%= store.name %></div>
+  </div> -->
+
+  <%= content_tag :table do %>
+  <%= content_tag :th, sort_link(@q, :name) %>
+  <%= content_tag :th, sort_link(@q, :address) %>
+<% end %>
+
+
+
 <section class="antialiased text-gray-600 w-full m-auto my-10">
     <div class="flexjustify-center h-full">
         <!-- Table -->

@@ -1,13 +1,17 @@
 class Pages::SearchController < ApplicationController
-  before_action :set_q, only: [:index, :search]
 
-  def search
-    @results = @q.result
+  def index
+    @search = ransack_params
+    @user_result  = ransack_result
   end
 
   private
+    def ransack_params
+      User.ransack(params[:q])
+    end
 
-  def set_q
-    @q = User.ransack(params[:q])
-  end
+    def ransack_result
+      @search.result
+    end
+
 end
