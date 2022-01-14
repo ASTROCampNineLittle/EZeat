@@ -9,6 +9,7 @@ class Backend::StoresController < ApplicationController
 
   def show
     @dishes = @store.dishes.all
+    @reservation_today = Order.where(oder_date: DateTime.now)
   end
 
   def new

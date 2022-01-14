@@ -98,7 +98,7 @@ namespace :db do
 
     # # 產生假餐券
     #   opend = OpenDate.first
-    #   5.times do |i|
+    #   10.times do |i|
     #   opend.offers.create(availible_time: Time.now,
     #                       capacity: (1..10).to_a.sample)
     # end
