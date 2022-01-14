@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, if: -> { self.email.present? }
 
   has_one :company
+  has_many :orders
 
   # def self.check_omniauth(auth)
   #   where(google_token: , google_uid: google_uid).first_or_create do |user|
