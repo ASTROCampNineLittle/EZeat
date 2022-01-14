@@ -69,6 +69,8 @@ Rails.application.routes.draw do
     resources :open_dates, only: [] do
       resources :offers, except: [:show], shallow: true
     end
+
+    resources :writeoff
   end
 
   # 未來可用來處理Routing Error 頁面用的，目前先關起來，要看畫面可打 http://localhost:3000/users

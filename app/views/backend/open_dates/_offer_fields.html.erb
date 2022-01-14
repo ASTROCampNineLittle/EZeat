@@ -1,5 +1,5 @@
 <div class="offer-fields m-1" data-new-record="<%= form.object.new_record?%>">
-  <div class=" ">
+  <div class=" flex">
     <div>
     <span>時段：</span>
     <%= form.time_select :availible_time, { minute_step: 30}, class: 'bg-white-500 hover:bg-gray-300 text-black font-bold py-1 px-2 border border-black-500 rounded' %>
@@ -7,10 +7,12 @@
     <div>
     <span>人數：</span>
     <%= form.number_field :capacity, class: 'bg-white-500 hover:bg-gray-300 text-black font-bold py-1 px-0 border border-black-500 rounded' %>
+
+
     <%=link_to "刪除", "#", class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded", data: {action: 'date-form#delete_offer'} %>
+
     </div>
   </div>
 
   <%= form.hidden_field :_destroy %>
-  <span>----------------------------------</span>
 </div>

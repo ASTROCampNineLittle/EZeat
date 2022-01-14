@@ -1,13 +1,10 @@
 <div class="max-w-full bg-orange-500 h-20 navbar">
   <div class="mx-2 px-2 h-20">
     <div class="flex border-gray-100 h-full">
-      <div class="self-center" style="width: 45%">
-        <%= link_to "Search", search_path, class: "h-10 w-30 border-2 border-primary bg-red transition rounded-md focus:outline-none text-black text-m bg-pink-300" %>
-      </div>
-      <div class="self-center" style="width: 10%">
+      <div class="self-center" style="width: 16%">
           <img class="w-24 mx-auto" src="https://by3301files.storage.live.com/y4mzjoap9d2rbMvwtVEWPkWuVfu8dPIk2SqMiC08ssWXyDUvlf4R5NOxcmQMUyfVMG8z-80kuXDKVbFTfn2xDqNVE4lmPuMHsa6HxzNpOLveaF4tjqaa9kXVrqLFy1-e-_UZH2OQWXWpHm5tGBUVMBr6RVRRhXEm8xj8aAb402btqe89l9IqHMmFBjpF171pN9D6YbfZtzWrxjzClrj5vWzWw/EZeat2.png?psid=1&width=1149&height=430">
       </div>
-      <div class="self-center" style="width: 25%">
+      <div class="self-center" style="width: 55%">
         <div class="mx-auto flex justify-end pr-2">
           <% if signed_in? %>
           <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
@@ -46,7 +43,7 @@
                 </li>
                 <li>
                   <% if has_company %>
-                    <%= link_to(t('common.navigation.backend_management'), backend_company_stores_path(current_user.company.id), class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                    <%= link_to(t('common.navigation.backend_management'), backend_company_path(current_user.company.id), class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                   <% else %>
                     <%= link_to(t('common.navigation.become_our_partners'), new_backend_company_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                   <% end %>

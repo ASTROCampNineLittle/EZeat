@@ -9,6 +9,8 @@ class Backend::StoresController < ApplicationController
 
   def show
     @dishes = @store.dishes.all
+    @order_summary = Order.where(store_id: params[:id])
+    @order_today = Order.where(store_id: params[:id], order_date: DateTime.now)
   end
 
   def new
