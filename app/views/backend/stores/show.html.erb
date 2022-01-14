@@ -94,12 +94,14 @@
 
 
   <table class="min-w-full border-collapse block md:table">
+		<% @order_summary.each do |order| %>
       <thead class="block md:table-header-group">
         <tr class="border border-gray-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
           <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">訂位時段</th>
           <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">方案名稱</th>
           <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">訂位人姓名</th>
           <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">訂位人電話</th>
+				  <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">訂位人數</th>
           <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">核銷</th>
         </tr>
       </thead>
@@ -107,16 +109,28 @@
       <tbody class="block md:table-row-group">
         <tr class="bg-white-300 border border-gray-500 md:border-none block md:table-row">
           <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位時段</span>
-            這裡要放訂單的訂位時間
+            <%= order.order_time.to_datetime.strftime("%H:%M") %>
           </td>
-          <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">方案名稱</span>這裡要放訂單的方案</td>
-          <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位人姓名</span>這裡要放訂單的訂位人姓名</td>
+          <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">方案名稱</span>
+						<%= order.order_dish %>
+					</td>
+          <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位人姓名</span>
+						<%= order.name %>
+					</td>
           <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位人電話</span>
-            這裡要放訂單的訂位時間
+            <%= order.tel %>
+          </td>
+			    <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位人電話</span>
+            <%= order.order_people %>
           </td>
           <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell">
-            這裡要放核銷按鈕
+            <%= form_with url: new_backend_writeoff_path , method: "get" do |form| %>
+							<%= form.text_field :writeoff_number, placeholder: '請輸入客戶提供的核銷碼' %>
+							<%= form.text_field :order_id, value: order.id, class:"invisible" %>
+							<div><%= form.submit '確認核銷' %></div>
+          	<% end %>
           </td>
         </tr>
     </tbody>
+	<% end %>
   </table>
