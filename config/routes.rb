@@ -15,15 +15,15 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  # get 'search', to: 'pages#search'
+  get 'search', to: 'pages/search#search'
   get 'channel', to: 'pages#channel'
   get 'myorder', to: 'pages#myorder'
   get 'mytickets', to: 'pages#mytickets'
 
-  namespace :pages do
-    resources :search, only: [:index] do
-    end
-  end
+  # namespace :pages do
+  #   resources :search, only: [:index] do
+  #   end
+  # end
 
   #frontend related routes
   resources :stores, only: [:show] do
