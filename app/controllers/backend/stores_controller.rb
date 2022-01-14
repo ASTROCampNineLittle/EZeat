@@ -45,7 +45,7 @@ class Backend::StoresController < ApplicationController
 
   private
     def store_params
-      params.require(:store).permit(:name, :food_type, :tel, :address, :intro, :image, :remote_image_url)
+      params.require(:store).permit(:name, :food_type, :tel, :address, :intro, :image, :open_time, :close_time)
     end
 
     def set_store

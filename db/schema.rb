@@ -108,6 +108,8 @@ ActiveRecord::Schema.define(version: 2022_01_13_045605) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
+    t.time "open_time"
+    t.time "close_time"
     t.index ["company_id"], name: "index_stores_on_company_id"
   end
 
