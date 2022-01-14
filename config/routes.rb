@@ -17,8 +17,7 @@ Rails.application.routes.draw do
 
   # get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
-  get 'myorder', to: 'pages#myorder'
-  get 'mytickets', to: 'pages#mytickets'
+
 
   namespace :pages do
     resources :search, only: [:index] do
@@ -26,6 +25,7 @@ Rails.application.routes.draw do
   end
 
   #frontend related routes
+
   resources :stores, only: [:show] do
     resources :dishes, only: [:show] do
       resources :open_dates, only: [:show] do
@@ -40,6 +40,8 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
+
+  resources :myorders , only: [:index, :show]
 
   #backend related routes
   namespace :backend do

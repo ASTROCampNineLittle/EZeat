@@ -1,4 +1,5 @@
 <div class="bg-gray-100 max-w-screen-md container mx-auto pb-4">
+
   <div class="px-4 py-10">
     <div class="flex pb-3 -mx-0.5">
       <div class="flex-1">
@@ -67,15 +68,20 @@
 
 	<div class="mx-6">
 		<% @dish.open_dates.each do |open_date| %>
-			<%# @open_times.availible_time.each do |open_time| %>
-				<% if open_date.availible_date >= DateTime.current.to_date %>
+			<% if open_date.availible_date >= DateTime.current.to_date %>
 					<%= link_to(store_dish_open_date_path(id: open_date, dish_id: @dish, store_id: @store), class:"mx-2 my-2 text-white text-sm py-2.5 px-5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-1/10 inline-block") do %>
 					<%= open_date.availible_date %>
 					<% end %>
-				<% end %>
-			<%# end %>
+				<%# open_date.offers.each do |offers| %>
+					<%# if offers.availible_time.strftime("%Y%m%d%H%M").nil? <= DateTime.current.to_date.strftime("%Y%m%d%H%M").to_i %>
+					<%#= offers.availible_time.strftime("%H:%M") %>
+					<%# end %>
+				<%# end %>
+			<% end %>
 		<% end %>
 	</div>
+
+	<div class="flex flex-row-reverse mr-8 my-3 "><%= link_to "↻ 返回前頁改選", :back , class:'text-sm text-gray-500 hover:underline hover:text-orange-500'%></div>
 
 	<div class="flex flex-row-reverse mr-8 my-3 "><%= link_to "↻ 返回前頁改選", :back , class:'text-sm text-gray-500 hover:underline hover:text-orange-500'%></div>
 </div>

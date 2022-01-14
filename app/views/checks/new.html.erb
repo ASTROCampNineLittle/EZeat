@@ -1,5 +1,5 @@
 <div class="bg-gray-100 max-w-screen-md container mx-auto pb-4">
-	<div class="px-4 py-10">	
+	<div class="px-4 py-10">
     <div class="flex pb-3 -mx-0.5">
       <div class="flex-1">
 				<div class="w-10 h-10 bg-white border-2 border-green-400 mx-auto rounded-full text-xl text-green-400 flex items-center">
@@ -83,7 +83,7 @@
 				<div class="pl-2.5">總額：＄<%= params[:order_price] %>　Ｘ　<%= params[:order_people] %> 人　＝　</div>
 			</h3>
 			<span class="text-red-500 text-3xl pr-8 font-bold">＄<%= @ezeat_amount_commify %></span>
-		</div>	
+		</div>
 	</div>
 
 	<h3 class="bg-orange-300 text-black text-lg py-3 text-center border-b-2 tracking-widest my-10">填寫訂位資訊</h3>
@@ -97,7 +97,7 @@
 				<%= form.text_field :name, value: @user.name,class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500' %>
 			</div>
 		</div>
-		
+
 		<div class="md:flex md:items-center my-6">
 			<div class="md:w-1/6">
 				<%= form.label :tel, '電　話', class: 'block text-gray-500 font-bold md:text-right mb-1 pr-4' %>
@@ -106,7 +106,7 @@
 				<%= form.text_field :tel, value: @user.tel, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-orange-500' %>
 			</div>
 		</div>
-		
+
 		<div class="md:flex md:items-center">
 			<div class="md:w-1/6">
 				<%= form.label :email, 'E-mail', class: 'block text-gray-500 font-bold md:text-right mb-1 pr-4' %>
@@ -116,14 +116,15 @@
 			</div>
 		</div>
 		<%= form.hidden_field :user_email, value: @user.email %>
+		<%= form.hidden_field :user_id, value: @user.id %>
 		<%= form.hidden_field :open_date_id, value: params[:open_date_id] %>
+		<%= form.hidden_field :store_id, value: params[:store_id] %>
 		<%= form.hidden_field :order_dish, value:	params[:order_dish] %>
 		<%= form.hidden_field :order_number, value: @ezeat_random_number %>
 		<%= form.hidden_field :order_date, value: params[:order_date] %>
 		<%= form.hidden_field :order_time, value: params[:order_time] %>
 		<%= form.hidden_field :order_people, value:	params[:order_people] %>
 		<%= form.hidden_field :ezeat_amount, value:	@ezeat_amount %>
-		<%= form.hidden_field :order_status, value:	0 %>
 
 		<div class="flex my-10 ml-14 mr-8">
 			<div class="flex w-full justify-center">
