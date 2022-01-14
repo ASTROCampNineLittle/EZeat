@@ -15,8 +15,9 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  get 'search', to: 'pages/search#search'
+  get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
+
 
 
   # namespace :pages do
@@ -41,7 +42,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :myorders , only: [:index, :show]
+  resources :myorders , only: [:index, :show] do
+    collection do
+      get :search
+    end
+  end
 
   #backend related routes
   namespace :backend do
