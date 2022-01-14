@@ -1,6 +1,6 @@
 class OpenDate < ApplicationRecord
   belongs_to :dish
-
+  has_many :orders
   has_many :offers, dependent: :destroy
   accepts_nested_attributes_for :offers, reject_if: :all_blank, allow_destroy: true
 
@@ -11,5 +11,5 @@ class OpenDate < ApplicationRecord
     if availible_date.present? && availible_date < Date.today
       errors.add(:availible_date, "can't be in the past")
     end
-  end 
+  end
 end

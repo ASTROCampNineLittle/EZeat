@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :open_date
+  belongs_to :user
 
   include AASM
 

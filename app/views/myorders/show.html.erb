@@ -1,120 +1,72 @@
-<%# 核銷頁面 %>
-
 <div class="m-auto lg:w-8/12 md:w-10/12 sm:w-full">
-	<!-- component -->
+
 	<div class="bg-white p-8 rounded-md w-full">
     <h2 class="text-gray-600 font-semibold text-center">訂單記錄</h2>
-    <div>
-      <div class=" px-4 sm:px-8 py-4">
-        <div class="inline-block min-w-full shadow rounded-lg">
-          <div class="px-5 py-5 border-t flex flex-col xs:flex-row items-center xs:justify-between">
-            <div class="flex justify-around h-24 w-full border-b border-gray-200 mb-5">
-              <div class="w-2/12 h-full text-center">
-                <div class="text-sm text-gray-500">
-                  星期日
-                </div>
-                <div class="text-3xl font-mono font-bold">
-                 19:00
-                </div>
-                <div class="text-sm text-gray-500">
-                  3人
-                </div>
-              </div>
-              <div class="ml-5">
-                <div class="text-xs text-gray-500">
-                  訂位日期: 2021/01/30
-                </div>
-                <div class="my-2">
-                  明水然鐵板燒-慶城店
-                </div>
-                <div class="text-sm">
-                  預付$500/人，免費送「 主廚私房料理」一份
-                </div>  
-              </div>
-              <div class="text-center w-2/12 my-4">
-                <span class="relative inline-block px-5 py-3 font-semibold text-red-900 leading-tight">
-                  <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
-                  <span class="relative">未使用</span>
-                </span>
-              </div>
-            </div>
+  </div>
 
-            <div class="sm:-mx-8 px-4 sm:px-8">
-              <div class="inline-block min-w-full shadow rounded-lg overflow-hidden text-center text-lg bg-orange-200 pt-3">訂單編號
-                <div class="px-5 py-5 mt-3 flex flex-col items-center rounded-b-lg bg-orange-400">
-                  <div class="w-full m-auto text-center">
-                    <p class=" text-3xl font-mono">
-                      EZ211215餐券_id01
-                    </p>
-                  </div>
-                <div class="pt-3 flex flex-col items-center">
-                  <span class="text-xs text-gray-900">
-                    請出示此畫面給店家
-                  </span>      
-                </div>
-              </div>
+  <div class=" px-4 sm:px-8 py-4">
+    <div class="inline-block min-w-full shadow rounded-lg">
+      <div class="px-5 py-5 border-t flex flex-col xs:flex-row items-center xs:justify-between">
+
+        <div class="flex justify-around h-24 w-full border-b border-gray-200 mb-5">
+          <div class="ml-5">
+            <div class="text-xs text-gray-500"><%= @user_order.order_date %></div>
+            <div class="my-2 text-xl"><%= @user_order.open_date.dish.store.name %></div>
+          </div>
+          <div class="w-2/12 h-full text-center">
+            <div class="text-sm text-gray-500"><%= @user_order.order_time.to_datetime.strftime("%a") %></div>
+            <div class="text-3xl font-mono font-bold"><%= @user_order.order_time[11..15] %></div>
+            <div class="text-sm text-gray-500"><%= @user_order.order_people %>人</div>
+          </div>
+          <div class="text-center w-2/12 my-4">
+            <span class="relative inline-block px-5 py-3 font-semibold text-green-900 leading-tight">
+              <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+              <span class="relative"><%= @user_order.ticket %></span>
+            </span>
+          </div>
+        </div>
+
+        <div class="inline-block sm:w-full md:w-full lg:w-3/4 rounded-lg overflow-hidden text-center text-lg bg-orange-200 pt-3 shadow-xl">核 銷 編 號
+          <div class="px-5 py-5 mt-3 flex flex-col items-center rounded-b-lg bg-orange-400">
+            <div class="w-full text-center">
+              <p class=" text-3xl font-mono"><%= @user_order.order_number[0..4] %>-<%= @user_order.order_number[5..-1] %></p>
+            </div>
+            <div class="pt-3 flex flex-col items-center">
+              <span class="text-xs text-white tracking-widest">請 出 示 此 畫 面 給 店 家</span>
             </div>
           </div>
         </div>
 
-  <div class="text-left">
-    <div class="mb-2 bg-orange-300 px-5 py-3 text-lg">餐廳資訊</div>
-    <div class="pl-8 ">
-      <div class="text-gray-400 text-sm">
-        地址
       </div>
-      <div class="">
-        台北市松山區慶城街18之1號2樓
-      </div>
-    </div>
-    <div class="pl-8 ">
-      <div class="text-gray-400 text-sm">
-        電話
-      </div>
-      <div class="">
-        02-2716-8818
-      </div>
-  </div>
 
-  <div class="mt-8 text-left">
-    <div class="mb-2 bg-orange-300 px-5 py-3 text-lg">訂購人資訊</div>
-    <div class="pl-8 ">
-      <div class="text-gray-400 text-sm">
-        姓名
+      <div class="text-left">
+        <div class="mb-2 bg-orange-300 px-5 py-3 text-lg">餐廳資訊</div>
+        <div class="pl-8 ">
+          <div class="text-gray-400 text-sm">地址</div>
+          <div class=""><%= @user_order.open_date.dish.store.address %></div>
+        </div>
+        <div class="pl-8 ">
+          <div class="text-gray-400 text-sm">電話</div>
+          <div class=""><%= @user_order.open_date.dish.store.tel %></div>
+        </div>
+
+        <div class="mt-8 text-left">
+          <div class="mb-2 bg-orange-300 px-5 py-3 text-lg">訂購人資訊</div>
+          <div class="pl-8 ">
+            <div class="text-gray-400 text-sm">姓名</div>
+            <div class=""><%= @user_order.name %></div>
+          </div>
+          <div class="pl-8 ">
+            <div class="text-gray-400 text-sm">電話</div>
+            <div class=""><%= @user_order.tel %></div>
+          </div>
+          <div class="pl-8 mb-8">
+            <div class="text-gray-400 text-sm">e-mail</div>
+              <div class=""><%= @user_order.email %></div>
+          </div>
+        </div>
       </div>
-      <div class="">
-        AAA
-      </div>
-    </div>
-    <div class="pl-8 ">
-      <div class="text-gray-400 text-sm">
-        電話
-      </div>
-      <div class="">
-        0912-345-678
-      </div>
-  </div>
-  <div class="pl-8 mb-8">
-    <div class="text-gray-400 text-sm">
-      e-mail
-    </div>
-    <div class="">
-      abc123def@aaa.com
+
     </div>
   </div>
-
- 					name: "Jimmy",
-					tel: ,
-					e-mail: ,
-					order_dish: "好吃喔",
-					newebpay_amount: 1200,
-					order_number: "EZeat01091214525",
-					order_date: "2022-01-08",
-					order_time: "",
-					user_status
-
-  </div>
-
-  
-</div>
 </div>

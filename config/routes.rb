@@ -17,8 +17,7 @@ Rails.application.routes.draw do
 
   # get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
-  get 'myorder', to: 'pages#myorder'
-  get 'mytickets', to: 'pages#mytickets'
+
 
   namespace :pages do
     resources :search, only: [:index] do

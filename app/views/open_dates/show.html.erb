@@ -80,6 +80,7 @@
 		</div>
 
 		<%= form_with url: new_check_path , method: "get" do |form| %>
+		  <%= form.hidden_field :store_id, value: params[:store_id] %>
 			<%= form.hidden_field :open_date_id, value: params[:id] %>
 			<%= form.hidden_field :order_price, value: @dish.price %>
 			<%= form.hidden_field :order_dish, value: @dish.name %>

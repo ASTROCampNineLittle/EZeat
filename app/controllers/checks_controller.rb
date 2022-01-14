@@ -27,7 +27,7 @@ class ChecksController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:open_date_id, :name, :tel, :email, :order_dish, :order_number, :order_date, :order_time, :order_people, :ezeat_amount, :order_status)
+    params.require(:order).permit(:open_date_id, :name, :tel, :email, :order_dish, :order_number, :order_date, :order_time, :order_people, :ezeat_amount, :order_status, :user_id, :store_id)
   end
 
   def ezeat_random_number
