@@ -46,6 +46,24 @@
                 </div>
               </div>
 
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <%= form.label :open_time, '開店時間', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.time_select :open_time, { minute_step: 30}, class:"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"%>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <%= form.label :close_time, '打烊時間', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.time_select :close_time, { minute_step: 30}, class:"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"%>
+                  </div>
+                </div>
+              </div>
+
               <div>
                 <%= form.label :intro, '分店介紹', class:"block text-sm font-medium text-gray-700"%>
                 <div class="mt-1">
@@ -90,7 +108,7 @@
             <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
               <%= form.submit value="更新資料", class:"inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
 
-              <%= link_to "取消", backend_store_path(@store), class:"inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>              
+              <%= link_to "取消", backend_store_path(@store), class:"inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
             </div>
           </div>
         <% end %>
