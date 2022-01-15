@@ -1,0 +1,7 @@
+.index-scroll .hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.index-scroll .hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
