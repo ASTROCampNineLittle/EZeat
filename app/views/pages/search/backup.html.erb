@@ -1,0 +1,106 @@
+<div class="bg-red-300 align-center" >
+	<%= search_form_for @q do |f| %>
+	  <%= f.label :name_cont, "角色名稱" %>
+		<%= f.search_field :name_cont, placeholder: "角色名稱" %>
+		<%= f.submit "搜尋" %>
+	<% end %>
+</div>
+
+<%# @search_result.each do |result| %>
+  <!-- <div class="container flex justify-between mx-auto">
+    <div><%= store.name %></div>
+  </div> -->
+
+  <%= content_tag :table do %>
+  <%= content_tag :th, sort_link(@q, :name) %>
+  <%= content_tag :th, sort_link(@q, :address) %>
+<% end %>
+
+
+    <%= search_form_for @q, url: search_result_pages_path do |f| %>
+
+      <%= f.label :store_name_cont %>
+      <%= f.search_field :store_name_cont, placeholder: "餐廳名稱"  %>
+
+      <%= f.label :store_address_cont_any %>
+      <%= f.search_field :store_address_cont_any, placeholder: "餐廳地址" %>
+
+      <%= f.select :store_food_type_eq, Store.food_types.to_a.map { |w| [w[0].humanize, w[1]] }, {:include_blank => true} %>
+
+      <%= f.label :name_cont %>
+      <%= f.search_field :name_cont, placeholder: "方案名稱" %>
+
+      <%= f.label :open_dates_availible_date %>
+      <%= f.search_field :open_dates_availible_date, placeholder: "可訂日期" %>
+
+      <%= f.submit "Search!" %>
+    <% end %>
+
+    <table>
+	<thead>
+		<tr>
+			<th width="20%"><%= sort_link(@q, :store_name_cont, 'Stores name', default_order: :desc) %></th>
+			<th width="30%"><%= sort_link(@q, :store_address, 'Address', default_order: :desc) %></th>
+			<th width="10%"><%= sort_link(@q, :store_food_type, 'Food types', default_order: :desc) %></th>
+			<th width="20%"><%= sort_link(@q, :name_cont, 'Dish name', default_order: :desc) %></th>
+			<th width="20%"><%= sort_link(@q, :open_dates_availible_date, 'Date', default_order: :desc) %></th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @search_result.each do |r| %>
+			<tr>
+				<td><%= r.store.name %></td>
+				<td><%= r.store.address %></td>
+				<td><%= r.store.food_type %></td>
+				<td><%= r.name %></td>
+
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+
+
+<div class="container bg-red-500">
+	<% @storesq.each do |item| %>
+		<% @dishesq.each do |user| %>
+			<% @open_datesq.each do |dates| %>
+				<% @offersq.each do |time| %>
+	            <div class="bg-yellow-300 flex">
+  <div>店名<%= item.name %></div>
+  <div>分店地址<%= item.address %></div>
+	<div>餐廳類型<%= item.food_type %></div>
+	<div class="bg-blue-300">方案名稱<%= user.name %></div>
+	<div class="bg-orange-300">可訂日期<%= dates.availible_date %></div>
+	<div class="bg-green-300">可訂時間<%= time.availible_time %></div>
+		</div>
+			<% end %>
+	<% end %>
+<% end %>
+	<% end %>
+
+
+	<div class="container bg-red-500">
+	<% @storesq.each do |stores| %>
+		<% @dishesq.each do |dishes| %>
+			<div class="bg-yellow-300 flex">
+				<div>店名<%= stores.name %></div>
+				<div>分店地址<%= stores.address %></div>
+				<div>餐廳類型<%= stores.food_type %></div>
+				<div class="bg-blue-300">方案名稱<%= dishes.name %></div>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+
+
+
+    <%= form_tag search_result_pages_path, method: :get do %>
+      <%= label_tag(:q, "Search for: store") %>
+      <%= search_field_tag(:q) %>
+      <%= label_tag(:q, "Search for: dish") %>
+      <%= search_field(:dish, :name) %>
+      <%= submit_tag("Search") %>
+    <% end %>
