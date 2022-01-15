@@ -10,21 +10,27 @@
 			<div>
 				<%= sort_link(@q, :store_food_type_eq, "食物類型", { class: "" })%>
 			</div>
-			<div class="bg-red-300 w-5">
+			<div class="bg-yellow-300">
+				搜尋排序的div先保留，可以先不管
 			</div>
-			<div class="bg-yellow-300 w-3">
+			<div class="">
 			</div>
 		</div>
+
+
 		<% @search_result.each do |dish| %>
+    <%# byebug %>
 			<% dish.open_dates.each do |date| %>
+				<%# byebug %>
 				<div class="flex">
 					<div><%= dish.store.name %></div>
 					<div><%= dish.store.address %></div>
 					<div><%= dish.store.food_type %></div>
 					<div><%= date.availible_date %></div>
 						<%= link_to(store_path(dish.store.id)) do %>
-							<div class="flex" >
-								<% date.offers.each do |time| %>
+							<div class="flex">
+								<% date.offers.take(3).each do |time| %>
+									<%# byebug %>
 									<div><%= time.availible_time.strftime("%H:%M") %></div>
 								<% end %>
 							</div>
