@@ -34,6 +34,9 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
+      red: {
+        1000: '#cc1213',
+      },
       stone: {
         50: '#fafaf9',
         100: '#f5f5f4',
@@ -45,6 +48,7 @@ module.exports = {
         700: '#44403c',
         800: '#292524',
         900: '#1c1917',
+        1000: '#cc1213',
       },
       black: colors.black,
       white: colors.white,

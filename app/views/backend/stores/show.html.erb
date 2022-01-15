@@ -127,6 +127,7 @@
             <%= form_with url: new_backend_writeoff_path , method: "get" do |form| %>
 							<%= form.text_field :writeoff_number, placeholder: '請輸入客戶提供的核銷碼' %>
 							<%= form.text_field :order_id, value: order.id, class:"invisible" %>
+							<%= form.text_field :store_id, value: params[:id], class:"invisible" %>
 							<div><%= form.submit '確認核銷' %></div>
           	<% end %>
           </td>
