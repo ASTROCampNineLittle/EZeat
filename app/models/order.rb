@@ -18,6 +18,11 @@ class Order < ApplicationRecord
     end
   end
 
+  scope order_date: { where("order_date < ?", Time.now) }
+  def overdue?
+    overdue < Time.now
+  end
+
   # aasm(:ticket, column: "ticket") do
   #   state :waiting, initial: true
   #   state :opend, :closed

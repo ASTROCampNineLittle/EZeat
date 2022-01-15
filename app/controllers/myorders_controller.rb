@@ -1,7 +1,12 @@
 class MyordersController < ApplicationController
   def index
     @user_order = Order.where(user_id: current_user.id).order(order_date: :desc).where.not(ticket: nil)
-    @ticket_overdue = @user_order.where(ticket: "已逾期")
+
+    # @ticket_overdue = Order.where(order_date: overdue? )
+    # if @user_order.order_date < Time.now
+    #   @user_order.update(ticket: "已逾期")
+    # end
+    # @ticket_overdue = @user_order.where(ticket: "已逾期")
     @q = Order.ransack(params[:q])
     @orders_result = @q.result.includes(:store).where(user_id: current_user.id)
   end
@@ -13,6 +18,11 @@ class MyordersController < ApplicationController
   def search
     @q = Order.ransack(params[:q])
   end
+
+  def before_today
+    self < Time.now
+  end
+
 end
 
 
