@@ -6,6 +6,5 @@ class Backend::WriteoffController < ApplicationController
       @order_list.update(ticket: "已核銷",)
       redirect_to backend_store_path(params[:store_id])
     end
-
   end
 end

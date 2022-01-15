@@ -29,7 +29,7 @@
 
 				<% @user_order.each do |orders| %>
 					<%= link_to myorder_path(orders) do %>
-						<div class="border-b border-gray-200 text-xs hover:text-sm hover:bg-orange-300 flex ">
+						<div class="border-b border-gray-200 text-xs hover:text-sm hover:bg-orange-300 flex">
 							<% if orders.ticket === "未使用" %>
 								<div class="px-3 py-5 w-2/12 text-center">
 									<span class="relative inline-block font-semibold text-green-900 leading-tight px-5 py-1">

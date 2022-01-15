@@ -21,13 +21,21 @@
           <div class="text-3xl sm:text-4xl py-0.5 font-bold text-left"><%= @user_order.open_date.dish.store.name %></div>
           <div class="text-lg sm:text-xl font-light tracking-widest text-left"><%= @user_order.order_dish %></div>
         </div>
-
-        <div class="w-full           lg:w-3/12 mt-10 lg:mt-0 text-center">
-          <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-green-900">
-            <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-            <span class="relative tracking-widest"><%= @user_order.ticket %></span>
-          </span>
-        </div>
+        <% if @user_order.ticket === "未使用" %>
+          <div class="w-full           lg:w-3/12 mt-10 lg:mt-0 text-center">
+            <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-green-900">
+              <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+              <span class="relative tracking-widest"><%= @user_order.ticket %></span>
+            </span>
+          </div>
+        <% else %>
+          <div class="w-full           lg:w-3/12 mt-10 lg:mt-0 text-center">
+            <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-red-900">
+              <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+              <span class="relative tracking-widest"><%= @user_order.ticket %></span>
+            </span>
+          </div>
+        <% end%>
       </div>
 
       <div class="inline-block w-full lg:w-1/2 md:w-10/12 rounded-xl text-center text-lg bg-orange-200 pt-3 shadow my-7">核 銷 編 號

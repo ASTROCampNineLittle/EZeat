@@ -1,7 +1,9 @@
 class MyordersController < ApplicationController
   def index
     @user_order = Order.where(user_id: current_user.id).order(order_date: :desc).where.not(ticket: nil)
-    @user_ticket = @user_order.where.not(ticket: nil)
+    @ticket_overdue = @user_order.where(ticket: "已逾期")
+
+    if
   end
 
   def show
