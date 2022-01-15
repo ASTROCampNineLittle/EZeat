@@ -1,21 +1,38 @@
-<h1>Results</h1>
 	<div class="container">
+		<h1>Results</h1>
+		<div class="flex">
+			<div>
+				<%= sort_link(@q, :store_name_cont, "商店名稱", { class: "" })%>
+			</div>
+			<div>
+				<%= sort_link(@q, :store_address_cont_any, "商店地址", { class: "" })%>
+			</div>
+			<div>
+				<%= sort_link(@q, :store_food_type_eq, "食物類型", { class: "" })%>
+			</div>
+			<div class="bg-red-300 w-5">
+			</div>
+			<div class="bg-yellow-300 w-3">
+			</div>
+		</div>
 		<% @search_result.each do |dish| %>
 			<% dish.open_dates.each do |date| %>
 				<div class="flex">
 					<div><%= dish.store.name %></div>
 					<div><%= dish.store.address %></div>
 					<div><%= dish.store.food_type %></div>
-					<div><%= dish.name %></div>
 					<div><%= date.availible_date %></div>
-						<% date.offers.each do |time| %>
-							<div><%= time.availible_time.strftime("%H:%M") %></div>
+						<%= link_to(store_path(dish.store.id)) do %>
+							<div class="flex" >
+								<% date.offers.each do |time| %>
+									<div><%= time.availible_time.strftime("%H:%M") %></div>
+								<% end %>
+							</div>
 						<% end %>
 				</div>
 			<% end %>
 		<% end %>
 	</div>
-<br>
 
 <section class="antialiased text-gray-600 w-full m-auto my-10">
 	<div class="flexjustify-center h-full">
