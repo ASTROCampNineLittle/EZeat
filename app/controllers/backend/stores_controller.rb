@@ -9,6 +9,8 @@ class Backend::StoresController < ApplicationController
 
   def show
     @dishes = @store.dishes.all
+    @order_summary = Order.where(store_id: params[:id])
+    @order_today = Order.where(store_id: params[:id], order_date: DateTime.now)
   end
 
   def new
@@ -45,7 +47,7 @@ class Backend::StoresController < ApplicationController
 
   private
     def store_params
-      params.require(:store).permit(:name, :food_type, :tel, :address, :intro, :image, :remote_image_url)
+      params.require(:store).permit(:name, :food_type, :tel, :address, :intro, :image, :open_time, :close_time, :remote_image_url)
     end
 
     def set_store

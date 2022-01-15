@@ -80,6 +80,7 @@
 		</div>
 
 		<%= form_with url: new_check_path , method: "get" do |form| %>
+		  <%= form.hidden_field :store_id, value: params[:store_id] %>
 			<%= form.hidden_field :open_date_id, value: params[:id] %>
 			<%= form.hidden_field :order_price, value: @dish.price %>
 			<%= form.hidden_field :order_dish, value: @dish.name %>
@@ -90,10 +91,8 @@
 				<div class='flex flex-wrap justify-center w-full'>
 					<% @offers.each do |offers| %>
 						<div class="w-1/6 pl-2">
-							<label for="checked">
-								<%= form.radio_button :order_time , offers.availible_time, id:"checked" %>
-								<%= form.label(:order_time, offers.availible_time.strftime("%H：%M"), class:"text-red-500 text-sm py-1.5 px-5 my-3 border-b-4 border-red-600 rounded-full bg-white w-1/8 inline-block align-middle bg-white hover:bg-red-400 hover:text-white")%>
-							</label>
+							<%= form.radio_button :order_time , offers.availible_time %>
+							<%= form.label(:order_time, offers.availible_time.strftime("%H：%M"), value: offers.availible_time, class:"text-red-500 text-sm py-1.5 px-5 my-3 border-b-4 border-red-600 rounded-full bg-white w-1/8 inline-block align-middle bg-white hover:bg-red-400 hover:text-white")%>
 						</div>
 					<% end %>
 				</div>
@@ -109,7 +108,6 @@
 				<%= form.submit '送 出 時 間 及 人 數', class: 'text-white text-base py-2.5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer' %>
 			</div>
 		<% end %>
-<div class="flex justify-center py-8">
 		<div class="flex flex-row-reverse mr-6 mt-10 mb-6"><%= link_to "↻ 返回前頁改選", :back , class:'text-sm text-gray-500 hover:underline hover:text-orange-500'%></div>
 	</section>
 

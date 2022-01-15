@@ -5,7 +5,7 @@ class ChecksController < ApplicationController
   end
 
   def new
-    @user = User.last
+    @user = current_user
     @order = Order.new
     @open_date = OpenDate.find(params[:open_date_id])
     @store = @open_date.dish.store
@@ -27,7 +27,7 @@ class ChecksController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:open_date_id, :name, :tel, :email, :user_email, :order_dish, :order_number, :order_date, :order_time, :order_people, :ezeat_amount, :order_status)
+    params.require(:order).permit(:open_date_id, :name, :tel, :email, :order_dish, :order_number, :order_date, :order_time, :order_people, :ezeat_amount, :order_status, :user_id, :store_id)
   end
 
   def ezeat_random_number

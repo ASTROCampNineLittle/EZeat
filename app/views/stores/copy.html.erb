@@ -1,0 +1,96 @@
+<%= stylesheet_link_tag "slideshow.css" %>
+<div class="bg-gray-100 max-w-screen-xl container mx-auto pb-10">
+  <!-- Slide show start -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+
+      <% @dishes.each do |dish|%>
+        <% dish.images.each do |image| %>
+          <div class="swiper-slide">
+          <%= image_tag image.image_url if image.image_url.present? %>
+          </div>
+        <% end %>
+      <% end %>
+
+      
+
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  <!-- Slide show end -->
+
+  <div class="flex">
+  
+    <section class="bg-white w-2/3 container mx-auto ml-12 mr-6 drop-shadow-lg rounded-lg -mt-6 z-10">
+      <h1 class="text-3xl pl-5 text-black tracking-widest py-8"><%= @store.name %></h1>
+      <span class="ml-5 mb-5 px-3 py-1 bg-red-200 rounded-full inline-block"><%= @store.food_type %>料理</span>
+      <% @dishes.each do |dish| %>
+        <div class="flex items-center justify-between bg-orange-200 pl-8 py-2">
+          <h3 class="text-left text-lg font-medium"><%= dish.name %></h3>
+          <span class="text-red-500 text-3xl pr-8 font-bold">＄<%= dish.price.to_s.gsub(/(\d)(?=(\d{3})+$)/,'\1,') %></span>
+        </div>
+        <div class="text-left px-8 py-4 text-base leading-8"><%= simple_format(dish.intro) %></div>
+        <div class="mx-8">
+          <%= link_to "選 此 方 案", store_dish_path(id: dish, store_id: @store) , class:"text-white text-base text-center my-5 py-2.5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer inline-block" %>
+        </div>
+      <% end %>  
+    </section>
+
+    <section class="bg-white w-1/3 container mx-auto pb-4 ml-6 mr-12 drop-shadow-lg rounded-lg -mt-6 z-10">
+      <div class="sticky top-1">
+        <h3 class="text-center text-xl py-4 tracking-widest">餐廳資訊</h3>
+        <iframe width="380" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["googlemap_api"] %>&q=<%= @store.address %>" ></iframe>
+          <div class="text-left pl-6 text-base flex pt-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            </svg>
+            <div class="pl-2 tracking-widest text-base font-bold">地址</div>
+          </div>
+          <div class="pl-12 text-sm py-2 pb-5 tracking-wide text-gray-500"><%= @store.address %></div>
+
+          <div class="text-left pl-6 text-base flex">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <div class="pl-2 tracking-widest text-base font-bold">電話</div>
+          </div>
+          <div class="pl-12 text-sm py-2 pb-5 tracking-wide text-gray-500"><%= @store.tel %></div>
+
+          <div class="text-left pl-6 text-base flex">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+            </svg>
+            <div class="pl-2 tracking-widest text-base font-bold">營業時間</div>
+          </div>
+          <%if @store.open_time && @store.close_time%>
+            <div class="pl-12 text-sm py-2 tracking-wide text-gray-500">
+              <%= @store.open_time.strftime("%H:%M") %> - <%= @store.close_time.strftime("%H:%M") %>
+            </div>
+          <% end %>
+      </div>
+    </section>
+  </div>
+</div>

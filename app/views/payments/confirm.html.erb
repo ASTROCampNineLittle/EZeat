@@ -1,5 +1,5 @@
 <div class="bg-gray-100 max-w-screen-md container mx-auto pb-4">
-	<div class="px-4 py-10">	
+	<div class="px-4 py-10">
     <div class="flex pb-3 -mx-0.5">
       <div class="flex-1">
 				<div class="w-10 h-10 bg-white border-2 border-green-400 mx-auto rounded-full text-xl text-green-400 flex items-center">
@@ -51,21 +51,21 @@
 	<h3 class="bg-orange-100 text-black text-4xl py-14 pl-6 border-b-2 text-center ">交易結果：
 		<% if @response.status === "SUCCESS"%>
 		<%= "😉 購買票卷成功！" %>
-		<% else %>    
+		<% else %>
 		<%= "😕 購買票卷失敗！" %><br>
-		<span><%= @response.message %></span>
+		<span class="py-5"><%= @response.message %></span>
 		<% end%>
 	</h3>
 
 	<div class="flex flex-between text-lg bg-gray-300">
 		<h3 class="bg-gray-300 text-black py-3 pl-6 border-b-2 flex-grow font-semibold inline-block ">購買明細</h3>
-		<span><%= link_to "查看我的票卷", myorder_path,
+		<span><%= link_to "查看我的票卷", myorders_path,
 		  class:'text-red-500 text-base py-3 pr-6 hover:underline hover:text-orange-500 flex-none inline-block'%>
 		</span>
 	</div>
 	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">餐卷：<%= @order.order_dish %></div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">時間：<%= @order.order_date %></div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">日期：<%= @order.order_time %></div>
+	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">日期：<%= @order.order_date %></div>
+	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">時間：<%= @order.order_time[11..15] %></div>
 	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">人數：<%= @order.order_people %></div>
 	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">交易金額：<%= @order.newebpay_amount %></div>
 	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">藍新交易時間：<%= @order.newebpay_time %></div>

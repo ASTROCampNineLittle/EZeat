@@ -17,28 +17,15 @@ Rails.application.routes.draw do
 
   # get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
-  get 'myorder', to: 'pages#myorder'
-  get 'mytickets', to: 'pages#mytickets'
 
-  # namespace :pages do
-  #   resources :search, only: [:index] do
-  #   end
-  # end
-
-    resources :pages do
-      collection do
-        get :search_result
-      end
+  resources :pages do
+    collection do
+      get :search_result
     end
-
-    # resources :stores do
-    #   collection do
-    #     match 'search' => 'stores#search', via: [:get, :post], as: :search
-    #   end
-    # end
+  end
 
   #frontend related routes
-  resources :stores, only: [:show, :index] do
+  resources :stores, only: [:show] do
     resources :dishes, only: [:show] do
       resources :open_dates, only: [:show] do
       end
@@ -50,6 +37,12 @@ Rails.application.routes.draw do
   resources :payments , only: [:new] do
     member do
       post :confirm
+    end
+  end
+
+  resources :myorders , only: [:index, :show] do
+    collection do
+      get :search
     end
   end
 
@@ -74,6 +67,8 @@ Rails.application.routes.draw do
     resources :open_dates, only: [] do
       resources :offers, except: [:show], shallow: true
     end
+
+    resources :writeoff
   end
 
   # 未來可用來處理Routing Error 頁面用的，目前先關起來，要看畫面可打 http://localhost:3000/users
