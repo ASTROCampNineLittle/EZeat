@@ -8,6 +8,6 @@ class Pages::SearchController < ApplicationController
   private
 
   def set_q
-    @q = User.ransack(params[:q])
+    @q = Store.ransack(params[:q])
   end
 end

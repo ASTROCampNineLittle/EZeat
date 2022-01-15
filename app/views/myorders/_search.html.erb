@@ -1,0 +1,40 @@
+<% @orders_result.each do |orders| %>
+	<%= link_to myorder_path(orders) do %>
+		<div class="flex border-b border-gray-200 text-sm hover:bg-orange-300 text-center text-gray-900">
+		<% if orders.ticket === "open" %>
+			<div class="px-3 py-5 w-2/12">
+				<span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+					<span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+					<span class="relative">
+						<%= orders.ticket %>
+					</span>
+				</span>
+			</div>
+		<% else %>
+			<div class="px-3 py-5 w-2/12">
+				<span class="relative inline-block font-semibold text-red-900 leading-tight px-3 py-1">
+					<span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+					<span class="relative">
+						<%= orders.ticket %>
+					</span>
+				</span>
+			</div>
+		<% end %>
+			<div class="px-3 py-5 w-4/12">
+				<p class="whitespace-no-wrap">
+					<%= orders.open_date.dish.store.name %>
+				</p>
+			</div>
+			<div class="px-3 py-5 w-3/12">
+				<p class="whitespace-no-wrap">
+					<%= orders.order_dish %>
+				</p>
+			</div>
+			<div class="px-3 py-5 w-3/12">
+				<p class="whitespace-no-wrap">
+					<%= orders.order_date %>
+				</p>
+			</div>
+		</div>
+	<% end %>
+<% end %>

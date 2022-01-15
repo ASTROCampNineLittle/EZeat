@@ -21,7 +21,7 @@ class PaymentsController < ApplicationController
     end
 
     if @order.order_status === "succeded"
-      ticket_open = @order.update(ticket: "open")
+      ticket_open = @order.update(ticket: "未使用")
     end
   end
 end

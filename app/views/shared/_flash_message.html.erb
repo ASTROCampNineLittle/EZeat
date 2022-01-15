@@ -1,2 +1,7 @@
-<p class="notice text-center"><%= raw(notice) %></p>
-<p class="alert text-center"><%= alert %></p>
+<% flash.each do |key, value| %>
+  <div id="alert" class="absolute bg-orange-50 opacity-50 px-10 alert alert-<%= key %>">
+    <div class="text-red-900 tracking-widest">
+      <%= value %>
+    </div>
+  </div>
+<% end %>

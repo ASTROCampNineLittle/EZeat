@@ -3,6 +3,12 @@ class Company < ApplicationRecord
   belongs_to :user
   accepts_nested_attributes_for :stores
 
+  #   scope :search, -> (keyword) {
+  #   # where("name like :q OR Store.food_type like :q', q: "%#{keyword}%") if keyword.present?
+  #   where('stores.address like :q', q: "%#{keyword}%") if keyword.present?
+  #   # { where("name like ?", "#{keyword}") if keyword.present?
+  # }
+
   # private
 
   # def set_users_role

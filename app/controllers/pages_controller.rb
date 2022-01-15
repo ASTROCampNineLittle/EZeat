@@ -12,14 +12,13 @@ class PagesController < ApplicationController
     @foodtype6_stores = @stores.where(food_type: "美式")
     @foodtype7_stores = @stores.where(food_type: "法式")
     @foodtype8_stores = @stores.where(food_type: "德式")
+
+    @q = Dish.includes(:store, :open_dates).ransack(params[:q])
   end
 
-  def myorder
-    @user = Order.where(user_email: "dreamorange830@gmail.com")
-    @orders = @user.all
-    # @user_all_tickets = @orders.where(ids: @user.ids)
-  end
-
-  def mytickets
+  def search_result
+    @q = Dish.includes(:store, :open_dates).ransack(params[:q])
+    search_result = @q.result
+    @search_result = search_result
   end
 end

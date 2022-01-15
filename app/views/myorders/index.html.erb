@@ -1,57 +1,37 @@
 <div class="m-auto lg:w-8/12 md:w-10/12 sm:w-full">
 	<div class="bg-white p-8 rounded-md w-full">
-		<div class=" flex items-center justify-between pb-6">
+		<div class="flex items-center justify-between pb-6">
 			<div>
 				<h2 class="text-gray-600 font-semibold text-2xl tracking-widest">我 的 訂 單</h2>
 			</div>
-			<div class="flex items-center justify-between">
+			<div>
+				<%= search_form_for @q, url: myorders_path do |f| %>
 				<div class="flex bg-gray-50 items-center p-2 rounded-md">
+    			<%= f.label :store_name_cont, "餐廳名稱" %>
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
 						<path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
 					</svg>
-					<input class="bg-gray-50 outline-none ml-1 block search-fliter" data-table="order-table" type="search" name="" id="" placeholder="search...">
+  				<%= f.search_field :store_name_cont, class:"bg-gray-50 outline-none ml-1 block search-fliter", placeholder:"search" %>
+    			<%= f.submit "查詢", class:"p-1 text-sm bg-orange-100 rounded-sm" %>
 				</div>
+				<% end %>
 			</div>
 		</div>
 
 		<div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
 			<div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-				<table class="min-w-full leading-normal order-table table">
-					<thead>
-						<tr class="bg-orange-200 border-b-2 border-gray-200 text-gray-600 text-lg tracking-widest">
-							<th class="px-3 py-3 w-4/12">餐廳</th>
-							<th class="px-3 py-3 w-4/12">方案名稱</th>
-							<th class="px-3 py-3 w-2/12">預訂日期</th>
-							<th class="px-3 py-3 w-1/12">張數</th>
-							<th class="px-3 py-3 w-1/12">狀態</th>
-						</tr>
-					</thead>
-				</table>
-
-				<% @user_order.each do |orders| %>
-					<%= link_to myorder_path(orders) do %>
-						<div class="border-b border-gray-200 text-xs hover:text-sm hover:bg-orange-300 flex ">
-							<div class="px-3 py-5 w-4/12">
-								<p class="text-gray-900 whitespace-no-wrap text-lg text-center"><%= orders.open_date.dish.store.name%></p>
-							</div>
-							<div class="px-3 py-5 w-4/12">
-								<p class="text-gray-900 whitespace-no-wrap text-lg text-center"><%= orders.order_dish %></p>
-							</div>
-							<div class="px-3 py-5 w-2/12">
-								<p class="text-gray-900 whitespace-no-wrap text-lg text-center"><%= orders.order_date %></p>
-							</div>
-							<div class="px-3 py-5 w-1/12">
-								<p class="text-gray-900 whitespace-no-wrap text-lg text-center"><%= orders.order_people %></p>
-							</div>
-							<div class="px-3 py-5 w-1/12">
-								<span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-									<span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-									<span class="relative"><%= orders.ticket %></span>
-								</span>
-							</div>
+				<div class="min-w-full leading-normal order-table table">
+					<div>
+						<div class="flex text-center bg-orange-200 border-b-2 border-gray-200 text-gray-600 text-sm tracking-widest">
+							<div class="px-3 py-3 w-2/12">狀態</div>
+							<div class="px-3 py-3 w-4/12">餐廳</div>
+							<div class="px-3 py-3 w-3/12">方案名稱</div>
+							<div class="px-3 py-3 w-3/12">預訂日期</div>
 						</div>
-					<% end %>
-				<% end %>
+					</div>
+				</div>
+				<%= render 'myorders/search' %>
+
 			</div>
 		</div>
 	</div>

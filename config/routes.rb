@@ -18,14 +18,13 @@ Rails.application.routes.draw do
   # get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
 
-
-  namespace :pages do
-    resources :search, only: [:index] do
+  resources :pages do
+    collection do
+      get :search_result
     end
   end
 
   #frontend related routes
-
   resources :stores, only: [:show] do
     resources :dishes, only: [:show] do
       resources :open_dates, only: [:show] do
@@ -41,7 +40,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :myorders , only: [:index, :show]
+  resources :myorders , only: [:index, :show] do
+    collection do
+      get :search
+    end
+  end
 
   #backend related routes
   namespace :backend do
@@ -64,6 +67,8 @@ Rails.application.routes.draw do
     resources :open_dates, only: [] do
       resources :offers, except: [:show], shallow: true
     end
+
+    resources :writeoff
   end
 
   # 未來可用來處理Routing Error 頁面用的，目前先關起來，要看畫面可打 http://localhost:3000/users
@@ -71,7 +76,7 @@ Rails.application.routes.draw do
   match '/404', :to => 'errors#not_found_404', :via => :all
   match '/500', :to => 'errors#not_found_404', :via => :all
   # 看畫面用，之後要刪除
-  get 'users', to: 'errors#render_404'
+  get 'users', to: 'errors#not_found_404'
 
   # end
 end
