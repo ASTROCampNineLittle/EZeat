@@ -45,6 +45,7 @@ module.exports = {
         700: '#44403c',
         800: '#292524',
         900: '#1c1917',
+        1000: '#cc1213',
       },
       black: colors.black,
       white: colors.white,
