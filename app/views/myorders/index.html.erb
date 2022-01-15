@@ -2,7 +2,7 @@
 	<div class="bg-white p-8 rounded-md w-full">
 		<div class=" flex items-center justify-between pb-6">
 			<div>
-				<h2 class="text-gray-600 font-semibold text-2xl tracking-widest">我 的 訂 單</h2>
+				<h2 class="text-gray-600 font-semibold text-2xl tracking-widest">我 的 票 卷</h2>
 			</div>
 			<div class="flex items-center justify-between">
 				<div class="flex bg-gray-50 items-center p-2 rounded-md">
@@ -19,11 +19,10 @@
 				<table class="min-w-full leading-normal order-table table">
 					<thead>
 						<tr class="bg-orange-200 border-b-2 border-gray-200 text-gray-600 text-lg tracking-widest">
+							<th class="px-3 py-3 w-2/12">狀態</th>
 							<th class="px-3 py-3 w-4/12">餐廳</th>
-							<th class="px-3 py-3 w-4/12">方案名稱</th>
-							<th class="px-3 py-3 w-2/12">預訂日期</th>
-							<th class="px-3 py-3 w-1/12">張數</th>
-							<th class="px-3 py-3 w-1/12">狀態</th>
+							<th class="px-3 py-3 w-3/12">方案名稱</th>
+							<th class="px-3 py-3 w-3/12">預訂日期</th>
 						</tr>
 					</thead>
 				</table>
@@ -31,23 +30,29 @@
 				<% @user_order.each do |orders| %>
 					<%= link_to myorder_path(orders) do %>
 						<div class="border-b border-gray-200 text-xs hover:text-sm hover:bg-orange-300 flex ">
+							<% if orders.ticket === "未使用" %>
+								<div class="px-3 py-5 w-2/12 text-center">
+									<span class="relative inline-block font-semibold text-green-900 leading-tight px-5 py-1">
+										<span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+										<span class="relative"><%= orders.ticket %></span>
+									</span>
+								</div>
+							<% else %>
+								<div class="px-3 py-5 w-2/12 text-center">
+									<span class="relative inline-block font-semibold text-red-900 leading-tight px-5 py-1">
+										<span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+										<span class="relative"><%= orders.ticket %></span>
+									</span>
+								</div>
+							<% end %>
 							<div class="px-3 py-5 w-4/12">
 								<p class="text-gray-900 whitespace-no-wrap text-lg text-center"><%= orders.open_date.dish.store.name%></p>
 							</div>
-							<div class="px-3 py-5 w-4/12">
+							<div class="px-3 py-5 w-3/12">
 								<p class="text-gray-900 whitespace-no-wrap text-lg text-center"><%= orders.order_dish %></p>
 							</div>
-							<div class="px-3 py-5 w-2/12">
+							<div class="px-3 py-5 w-3/12">
 								<p class="text-gray-900 whitespace-no-wrap text-lg text-center"><%= orders.order_date %></p>
-							</div>
-							<div class="px-3 py-5 w-1/12">
-								<p class="text-gray-900 whitespace-no-wrap text-lg text-center"><%= orders.order_people %></p>
-							</div>
-							<div class="px-2 py-5 w-1/12">
-								<span class="relative inline-block px-1 py-1 font-semibold text-green-900 leading-tight">
-									<span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-									<span class="relative"><%= orders.ticket %></span>
-								</span>
 							</div>
 						</div>
 					<% end %>

@@ -13,13 +13,4 @@ class PagesController < ApplicationController
     @foodtype7_stores = @stores.where(food_type: "法式")
     @foodtype8_stores = @stores.where(food_type: "德式")
   end
-
-  def myorder
-    @user = Order.where(user_email: "dreamorange830@gmail.com")
-    @orders = @user.all
-    # @user_all_tickets = @orders.where(ids: @user.ids)
-  end
-
-  def mytickets
-  end
 end

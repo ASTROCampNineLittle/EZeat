@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  skip_before_action :verify_authenticity_token, :only => [:confirm ,:new]
+  skip_before_action :verify_authenticity_token, :only => [:confirm]
 
   def new
     @form_info = Newebpay::Mpgpost.new.form_info
