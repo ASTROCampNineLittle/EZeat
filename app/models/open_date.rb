@@ -11,5 +11,5 @@ class OpenDate < ApplicationRecord
     if availible_date.present? && availible_date < Date.today
       errors.add(:availible_date, "can't be in the past")
     end
-  end 
+  end
 end

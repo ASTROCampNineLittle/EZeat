@@ -12,13 +12,21 @@ class PagesController < ApplicationController
     # @foodtype7_stores = Store.where(food_type: "法式")
     # @foodtype8_stores = Store.where(food_type: "德式")
 
+    # @q = Dish.ransack(params[:q])
+    # @q = Dish.includes(:store, :open_dates, :offers).ransack(params[:q])
+    # @search_result = @q.result
     @q = Dish.ransack(params[:q])
-    @search_result = @q.result.includes(:store)
   end
 
   def search_result
     @q = Dish.ransack(params[:q])
-    @search_result = @q.result.includes(:store)
+    @search_result = @q.result.includes(:store, :open_dates)
+
+    # q = params[:q]
+    # @storesq = Store.joins(:dishes).search(name_cont: q).result
+    # @dishesq = Dish.search(name_cont: q).result
+    # @open_datesq = OpenDate.search(id: q).result
+    # @offersq = Offer.search(id: q).result
   end
 
   def myorder

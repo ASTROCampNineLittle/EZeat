@@ -1,19 +1,32 @@
 <div class="grid h-96 items-center w-full -mt-2">
   <div class="p-5 bg-white ml-20 w-80 rounded shadow-md">
     <%= search_form_for @q, url: search_result_pages_path do |f| %>
-      <%= f.label :name_cont %>
-      <%= f.search_field :name_cont, placeholder: "Search..." %>
+
+      <%= f.label :store_name_cont %>
+      <%= f.search_field :store_name_cont, placeholder: "餐廳名稱"  %>
 
       <%= f.label :store_address_cont_any %>
-      <%= f.search_field :store_address_cont_any, placeholder: "Search..." %>
+      <%= f.search_field :store_address_cont_any, placeholder: "搜尋餐廳地址" %>
 
       <%= f.select :store_food_type_eq, Store.food_types.to_a.map { |w| [w[0].humanize, w[1]] }, {:include_blank => true} %>
 
-      <%= f.label :store_name_cont %>
-      <%= f.search_field :store_name_cont %>
+      <%= f.label :open_dates_availible_date %>
+      <%= f.search_field :open_dates_availible_date, placeholder: "可訂日期" %>
+
+      <template data-target="search-form.template">
+        <%= f.search_field :open_dates_availible_date, child_index: "ADD_DATE" do |date|%>
+        <%= render "search_fields", form: date %>
+        <% end %>
+      </template>
+      <div class="">
+        <div data-target="search-form.link">
+          <%=link_to "新增可訂位日期", "#", class: "bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 border border-gray-400 rounded", data: {action: "search-form#search_date"} %>
+        </div>
+      </div>
 
       <%= f.submit "Search!" %>
     <% end %>
+
     <br>
 
     <h1 class="text-lg font-semibold">餐廳名稱搜尋</h1>
