@@ -18,6 +18,8 @@ class PagesController < ApplicationController
     @user = Order.where(user_email: "dreamorange830@gmail.com")
     @orders = @user.all
     # @user_all_tickets = @orders.where(ids: @user.ids)
+    @q = Dish.ransack(params[:q])
+    @dishes = @q.result(distinct: true)
   end
 
   def mytickets

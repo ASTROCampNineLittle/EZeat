@@ -1,10 +1,17 @@
 class MyordersController < ApplicationController
   def index
     @user_order = Order.where(user_id: current_user.id).order(order_date: :desc)
+
+    @q = Order.ransack(params[:q])
+    @orders_result = @q.result.includes(:store).where(user_id: current_user.id)
   end
 
   def show
     @user_order = Order.find(params[:id])
+  end
+
+  def search
+    @q = Order.ransack(params[:q])
   end
 end
 
