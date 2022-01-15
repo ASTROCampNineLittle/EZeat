@@ -20,7 +20,7 @@ class PagesController < ApplicationController
 
   def search_result
     @q = Dish.includes(:store, :open_dates).ransack(params[:q])
-    search_result = @q.result.page(params[:page]).per(1)
+    search_result = @q.result
     @search_result = search_result
 
     # q = params[:q]

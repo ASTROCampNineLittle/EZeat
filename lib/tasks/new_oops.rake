@@ -2,16 +2,16 @@ namespace :db do
   desc "產生假分店-方案-時段-時間"
   task :new_oops => :environment do
 
-    # # 產生假分店1: 先建立各種food_type
-    # comp = Company.first
-    # 20.times do
-    #   comp.stores.create(name: Faker::Restaurant.name,
-    #                     food_type: (0..10).to_a.sample,
-    #                     address: Faker::Address.full_address,
-    #                     tel: Faker::PhoneNumber.cell_phone,
-    #                     intro: Faker::Restaurant.description
-    #                     )
-    # end
+    # 產生假分店1: 先建立各種food_type
+    comp = Company.first
+    20.times do
+      comp.stores.create(name: Faker::Restaurant.name,
+                        food_type: (0..10).to_a.sample,
+                        address: Faker::Address.full_address,
+                        tel: Faker::PhoneNumber.cell_phone,
+                        intro: Faker::Restaurant.description
+                        )
+    end
 
     # # 產生假分店: 根據food_type 塞假照片
     #   s0 = Store.where(food_type: 0)
@@ -91,14 +91,14 @@ namespace :db do
     #     end
     #   end
 
-      # # 產生假方案
-      # sto = Store.last
-      # 1.times do
-      #   sto.dishes.create(name: Faker::Food.ethnic_category,
-      #                     price: (100..1000).to_a.sample,
-      #                     status: 1,
-      #                     intro: Faker::Food.description)
-      # end
+      # 產生假方案
+      sto = Store.last
+      5.times do
+        sto.dishes.create(name: Faker::Food.ethnic_category,
+                          price: (100..1000).to_a.sample,
+                          status: 1,
+                          intro: Faker::Food.description)
+      end
 
       # # 產生假時段
       # dis = Dish.last
