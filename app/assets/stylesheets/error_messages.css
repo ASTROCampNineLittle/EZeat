@@ -6,10 +6,18 @@
   font-weight: bolder;
 }
 
-.notice {
+/* .notice {
   background-color: #f2dede;
   border-color: #eed3d7;
   color: #b94a48;
   text-align: center;
   font-weight: bolder;
+} */
+
+div#alert {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  left: 45%;
+  top: 90px;
 }
