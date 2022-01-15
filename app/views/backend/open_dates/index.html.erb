@@ -12,11 +12,7 @@
 
 			<div class="w-1/5 align-center items-center align-middle content-center flex">
 				<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
-<<<<<<< HEAD
 					<div class="bg-blue-400 text-lg leading-none py-1 text-center rounded " style="width: 100%"></div>
-=======
-					<div class="bg-blue-400 text-xs leading-none py-1 text-center rounded " style="width: 100%"></div>
->>>>>>> 6cabed7b6d50d18cba845f0101efbae9d14d11a2
 				</div>
 			</div>
 
@@ -30,11 +26,7 @@
 
 			<div class="w-1/5 align-center items-center align-middle content-center flex">
 				<div class="w-full rounded items-center align-middle align-center flex-1">
-<<<<<<< HEAD
 					<div class="bg-blue-400 text-lg leading-none py-1 text-center rounded " style="width: 100%"></div>
-=======
-					<div class="bg-blue-400 text-xs leading-none py-1 text-center rounded " style="width: 100%"></div>
->>>>>>> 6cabed7b6d50d18cba845f0101efbae9d14d11a2
 				</div>
 			</div>
 
@@ -46,11 +38,7 @@
 
   		<div class="w-1/5 align-center items-center align-middle content-center flex">
 				<div class="w-full rounded items-center align-middle align-center flex-1">
-<<<<<<< HEAD
 					<div class="bg-blue-400 text-lg leading-none py-1 text-center rounded " style="width: 100%"></div>
-=======
-					<div class="bg-blue-400 text-xs leading-none py-1 text-center rounded " style="width: 100%"></div>
->>>>>>> 6cabed7b6d50d18cba845f0101efbae9d14d11a2
 				</div>
 			</div>
 
@@ -63,44 +51,28 @@
 		</div>
 
 		<div class="flex text-lg content-center text-center py-1">
-<<<<<<< HEAD
 			<div class="w-1/6 text-lg text-blue-400">
-=======
-			<div class="w-1/6 text-sm text-blue-400">
->>>>>>> 6cabed7b6d50d18cba845f0101efbae9d14d11a2
         <span><%= link_to "回分店列表", backend_company_path(@dish.store.company)%></span>
 			</div>
 
 			<div class="w-1/3 align-center items-center align-middle content-center flex">
 			</div>
 
-<<<<<<< HEAD
 			<div class="w-1/6 text-lg text-blue-400">
-=======
-			<div class="w-1/6 text-sm text-blue-400">
->>>>>>> 6cabed7b6d50d18cba845f0101efbae9d14d11a2
 				<span><%= link_to "回#{@dish.store.name}", backend_store_path(@dish.store)%></span>
 			</div>
 
 			<div class="w-1/3 align-center items-center align-middle content-center flex">
 			</div>
 
-<<<<<<< HEAD
 			<div class="w-1/6 text-lg text-blue-400">
-=======
-			<div class="w-1/6 text-sm text-blue-400">
->>>>>>> 6cabed7b6d50d18cba845f0101efbae9d14d11a2
 			  <span><%= link_to "回餐飲方案", backend_store_dishes_path(@dish.store)%><span>
 			</div>
 
   		<div class="w-1/3 align-center items-center align-middle content-center flex">
 			</div>
 
-<<<<<<< HEAD
 			<div class="w-1/6 text-lg text-blue-400">
-=======
-			<div class="w-1/6 text-sm text-blue-400">
->>>>>>> 6cabed7b6d50d18cba845f0101efbae9d14d11a2
 			  <span>訂位時段＆人數</span>
 			</div>
 		</div>
@@ -110,7 +82,6 @@
     <%= @dish.name %>訂位時段＆人數
   </h2>
 
-<<<<<<< HEAD
     <div class="w-full lg:w-11/12 px-4 mx-auto mt-6">
       <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blue-100 border-0">
         <div class="rounded-t bg-white mb-0 px-6 py-6 bg-blue-300">
@@ -243,9 +214,6 @@
     編輯個別時段＆人數
   </h3>
   <!-- 編輯個別日期 -->
-=======
-  <!-- component -->
->>>>>>> 6cabed7b6d50d18cba845f0101efbae9d14d11a2
   <table class="min-w-full border-collapse block md:table">
       <thead class="block md:table-header-group">
         <tr class="border border-gray-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
@@ -290,13 +258,7 @@
 
                 <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell">
                   <span class="inline-block w-1/3 md:hidden font-bold flex">編輯</span>
-<<<<<<< HEAD
                     <%= form.submit value="更新", class:"inline-block bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 border border-gray-400 rounded" %>
-=======
-                    <%= link_to edit_backend_open_date_path(open_date), class: "inline-block bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 border border-gray-400 rounded" do %>
-                      修改資料
-                    <% end %>
->>>>>>> 6cabed7b6d50d18cba845f0101efbae9d14d11a2
 
                     <%= link_to "刪除日期", backend_open_date_path(open_date), method: :delete, data: { confirm: "確定刪除?" }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded inline-block" %>
                 </td>
@@ -307,11 +269,6 @@
         <% end %>
       </tbody>
   </table>
-<<<<<<< HEAD
-=======
-
-  <%= link_to "新增可訂位日期", new_backend_dish_open_date_path(@dish), class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"%>
->>>>>>> 6cabed7b6d50d18cba845f0101efbae9d14d11a2
 
 </div>
 
