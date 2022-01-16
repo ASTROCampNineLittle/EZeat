@@ -1,5 +1,4 @@
 module ErrorsMessages
-
   # 401 token 過期錯誤用JSON 的接法 → 目前用不到
   # ERROR_RESPONSE_ACTIONS = %[authentication_error].freeze
 
