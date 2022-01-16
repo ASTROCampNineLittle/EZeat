@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     end
 
     resources :dishes, only: [] do
+      resources :template, only: [:new ,:create], shallow: true
       resources :open_dates, except: [:show], shallow: true
     end
 
