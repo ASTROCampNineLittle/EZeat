@@ -1,72 +1,81 @@
-<div class="m-auto lg:w-8/12 md:w-10/12 sm:w-full">
+<div class="mx-auto lg:w-3/4 md:w-10/12 w-full lg:mb-14 md:mb-14">
 
-	<div class="bg-white p-8 rounded-md w-full">
-    <h2 class="text-gray-600 font-semibold text-center">訂單記錄</h2>
+	<div class="bg-white pt-16 pb-10 w-full">
+    <h2 class="text-gray-700 font-semibold text-2xl text-center tracking-widest">票 卷 資 訊</h2>
+    <p class="text-gray-400 font-light text-base text-center py-2"><%= @user_order.name %>。<%= @user_order.tel %></p>
   </div>
 
-  <div class=" px-4 sm:px-8 py-4">
-    <div class="inline-block min-w-full shadow rounded-lg">
-      <div class="px-5 py-5 border-t flex flex-col xs:flex-row items-center xs:justify-between">
+  <div class="w-full shadow-xl rounded-lg">
+    <div class="px-3.5 border-t flex flex-col items-center">
+      <div class="flex flex-wrap justify-around items-center py-10 w-full md:w-5/6 border-b border-gray-200">
+        <div class="w-2/12 md:w-2/12 lg:w-2/12 text-center tracking-widest shadow bg-orange-50 rounded-xl py-2">
+          <div class="text-lg sm:text-xl font-light"><%= @user_order.order_date.to_datetime.strftime("%m").to_i.to_s %> 月</div>
+          <div class="text-3xl sm:text-4xl py-0.5 font-bold"><%= @user_order.order_date.to_datetime.strftime("%d") %></div>
+          <div class="text-lg sm:text-xl font-light tracking-widest"><%= @user_order.order_time.to_datetime.strftime("%a") %></div>
+        </div>
 
-        <div class="flex justify-around h-24 w-full border-b border-gray-200 mb-5">
-          <div class="ml-5">
-            <div class="text-xs text-gray-500"><%= @user_order.order_date %></div>
-            <div class="my-2 text-xl"><%= @user_order.open_date.dish.store.name %></div>
+        <div class="w-8/12 md:w-8/12 lg:w-6/12 text-center tracking-widest py-2">
+          <div class="text-lg sm:text-xl font-light tracking-widest text-left">
+            <%= @user_order.order_time.to_datetime.strftime"%H:%M" %> / <%= @user_order.order_people %> 人
           </div>
-          <div class="w-2/12 h-full text-center">
-            <div class="text-sm text-gray-500"><%= @user_order.order_time.to_datetime.strftime("%a") %></div>
-            <div class="text-3xl font-mono font-bold"><%= @user_order.order_time[11..15] %></div>
-            <div class="text-sm text-gray-500"><%= @user_order.order_people %>人</div>
-          </div>
-          <div class="text-center w-2/12 my-4">
-            <span class="relative inline-block px-5 py-3 font-semibold text-green-900 leading-tight">
+          <div class="text-3xl sm:text-4xl py-0.5 font-bold text-left"><%= @user_order.open_date.dish.store.name %></div>
+          <div class="text-lg sm:text-xl font-light tracking-widest text-left"><%= @user_order.order_dish %></div>
+        </div>
+        <% if @user_order.ticket === "未使用" %>
+          <div class="w-full           lg:w-3/12 mt-10 lg:mt-0 text-center">
+            <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-green-900">
               <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-              <span class="relative"><%= @user_order.ticket %></span>
+              <span class="relative tracking-widest"><%= @user_order.ticket %></span>
             </span>
           </div>
-        </div>
-
-        <div class="inline-block sm:w-full md:w-full lg:w-3/4 rounded-lg overflow-hidden text-center text-lg bg-orange-200 pt-3 shadow-xl">核 銷 編 號
-          <div class="px-5 py-5 mt-3 flex flex-col items-center rounded-b-lg bg-orange-400">
-            <div class="w-full text-center">
-              <p class=" text-3xl font-mono"><%= @user_order.order_number[0..4] %>-<%= @user_order.order_number[5..-1] %></p>
-            </div>
-            <div class="pt-3 flex flex-col items-center">
-              <span class="text-xs text-white tracking-widest">請 出 示 此 畫 面 給 店 家</span>
-            </div>
+        <% else %>
+          <div class="w-full           lg:w-3/12 mt-10 lg:mt-0 text-center">
+            <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-red-900">
+              <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+              <span class="relative tracking-widest"><%= @user_order.ticket %></span>
+            </span>
           </div>
-        </div>
-
+        <% end%>
       </div>
 
-      <div class="text-left">
-        <div class="mb-2 bg-orange-300 px-5 py-3 text-lg">餐廳資訊</div>
-        <div class="pl-8 ">
-          <div class="text-gray-400 text-sm">地址</div>
-          <div class=""><%= @user_order.open_date.dish.store.address %></div>
-        </div>
-        <div class="pl-8 ">
-          <div class="text-gray-400 text-sm">電話</div>
-          <div class=""><%= @user_order.open_date.dish.store.tel %></div>
-        </div>
-
-        <div class="mt-8 text-left">
-          <div class="mb-2 bg-orange-300 px-5 py-3 text-lg">訂購人資訊</div>
-          <div class="pl-8 ">
-            <div class="text-gray-400 text-sm">姓名</div>
-            <div class=""><%= @user_order.name %></div>
-          </div>
-          <div class="pl-8 ">
-            <div class="text-gray-400 text-sm">電話</div>
-            <div class=""><%= @user_order.tel %></div>
-          </div>
-          <div class="pl-8 mb-8">
-            <div class="text-gray-400 text-sm">e-mail</div>
-              <div class=""><%= @user_order.email %></div>
+      <div class="inline-block w-full lg:w-1/2 md:w-10/12 rounded-xl text-center text-lg bg-orange-200 pt-3 shadow my-7">核 銷 編 號
+        <div class="py-5 flex flex-col items-center rounded-b-lg bg-orange-400">
+          <div class="w-full text-center">
+            <p class="text-3xl font-mono tracking-normal"><%= @user_order.order_number %></p>
+            <span class="text-sm text-white tracking-widest">請 出 示 此 畫 面 給 店 家</span>
           </div>
         </div>
       </div>
+    </div>
 
+    <div class="items-center justify-between bg-orange-200 py-2">
+      <h3 class="text-center text-xl font-medium py-2 tracking-widest">餐 廳 資 訊</h3>
+    </div>
+    <div class="flex flex-wrap justify-evenly">
+      <div class="py-5 lg:w-5/12 md:w-3/4 w-11/12">
+        <div class="pl-1.5 md:pl-3 py-2">
+          <div class="text-left text-base flex">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            </svg>
+            <div class="pl-2 tracking-widest text-base font-bold text-gray-500">地址</div>
+          </div>
+          <div class="py-2"><%= @user_order.open_date.dish.store.address %></div>
+        </div>
+        <div class="pl-1.5 md:pl-3 py-2">
+          <div class="text-left text-base flex">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <div class="pl-2 tracking-widest text-base font-bold text-gray-500">電話</div>
+          </div>
+          <div class="py-2"><%= @user_order.open_date.dish.store.tel %></div>
+        </div>
+      </div>
+      <div class="lg:py-5 md:py-5 lg:w-5/12 md:w-3/4 w-full">
+        <iframe width="100%" height="350" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=<%= ENV["googlemap_api"] %>&q=<%= @user_order.open_date.dish.store.address %>" >
+        </iframe>
+      </div>
     </div>
   </div>
 </div>
