@@ -39,13 +39,13 @@ class Backend::TemplateController < ApplicationController
     # 建立數筆opendate，並屬於該dish
     @opendate = OpenDate.create opendate_attributes
 
-    # p open_date_ids
+    # p @opendate
 
     # 將上方建立的數筆open_date_id 存下，以便下方的offers 能取用
-    if open_date_ids.present?
+    if @opendate.present?
       open_date_ids_array = []
 
-      open_date_ids.each do |ids|
+      @opendate.each do |ids|
         open_date_ids_array << ids.id
       end
 
