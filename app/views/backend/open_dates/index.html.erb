@@ -12,7 +12,7 @@
 
 			<div class="w-1/5 align-center items-center align-middle content-center flex">
 				<div class="w-full bg-grey-light rounded items-center align-middle align-center flex-1">
-					<div class="bg-blue-400 text-xs leading-none py-1 text-center rounded " style="width: 100%"></div>
+					<div class="bg-blue-400 text-lg leading-none py-1 text-center rounded " style="width: 100%"></div>
 				</div>
 			</div>
 
@@ -26,7 +26,7 @@
 
 			<div class="w-1/5 align-center items-center align-middle content-center flex">
 				<div class="w-full rounded items-center align-middle align-center flex-1">
-					<div class="bg-blue-400 text-xs leading-none py-1 text-center rounded " style="width: 100%"></div>
+					<div class="bg-blue-400 text-lg leading-none py-1 text-center rounded " style="width: 100%"></div>
 				</div>
 			</div>
 
@@ -38,7 +38,7 @@
 
   		<div class="w-1/5 align-center items-center align-middle content-center flex">
 				<div class="w-full rounded items-center align-middle align-center flex-1">
-					<div class="bg-blue-400 text-xs leading-none py-1 text-center rounded " style="width: 100%"></div>
+					<div class="bg-blue-400 text-lg leading-none py-1 text-center rounded " style="width: 100%"></div>
 				</div>
 			</div>
 
@@ -51,28 +51,28 @@
 		</div>
 
 		<div class="flex text-lg content-center text-center py-1">
-			<div class="w-1/6 text-sm text-blue-400">
+			<div class="w-1/6 text-lg text-blue-400">
         <span><%= link_to "回分店列表", backend_company_path(@dish.store.company)%></span>
 			</div>
 
 			<div class="w-1/3 align-center items-center align-middle content-center flex">
 			</div>
 
-			<div class="w-1/6 text-sm text-blue-400">
+			<div class="w-1/6 text-lg text-blue-400">
 				<span><%= link_to "回#{@dish.store.name}", backend_store_path(@dish.store)%></span>
 			</div>
 
 			<div class="w-1/3 align-center items-center align-middle content-center flex">
 			</div>
 
-			<div class="w-1/6 text-sm text-blue-400">
+			<div class="w-1/6 text-lg text-blue-400">
 			  <span><%= link_to "回餐飲方案", backend_store_dishes_path(@dish.store)%><span>
 			</div>
 
   		<div class="w-1/3 align-center items-center align-middle content-center flex">
 			</div>
 
-			<div class="w-1/6 text-sm text-blue-400">
+			<div class="w-1/6 text-lg text-blue-400">
 			  <span>訂位時段＆人數</span>
 			</div>
 		</div>
@@ -82,66 +82,153 @@
     <%= @dish.name %>訂位時段＆人數
   </h2>
 
-  <!-- component -->
+
+  <%= form_with url: new_backend_dish_template_path, method: "get" do |form| %>
+    <div class="w-full lg:w-11/12 px-4 mx-auto mt-6">
+      <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blue-100 border-0">
+        <div class="rounded-t mb-0 px-6 py-6 bg-blue-300">
+          <div class="text-center flex justify-between ">
+            <h6 class=" text-xl font-bold">設定日期＆訂位規則</h6>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 flex-auto px-4 lg:px-10 py-10 pt-0">
+          <h6 class=" text-lg mt-3 mb-6 font-bold uppercase">起迄日期</h6>
+          <div class="flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative w-full mb-3">
+                <%= form.label :start_day, '開始日期', class: 'block uppercase text-gray-600 text-m font-bold mb-2' %>
+                <%= form.date_field :start_day, min: Date.today ,class: 'border-0 px-3 py-3 placeholder-gray-600 text-gray-400 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
+              </div>
+            </div>
+
+            <div class="w-full lg:w-6/12 px-4">
+              <div class="relative w-full mb-3">
+                <%= form.label :end_day, '結束日期', class: 'block uppercase text-gray-600 text-m font-bold mb-2' %>
+                <%= form.date_field :end_day, min: Date.today ,class: 'border-0 px-3 py-3 placeholder-gray-600 text-gray-400 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
+              </div>
+            </div>
+          </div>
+
+          <hr class="mt-6 border-b-1 border-gray-400">
+          <h6 class="text-lg mt-3 mb-6 font-bold uppercase">排除星期幾</h6>
+
+          <div class="flex flex-wrap">
+            <span class="mx-3">
+              <%= form.select(:exclude_mon, [["保留每週一","保留每週一"], ["移除每週一",1]], {selected: "保留每週一"}, { :class => 'text-blue-500 text-sm py-2 px-6 my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_tue, [["保留每週二","保留每週二"], ["移除每週二",2]], {selected: "保留每週二"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_wen, [["保留每週三","保留每週三"], ["移除每週三",3]], {selected: "保留每週三"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_thr, [["保留每週四","保留每週四"], ["移除每週四",4]], {selected: "保留每週四"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_fri, [["保留每週五","保留每週五"], ["移除每週五",5]], {selected: "保留每週五"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_sat, [["保留每週六","保留每週六"], ["移除每週六",6]], {selected: "保留每週六"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_sun, [["保留每週日","保留每週日"], ["移除每週日",0]], {selected: "保留每週日"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+          </div>
+
+          <hr class="mt-6 border-b-1 border-gray-400">
+          <h6 class="text-lg mt-3 mb-6 font-bold uppercase">可訂位時段及人數</h6>
+
+          <div data-controller="date-form", class= "">
+            <div class="flex">
+              <div class="w-4/12 px-4">
+                <div class="relative w-full mb-3">
+                  <%= form.label :start_time, '開始時間', class: 'block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password' %>
+                  <%= form.time_select :start_time, {:minute_step => 30}, class: 'border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
+                </div>
+              </div>
+              <div class="w-4/12 px-4">
+                <div class="relative w-full mb-3">
+                  <%= form.label :end_time, '結束時間', class: 'block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password' %>
+                  <%= form.time_select :end_time, {:minute_step => 30}, class: 'border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
+                </div>
+              </div>
+              <div class="w-4/12 px-4">
+                <div class="relative w-full mb-3">
+                  <%= form.label :people_amonut, '[開始-結束]時間區間,可訂位人數', class: 'block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password' %>
+                  <%= form.select(:people_amonut, [["10"], ["20","20"], ["30"], ["40"], ["50"], ["60"], ["70"], ["80"], ["90"], ["100"], ["120"], ["140"], ["160"], ["180"], ["200"]], {selected: "20"}, { :class => 'border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150'})%>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <template data-target="date-form.template">
+          </template>
+
+          <div class="flex pt-10">
+            <div class="w-full px-4 mb-3">
+              <%= form.submit '送 出 條 件 並 自 動 產 生', class: 'border-0 px-3 py-3 text-white bg-blue-500 rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 cursor-pointer tracking-widest' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <h3 class="flex justify-center py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-2xl text-gray-800">
+    編輯個別時段＆人數
+  </h3>
+  <!-- 編輯個別日期 -->
   <table class="min-w-full border-collapse block md:table">
-      <thead class="block md:table-header-group">
-        <tr class="border border-gray-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
-          <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">編輯訂位日期</th>
-          <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">編輯訂位時段</th>
-          <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">編輯</th>
+    <thead class="block md:table-header-group">
+      <tr class="border border-gray-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
+        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">編輯訂位日期</th>
+        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">編輯訂位時段</th>
+        <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">編輯</th>
+      </tr>
+    </thead>
+    <tbody class="block md:table-row-group">
+      <% @open_dates.sort_by{ |open_date| open_date.availible_date }.each do |open_date| %>
+      <% if open_date.availible_date >= DateTime.current.to_date %>
+      <%= form_with model: [:backend, open_date] do |form| %>
+      <tr class="bg-white-300 border border-gray-500 md:border-none block md:table-row">
+        <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell">
+          <span class="inline-block w-1/3 md:hidden font-bold">編輯訂位日期</span>
+            <%= form.date_field :availible_date %>
+        </td>
+        <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell">
+          <span class="inline-block w-1/3 md:hidden font-bold">編輯訂位時段</span>
+          <div data-controller="date-form", class= "">
+            <template data-target="date-form.template">
+              <%= form.fields_for :offers, Offer.new, child_index: "ADD_OFFER" do |offer|%>
+                <%= render "offer_fields", form: offer %>
+              <%end%>
+            </template>
 
-        </tr>
-      </thead>
+            <div class="">
+              <%= form.fields_for :offers do |offer|%>
+                <%= render "offer_fields", form: offer %>
+              <%end%>
+            </div>
 
-      <tbody class="block md:table-row-group">
-        <% @open_dates.sort_by{ |open_date| open_date.availible_date }.each do |open_date| %>
-          <% if open_date.availible_date >= DateTime.current.to_date %>
-            <%= form_with model: [:backend, open_date] do |form| %>
-              <tr class="bg-white-300 border border-gray-500 md:border-none block md:table-row">
-                <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">編輯訂位日期</span>
-                  <%= form.date_field :availible_date %>
-                </td>
-
-                <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell">
-                  <span class="inline-block w-1/3 md:hidden font-bold">編輯訂位時段</span>
-
-                    <div data-controller="date-form", class= "">
-                      <template data-target="date-form.template">
-                        <%= form.fields_for :offers, Offer.new, child_index: "ADD_OFFER" do |offer|%>
-                          <%= render "offer_fields", form: offer %>
-                        <%end%>
-                      </template>
-
-                      <div class="">
-                        <%= form.fields_for :offers do |offer|%>
-                          <%= render "offer_fields", form: offer %>
-                        <%end%>
-                      </div>
-
-                      <div data-target="date-form.link">
-                        <%=link_to "新增", "#", class: "bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 border border-gray-400 rounded", data: {action: "date-form#add_offer"} %>
-                      </div>
-                    </div>
-
-                </td>
-
-                <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell">
-                  <span class="inline-block w-1/3 md:hidden font-bold flex">編輯</span>
-                    <%= link_to edit_backend_open_date_path(open_date), class: "inline-block bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 border border-gray-400 rounded" do %>
-                      修改資料
-                    <% end %>
-
-                    <%= link_to "刪除日期", backend_open_date_path(open_date), method: :delete, data: { confirm: "確定刪除?" }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded inline-block" %>
-                </td>
-              </tr>
-            <% end %>
-          <% else %>
-          <% end %>
-        <% end %>
-      </tbody>
+            <div data-target="date-form.link">
+              <%=link_to "新增", "#", class: "bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 border border-gray-400 rounded", data: {action: "date-form#add_offer"} %>
+            </div>
+          </div>
+        </td>
+        <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell">
+          <span class="inline-block w-1/3 md:hidden font-bold flex">編輯</span>
+            <%= form.submit value="更新", class:"inline-block bg-gray-400 hover:bg-gray-500 text-white font-bold py-1 px-2 border border-gray-400 rounded" %>
+            <%= link_to "刪除日期", backend_open_date_path(open_date), method: :delete, data: { confirm: "確定刪除?" }, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded inline-block" %>
+        </td>
+      </tr>
+      <% end %>
+      <% else %>
+      <% end %>
+      <% end %>
+    </tbody>
   </table>
-
-  <%= link_to "新增可訂位日期", new_backend_dish_open_date_path(@dish), class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 border border-blue-500 rounded"%>
 
 </div>
 
