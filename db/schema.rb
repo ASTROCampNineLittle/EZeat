@@ -113,6 +113,16 @@ ActiveRecord::Schema.define(version: 2022_01_13_045605) do
     t.index ["company_id"], name: "index_stores_on_company_id"
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.integer "use_status", default: 0
+    t.bigint "order_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_tickets_on_order_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -149,5 +159,7 @@ ActiveRecord::Schema.define(version: 2022_01_13_045605) do
   add_foreign_key "orders", "stores"
   add_foreign_key "orders", "users"
   add_foreign_key "stores", "companies"
+  add_foreign_key "tickets", "orders"
+  add_foreign_key "tickets", "users"
   add_foreign_key "users", "companies"
 end

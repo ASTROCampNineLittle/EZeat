@@ -1,7 +1,16 @@
 class Company < ApplicationRecord
   has_many :stores
   belongs_to :user
-  accepts_nested_attributes_for :stores
+
+  validates :name, :address, :tel, :manager_name, presence: true
+
+
+
+  #   scope :search, -> (keyword) {
+  #   # where("name like :q OR Store.food_type like :q', q: "%#{keyword}%") if keyword.present?
+  #   where('stores.address like :q', q: "%#{keyword}%") if keyword.present?
+  #   # { where("name like ?", "#{keyword}") if keyword.present?
+  # }
 
   # private
 

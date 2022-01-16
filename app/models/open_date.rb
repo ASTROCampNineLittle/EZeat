@@ -5,6 +5,7 @@ class OpenDate < ApplicationRecord
   accepts_nested_attributes_for :offers, reject_if: :all_blank, allow_destroy: true
 
   validate :date_cannot_be_in_the_past
+  validates :availible_date, presence: true
 
   private
   def date_cannot_be_in_the_past
