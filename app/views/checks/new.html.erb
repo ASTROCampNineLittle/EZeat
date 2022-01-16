@@ -67,7 +67,7 @@
 			<div class="pl-0.5">
 				<svg class="h-6 w-6 text-black pt-1"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  	stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
 			</div>
-			<div class="pl-2 text-black">時間：<%= params[:order_time][11..15] %></div>
+			<div class="pl-2 text-black">時間：<%= params[:order_time].to_datetime.strftime("%H:%M") %></div>
 		</div>
 		<div class="flex text-left text-lg font-light border-b-2 border-green-200 pl-8 bg-green-100 py-3">
 			<div class="pl-0.5">
