@@ -9,4 +9,5 @@ class Dish < ApplicationRecord
   
   validates :name, :price, :status, :intro, presence: true
 
+  validates :name, :price, :status, :intro, presence: true
 end
