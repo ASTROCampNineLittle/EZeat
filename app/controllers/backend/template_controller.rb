@@ -101,13 +101,15 @@ class Backend::TemplateController < ApplicationController
 
   private
   def opendate_params
-    # @dish = params.dig("dish", "open_dates_attributes", "0")
+    @open_date0 = params.dig("dish", "open_dates_attributes", "0")
+    @open_date1 = params.dig("dish", "open_dates_attributes", "1")
+    @open_date2 = params.dig("dish", "open_dates_attributes", "2")
 
     # @first = @dish
-    byebug
-    params.require(:dish).(:open_dates_attributes)
+    # byebug
+    # params.require(:dish).(:open_dates_attributes)
     # params.require(:dish).permit(:open_dates_attributes, id:{})
-    # params.require(:dish).permit(:availible_date, :dish_id)
+    params.require(:dish).permit(:availible_date, :dish_id)
     # params.require(:open_date).permit(:availible_date)
 
 
