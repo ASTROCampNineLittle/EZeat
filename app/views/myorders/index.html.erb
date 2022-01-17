@@ -6,14 +6,14 @@
 			</div>
 			<div>
 				<%= search_form_for @q, url: myorders_path do |f| %>
-				<div class="flex bg-gray-50 items-center p-2 rounded-md">
-    			<%= f.label :store_name_cont, "餐廳名稱" %>
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-						<path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-					</svg>
-  				<%= f.search_field :store_name_cont, class:"bg-gray-50 outline-none ml-1 block search-fliter", placeholder:"search" %>
-    			<%= f.submit "查詢", class:"p-1 text-sm bg-orange-100 rounded-sm" %>
-				</div>
+					<div class="flex bg-gray-50 items-center p-2 rounded-md">
+						<%= f.label :store_name_cont, "餐廳名稱" %>
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+							<path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+						</svg>
+						<%= f.search_field :store_name_cont, class:"bg-gray-50 outline-none ml-1 block search-fliter", placeholder:"search" %>
+						<%= f.submit "查詢", class:"p-1 text-sm bg-orange-100 rounded-sm" %>
+					</div>
 				<% end %>
 			</div>
 		</div>
@@ -59,11 +59,11 @@
 								<p class="text-gray-900 whitespace-no-wrap text-lg text-center"><%= orders.order_date %></p>
 							</div>
 						</div>
+					<% end %>
 					</div>
-				</div>
-				<%= render 'myorders/search' %>
-
+				<% end %>
 			</div>
+				<%= render 'myorders/search' %>
 		</div>
 	</div>
 </div>
