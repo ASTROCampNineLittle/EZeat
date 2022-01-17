@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  # get 'search', to: 'pages#search'
+  get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
 
   resources :pages do
@@ -54,6 +54,7 @@ Rails.application.routes.draw do
 
     resources :stores, only: [] do
       resources :dishes, except: [:show], shallow: true
+      resources :orders, only: [:index], shallow: true
     end
 
     resources :dishes, only: [] do

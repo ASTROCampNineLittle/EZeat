@@ -35,12 +35,13 @@ class Backend::TemplateController < ApplicationController
     # 根據dish_id、選擇的日期天數轉成可用來create 的params
     @opendate_attributes = []
     date_range.each do |date|
-      @opendate_attributes << ({ availible_date: date, dish_id: @dish_id })
+      # @opendate_attributes << ({ availible_date: date, dish_id: @dish_id })
+      @opendate_attributes << date
     end
 
 
     # 建立數筆opendate，並屬於該dish
-    @opendate = OpenDate.create @opendate_attributes
+    # @opendate = OpenDate.create @opendate_attributes
 
     # p @opendate
 
@@ -87,26 +88,21 @@ class Backend::TemplateController < ApplicationController
 
   # 如果儲存成功則轉跳
   def create
-    @dish_id = Dish.find(params[:dish_id])
-    @opendate = @dish_id.open_dates.create @opendate_params
-    # byebug
-    if @opendate.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    @dish = Dish.find(params[:dish_id])
+    # @store = @dish_id.store
+    @opendate = @dish.update(opendate_params)
+    redirect_to backend_dish_open_dates_path(params[:dish_id])
   end
 
   private
   def opendate_params
-    # @dish = params.dig("dish", "open_dates_attributes")
-    # params.require(:dish).permit(open_dates_attributes:
-    #                             [:id, { id: :availible_date },
-    #                                   { id: :dish_id }
-    #                             ])
-    params.require(:dish).permit(open_dates_attributes: [:id, :availible_date])
+    # @dish = params.dig("dish", "open_dates_attributes", "0")
+
+    # @first = @dish
+    params.require(:dish).permit(open_dates_attributes: [ :id, :availible_date])
+    # params.require(:dish).permit(:open_dates_attributes, id:{})
     # params.require(:dish).permit(:availible_date, :dish_id)
-    # params.require(:opendate_attributes).permit( open_dates_attributes: [:id, :availible_date, :dish_id])
+    # params.require(:open_date).permit(:availible_date)
 
 
   end
