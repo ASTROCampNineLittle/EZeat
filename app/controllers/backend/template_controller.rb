@@ -21,6 +21,7 @@ class Backend::TemplateController < ApplicationController
     # 設定各個區域變數為params
     start_date = params[:start_date]
     end_date = params[:end_date]
+
     start_time = (params["start_time(4i)"]+":"+params["start_time(5i)"]).to_time
     end_time = (params["end_time(4i)"]+":"+params["end_time(5i)"]).to_time
     seat_capacity = params[:people_amonut]
@@ -36,7 +37,7 @@ class Backend::TemplateController < ApplicationController
     @opendate_attributes = []
     date_range.each do |date|
       # @opendate_attributes << ({ availible_date: date, dish_id: @dish_id })
-      @opendate_attributes << date
+    @opendate_attributes << date
     end
 
 
@@ -90,26 +91,18 @@ class Backend::TemplateController < ApplicationController
   def create
     @dish = Dish.find(params[:dish_id])
     # @store = @dish_id.store
-    @opendate = @dish.open_dates.create(opendate_params)
-    # byebug
-    if @opendate.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    @opendate = @dish.update(opendate_params)
+    redirect_to backend_dish_open_dates_path(params[:dish_id])
   end
 
   private
   def opendate_params
-    @open_date0 = params.dig("dish", "open_dates_attributes", "0")
-    @open_date1 = params.dig("dish", "open_dates_attributes", "1")
-    @open_date2 = params.dig("dish", "open_dates_attributes", "2")
+    # @dish = params.dig("dish", "open_dates_attributes", "0")
 
     # @first = @dish
-    # byebug
-    # params.require(:dish).(:open_dates_attributes)
+    params.require(:dish).permit(open_dates_attributes: [ :id, :availible_date])
     # params.require(:dish).permit(:open_dates_attributes, id:{})
-    params.require(:dish).permit(:availible_date, :dish_id)
+    # params.require(:dish).permit(:availible_date, :dish_id)
     # params.require(:open_date).permit(:availible_date)
 
 

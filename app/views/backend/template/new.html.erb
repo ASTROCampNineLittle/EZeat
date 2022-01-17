@@ -28,7 +28,6 @@
   <% @opendate_attributes.each do |opendate| %>
     <%= form.fields_for :open_dates, OpenDate.new do |many_date| %>
       <%= many_date.date_field :availible_date, value: opendate %>
-      <%= many_date.number_field :dish_id, value: params[:dish_id] %>
     <% end %>
   <% end %>
   <%= form.submit value="送 出 資 料。進 入 信 用 卡 付 款 頁 面", class:"text-white text-base py-2.5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer" %>
