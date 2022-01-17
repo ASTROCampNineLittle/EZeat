@@ -79,7 +79,18 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = config_for(:application).symbolize_keys
+  # config.action_mailer.smtp_settings = config_for(:application).symbolize_keys
+
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.mailgun.org',
+    port:                 587,
+    domain:               'mail.ezeat888.com',
+    user_name:            ENV['mailgun_username'],
+    password:             ENV['mailgun_password'],
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
+
 
   # ngrok 的host config 貼這裡就能運作了
   # config.hosts << "一串token"
