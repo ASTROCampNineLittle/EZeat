@@ -82,132 +82,99 @@
     <%= @dish.name %>訂位時段＆人數
   </h2>
 
-  <div class="w-full lg:w-11/12 px-4 mx-auto mt-6">
-    <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg border-0">
-      <div class="rounded-t bg-white mb-0 px-6 py-6 bg-blue-300">
-        <div class="text-center flex justify-between ">
-          <h6 class=" text-xl font-bold">
-            設定日期＆訂位規則
-          </h6>
+
+  <%= form_with url: new_backend_dish_template_path, method: "get" do |form| %>
+    <div class="w-full lg:w-11/12 px-4 mx-auto mt-6">
+      <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blue-100 border-0">
+        <div class="rounded-t mb-0 px-6 py-6 bg-blue-300">
+          <div class="text-center flex justify-between ">
+            <h6 class=" text-xl font-bold">設定日期＆訂位規則</h6>
+          </div>
         </div>
-      </div>
-      <div class="bg-gray-100 flex-auto px-4 lg:px-10 py-10 pt-0">
-        <form>
-          <h6 class=" text-lg mt-3 mb-6 font-bold uppercase">
-            起迄日期
-          </h6>
+
+        <div class="bg-gray-100 flex-auto px-4 lg:px-10 py-10 pt-0">
+          <h6 class=" text-lg mt-3 mb-6 font-bold uppercase">起迄日期</h6>
           <div class="flex flex-wrap">
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
-                <label class="block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password">
-                  開始日期
-                </label>
-                <input type="date" class="border-0 px-3 py-3 placeholder-gray-600 text-gray-400 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="開始日期">
+                <%= form.label :start_date, '開始日期', class: 'block uppercase text-gray-600 text-m font-bold mb-2' %>
+                <%= form.date_field :start_date, min: Date.today ,class: 'border-0 px-3 py-3 placeholder-gray-600 text-gray-400 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
               </div>
             </div>
+
             <div class="w-full lg:w-6/12 px-4">
               <div class="relative w-full mb-3">
-                <label class="block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password">
-                  結束日期
-                </label>
-                <input type="date" class="border-0 px-3 py-3 placeholder-gray-600 text-gray-400 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="結束日期">
+                <%= form.label :end_date, '結束日期', class: 'block uppercase text-gray-600 text-m font-bold mb-2' %>
+                <%= form.date_field :end_date, min: Date.today ,class: 'border-0 px-3 py-3 placeholder-gray-600 text-gray-400 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
               </div>
             </div>
           </div>
 
           <hr class="mt-6 border-b-1 border-gray-400">
+          <h6 class="text-lg mt-3 mb-6 font-bold uppercase">排除星期幾</h6>
 
-          <h6 class="text-lg mt-3 mb-6 font-bold uppercase">
-            排除星期幾
-          </h6>
           <div class="flex flex-wrap">
-            <div class="w-full lg:w-1/12 px-2">
-              <div class="relative w-full mb-3">
-                <input type="checkbox" id="cbox1" value="first_checkbox">星期一
-              </div>
-            </div>
-            <div class="w-full lg:w-1/12 px-2">
-              <div class="relative w-full mb-3">
-                <input type="checkbox" id="cbox1" value="first_checkbox">星期二
-              </div>
-            </div>
-            <div class="w-full lg:w-1/12 px-2">
-              <div class="relative w-full mb-3">
-                <input type="checkbox" id="cbox1" value="first_checkbox">星期三
-              </div>
-            </div>
-            <div class="w-full lg:w-1/12 px-2">
-              <div class="relative w-full mb-3">
-                <input type="checkbox" id="cbox1" value="first_checkbox">星期四
-              </div>
-            </div>
-            <div class="w-full lg:w-1/12 px-2">
-              <div class="relative w-full mb-3">
-                <input type="checkbox" id="cbox1" value="first_checkbox">星期五
-              </div>
-            </div>
-            <div class="w-full lg:w-1/12 px-2">
-              <div class="relative w-full mb-3">
-                <input type="checkbox" id="cbox1" value="first_checkbox">星期六
-              </div>
-            </div>
-                          <div class="w-full lg:w-1/12 px-2">
-              <div class="relative w-full mb-3">
-                <input type="checkbox" id="cbox1" value="first_checkbox">星期日
-              </div>
-            </div>
+            <span class="mx-3">
+              <%= form.select(:exclude_mon, [["保留每週一",8], ["移除每週一",1]], {selected: "保留每週一"}, { :class => 'text-blue-500 text-sm py-2 px-6 my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_tue, [["保留每週二",8], ["移除每週二",2]], {selected: "保留每週二"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_wen, [["保留每週三",8], ["移除每週三",3]], {selected: "保留每週三"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_thr, [["保留每週四",8], ["移除每週四",4]], {selected: "保留每週四"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_fri, [["保留每週五",8], ["移除每週五",5]], {selected: "保留每週五"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_sat, [["保留每週六",8], ["移除每週六",6]], {selected: "保留每週六"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
+            <span class="mx-3">
+              <%= form.select(:exclude_sun, [["保留每週日",8], ["移除每週日",0]], {selected: "保留每週日"}, { :class => 'text-blue-500 text-sm py-2 px-6  my-3 border-b-4 border-blue-600 rounded bg-white w-1/8 inline-block align-middle bg-white hover:bg-blue-400 hover:text-white'}) %>
+            </span>
           </div>
 
           <hr class="mt-6 border-b-1 border-gray-400">
-
-          <h6 class="text-lg mt-3 mb-6 font-bold uppercase">
-            可訂位時段及人數
-          </h6>
+          <h6 class="text-lg mt-3 mb-6 font-bold uppercase">可訂位時段及人數</h6>
 
           <div data-controller="date-form", class= "">
-            <div class="flex flex-wrap">
-              <div class="w-full lg:w-4/12 px-4">
+            <div class="flex">
+              <div class="w-4/12 px-4">
                 <div class="relative w-full mb-3">
-                  <label class="block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password">
-                    開始時間
-                  </label>
-                  <input type="time" class="border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="New York">
+                  <%= form.label :start_time, '開始時間', class: 'block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password' %>
+                  <%= form.time_select :start_time, {:minute_step => 30}, class: 'border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
                 </div>
               </div>
-              <div class="w-full lg:w-4/12 px-4">
+              <div class="w-4/12 px-4">
                 <div class="relative w-full mb-3">
-                  <label class="block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password">
-                    結束時間
-                  </label>
-                  <input type="time" class="border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="United States">
+                  <%= form.label :end_time, '結束時間', class: 'block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password' %>
+                  <%= form.time_select :end_time, {:minute_step => 30}, class: 'border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
                 </div>
               </div>
-              <div class="w-full lg:w-4/12 px-4">
+              <div class="w-4/12 px-4">
                 <div class="relative w-full mb-3">
-                  <label class="block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password">
-                    可訂位人數
-                  </label>
-                  <input type="number" class="border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" value="Postal Code">
+                  <%= form.label :people_amonut, '[開始-結束]時間區間,可訂位人數', class: 'block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password' %>
+                  <%= form.select(:people_amonut, [["10"], ["20","20"], ["30"], ["40"], ["50"], ["60"], ["70"], ["80"], ["90"], ["100"], ["120"], ["140"], ["160"], ["180"], ["200"]], {selected: "20"}, { :class => 'border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150'})%>
                 </div>
-              </div>
-            </div>
-
-            <template data-target="date-form.template">
-
-            </template>
-          <div>
-
-          <div class="flex flex-wrap pt-10">
-            <div class="w-full lg:w-12/12 px-4">
-              <div class="relative w-full mb-3">
-                <button class="border-0 px-3 py-3 text-white bg-blue-500 rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" > 送出 </button>
               </div>
             </div>
           </div>
-        </form>
+
+          <template data-target="date-form.template">
+          </template>
+
+          <div class="flex pt-10">
+            <div class="w-full px-4 mb-3">
+              <%= form.submit '送 出 條 件 並 自 動 產 生', class: 'border-0 px-3 py-3 text-white bg-blue-500 rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 cursor-pointer tracking-widest' %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
   <h3 class="flex justify-center py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-2xl text-gray-800">
     編輯個別時段＆人數
