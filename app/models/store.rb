@@ -1,6 +1,7 @@
 class Store < ApplicationRecord
   belongs_to :company
   has_many :dishes
+  has_many :orders
 
   accepts_nested_attributes_for :dishes
 

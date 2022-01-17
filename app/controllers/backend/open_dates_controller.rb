@@ -4,7 +4,7 @@ class Backend::OpenDatesController < ApplicationController
 
   def index
     @dish = Dish.find(params[:dish_id])
-    @open_dates = @dish.open_dates.all
+    @open_dates = @dish.open_dates.where('availible_date >= ?', DateTime.now).order(availible_date: :asc)
   end
 
   def new
@@ -28,7 +28,7 @@ class Backend::OpenDatesController < ApplicationController
 
   def update
     if @open_date.update(open_date_params)
-      redirect_to backend_store_dishes_path(@open_date.dish.store), notice: '修改日期成功'
+      redirect_to backend_dish_open_dates_path(@open_date.dish), notice: '修改日期成功'
     else
       render :edit
     end
