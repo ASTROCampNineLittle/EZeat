@@ -6,5 +6,7 @@ class Dish < ApplicationRecord
 
   has_many :images, class_name: "DishImage", dependent: :destroy
   accepts_nested_attributes_for :images, reject_if: :all_blank, allow_destroy: true
+  
+  validates :name, :price, :status, :intro, presence: true
 
 end
