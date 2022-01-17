@@ -20,6 +20,9 @@ gem 'omniauth-google-oauth2', '~> 1.0'
 # Implementing a CSRF token verifier
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
+# # For bulk inserting data
+# gem 'activerecord-import', '~> 1.3'
+
 # The Process manager
 gem 'foreman', '~> 0.87.2'
 
