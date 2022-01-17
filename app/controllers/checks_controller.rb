@@ -21,7 +21,7 @@ class ChecksController < ApplicationController
     if @order.save
       redirect_to new_payment_path
     else
-      render
+      render new_check_path
     end
   end
 
