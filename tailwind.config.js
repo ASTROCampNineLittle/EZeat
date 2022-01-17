@@ -21,6 +21,7 @@ module.exports = {
       'tablet': '640px',
       'laptop': '1024px',
       'desktop': '1280px',
+      'xs': '390px',
     },
     extend: {
       boxShadow: {
@@ -29,6 +30,9 @@ module.exports = {
       },
       height: {
         '128': '32rem',
+      },
+      screens: {
+        'xs': '390px',
       },
     },
     colors: {

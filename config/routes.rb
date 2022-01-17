@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  # get 'search', to: 'pages#search'
+  get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
 
   resources :pages do
@@ -58,6 +58,7 @@ Rails.application.routes.draw do
     end
 
     resources :dishes, only: [] do
+      resources :template, only: [:new ,:create], shallow: true
       resources :open_dates, except: [:show], shallow: true
     end
 
@@ -73,9 +74,9 @@ Rails.application.routes.draw do
   end
 
   # 未來可用來處理Routing Error 頁面用的，目前先關起來，要看畫面可打 http://localhost:3000/users
-  # match '*path', :to => "errors#not_found_404", :via => :all
-  match '/404', :to => 'errors#not_found_404', :via => :all
-  match '/500', :to => 'errors#not_found_404', :via => :all
+  # match '*path', to: 'errors#not_found_404', via: :all
+  match '/404', to: 'errors#not_found_404', via: :all
+  match '/500', to: 'errors#not_found_404', via: :all
   # 看畫面用，之後要刪除
   get 'users', to: 'errors#not_found_404'
 

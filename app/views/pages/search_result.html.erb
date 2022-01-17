@@ -1,301 +1,84 @@
-	<div class="container">
-		<h1>Results</h1>
-		<div class="flex">
-			<div>
-				<%= sort_link(@q, :store_name_cont, "商店名稱", { class: "" })%>
-			</div>
-			<div>
-				<%= sort_link(@q, :store_address_cont_any, "商店地址", { class: "" })%>
-			</div>
-			<div>
-				<%= sort_link(@q, :store_food_type_eq, "食物類型", { class: "" })%>
-			</div>
-			<div class="bg-yellow-300">
-				搜尋排序的div先保留，可以先不管
-			</div>
-			<div class="">
-			</div>
-		</div>
-
-		<% @search_result.each do |dish| %>
-    <%# byebug %>
-			<% dish.open_dates.each do |date| %>
-				<%# byebug %>
-				<div class="flex">
-					<div><%= dish.store.name %></div>
-					<div><%= dish.store.address %></div>
-					<div><%= dish.store.food_type %></div>
-					<div><%= date.availible_date %></div>
-						<%= link_to(store_path(dish.store.id)) do %>
-							<div class="flex">
-								<% date.offers.take(3).each do |time| %>
-									<%# byebug %>
-									<div><%= time.availible_time.strftime("%H:%M") %></div>
-								<% end %>
-							</div>
-						<% end %>
-				</div>
-			<% end %>
-		<% end %>
-	</div>
 
 <section class="antialiased text-gray-600 w-full m-auto my-10">
 	<div class="flexjustify-center h-full">
 		<!-- Table -->
-			<div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
-				<header class="px-5 py-4 border-b border-gray-100">
-					<h2 class="font-semibold text-gray-800">
-						<div class="flex justify-between">
-							<label class="block mt-2 text-xs font-semibold text-gray-600 uppercase w-2/6">餐廳名稱
-								<input placeholder="請輸入餐廳名稱" class="block w-full p-2 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner rounded" required />
-							</label>
-							<label type="date" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">日期
-								<input placeholder="2021/12/25" class="block w-full p-2 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner rounded" required />
-							</label>
-							<label type="time" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">時間
-								<input placeholder="19:00" class="block w-full p-2 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner rounded" required />
-							</label>
-							<label type="number" class="block mt-2 text-xs font-semibold text-gray-600 uppercase w-1/6">人數
-								<input name="password-confirm" placeholder="2" autocomplete="new-password" class="block w-full p-2 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner rounded" required />
-							</label>
+			<div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-md border border-gray-200 sm:w-11/12 xs:w-11/12">
+				<div class="px-2 py-4 border-b  border-gray-100">
+					<div class="font-semibold text-gray-800">
+						<%= search_form_for @q, url: search_result_pages_path do |f| %>
+						<div class="md:flex justify-between">
+							<div class="mx-1 md:w-3/12">
+								<%= f.label :store_name_cont, "餐廳名稱", class: "text-xs font-semibold text-gray-600 block" %>
+								<%= f.search_field :store_name_cont, placeholder: "請輸入餐廳名稱", class: "xs:w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200  focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
+							</div>
+							<div class="mx-1 md:w-5/12">
+								<%= f.label :store_address_cont_any, "餐廳地址", class: "text-xs font-semibold text-gray-600 block" %>
+        				<%= f.search_field :store_address_cont_any, placeholder: "搜尋餐廳地址", class: "w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
+							</div>
+							<div class="mx-1 md:w-2/12">
+								<%= f.label :store_food_type_eq, "餐廳類型", class: "text-xs font-semibold text-gray-600 block" %>
+        				<%= f.select :store_food_type_eq, Store.food_types.to_a.map { |w| [w[0].humanize, w[1]] }, {include_blank: true}, class: "w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
+							</div>
+							<div class="mx-1 md:w-1/12">
+								<%= f.label :open_dates_availible_date, "預定日期", class: "text-xs font-semibold text-gray-600 block" %>
+        				<%= f.search_field :open_dates_availible_date, placeholder: "日期", class: "w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
+							</div>
+							<div class="mx-1 md:w-1/12">
+								<%= f.submit "搜尋", class: "xs:w-full  p-2 mt-5 text-xs font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-md focus:outline-none hover:bg-yellow-600 hover:shadow-none rounded-lg" %>
+							</div>
+						<% end %>
 						</div>
-					</h2>
-				</header>
-			<div class="p-3">
-				<div class="overflow-x-auto">
-					<table class="table-auto w-full">
-						<thead class="text-xs font-semibold uppercase text-gray-700 bg-gray-50">
-							<tr>
-								<th class="p-2 whitespace-nowrap">
-									<div class="font-semibold text-left">餐廳名稱</div>
-								</th>
-								<th class="p-2 whitespace-nowrap">
-									<div class="font-semibold text-left">時段</div>
-								</th>
-								<th class="p-2 whitespace-nowrap">
-									<div class="font-semibold text-left">地區</div>
-								</th>
-							</tr>
-						</thead>
-						<tbody class="text-sm divide-y divide-gray-100">
-							<tr>
-								<td class="p-2 whitespace-nowrap">
-									<div class="flex items-center">
-										<div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg" width="40" height="40" alt="Alex Shatov"></div>
-											<div class="font-medium text-gray-800">AAAAAAAAAA</div>
-											</div>
-								</td>
-								<td class="p-2 whitespace-nowrap">
-									<div class="text-left">
-										<button type="submit" class="w-full py-1 font-medium tracking-widest text-yellow-500 uppercase bg-white border-yellow-500 shadow-lg focus:outline-none hover:bg-yellow-500 hover:text-white hover:shadow-none rounded-lg">
-											您所選的日期無提供可預訂座位
-										</button>
-									</div>
-								</td>
-								<td class="p-2 whitespace-nowrap">
-									<div class="text-left font-medium text-orange-500 text-xs">台北市士林區
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td class="p-2 whitespace-nowrap">
-									<div class="flex items-center">
-										<div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
-											<img src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-06.jpg" width="40" height="40" alt="Philip Harbach">
-										</div>
-										<div class="font-medium text-gray-800">BBBBB</div>
-									</div>
-								</td>
-								<td class="p-2 whitespace-nowrap">
-									<div class="text-left">
-										<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-											18:00
-										</button>
-										<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-											19:30
-										</button>
-									</div>
-								</td>
-								<td class="p-2 whitespace-nowrap">
-									<div class="text-left font-medium text-orange-500 text-xs">台北市中山區
-									</div>
-								</td>
-							</tr>
-							<tr>
-	<td class="p-2 whitespace-nowrap">
-			<div class="flex items-center">
-					<div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-07.jpg" width="40" height="40" alt="Mirko Fisuk"></div>
-					<div class="font-medium text-gray-800">CCCCC</div>
+					</div>
+				</div>
+			<div class="p-3 w-full relative">
+				<div class="md:flex md:w-full text-xs text-center font-semibold text-gray-700 bg-gray-50 sticky top-0">
+					<div class="md:w-3/12 sm:w-full p-2">
+						<%= sort_link(@q, :store_name_cont, "餐廳名稱", { class: "" })%>
+					</div>
+					<div class="md:w-1/12 sm:w-full p-2">
+						<%= sort_link(@q, :store_food_type_eq, "類型", { class: "" })%>
+					</div>
+					<div class="md:w-2/12 sm:w-full p-2">
+						<div class="">日期</div>
+					</div>
+					<div class="md:w-4/12 sm:w-full p-2">
+						<div class="">時間</div>
+					</div>
+					<div class="md:w-2/12 sm:w-full p-2">
+						<%= sort_link(@q, :store_address_cont_any, "餐廳地址", { class: "" })%>
+					</div>
+				</div>
+
+				<% @search_result.each do |dish| %>
+					<% dish.open_dates.each do |date| %>
+					<div class="text-sm font-medium ">
+					<%= link_to(store_path(dish.store.id)) do %>
+					<div class="md:flex md:w-full text-center border border-dashed border-orange-50 rounded-sm my-1 hover:bg-orange-100">
+						<div class="md:w-3/12 sm:w-full p-2 text-gray-800">
+							<%= dish.store.name %>
+						</div>
+						<div class="md:w-1/12 sm:w-full p-2 text-gray-800">
+							<%= dish.store.food_type %>
+						</div>
+						<div class="md:w-2/12 sm:w-full p-2 text-orange-500">
+							<%= date.availible_date %>
+						</div>
+						<div class="flex md:w-4/12 sm:w-full p-2">
+							<% date.offers.take(3).each do |time| %>
+							<button type="submit" class="w-full mx-1 text-orange-500 bg-white shadow-sm hover:bg-orange-500 hover:text-white hover:shadow-none rounded-lg border border-orange-50">
+								<div><%= time.availible_time.strftime("%H:%M") %></div>
+							</button>
+							<% end %>
+						</div>
+						<div class="md:w-2/12 sm:w-full p-2  text-orange-500 text-xs">
+							<%= dish.store.address %>
+						</div>
+					</div>
+					<% end %>
+					</div>
+					<% end %>
+				<% end %>
 			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left">
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				19:00
-				</button>
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				19:30
-				</button>
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				20:30
-				</button>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left font-medium text-orange-500 text-xs">台北市中正區</div>
-	</td>
-</tr>
-<tr>
-	<td class="p-2 whitespace-nowrap">
-			<div class="flex items-center">
-					<div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-08.jpg" width="40" height="40" alt="Olga Semklo"></div>
-					<div class="font-medium text-gray-800">DDDDD</div>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left">
-				<button type="submit" class="w-full py-1 font-medium tracking-widest text-yellow-500 uppercase bg-white border-yellow-500 shadow-lg focus:outline-none hover:bg-yellow-500 hover:text-white hover:shadow-none rounded-lg">
-					您所選的日期無提供可預訂座位
-				</button>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left font-medium text-orange-500 text-xs">台北市中正區</div>
-	</td>
-</tr>
-<tr>
-	<td class="p-2 whitespace-nowrap">
-			<div class="flex items-center">
-					<div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-09.jpg" width="40" height="40" alt="Burak Long"></div>
-					<div class="font-medium text-gray-800">EEEEE</div>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left">
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				18:00
-				</button>
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				18:30
-				</button>
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				20:00
-				</button>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left font-medium text-orange-500 text-xs">台北市士林區</div>
-	</td>
-</tr>
-<tr>
-	<td class="p-2 whitespace-nowrap">
-			<div class="flex items-center">
-					<div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg" width="40" height="40" alt="Alex Shatov"></div>
-					<div class="font-medium text-gray-800">AAAAA</div>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left">
-			<button type="submit" class="w-full py-1 font-medium tracking-widest text-yellow-500 uppercase bg-white border-yellow-500 shadow-lg focus:outline-none hover:bg-yellow-500 hover:text-white hover:shadow-none rounded-lg">
-				您所選的日期無提供可預訂座位
-			</button>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left font-medium text-orange-500 text-xs">台北市士林區</div>
-	</td>
-</tr>
-<tr>
-	<td class="p-2 whitespace-nowrap">
-			<div class="flex items-center">
-					<div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-06.jpg" width="40" height="40" alt="Philip Harbach"></div>
-					<div class="font-medium text-gray-800">BBBBB</div>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left">
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				18:00
-				</button>
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				19:30
-				</button>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left font-medium text-orange-500 text-xs">台北市中山區</div>
-	</td>
-</tr>
-<tr>
-	<td class="p-2 whitespace-nowrap">
-			<div class="flex items-center">
-					<div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-07.jpg" width="40" height="40" alt="Mirko Fisuk"></div>
-					<div class="font-medium text-gray-800">CCCCC</div>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left">
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				19:00
-				</button>
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				19:30
-				</button>
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				20:30
-				</button>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left font-medium text-orange-500 text-xs">台北市中正區</div>
-	</td>
-</tr>
-<tr>
-	<td class="p-2 whitespace-nowrap">
-			<div class="flex items-center">
-					<div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-08.jpg" width="40" height="40" alt="Olga Semklo"></div>
-					<div class="font-medium text-gray-800">DDDDD</div>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left">
-				<button type="submit" class="w-full py-1 font-medium tracking-widest text-yellow-500 uppercase bg-white border-yellow-500 shadow-lg focus:outline-none hover:bg-yellow-500 hover:text-white hover:shadow-none rounded-lg">
-					您所選的日期無提供可預訂座位
-				</button>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left font-medium text-orange-500 text-xs">台北市中正區</div>
-	</td>
-</tr>
-<tr>
-	<td class="p-2 whitespace-nowrap">
-			<div class="flex items-center">
-					<div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-09.jpg" width="40" height="40" alt="Burak Long"></div>
-					<div class="font-medium text-gray-800">EEEEE</div>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left">
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				18:00
-				</button>
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				18:30
-				</button>
-				<button type="submit" class="w-1/3 py-1 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-white hover:text-yellow-500 hover:border-yellow-500 hover:shadow-none rounded-lg">
-				20:00
-				</button>
-			</div>
-	</td>
-	<td class="p-2 whitespace-nowrap">
-			<div class="text-left font-medium text-orange-500 text-xs">台北市士林區</div>
-	</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
+		</div>
+	</div>
 </section>

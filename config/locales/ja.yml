@@ -69,8 +69,8 @@ ja:
       messages:
         record_invalid: '認証失敗: %{errors}'
         restrict_dependent_destroy:
-          has_one: 由於 %{record} 需要此記錄，所以無法移除記錄
-          has_many: 由於 %{record} 需要此記錄，所以無法移除記錄
+          has_one:  '%{record}でこの記録が必要のため、記録を消すことはできません'
+          has_many: '%{record}でこの記録が必要のため、記録を消すことはできません'
   helpers:
     placeholder:
       message:
@@ -213,9 +213,9 @@ ja:
         one: 有 1 個錯誤發生使得「%{model}」無法被儲存。
         other: 有 %{count} 個錯誤發生使得「%{model}」無法被儲存。
   time:
-    am: 上午
+    am: 午前
     formats:
       default: '%Y年%m月%d日 %A %H:%M:%S %Z'
       long: '%Y年%m月%d日 %H:%M'
       short: '%m月%d日 %H:%M'
-    pm: 下午
+    pm: 午後

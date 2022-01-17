@@ -1,0 +1,16 @@
+<h1>確認Params</h1>
+
+<div><%= params %></div>
+<div></div>
+<div>開始日：<%= params[:start_date] %></div>
+<div>結束日：<%= params[:end_date]%></div>
+<div>排除一：<%= params[:exclude_mon]%></div>
+<div>排除二：<%= params[:exclude_tue]%></div>
+<div>排除三：<%= params[:exclude_wen]%></div>
+<div>排除四：<%= params[:exclude_thr]%></div>
+<div>排除五：<%= params[:exclude_fri]%></div>
+<div>排除六：<%= params[:exclude_sat]%></div>
+<div>排除日：<%= params[:exclude_sun]%></div>
+<div>開始時間：<%= params["start_time(4i)"] %>：<%= params["start_time(5i)"] %></div>
+<div>結束時間：<%= params["end_time(4i)"] %>：<%= params["end_time(5i)"] %></div>
+<div>總人數：<%= params[:people_amonut]%></div>
