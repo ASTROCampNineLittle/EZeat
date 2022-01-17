@@ -33,7 +33,7 @@ class Backend::StoresController < ApplicationController
 
   def update
     if @store.update(store_params)
-      redirect_to backend_company_path(@store.company), notice: '修改分店成功'
+      redirect_to backend_store_path(@store), notice: '修改分店成功'
     else
       render :edit
     end
