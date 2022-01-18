@@ -1,18 +1,14 @@
-<h1>確認Params</h1>
-
-<div>開始日：<%= params[:start_date] %></div>
-<div>結束日：<%= params[:end_date]%></div>
-<div>排除一：<%= params[:exclude_mon]%></div>
-<div>排除二：<%= params[:exclude_tue]%></div>
-<div>排除三：<%= params[:exclude_wen]%></div>
-<div>排除四：<%= params[:exclude_thr]%></div>
-<div>排除五：<%= params[:exclude_fri]%></div>
-<div>排除六：<%= params[:exclude_sat]%></div>
-<div>排除日：<%= params[:exclude_sun]%></div>
-<div>開始時間：<%= params["start_time(4i)"] %>：<%= params["start_time(5i)"] %></div>
-<div>結束時間：<%= params["end_time(4i)"] %>：<%= params["end_time(5i)"] %></div>
-<div>總人數：<%= params[:people_amount]%></div>
-
+<h1 class="text-3xl text-center py-10">新增資料中...</h1>
+  <div class="flex justify-center pb-10">
+    <svg width="100px" height="100px" viewBox="0 0 40 40">
+      <path opacity="0.2" fill="#f97315" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+          s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
+          c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z"/>
+      <path fill="#f97315" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
+          C22.32,8.481,24.301,9.057,26.013,10.047z">
+      <animateTransform attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="0.5s" repeatCount="indefinite"/>
+    </svg>
+  </div>
 
 <%#= form_with model: [:backend,:dish, @opendate], url: backend_dish_template_index_path, method: "post" do |form| %>
   <%# @opendate_attributes.each do |opendate| %>
@@ -21,22 +17,20 @@
     <%#= form.submit value="送 出 資 料。進 入 信 用 卡 付 款 頁 面", class:"text-white text-base py-2.5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer" %>
 <%# end %>
 
-<%= @time_array %>
-<%=  %>
-
-
-<%= form_with model: [:backend, @dish_id], url: backend_dish_template_index_path, method: "post" do |form| %>
-  <% @opendate_attributes.each do |opendate| %>
-  <% @offer_attributes.each do |offer| %>
-    <%= form.fields_for :open_dates, OpenDate.new do |many_date| %>
-      <%= many_date.date_field :availible_date, value: opendate %>
-    <%= form.fields_for :offers, Offer.new do |many_time| %>
-      <%= many_time.time_field :availible_time, value: offer %>
-      <%= many_time.text_field :capacity, value: @seat_capacity %>
+<div class="hidden">
+  <%= form_with model: [:backend, @dish_id], url: backend_dish_template_index_path, method: "post", data: { controller: "autosubmit" } do |form| %>
+    <% @opendate_attributes.each do |opendate| %>
+    <% @offer_attributes.each do |offer| %>
+      <%= form.fields_for :open_dates, OpenDate.new do |many_date| %>
+        <%= many_date.date_field :availible_date, value: opendate %>
+      <%= form.fields_for :offers, Offer.new do |many_time| %>
+        <%= many_time.time_field :availible_time, value: offer %>
+        <%= many_time.text_field :capacity, value: @seat_capacity %>
       <% end %>
       <% end %>
     <% end %>
+    <% end %>
+    <%# byebug%>
+    <%= form.submit value="送 出 資 料。進 入 信 用 卡 付 款 頁 面", class:"text-white text-base py-2.5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer" %>
   <% end %>
-  <%# byebug%>
-  <%= form.submit value="送 出 資 料。進 入 信 用 卡 付 款 頁 面", class:"text-white text-base py-2.5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer" %>
-<% end %>
+</div>
