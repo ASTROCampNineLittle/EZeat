@@ -28,11 +28,25 @@
               <span class="relative tracking-widest"><%= @user_order.ticket %></span>
             </span>
           </div>
-        <% else %>
+        <% elsif @user_order.ticket === "已使用" %>
           <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
             <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-red-900">
               <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
               <span class="relative tracking-widest"><%= @user_order.ticket %></span>
+            </span>
+          </div>
+        <% elsif @user_order.ticket="" %>
+          <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
+            <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-white">
+              <span aria-hidden class="absolute inset-0 bg-gray-400 opacity-50 rounded-full"></span>
+              <span class="relative tracking-widest">未付款</span>
+            </span>
+          </div>
+        <% else %>
+          <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
+            <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-white">
+              <span aria-hidden class="absolute inset-0 bg-black opacity-50 rounded-full"></span>
+              <span class="relative tracking-widest">已逾期</span>
             </span>
           </div>
         <% end%>
