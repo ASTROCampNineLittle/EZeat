@@ -23,7 +23,6 @@ class Backend::TemplateController < ApplicationController
     end_date = params[:end_date]
     start_time = (params["start_time(4i)"]+":"+params["start_time(5i)"]).to_time
     end_time = (params["end_time(4i)"]+":"+params["end_time(5i)"]).to_time
-    seat_capacity = params[:people_amonut]
 
     # 處理dish 的opendate 日期
     # date_range = (start_date.to_i).upto(end_date.to_i)
@@ -35,10 +34,8 @@ class Backend::TemplateController < ApplicationController
     # 根據dish_id、選擇的日期天數轉成可用來create 的params
     @opendate_attributes = []
     date_range.each do |date|
-      # @opendate_attributes << ({ availible_date: date, dish_id: @dish_id })
-      @opendate_attributes << date
-    end
-
+    # @opendate_attributes << ({ availible_date: date, dish_id: @dish_id })
+    @opendate_attributes << date
 
     # 建立數筆opendate，並屬於該dish
     # @opendate = OpenDate.create @opendate_attributes
@@ -46,44 +43,47 @@ class Backend::TemplateController < ApplicationController
     # p @opendate
 
     # 將上方建立的數筆open_date_id 存下，以便下方的offers 能取用
-    # if @opendate.present?
+    # if @opendate_attributes.present?
     #   open_date_ids_array = []
 
     #   @opendate.each do |ids|
     #     open_date_ids_array << ids.id
     #   end
-
     # end
 
     # p open_date_ids_array
 
     # 處理offer 時間和人數
-    # seat_capacity = params[:people_amonut]
-    # time_interval = (end_time.to_i - start_time.to_i)/1800
-    # seat_capacity = (seat_capacity.to_f / (time_interval.to_f+1)).ceil
-    # time_array = []
+    seat_capacity = params[:people_amount]
+    time_interval = (end_time.to_i - start_time.to_i)/1800
+    seat_capacity = ((seat_capacity.to_f) / (time_interval.to_f+1.0)).ceil
+    seat_capacity = seat_capacity.to_i
 
     # 每30 分鐘寫入一筆可訂位人數
-    # until start_time > end_time
-    #   time_array << start_time
-    #   start_time = start_time+1800
-    # end
+    time_array = []
+    until start_time > end_time
+      time_array << start_time
+      start_time = start_time+1800
+    end
+
+    time_array = time_array.collect { |n| n.strftime(%H:%M).to_s }
+
+
+
 
     # p time_array
     # p open_date_ids_array
 
     # 根據open_date_id、選擇的時間、人數轉成可用來create 的params
-    # offer_attributes = []
+    @offer_attributes = []
     # open_date_ids_array.each do |date_id|
-    #   time_array.each do |av_time|
-    #       offer_attributes << ({ open_date_id: date_id, availible_time: av_time, capacity: seat_capacity
-    #       })
-    #   end
+      time_array.each do |av_time|
+          @offer_attributes << ({ availible_time: av_time, capacity: seat_capacity })
+      end
     # end
 
     # 建立數筆offer，並屬於各open_date
     # @offer = Offer.create offer_attributes
-
   end
 
   # 如果儲存成功則轉跳
@@ -91,29 +91,31 @@ class Backend::TemplateController < ApplicationController
     @dish = Dish.find(params[:dish_id])
     # @store = @dish_id.store
     @opendate = @dish.update(opendate_params)
+
+    # @offer = Offer.find(params[:dish_id])
+    @offer = @opendate.update(offer_params)
     redirect_to backend_dish_open_dates_path(params[:dish_id])
   end
 
   private
-  def opendate_params
-    # @dish = params.dig("dish", "open_dates_attributes", "0")
+    def opendate_params
+      # @dish = params.dig("dish", "open_dates_attributes", "0")
 
-    # @first = @dish
-    params.require(:dish).permit(open_dates_attributes: [ :id, :availible_date])
-    # params.require(:dish).permit(:open_dates_attributes, id:{})
-    # params.require(:dish).permit(:availible_date, :dish_id)
-    # params.require(:open_date).permit(:availible_date)
+      # @first = @dish
+      params.require(:dish).permit(open_dates_attributes: [ :id, :availible_date ])
+      # params.require(:dish).permit(:open_dates_attributes, id:{})
+      # params.require(:dish).permit(:availible_date, :dish_id)
+      # params.require(:open_date).permit(:availible_date)
+    end
 
-
+    def offer_params
+      # @dish = params.dig("dish", "open_dates_attributes", "0")
+      byebug
+      # @first = @dish
+      # params.require(:dish).permit(open_dates_attributes: [ :id, :availible_date])
+      # params.require(:dish).permit(:open_dates_attributes, id:{})
+      # params.require(:dish).permit(:availible_date, :dish_id)
+      # params.require(:open_date).permit(:availible_date)
+    end
   end
-
-  # @order_number = response.dig("Result", "MerchantOrderNo")
-  # @newebpay_number = response.dig("Result", "TradeNo")
-  # @newebpay_amount = response.dig("Result", "Amt")
-  # @newebpay_time = response.dig("Result", "PayTime")
-
-  # 不知道需不需要
-  # def template
-  #   @dish = Dish.find(params[:dish_id])
-  # end
 end
