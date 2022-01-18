@@ -84,7 +84,7 @@
   <div class=" w-2/3 m-auto rounded-md mb-5">
     <div class="flex justify-center mt-3 flex-wrap text-center ">
 
-        <%= link_to "其他日訂位", backend_store_dishes_path(@store), class:"text-l font-bold mx-2 w-1/4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 bg-white hover:bg-gray-300 h-15 py-5" %>
+        <%= link_to "查看其他日期", backend_store_orders_path(@store), class:"text-l font-bold mx-2 w-1/4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 bg-white hover:bg-gray-300 h-15 py-5" %>
 
         <%= link_to "新增/查看方案", backend_store_dishes_path(@store), class:" bg-blue-500 hover:bg-blue-700 text-white font-bold mx-2 w-1/4 max-w-sm rounded-lg border border-blue-200 shadow-md dark:bg-blue-800 dark:border-blue-700 h-15 py-5" %>
 
@@ -94,7 +94,7 @@
 
 
   <table class="min-w-full border-collapse block md:table">
-		<% @order_summary.each do |order| %>
+		<% @order_today.each do |order| %>
       <thead class="block md:table-header-group">
         <tr class="border border-gray-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
           <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">訂位時段</th>
@@ -123,12 +123,16 @@
 			    <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位人電話</span>
             <%= order.order_people %>
           </td>
-          <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell">
-            <%= form_with url: new_backend_writeoff_path , method: "get" do |form| %>
-							<%= form.text_field :writeoff_number, placeholder: '請輸入客戶提供的核銷碼' %>
-							<%= form.text_field :order_id, value: order.id, class:"invisible" %>
-							<div><%= form.submit '確認核銷' %></div>
-          	<% end %>
+          <td class="pl-4 py-2 md:border md:border-gray-500 text-left block md:table-cell">
+						<%if order.ticket === "已核銷"%>
+							<div class="bg-green-100 text-gray-600 font-bold w-32 text-center py-2 px-4 rounded">核銷完成</div>
+						<% else %>
+							<%= form_with url: new_backend_writeoff_path , method: "get" do |form| %>
+								<%= form.text_field :writeoff_number, placeholder: '請輸入客戶提供的核銷碼' %>
+								<%= form.text_field :order_id, value: order.id, class:"invisible" %>
+								<div><%= form.submit '確認核銷' %></div>
+							<% end %>
+						<% end %>
           </td>
         </tr>
     </tbody>

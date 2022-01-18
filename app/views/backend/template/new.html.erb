@@ -1,0 +1,34 @@
+<h1>確認Params</h1>
+
+<div><%= params %></div>
+<div>開始日：<%= params[:start_date] %></div>
+<div>結束日：<%= params[:end_date]%></div>
+<div>排除一：<%= params[:exclude_mon]%></div>
+<div>排除二：<%= params[:exclude_tue]%></div>
+<div>排除三：<%= params[:exclude_wen]%></div>
+<div>排除四：<%= params[:exclude_thr]%></div>
+<div>排除五：<%= params[:exclude_fri]%></div>
+<div>排除六：<%= params[:exclude_sat]%></div>
+<div>排除日：<%= params[:exclude_sun]%></div>
+<div>開始時間：<%= params["start_time(4i)"] %>：<%= params["start_time(5i)"] %></div>
+<div>結束時間：<%= params["end_time(4i)"] %>：<%= params["end_time(5i)"] %></div>
+<div>總人數：<%= params[:people_amonut]%></div>
+
+<%#= @offer %>
+<%#= @date_range %>
+
+<%#= form_with model: [:backend,:dish, @opendate], url: backend_dish_template_index_path, method: "post" do |form| %>
+  <%# @opendate_attributes.each do |opendate| %>
+    <%#= form.date_field :availible_date, value: opendate %>
+    <%# end %>
+    <%#= form.submit value="送 出 資 料。進 入 信 用 卡 付 款 頁 面", class:"text-white text-base py-2.5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer" %>
+<%# end %>
+
+<%= form_with model: [:backend, @dish_id], url: backend_dish_template_index_path, method: "post" do |form| %>
+  <% @opendate_attributes.each do |opendate| %>
+    <%= form.fields_for :open_dates, OpenDate.new do |many_date| %>
+      <%= many_date.date_field :availible_date, value: opendate %>
+    <% end %>
+  <% end %>
+  <%= form.submit value="送 出 資 料。進 入 信 用 卡 付 款 頁 面", class:"text-white text-base py-2.5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer" %>
+<% end %>

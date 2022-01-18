@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  skip_before_action :verify_authenticity_token, :only => [:confirm ,:new]
+  skip_before_action :verify_authenticity_token, :only => [:confirm]
 
   def new
     @form_info = Newebpay::Mpgpost.new.form_info
@@ -13,6 +13,7 @@ class PaymentsController < ApplicationController
                                         newebpay_time: @response.newebpay_time,
                                         newebpay_card6no: @response.newebpay_card6no)
     sign_in @order.user
+    UserMailer.after_payment(@order.user).deliver_now
 
     if @response.status === "SUCCESS" && @order.order_status === "pending"
       @order.succed!
