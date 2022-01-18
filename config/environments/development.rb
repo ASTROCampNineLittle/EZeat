@@ -93,5 +93,5 @@ Rails.application.configure do
 
 
   # ngrok 的host config 貼這裡就能運作了
-  # config.hosts << "一串token"
+  # config.hosts << ""
 end
