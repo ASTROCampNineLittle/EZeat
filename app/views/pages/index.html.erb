@@ -1,7 +1,5 @@
 <%# banner %>
-
-
-<div class="absolute z-50 pt-20 h-128 px-20">
+<div class="absolute z-50 pt-20 px-20">
   <!-- component -->
   <%= render 'pages/search' %>
 </div>
@@ -22,14 +20,19 @@
     <div class="w-11/12 m-auto p-8 border border-gray-300 rounded-md my-5 shadow-xl">
       <div class="md:flex md:flex-wrap mt-3 ">
         <% @stores.last(9).each do |store| %>
-          <div class="sm:w-full sm:p-0 md:w-1/3 md:p-3 mt-5">
+          <div class="sm:w-full sm:p-0 lg:w-1/3 md:w-1/2 md:p-3 mt-5">
             <%= link_to store_path(store) do %>
-              <div class="">
+              <div class="rounded overflow-hidden border w-full lg:w-11/12 md:w-11/12 bg-white mx-3 md:mx-0 lg:mx-0">
+                <div class=" ">
                 <%= image_tag store.image_url, class:"object-cover h-48 w-full" if store.image_url.present? %>
+                </div>
+
+                <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2"><%= store.name %></div>
+                  <!-- 用truncate helper 限制最多顯示的字元 -->
+                  <div class="text-gray-700 text-base"><%= truncate(store.intro, :length => 110) %></div>
+                </div>
               </div>
-              <div class="text-lg font-bold"><%= store.name %></div>
-              <!-- 用truncate helper 限制最多顯示的字元 -->
-              <div class="text-sm text-gray-500"><%= truncate(store.intro, :length => 110) %></div>
             <% end %>
           </div>
         <% end %>
@@ -38,23 +41,23 @@
   </div>
 
 
+
   <div class="w-11/12 h-full m-auto">
     <div class="flex flex-col bg-white m-auto p-auto">
       <h1 class="flex justify-center py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">
         中式美饌
       </h1>
 
-
       <div class="index-scroll">
-        <div class="flex overflow-x-scroll pb-10 hide-scroll-bar">
-          <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10">
+        <div class="flex overflow-x-scroll pb-10 hide-scroll-bar justify-start">
+          <div class="flex flex-nowrap">
             <% @foodtype0_stores.first(9).each do |store| %>
               <div class="inline-block px-3">
                 <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out" >
                   <%= link_to store_path(store) do %>
                     <div class="">
                       <%= image_tag store.image_url if store.image_url.present? %>
-                  </div>
+                    </div>
                     <div class="text-lg font-bold"><%= store.name %></div>
                     <!-- 用truncate helper 限制最多顯示的字元 -->
                     <div class="text-sm text-gray-500"><%= truncate(store.intro, :length => 110) %></div>
@@ -70,23 +73,26 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
 
+
+  <div class="w-11/12 h-full m-auto">
     <div class="flex flex-col bg-white m-auto p-auto">
       <h1 class="flex justify-center py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">
         日式料理
       </h1>
 
+
       <div class="index-scroll">
-        <div class="flex overflow-x-scroll pb-10 hide-scroll-bar">
-          <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 " >
-            <% @foodtype1_stores.last(9).each do |store| %>
+        <div class="flex overflow-x-scroll pb-10 hide-scroll-bar justify-start">
+          <div class="flex flex-nowrap">
+            <% @foodtype1_stores.first(9).each do |store| %>
               <div class="inline-block px-3">
                 <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out" >
                   <%= link_to store_path(store) do %>
                     <div class="">
                       <%= image_tag store.image_url if store.image_url.present? %>
-                  </div>
+                    </div>
                     <div class="text-lg font-bold"><%= store.name %></div>
                     <!-- 用truncate helper 限制最多顯示的字元 -->
                     <div class="text-sm text-gray-500"><%= truncate(store.intro, :length => 110) %></div>
@@ -102,31 +108,35 @@
         </div>
       </div>
     </div>
+  </div>
 
+  <div class="w-11/12 h-full m-auto">
     <div class="flex flex-col bg-white m-auto p-auto">
-    <h1 class="flex justify-center py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">
-      韓式料理
-    </h1>
+      <h1 class="flex justify-center py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">
+        韓式料理
+      </h1>
 
-    <div class="index-scroll">
-      <div class="flex overflow-x-scroll pb-10 hide-scroll-bar">
-        <div class="flex flex-nowrap lg:ml-40 md:ml-20 ml-10 " >
-          <% @foodtype2_stores.each do |store| %>
+
+      <div class="index-scroll">
+        <div class="flex overflow-x-scroll pb-10 hide-scroll-bar justify-start">
+          <div class="flex flex-nowrap">
+            <% @foodtype2_stores.first(9).each do |store| %>
+              <div class="inline-block px-3">
+                <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out" >
+                  <%= link_to store_path(store) do %>
+                    <div class="">
+                      <%= image_tag store.image_url if store.image_url.present? %>
+                    </div>
+                    <div class="text-lg font-bold"><%= store.name %></div>
+                    <!-- 用truncate helper 限制最多顯示的字元 -->
+                    <div class="text-sm text-gray-500"><%= truncate(store.intro, :length => 110) %></div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
             <div class="inline-block px-3">
               <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out" >
-                <%= link_to store_path(store) do %>
-                  <div class="">
-                    <%= image_tag store.image_url if store.image_url.present? %>
-                </div>
-                  <div class="text-lg font-bold"><%= store.name %></div>
-                  <!-- 用truncate helper 限制最多顯示的字元 -->
-                  <div class="text-sm text-gray-500"><%= truncate(store.intro, :length => 110) %></div>
-                <% end %>
               </div>
-            </div>
-          <% end %>
-          <div class="inline-block px-3">
-            <div class="w-64 h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out" >
             </div>
           </div>
         </div>

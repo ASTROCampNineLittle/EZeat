@@ -53,6 +53,7 @@ Rails.application.routes.draw do
 
     resources :stores, only: [] do
       resources :dishes, except: [:show], shallow: true
+      resources :orders, only: [:index], shallow: true
     end
 
     resources :dishes, only: [] do
