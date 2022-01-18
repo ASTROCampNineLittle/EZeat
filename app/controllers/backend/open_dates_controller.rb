@@ -50,5 +50,3 @@ class Backend::OpenDatesController < ApplicationController
       @open_date = OpenDate.find(params[:id])
     end
 end
-
-
