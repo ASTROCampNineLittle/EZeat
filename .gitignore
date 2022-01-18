@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.Procfile
+.Procfile
 
 # Ignore bundler config.
 /.bundle
