@@ -82,5 +82,5 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = config_for(:application).symbolize_keys
 
   # ngrok 的host config 貼這裡就能運作了
-  # config.hosts << "一串token"
+  config.hosts << "ad73-61-220-182-115.ngrok.io"
 end
