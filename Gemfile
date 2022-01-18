@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+# For generating fake data
+gem 'faker', '~> 2.19'
+
 # Bundle carrierwave & AWS related Gems
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'mini_magick', '~> 4.11'

@@ -1,4 +1,5 @@
 namespace :db do
+  require 'faker'
   desc "產生假會員-公司"
   task :new_ucompany => :environment do
     # 1.times do |i|
