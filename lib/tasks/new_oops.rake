@@ -5,7 +5,7 @@ namespace :db do
 
     # 產生假分店1: 先建立各種food_type
     comp = Company.first
-    20.times do
+    3.times do
       comp.stores.create(name: Faker::Restaurant.name,
                         food_type: (0..10).to_a.sample,
                         address: Faker::Address.full_address,
@@ -99,7 +99,7 @@ namespace :db do
 
     # 產生假餐券
       opend = OpenDate.first
-      10.times do |i|
+      3.times do |i|
       opend.offers.create(availible_time: Time.now,
                           capacity: (1..10).to_a.sample)
     end

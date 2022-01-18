@@ -1,3 +1,4 @@
+<div class="lg:w-5/12 md:w-7/12 sm:10/12">
   <div class="p-5 bg-white rounded shadow-md uppercase">
     <h1 class="text-lg font-semibold">找尋你的美好食刻</h1>
 
@@ -6,22 +7,22 @@
 
       <div class="flex justify-between">
         <%= f.label :store_name_cont, "餐廳名稱", class: "mt-4 text-xs font-semibold text-gray-600 " %>
-        <%= f.search_field :store_name_cont, placeholder: "請輸入餐廳名稱", class: "w-8/12 p-2 mt-2 text-gray-700 text-xs bg-gray-200  focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
+        <%= f.search_field :store_name_cont, placeholder: "請輸入餐廳名稱", class: "w-10/12 p-2 mt-2 text-gray-700 text-xs bg-gray-200  focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
       </div>
 
       <div class="flex justify-between">
         <%= f.label :store_address_cont_any, "餐廳地址", class: "mt-4 text-xs font-semibold text-gray-600" %>
-        <%= f.search_field :store_address_cont_any, placeholder: "搜尋餐廳地址", class: "w-8/12 p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
+        <%= f.search_field :store_address_cont_any, placeholder: "搜尋餐廳地址", class: "w-10/12 p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
       </div>
 
       <div class="flex justify-between">
         <%= f.label :store_food_type_eq, "餐廳類型", class: "mt-4 text-xs font-semibold text-gray-600" %>
-        <%= f.select :store_food_type_eq, Store.food_types.to_a.map { |w| [w[0].humanize, w[1]] }, {include_blank: true}, class: "w-8/12 p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
+        <%= f.select :store_food_type_eq, Store.food_types.to_a.map { |w| [w[0].humanize, w[1]] }, {include_blank: true}, class: "w-10/12 p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
       </div>
 
       <div class="flex justify-between">
         <%= f.label :open_dates_availible_date, "預定日期", class: "mt-4 text-xs font-semibold text-gray-600" %>
-        <%= f.search_field :open_dates_availible_date, placeholder: "日期", class: "w-8/12 p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
+        <%= f.search_field :open_dates_availible_date, placeholder: "日期", class: "w-10/12 p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
       </div>
 
       <!-- <div class="flex 測試中">

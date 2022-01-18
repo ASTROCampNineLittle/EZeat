@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  get 'search', to: 'pages#search'
   get 'channel', to: 'pages#channel'
 
   resources :pages do

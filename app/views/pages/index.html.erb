@@ -1,12 +1,12 @@
 <%# banner %>
-<div class="absolute z-50 pt-20 px-20">
+<div class="absolute z-50 pt-20 px-20 w-full">
   <!-- component -->
   <%= render 'pages/search' %>
 </div>
 
 
-<div class="h-128 bg-stone-1000 ">
-  <img class="h-full " src="https://ezeat.s3.ap-northeast-1.amazonaws.com/lunar_banner.jpg" alt="">
+<div class="h-128 ">
+  <img class="object-cover h-full" src="https://ezeat.s3.ap-northeast-1.amazonaws.com/lunar_banner.jpg" alt="">
 <div>
 
 <%# 關於餐廳 %>
@@ -20,11 +20,11 @@
     <div class="w-11/12 m-auto p-8 border border-gray-300 rounded-md my-5 shadow-xl">
       <div class="md:flex md:flex-wrap mt-3 ">
         <% @stores.last(9).each do |store| %>
-          <div class="sm:w-full sm:p-0 md:w-1/3 md:p-3 mt-5">
+          <div class="sm:w-full sm:p-0 lg:w-1/3 md:w-1/2 md:p-3 mt-5">
             <%= link_to store_path(store) do %>
               <div class="rounded overflow-hidden border w-full lg:w-11/12 md:w-11/12 bg-white mx-3 md:mx-0 lg:mx-0">
                 <div class=" ">
-                <%= image_tag store.image_url, class:"object-cover h-48 w-96" if store.image_url.present? %>
+                <%= image_tag store.image_url, class:"object-cover h-48 w-full" if store.image_url.present? %>
                 </div>
 
                 <div class="px-6 py-4">
@@ -47,7 +47,6 @@
       <h1 class="flex justify-center py-5 lg:px-20 md:px-10 px-5 lg:mx-40 md:mx-20 mx-5 font-bold text-4xl text-gray-800">
         中式美饌
       </h1>
-
 
       <div class="index-scroll">
         <div class="flex overflow-x-scroll pb-10 hide-scroll-bar justify-start">
