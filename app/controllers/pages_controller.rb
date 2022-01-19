@@ -36,4 +36,7 @@ class PagesController < ApplicationController
     search_result = @q.result(distinct: true)
     @search_result = search_result
   end
+
+  def privacy_policy
+  end
 end
