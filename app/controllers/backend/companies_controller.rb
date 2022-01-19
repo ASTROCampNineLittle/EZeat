@@ -41,7 +41,7 @@ class Backend::CompaniesController < ApplicationController
 
   def redirect_to_owned_company
     if current_user.present? && current_user.company.present?
-      redirect_to backend_company_stores_path(current_user.company.id)
+      redirect_to backend_company_path(current_user.company.id)
     else
       render :new
     end
