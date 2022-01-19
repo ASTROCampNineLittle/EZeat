@@ -3,9 +3,9 @@
     <h2 class="my-2 text-3xl font-extrabold text-gray-900">
       <%= t 'common.navigation.profile' %>
     </h2>
-    <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="https://dummyimage.com/320x300">
+    <img class="lg:w-2/6 md:w-3/6 sm:w-3/6 my-10 object-cover object-center rounded" alt="hero" src="https://ezeat.s3.ap-northeast-1.amazonaws.com/profile_pics/05.png">
     <div class="text-center lg:w-2/3 w-full">
-      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 font-mono">
         <%= t(current_user.name) %>
       </h1>
         <% if !current_user.last_sign_in_at.nil? %>
@@ -17,9 +17,9 @@
           </p>
         <% end %>
       <div class="flex justify-center">
-        <%= link_to(t('devise.profile.edit'), edit_user_registration_path, class: "ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg") %>
+        <%= link_to(t('devise.profile.edit'), edit_user_registration_path, class: "ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-orange-200 rounded text-lg") %>
         <% if current_user.present? %>
-          <%= link_to(t('devise.profile.order'), myorders_path, class: "ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg") %>
+          <%= link_to(t('devise.profile.order'), myorders_path, class: "ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-orange-200 rounded text-lg") %>
         <% end %>
       </div>
     </div>
