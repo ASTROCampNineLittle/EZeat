@@ -9,7 +9,6 @@ OOO效能評分:
 >`餐　廳`：建立自己的餐廳/餐卷/開放日期/開放時間/人數，即時更新餐廳訂位狀態，輕鬆管理餐廳大小事。</br>
 
 
----
 
 ### 功能說明：
 
@@ -35,18 +34,18 @@ API串接：Google Map / Amazon S3 / 藍新金流</br>
 
 ![Untitled](https://user-images.githubusercontent.com/92966004/150060820-0338cd13-3262-4f03-a622-71b40a5ab4e4.png)
 
-許晴：</br>
-github:ching227</br>
-e-mail:ching22h7@gmail.com</br>
+**許晴</br>**
+github_ching227</br>
+e-mai_ching22h7@gmail.com</br>
 
-賴益楚：</br>
-github:LaichuLai</br>
-e-mail:cozzichilli@gmail.com</br>
+**賴益楚</br>**
+github_LaichuLai</br>
+e-mail_cozzichilli@gmail.com</br>
 
-董仲書：</br>
-github:sethxd88</br>
-e-mail:soistdaslife@gmail.com</br>
+**董仲書</br>**
+github_sethxd88</br>
+e-mail_soistdaslife@gmail.com</br>
 
-蔡傑名：</br>
-github:Tsaijieming</br>
-e-mail:dreamorange830@gmail.com</br>
+**蔡傑名</br>**
+github_Tsaijieming</br>
+e-mail_dreamorange830@gmail.com</br>
