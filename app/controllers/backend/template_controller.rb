@@ -92,5 +92,4 @@ class Backend::TemplateController < ApplicationController
   def offer_params
     params.require(:dish).require(:offers).permit(:availible_time, :capacity)
   end
-
 end

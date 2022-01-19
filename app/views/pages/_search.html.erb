@@ -25,6 +25,11 @@
         <%= f.search_field :open_dates_availible_date, placeholder: "日期", class: "w-10/12 p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
       </div>
 
+      <div class="flex justify-between">
+        <%= f.label :open_dates_offers_availible_time, "預定時間", class: "mt-4 text-xs font-semibold text-gray-600" %>
+        <%= f.search_field :open_dates_offers_availible_time, placeholder: "日期", class: "w-8/12 p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
+      </div>
+
       <!-- <div class="flex 測試中">
         <template data-target="search-form.template">
           <%= f.search_field :open_dates_availible_date, child_index: "ADD_DATE" do |date|%>
