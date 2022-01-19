@@ -48,11 +48,15 @@
 
       <div class="w-full">
         <% if devise_mapping.omniauthable? %>
-          <% resource_class.omniauth_providers.each do |provider| %>
-            <div class="flex justify-center">
-              <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-300 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block my-2 cursor-pointer #{provider}"%>
+
+          <%= link_to "Facebook", user_facebook_omniauth_authorize_path, method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-300 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block my-2 cursor-pointer"%>
+
+          <%= link_to "Google", user_google_oauth2_omniauth_authorize_path, method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-300 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block my-2 cursor-pointer"%>
+          <%# resource_class.omniauth_providers.each do |provider| %>
+            <!-- <div class="flex justify-center">
+              <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-300 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block my-2 cursor-pointer #{provider}"%>
             </div>
-          <% end %>
+          <%# end %> -->
         <% end %>
       </div>
     </div>
