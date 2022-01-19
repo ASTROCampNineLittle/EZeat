@@ -52,7 +52,7 @@ e-mail soistdaslife@gmail.com</br>
 github Tsaijieming</br>
 e-mail dreamorange830@gmail.com</br>
 
-|aa|bb|cc|
-|--|--|--|
-|fd|fv|bb|
-
+|--|**許晴**|**賴益楚**|**董仲書**|**蔡傑名**|
+|--|--|--|--|--|
+|**github**|[ching227](https://github.com/ching227)|[LaichLai](https://github.com/LaichuLai)|[sethxd88](https://github.com/sethxd88)|[Tsaijeming](https://github.com/Tsaijieming)|
+|**e-mail**|ching22h7@gmail.com|cozzichilli@gmail.com|soistdaslife@gmail.com|dreamorange830@gmail.com|
