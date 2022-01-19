@@ -91,7 +91,6 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
-
   # ngrok 的host config 貼這裡就能運作了
-  # config.hosts << "ad73-61-220-182-115.ngrok.io"
+  # config.hosts << ""
 end
