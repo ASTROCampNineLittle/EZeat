@@ -55,7 +55,7 @@
 			<div class="flex items-center justify-between bg-green-100 pl-8 py-2 border-b-2 border-green-200">
 				<h3 class="flex text-left text-lg font-light pl-0.5">
 					<svg class="h-6 w-6 text-black pt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor"  stroke-width="2"	stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-					<div class="pl-2">餐卷：<%= @dish.name %></div>
+					<div class="pl-2">餐券：<%= @dish.name %></div>
 				</h3>
 				<span class="text-red-500 text-3xl pr-8 font-bold">＄<%= @dish.price.to_s.gsub(/(\d)(?=(\d{3})+$)/,'\1,') %></span>
 			</div>
@@ -87,28 +87,29 @@
 			<%= form.hidden_field :order_price, value: @dish.price %>
 			<%= form.hidden_field :order_date, value: @open_date.availible_date %>
 
-			<div class="mx-6 my-3">
+			<div class="mx-auto">
 				<div class='flex flex-wrap justify-center w-full'>
 					<% @offers.each do |offers| %>
-						<div class="w-1/6 pl-2">
+						<div class="w-40">
 							<%= form.radio_button(:order_time, offers.availible_time, checked: true)%>
-							<%= form.label(:order_time, offers.availible_time.strftime("%H：%M"), value: offers.availible_time, class:"text-red-500 text-sm py-1.5 px-5 my-3 border-b-4 border-red-600 rounded-full bg-white w-1/8 inline-block align-middle bg-white hover:bg-red-400 hover:text-white")%>
+							<%= form.label(:order_time, offers.availible_time.strftime("%H：%M"), value: offers.availible_time, class:"m-2 py-1.5 px-5 text-white text-sm rounded-md border-b-4 border-orange-600 bg-orange-500 bg-white hover:bg-orange-400 w-1/10 inline-block")%>
 						</div>
 					<% end %>
 				</div>
 			</div>
 			<div class = "flex pb-5 mr-6">
 				<div class="relative top-9 left-28">
-					<svg class="h-6 w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+					<svg class="h-6 w-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
 				</div>
-					<%= form.select(:order_people, [["1"], ["2","2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"], ["10"]], {selected: "2"}, { :class => 'text-red-600 text-base py-2.5 text-center rounded-full border border-red-600 hover:bg-red-50 w-full appearance-none cursor-pointer my-6'}) %>
+					<%= form.select(:order_people, [["1"], ["2","2"], ["3"], ["4"], ["5"], ["6"], ["7"], ["8"], ["9"], ["10"]], {selected: "2"}, { :class => 'text-orange-600 text-base py-2.5 text-center rounded-full border border-orange-600 hover:bg-orange-50 w-full appearance-none cursor-pointer my-6'}) %>
 			</div>
 
 			<div class="mx-6 my-5">
-				<%= form.submit '送 出 時 間 及 人 數', class: 'text-white text-base py-2.5 border-b-4 border-red-600 rounded-md bg-red-500 hover:bg-red-400 w-full tracking-widest cursor-pointer' %>
+				<%= form.submit '送 出 時 間 及 人 數', class: 'text-white text-base py-2.5 border-b-4 border-orange-600 rounded-md bg-orange-500 hover:bg-orange-400 w-full tracking-widest cursor-pointer' %>
 			</div>
 		<% end %>
-		<div class="flex flex-row-reverse mr-6 mt-10 mb-6"><%= link_to "↻ 返回前頁改選", :back , class:'text-sm text-gray-500 hover:underline hover:text-orange-500'%></div>
 	</section>
+
+		<div class="flex flex-row-reverse mr-6 my-10"><%= link_to "↻ 返回前頁改選", :back , class:'text-sm text-gray-500 hover:underline hover:text-orange-500'%></div>
 
 </div>
