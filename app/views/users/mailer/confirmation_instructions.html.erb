@@ -1,5 +1,10 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>您好： <%= @email %>!</p>
+<p>歡迎使用EZeat的服務，請點擊以下連結開通驗證：</p>
+<p><%= link_to '點擊驗證帳號', confirmation_url(@resource, confirmation_token: @token) %></p>
+<br>
+<br>
+<div style="border-bottom: 1px solid gray;">
+<a href="https://ezeat888.com/" style="text-decoration-line: none;">
+  <div style="color:#f97315; font-size: 24px; font-weight: bold;">EZeat<span style="color:#676767; font-size: 22px; font-weight: bold;">。滿足您的美好食刻</span></div>
+</a>
+</div>
