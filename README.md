@@ -13,9 +13,13 @@ OOO效能評分:
 ### 功能說明：
 
 #### 1. 搜尋功能 - 錄影(等nav修好)
+
 #### 2. 即時訂位 - 錄影(修改會員資料)
+
 #### 3. 後台管理 - 圖片
+
 #### 4. 訂位核銷 - 錄影(修改會員資料)
+
 #### 5. 多國語言 - 圖片(等nav修好)
 
 ---
@@ -32,7 +36,7 @@ API串接：Google Map / Amazon S3 / 藍新金流</br>
 
 ---
 
-### EZeat is not easy
+### EZeat 成員及分工
 
 ![image](https://user-images.githubusercontent.com/92966004/150062297-d5111607-355c-4ab7-9809-50b191e7ed4c.png)
 
