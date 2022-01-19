@@ -21,7 +21,7 @@ class ChecksController < ApplicationController
     if @order.save
       redirect_to new_payment_path
     else
-      render # 這裡好像漏打了？
+      render :new
     end
   end
 
