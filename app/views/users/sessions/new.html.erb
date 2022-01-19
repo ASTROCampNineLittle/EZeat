@@ -11,22 +11,22 @@
           <%= link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class:"font-medium text-indigo-600 hover:text-indigo-500") %>
         </p>
       </div>
-        <div class="rounded-md shadow-sm -space-y-px">
+        <div class="rounded-md">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <%= render "users/shared/error_messages", resource: resource %>
             <div class="field">
                 <%= f.label :email %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="field">
                 <%= f.label :password %>
-                <%= f.password_field :password, autocomplete: "current-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+                <%= f.password_field :password, autocomplete: "current-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="flex items-center justify-between">
               <div class="items-center">
                 <% if devise_mapping.rememberable? %>
                   <div class="flex h-4 w-48 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-                    <%= f.check_box :remember_me %>
+                    <%= f.check_box :remember_me, class: "mt-1" %>
                     <%= f.label :remember_me, class: "ml-2 text-sm text-gray-900" %>
                   </div>
                 <% end %>
@@ -41,14 +41,16 @@
                   <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                 </svg>
               </span>
-              <%= f.submit t('devise.sessions.new.sign_in'), class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+              <%= f.submit t('devise.sessions.new.sign_in'), class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer" %>
             </div>
         </div>
         <% end %>
-      <div>
+      <div class="w-full">
         <% if devise_mapping.omniauthable? %>
           <% resource_class.omniauth_providers.each do |provider| %>
-            <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: "post" %><br>
+            <div class="flex justify-center">
+              <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-300 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block my-2 cursor-pointer #{provider}"%>
+            </div>
           <% end %>
         <% end %>
       </div>
