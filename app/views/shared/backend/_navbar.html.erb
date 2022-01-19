@@ -1,10 +1,10 @@
 <div class="relative bg-blue-300 h-20 ">
-  <div class=" max-w-7xl h-20 mx-auto px-2 sm:px-6">
+  <div class=" h-20 mx-auto px-2 sm:px-6">
     <div class="max-w-full bg-blue-300 h-20 navbar">
       <div class="mx-2 px-2 h-20">
         <div class="flex border-gray-100 h-full">
-          <div class="self-center" style="width: 45%">
-            <div class="w-30">
+          <div class="self-center w-3/12">
+            <div class="w-1/10">
               <% if current_user.company %>
                 <%= link_to "EZeat餐廳管理系統", backend_company_path(current_user.company), class:"text-white text-2xl subpixel-antialiased " %>
               <% else %>

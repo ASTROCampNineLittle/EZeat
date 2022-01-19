@@ -6,16 +6,17 @@
   font-weight: bolder;
 }
 
-.notice {
+div#notice {
   position: absolute;
-  background-color: #FFFFFF;
+  background-color: #60a5fa;
   text-align: center;
   font-weight: bolder;
   font-size: 20px;
-  left: 45%;
-  top: 25px;
+  margin-left: 20%;
+  top: 20px;
   border-radius: 50px;
   letter-spacing: 0.2em;
+  z-index: 3;
 }
 
 div#alert {
@@ -24,18 +25,18 @@ div#alert {
   text-align: center;
   font-weight: bolder;
   font-size: 20px;
-  left: 45%;
+  margin-left: 20%;
   top: 20px;
   border-radius: 50px;
   letter-spacing: 0.2em;
 }
 
 .fade-out {
-  animation: fadeOut ease 3.5s forwards;
-  -webkit-animation: fadeOut ease 3.5s forwards;
-  -moz-animation: fadeOut ease 3.5s forwards;
-  -o-animation: fadeOut ease 3.5s forwards;
-  -ms-animation: fadeOut ease 3.5s forwards;
+  animation: fadeOut ease 5s forwards;
+  -webkit-animation: fadeOut ease 5s forwards;
+  -moz-animation: fadeOut ease 5s forwards;
+  -o-animation: fadeOut ease 5s forwards;
+  -ms-animation: fadeOut ease 5s forwards;
 }
 
 @keyframes fadeOut {
