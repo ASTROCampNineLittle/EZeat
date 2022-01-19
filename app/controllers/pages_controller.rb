@@ -13,12 +13,24 @@ class PagesController < ApplicationController
     @foodtype7_stores = @stores.where(food_type: "法式")
     @foodtype8_stores = @stores.where(food_type: "德式")
 
-    @q = Dish.includes(:store, :open_dates).ransack(params[:q])
+    # @q = Dish.includes(:store, :open_dates).ransack(params[:q])
+    # @q = Store.includes(:dishes).includes(:open_dates).ransack(params[:q])
+    # @q = Dish.includes(:store).ransack(params[:q])
+    # @q = Store.ransack(params[:q])
+
+    #return all clients that match the search criteria
+
   end
 
   def search_result
-    @q = Dish.includes(:store, :open_dates).ransack(params[:q])
-    search_result = @q.result
-    @search_result = search_result
+    @store_search = Store.search(params[:name]).all
+    @dish_search = Dish.search(params[:name]).all
+    # @q = Store.ransack(params[:q])
+    # @q = Store.includes(:dishes).joins(:open_dates).ransack(params[:q])
+    # @q = Dish.includes(:store, :open_dates).ransack(params[:q])
+    # @q.sorts = 'open_dates_availible_date desc' if @q.sorts.empty?
+    # search_result = @q.result(distinct: true).includes(:dishes).joins(:open_dates)
+    # search_result = @q.result(distinct: true)
+    # @search_result = search_result
   end
 end

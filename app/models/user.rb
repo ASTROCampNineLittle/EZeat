@@ -34,5 +34,4 @@ class User < ApplicationRecord
       user.name = provider_data.info.name
     end
   end
-
 end

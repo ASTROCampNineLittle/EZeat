@@ -52,7 +52,7 @@ gem 'ruby-enum', '~> 0.9.0'
 gem 'aasm', '~> 5.2'
 
 # The MetaSearch's functionality
-gem 'ransack', '~> 2.5'
+# gem 'ransack', '~> 2.5'
 
 # As the paginator
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
