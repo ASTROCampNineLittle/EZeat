@@ -34,7 +34,7 @@ API串接：Google Map / Amazon S3 / 藍新金流</br>
 
 ### 團隊成員
 
-![Untitled](https://user-images.githubusercontent.com/92966004/150060820-0338cd13-3262-4f03-a622-71b40a5ab4e4.png)
+![image](https://user-images.githubusercontent.com/92966004/150062297-d5111607-355c-4ab7-9809-50b191e7ed4c.png)
 
 **許晴</br>**
 github ching227</br>
