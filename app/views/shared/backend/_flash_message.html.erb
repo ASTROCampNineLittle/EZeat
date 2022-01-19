@@ -1,2 +1,7 @@
-<%= flash[:notice] %>
-<%= flash[:alert] %>
+<% flash.each do |key, value| %>
+  <div id="notice" class="fade-out notice-<%= key %>">
+    <div class="text-white tracking-widest text-center block py-1 px-8">
+      <%= value %>
+    </div>
+  </div>
+<% end %>
