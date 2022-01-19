@@ -4,8 +4,7 @@ document.addEventListener('turbolinks:load', () => {
   const mouseTargetLg = document.getElementById("navTargetLg");
 
   mouseTarget.addEventListener('mouseenter', e => {
-    console.log(document.getElementById("navDropDown").classList);
-    document.getElementById("navDropDown").classList.toggle("hidden");
+    document.getElementById("navDropDown").classList.toggle("show");
   });
 
   mouseTarget.addEventListener('mouseleave', e => {
