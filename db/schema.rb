@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_16_122705) do
+ActiveRecord::Schema.define(version: 2022_01_18_015946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,15 @@ ActiveRecord::Schema.define(version: 2022_01_16_122705) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
+  end
+
   create_table "stores", force: :cascade do |t|
     t.bigint "company_id", null: false
     t.string "name"
@@ -111,6 +120,16 @@ ActiveRecord::Schema.define(version: 2022_01_16_122705) do
     t.time "open_time"
     t.time "close_time"
     t.index ["company_id"], name: "index_stores_on_company_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer "use_status", default: 0
+    t.bigint "order_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_tickets_on_order_id"
+    t.index ["user_id"], name: "index_tickets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -151,5 +170,7 @@ ActiveRecord::Schema.define(version: 2022_01_16_122705) do
   add_foreign_key "orders", "stores"
   add_foreign_key "orders", "users"
   add_foreign_key "stores", "companies"
+  add_foreign_key "tickets", "orders"
+  add_foreign_key "tickets", "users"
   add_foreign_key "users", "companies"
 end
