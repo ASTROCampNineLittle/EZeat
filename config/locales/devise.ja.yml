@@ -54,7 +54,7 @@ ja:
         instruction: 以下のリンクをクリックし、アカウントの確認手続を完了させてください。
         subject: アカウントの確認メール
       email_changed:
-        greeting: こんにちは、%{recipient}様。
+        greeting: やっほー、%{recipient}様。
         message: メールアドレスの（%{email}）変更が完了したため、メールを送信しています。
         message_unconfirmed: メールアドレスが（%{email}）変更されたため、メールを送信しています。
         subject: メールアドレスの変更完了
