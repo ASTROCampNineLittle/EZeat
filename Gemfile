@@ -8,6 +8,13 @@ gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'mini_magick', '~> 4.11'
 gem 'fog-aws', '~> 3.12'
 
+# Used to generate qrcode
+gem 'barby', '~> 0.6.8'
+# As bayby's dependacy
+gem 'rqrcode', '~> 2.1'
+# Used to generate PNG
+gem 'chunky_png', '~> 1.4'
+
 # # framework for multiple-provider authentication.
 # gem 'omniauth', '~> 2.0', '>= 2.0.4'
 
