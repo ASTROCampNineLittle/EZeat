@@ -4,7 +4,6 @@ document.addEventListener('turbolinks:load', () => {
   const mouseTargetLg = document.getElementById("navTargetLg");
 
   mouseTarget.addEventListener('mouseenter', e => {
-    console.log(document.getElementById("navDropDown").classList);
     document.getElementById("navDropDown").classList.toggle("hidden");
   });
 
@@ -13,7 +12,7 @@ document.addEventListener('turbolinks:load', () => {
   });
 
   mouseTargetLg.addEventListener('mouseenter', e => {
-    document.getElementById("navDropDownLg").classList.toggle("show");
+    document.getElementById("navDropDownLg").classList.toggle("hidden");
   });
 
   mouseTargetLg.addEventListener('mouseleave', e => {

@@ -70,15 +70,14 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV["web_path"] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-
-  address: "smtp.gmail.com",
-  port: 587,
-  domain: "gmail.com",
-  authentication: "plain",
-  user_name: ENV["GMAIL_USERNAME"],
-  password: ENV["GMAIL_PASSWORD"],
-  enable_starttls_auto: true
-}
+    address:              'smtp.mailgun.org',
+    port:                 587,
+    domain:               'mail.ezeat888.com',
+    user_name:            ENV['mailgun_username'],
+    password:             ENV['mailgun_password'],
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

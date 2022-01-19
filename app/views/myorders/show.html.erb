@@ -1,11 +1,11 @@
-<div class="mx-auto lg:w-3/4 md:w-10/12 w-full lg:mb-14 md:mb-14">
+<div class="mx-auto lg:w-3/4 md:w-10/12 sm:w-10/12 mb-14">
 
 	<div class="bg-white pt-16 pb-10 w-full">
-    <h2 class="text-gray-700 font-semibold text-2xl text-center tracking-widest">票 卷 資 訊</h2>
-    <p class="text-gray-400 font-light text-base text-center py-2"><%= @user_order.name %>。<%= @user_order.tel %></p>
+    <h2 class="text-gray-700 font-semibold text-2xl text-center tracking-widest">票 券 資 訊</h2>
+    <p class="text-gray-400 font-light text-base text-center py-2"><%= @user_order.name %> 🍴 <%= @user_order.tel %></p>
   </div>
 
-  <div class="w-full shadow-xl rounded-lg">
+  <div class="lg:w-8/12 md:w-10/12 sm:w-11/12 xs:w-11/12 shadow-xl rounded-lg pb-8 mx-auto">
     <div class="px-3.5 border-t flex flex-col items-center">
       <div class="flex flex-wrap justify-around items-center py-10 w-full md:w-5/6 border-b border-gray-200">
         <div class="w-2/12 md:w-2/12 lg:w-2/12 text-center tracking-widest shadow bg-orange-50 rounded-xl py-2">
@@ -52,21 +52,19 @@
         <% end%>
       </div>
 
-      <% if @user_order.ticket === "未使用" %>
-        <div class="inline-block w-full lg:w-1/2 md:w-10/12 rounded-xl text-center text-lg bg-orange-200 pt-3 shadow my-7">核 銷 編 號
-          <div class="py-5 flex flex-col items-center rounded-b-lg bg-orange-400">
-            <div class="w-full text-center">
-              <p class="text-3xl font-mono tracking-normal"><%= @user_order.order_number %></p>
-              <span class="text-sm text-white tracking-widest">請 出 示 此 畫 面 給 店 家</span>
-            </div>
-            <div data-controller="qrcode">
-              <div class="">
-                <button id="qrcodeBtn", class="", data-qrcode-target="qrcodeBtn", data-action= "click->qrcode#generateQrcode">
-                  v
-                </button>
-                <div id="qrcodePng" class="hidden" data-qrcode-target="qrcodePng">
-                  <%= image_tag(url_for({:controller => 'myorders', :action => 'show', :format => 'png' }), class: "" ) %>
-                </div>
+      <div class="inline-block w-full lg:w-1/2 md:w-10/12 rounded-xl text-center items-center text-lg bg-orange-200 pt-3 shadow my-7">核 銷 編 號
+        <div class="py-5 flex flex-col items-center rounded-b-lg bg-orange-400">
+          <div class="w-full text-center">
+            <p class="text-3xl font-mono tracking-normal"><%= @user_order.order_number %></p>
+            <span class="text-sm text-white tracking-widest">請 出 示 此 畫 面 給 店 家</span>
+          </div>
+          <div data-controller="qrcode">
+            <div class="text-sm text-stone-600">
+              <button id="qrcodeBtn", class="", data-qrcode-target="qrcodeBtn", data-action= "click->qrcode#generateQrcode">
+                ⤵ 點一下給店家掃描 ⤵
+              </button>
+              <div id="qrcodePng" class="hidden" data-qrcode-target="qrcodePng">
+                <%= image_tag(url_for({:controller => 'myorders', :action => 'show', :format => 'png' }), class: "" ) %>
               </div>
             </div>
           </div>
