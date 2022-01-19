@@ -33,7 +33,7 @@ module Newebpay
       @info[:TimeStamp] = Time.now.to_i
       @info[:RespondType] = "JSON"
       @info[:Version] = "1.5"
-      @info[:ReturnURL] = "http://www.ezeat888.com/payments/#{@order.user_id}/confirm"
+      @info[:ReturnURL] = "https://ezeat888.com/payments/#{@order.user_id}/confirm"
       @info[:NotifyURL] = ""
       @info[:LoginType] = 0
       @info[:CREDIT] =  1
