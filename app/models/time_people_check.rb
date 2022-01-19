@@ -1,3 +1,3 @@
 class TimePeopleCheck < ApplicationRecord
-  validate :order_time , presence: true
+  validates :order_time , presence: true
 end

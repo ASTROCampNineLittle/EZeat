@@ -12,6 +12,8 @@ class PagesController < ApplicationController
     @foodtype6_stores = @stores.where(food_type: "美式")
     @foodtype7_stores = @stores.where(food_type: "法式")
     @foodtype8_stores = @stores.where(food_type: "德式")
+    @foodtype9_stores = @stores.where(food_type: "墨西哥")
+    @foodtype10_stores = @stores.where(food_type: "其它")
 
     @q = Dish.includes(:store, :open_dates).ransack(params[:q])
   end
