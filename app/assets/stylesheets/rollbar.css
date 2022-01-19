@@ -1,4 +1,4 @@
-/**
+4/**
  * Swiper 7.4.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
@@ -17,7 +17,6 @@
  }
 
  body {
-   background: #eee;
    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
    font-size: 14px;
    color: #000;
@@ -65,7 +64,7 @@
  /* 前後按鈕的顏色控制 */
  .swiper-button-next,
  .swiper-button-prev{
-   color: rgba(255,255,255,0.6);
+   color: rgba(248,115,21,0.6);
  }
  .swiper-pagination{
    display:none
