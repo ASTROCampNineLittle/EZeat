@@ -22,17 +22,31 @@
           <div class="text-lg sm:text-xl font-light tracking-widest text-left"><%= @user_order.order_dish %></div>
         </div>
         <% if @user_order.ticket === "未使用" %>
-          <div class="w-full           lg:w-3/12 mt-10 lg:mt-0 text-center">
+          <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
             <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-green-900">
               <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
               <span class="relative tracking-widest"><%= @user_order.ticket %></span>
             </span>
           </div>
-        <% else %>
-          <div class="w-full           lg:w-3/12 mt-10 lg:mt-0 text-center">
+        <% elsif @user_order.ticket === "已使用" %>
+          <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
             <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-red-900">
               <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
               <span class="relative tracking-widest"><%= @user_order.ticket %></span>
+            </span>
+          </div>
+        <% elsif @user_order.ticket="" %>
+          <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
+            <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-white">
+              <span aria-hidden class="absolute inset-0 bg-gray-400 opacity-50 rounded-full"></span>
+              <span class="relative tracking-widest">未付款</span>
+            </span>
+          </div>
+        <% else %>
+          <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
+            <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-white">
+              <span aria-hidden class="absolute inset-0 bg-black opacity-50 rounded-full"></span>
+              <span class="relative tracking-widest">已逾期</span>
             </span>
           </div>
         <% end%>
@@ -43,6 +57,16 @@
           <div class="w-full text-center">
             <p class="text-3xl font-mono tracking-normal"><%= @user_order.order_number %></p>
             <span class="text-sm text-white tracking-widest">請 出 示 此 畫 面 給 店 家</span>
+          </div>
+          <div data-controller="qrcode">
+            <div class="">
+              <button id="qrcodeBtn", class="", data-qrcode-target="qrcodeBtn", data-action= "click->qrcode#generateQrcode">
+                v
+              </button>
+              <div id="qrcodePng" class="hidden" data-qrcode-target="qrcodePng">
+                <%= image_tag(url_for({:controller => 'myorders', :action => 'show', :format => 'png' }), class: "" ) %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
