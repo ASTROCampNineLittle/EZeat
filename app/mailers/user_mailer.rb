@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
   def after_payment(user)
     @user = user
-    @order = @user.orders
+    @order = @user.orders.last
     # attachments['票券.jpg'] = File.read('public/Ruby 考試.jpg')
     mail(to: @user.email, subject:"付款成功！")
   end

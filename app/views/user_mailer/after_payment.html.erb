@@ -1,6 +1,33 @@
-<%= @user.name %>，你好：
+<%= @user.name %> 您好：<br>
+謝謝您使用EZeat的服務，您所訂購的餐券明細如下<br>
+<br>
 
-謝謝您的預訂喔，可以的話再多刷幾筆吧，再見！
+<div class="m-auto lg:w-8/12 md:w-10/12 sm:w-full">
+	<div class="bg-white p-8 rounded-md w-full">
 
-    @user = user
-    @order = @user.orders
+		<div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+			<div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+				<div class="min-w-full order-table">
+					<div class="relative p-3">
+						<div class="sticky top-0 md:flex md:w-full text-xs text-center font-semibold text-gray-700 bg-orange-50">
+              <div style="color:#000000; font-size: 14px;">訂購餐廳：<%= @order.store.name %></div>
+							<div style="color:#000000; font-size: 14px;">訂購餐券：<%= @order.order_dish %></div><br>
+							<div style="color:#000000; font-size: 14px;">訂位來賓：<%= @order.name %></div>
+							<div style="color:#000000; font-size: 14px;">訂位日期：<%= @order.order_date %></div>
+							<div style="color:#000000; font-size: 14px;">訂位時間：<%= @order.order_time[11..15] %></div>
+              <div style="color:#000000; font-size: 14px;">訂位人數：<%= @order.order_people %></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<br>
+<br>
+<div style="border-bottom: 1px solid gray;">
+<a href="https://ezeat888.com/" style="text-decoration-line: none;">
+  <div style="color:#f97315; font-size: 24px; font-weight: bold;">EZeat<span style="color:#676767; font-size: 22px; font-weight: bold;">。滿足您的美好食刻</span></div>
+</a>
+</div>
