@@ -1,4 +1,8 @@
 class MyordersController < ApplicationController
+  require 'barby'
+  require 'barby/barcode/qr_code'
+  require 'barby/outputter/png_outputter'
+
   def index
     @user_order = Order.where(user_id: current_user.id).order(order_date: :desc).where.not(ticket: nil)
 
@@ -13,6 +17,16 @@ class MyordersController < ApplicationController
 
   def show
     @user_order = Order.find(params[:id])
+
+    barcode = Barby::QrCode.new(@user_order.order_number)
+    @blob = Barby::PngOutputter.new(barcode).to_png(xdim: 11)
+
+    respond_to do |format|
+      format.html
+      format.png do
+        send_data @blob, type: "image/png"
+      end
+    end
   end
 
   def search
@@ -22,9 +36,7 @@ class MyordersController < ApplicationController
   def before_today
     self < Time.now
   end
-
 end
-
 
 # 當票卷超過今天的日期,票卷就會轉為逾期
 # 顯示邏輯, 如果ticket 是 nil 就不顯示

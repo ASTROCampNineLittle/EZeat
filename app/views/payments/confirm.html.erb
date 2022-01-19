@@ -50,9 +50,9 @@
 
 	<h3 class="bg-orange-100 text-black text-4xl py-14 pl-6 border-b-2 text-center ">交易結果：
 		<% if @response.status === "SUCCESS"%>
-		<%= "😉 購買票卷成功！" %>
+		<%= "😉 購買票券成功！" %>
 		<% else %>
-		<%= "😕 購買票卷失敗！" %><br>
+		<%= "😕 購買票券失敗！" %><br>
 		<span class="py- inline-block"><%= @response.message %></span>
 		<% end%>
 	</h3>
@@ -60,15 +60,66 @@
 	<div class="flex flex-between text-lg bg-gray-300 py-1.5">
 		<h3 class="bg-gray-300 text-black py-3 pl-8 flex-grow text-xl font-semibold inline-block tracking-widest">購買明細</h3>
 		<button class="bg-orange-500 hover:bg-orange-700 rounded-lg mr-8">
-			<%= link_to "查看我的票卷", myorders_path,
-		  class:'text-white text-lg py-2 px-5 hover:underline inline-block text-center'%>
+			<%= link_to "查看我的票券", myorders_path,
+			class:'text-white text-lg py-2 px-5 hover:underline inline-block text-center'%>
 		</button>
 	</div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">餐卷：<%= @order.order_dish %></div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">日期：<%= @order.order_date %></div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">時間：<%= @order.order_time.to_datetime.strftime("%H:%M") %></div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">人數：<%= @order.order_people %></div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">交易金額：<%= @order.newebpay_amount %></div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">藍新交易時間：<%= @order.newebpay_time %></div>
-	<div class="text-left text-lg font-base border-b-2 border-gray-500 pl-8 bg-white py-3">信用卡前六碼：<%= @order.newebpay_card6no %></div>
+	<section class="w-full container mx-auto drop-shadow-lg">
+		<div class="md:flex md:items-center font-base border-b-2 border-orange-500 px-8 bg-white py-3">
+			<div class="md:w-4/12 text-sm block text-gray-500 font-bold pr-2 text-center">
+				　餐　　券　：
+			</div>
+			<div class="md:8/12 text-lg text-center">
+				<%= @order.order_dish %>
+			</div>
+		</div>
+		<div class="md:flex md:items-center font-base border-b-2 border-orange-500 px-8 bg-white py-3">
+			<div class="md:w-4/12 text-sm block text-gray-500 font-bold pr-2 text-center">
+				　日　　期　：
+			</div>
+			<div class="md:8/12 text-lg text-center">
+				<%= @order.order_date %>
+			</div>
+		</div>
+		<div class="md:flex md:items-center font-base border-b-2 border-orange-500 px-8 bg-white py-3">
+			<div class="md:w-4/12 text-sm block text-gray-500 font-bold pr-2 text-center">
+				　時　　間　：
+			</div>
+			<div class="md:8/12 text-lg text-center">
+				<%= @order.order_time.to_datetime.strftime("%H:%M") %>
+			</div>
+		</div>
+		<div class="md:flex md:items-center font-base border-b-2 border-orange-500 px-8 bg-white py-3">
+			<div class="md:w-4/12 text-sm block text-gray-500 font-bold pr-2 text-center">
+				　人　　數　：
+			</div>
+			<div class="md:8/12 text-lg text-center">
+				<%= @order.order_people %>
+			</div>
+		</div>
+		<div class="md:flex md:items-center font-base border-b-2 border-orange-500 px-8 bg-white py-3">
+			<div class="md:w-4/12 text-sm block text-gray-500 font-bold pr-2 text-center tracking-widest">
+				 交  易  金  額 ：
+			</div>
+			<div class="md:8/12 text-lg text-center">
+				<%= @order.newebpay_amount %>
+			</div>
+		</div>
+		<div class="md:flex md:items-center font-base border-b-2 border-orange-500 px-8 bg-white py-3">
+			<div class="md:w-4/12 text-sm block text-gray-500 font-bold pr-2 text-center">
+				藍新交易時間：
+			</div>
+			<div class="md:8/12 text-lg text-center">
+				<%= @order.newebpay_time %>
+			</div>
+		</div>
+		<div class="md:flex md:items-center font-base border-b-2 border-orange-500 px-8 bg-white py-3">
+			<div class="md:w-4/12 text-sm block text-gray-500 font-bold pr-2 text-center">
+				信用卡前六碼：
+			</div>
+			<div class="md:8/12 text-lg text-center">
+				<%= @order.newebpay_card6no %>
+			</div>
+		</div>
+	</section>
 </div>

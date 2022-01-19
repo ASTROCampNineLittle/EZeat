@@ -27,7 +27,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="navDropDown" class="hidden z-30 absolute right-25 text-base bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+            <div id="navDropDown" class="hidden z-50 absolute right-25 text-base bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
               <% if signed_in? %>
                 <div class="py-3 px-4 text-gray-900 dark:text-white">
                   <span class="block text-sm py-1 text-orange-600"><%= current_user.name %></span>
@@ -65,7 +65,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="navDropDownLg" class="hidden z-30 absolute right-25 text-base bg-orange-300 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+            <div id="navDropDownLg" class="hidden z-50 absolute right-25 text-base bg-orange-300 rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
               <ul class="py-1">
                 <li class="py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
                   <%= link_to(t('common.site_languages.chinese'), :locale => "zh-TW") %>
