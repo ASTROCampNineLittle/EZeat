@@ -12,6 +12,8 @@ class PagesController < ApplicationController
     @foodtype6_stores = @stores.where(food_type: "美式")
     @foodtype7_stores = @stores.where(food_type: "法式")
     @foodtype8_stores = @stores.where(food_type: "德式")
+    @foodtype9_stores = @stores.where(food_type: "墨西哥")
+    @foodtype10_stores = @stores.where(food_type: "其它")
 
     # @q = Dish.includes(:store, :open_dates).ransack(params[:q])
     # @q = Store.includes(:dishes).includes(:open_dates).ransack(params[:q])
@@ -20,11 +22,15 @@ class PagesController < ApplicationController
 
     #return all clients that match the search criteria
 
+    # @products = Store.where("name LIKE ?", "O%")
+
   end
 
   def search_result
-    @store_search = Store.search(params[:name]).all
-    @dish_search = Dish.search(params[:name]).all
+
+    # @store_search = Store.search(params[:name]).all
+    # @dish_search = Dish.search(params[:name]).all
+    # @search_result = Store.where(name LIKE ? 'Spice%')
     # @q = Store.ransack(params[:q])
     # @q = Store.includes(:dishes).joins(:open_dates).ransack(params[:q])
     # @q = Dish.includes(:store, :open_dates).ransack(params[:q])

@@ -3,6 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
+gem 'rake', '~> 13.0', '>= 13.0.6'
+
+# For generating fake data
+gem 'faker', '~> 2.19'
+
 # Bundle carrierwave & AWS related Gems
 gem 'carrierwave', '~> 2.2', '>= 2.2.2'
 gem 'mini_magick', '~> 4.11'
@@ -92,9 +97,6 @@ group :development, :test do
 
   # Helper for killing N+1 queries and unused eager loading.
   gem 'bullet', '~> 7.0'
-
-  # For generating fake data
-  gem 'faker', '~> 2.19'
 
   # Configuration using ENV and a single YAML file
   gem 'figaro', '~> 1.2'

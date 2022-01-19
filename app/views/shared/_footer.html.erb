@@ -10,31 +10,12 @@
       lg:items-start
       md:flex-row md:flex-nowrap
     ">
-    <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
-      <a
-        class="
-          flex
-          items-center
-          justify-center
-          text-4xl
-          font-bold
-          text-orange-600
-          md:justify-start
-        "
-        >EZeat
-      </a>
-      <p class="mt-2 text-sm text-justify text-gray-500">
-        <%= t 'common.footer.content.yummy' %>
-      </p>
-
-      <div class="flex mt-4">
-        <%= form_for :message do |f| %>
-          <%= f.text_field :email, placeholder: true, class:"h-auto p-2 text-sm border border-grey-light round text-grey-dark" %>
-        <% end %>
-        <button class="h-auto p-3 text-xs text-white bg-red-600 rounded-sm">
-          <%= t 'common.footer.content.subscribe' %>
-        </button>
+    <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 ">
+      <img class="mx-auto h-8 w-auto" src="https://ezeat.s3.ap-northeast-1.amazonaws.com/EZeat-orange.png" alt="EZeat" >
+      <div class="mt-2 text-sm pb-2 text-gray-500 text-center">
+        <p>滿足您的精彩食刻</p>
       </div>
+
       <div class="flex justify-center mt-4 lg:mt-2">
         <a>
           <svg

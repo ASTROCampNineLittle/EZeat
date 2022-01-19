@@ -1,4 +1,5 @@
 namespace :db do
+  require 'faker'
   desc "產生假分店"
   task :new_stores => :environment do
 

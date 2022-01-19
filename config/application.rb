@@ -1,5 +1,4 @@
 require_relative "boot"
-
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -36,5 +35,8 @@ module EZeat888
 
     # 假資料也能設定語系，但目前只有地址能成功改中文...
     Faker::Config.locale = :en
+
+    config.serve_static_assets = true
+
   end
 end
