@@ -1,8 +1,6 @@
-<div class='w-10/12 h-full m-auto'>
-  <div class="md:flex md:items-center mb-6">
-    <div class=" ">
-        <h1 class='block text-black-500 text-3xl font-bold md:text-right mb-1 md:mb-0 pr-4'>新增分店</h1>
-    </div>
+<div class='w-8/12 h-full m-auto my-10'>
+  <div class="mb-6">
+    <h1 class="block text-black-500 text-3xl font-bold text-center tracking-widest">新增分店</h1>
   </div>
 
     <div class="md:grid md:gap-6 ">
@@ -10,70 +8,71 @@
         <%= form_with model: [:backend,:company, @store] do |form| %>
           <div class="shadow sm:rounded-md sm:overflow-hidden">
             <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-              <div class="grid grid-cols-3 gap-6">
-                <div class="col-span-3 sm:col-span-2">
-                  <%= form.label :name, '分店名稱', class:"block text-m font-medium text-gray-700"%>
+              <div class="grid w-full">
+                <div class="col-span-3 w-full">
+                  <%= form.label :name, '分店名稱', class:"block text-sm font-medium text-gray-700"%>
                   <div class="mt-1 flex rounded-md shadow-sm">
-                    <%= form.text_field :name, class:"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-m border-gray-300 bg-gray-200"%>
+                    <%= form.text_field :name, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
                   </div>
                 </div>
               </div>
 
-              <div class="grid grid-cols-3 gap-6">
-                <div class="col-span-3 sm:col-span-2">
-                  <%= form.label :food_type, '餐飲類型', class:"block text-m font-medium text-gray-700"%>
-                    <%= form.select :food_type, options_for_select(Store.food_types.map {|key, value| [key, Store.food_types.key(value)]}, @store.food_type), class:"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-m border-gray-300 bg-gray-200"%>
+              <div class="grid">
+                <div class="col-span-3">
+                  <%= form.label :food_type, '餐飲類型', class:"block text-sm font-medium text-gray-700"%>
+                    <%= form.select :food_type, options_for_select(Store.food_types.map {|key, value| [key, Store.food_types.key(value)]}, @store.food_type), class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
                 </div>
               </div>
 
-              <div class="grid grid-cols-3 gap-6">
-                <div class="col-span-3 sm:col-span-2">
-                  <%= form.label :tel, '分店電話', class:"block text-m font-medium text-gray-700"%>
+              <div class="grid">
+                <div class="col-span-3 w-full">
+                  <%= form.label :tel, '分店電話', class:"block text-sm font-medium text-gray-700"%>
                   <div class="mt-1 flex rounded-md shadow-sm">
-                    <%= form.text_field :tel, class:"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-m border-gray-300 bg-gray-200" %>
+                    <%= form.text_field :tel, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300" %>
                   </div>
                 </div>
               </div>
 
-              <div class="grid grid-cols-3 gap-6">
-                <div class="col-span-3 sm:col-span-2">
-                  <%= form.label :address, '分店地址', class:"block text-m font-medium text-gray-700"%>
+              <div class="grid">
+                <div class="col-span-3 w-full">
+                  <%= form.label :address, '分店地址', class:"block text-sm font-medium text-gray-700"%>
                   <div class="mt-1 flex rounded-md shadow-sm">
-                    <%= form.text_field :address, class:"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-m border-gray-300 bg-gray-200"%>
+                    <%= form.text_field :address, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
                   </div>
                 </div>
               </div>
 
-              <div class="grid grid-cols-3 gap-6">
-                <div class="col-span-3 sm:col-span-2">
-                  <%= form.label :open_time, '開店時間', class:"block text-m font-medium text-gray-700"%>
-                  <div class="mt-1 flex rounded-md shadow-sm">
-                    <%= form.time_select :open_time, { minute_step: 30}, class:"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-m border-gray-300 bg-gray-200"%>
+              <div class="flex justify-between">
+                <div class="grid w-1/2">
+                  <div class="col-span-3 sm:col-span-2">
+                    <%= form.label :open_time, '開店時間', class:"block text-sm font-medium text-gray-700"%>
+                    <div class="mt-1 flex rounded-md shadow-sm">
+                      <%= form.time_select :open_time, { minute_step: 30}, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="grid grid-cols-3 gap-6">
-                <div class="col-span-3 sm:col-span-2">
-                  <%= form.label :close_time, '打烊時間', class:"block text-m font-medium text-gray-700"%>
-                  <div class="mt-1 flex rounded-md shadow-sm">
-                    <%= form.time_select :close_time, { minute_step: 30}, class:"focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-m border-gray-300 bg-gray-200"%>
+                <div class="grid w-1/2 ml-5">
+                  <div class="col-span-3 sm:col-span-2">
+                    <%= form.label :close_time, '打烊時間', class:"block text-sm font-medium text-gray-700"%>
+                    <div class="mt-1 flex rounded-md shadow-sm">
+                      <%= form.time_select :close_time, { minute_step: 30}, class:"focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div>
-                <%= form.label :intro, '分店介紹', class:"block text-m font-medium text-gray-700"%>
+                <%= form.label :intro, '分店介紹', class:"block text-sm font-medium text-gray-700"%>
                 <div class="mt-1">
-                  <%= form.text_area :intro, class:"h-52 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-m border border-gray-300 bg-gray-200 rounded-md"%>
+                  <%= form.text_area :intro, class:"h-52 shadow-sm focus:ring-blue-500 focus:border-blue-500 mt-1 block w-full text-md border border-gray-300 rounded-md"%>
                 </div>
-                <p class="mt-2 text-m text-gray-500">
+                <p class="mt-2 text-sm text-gray-500">
                   請簡述分店特色，並分享推薦餐點內容
                 </p>
               </div>
 
               <div>
-                <label class="block text-m font-medium text-gray-700">
+                <label class="block text-sm font-medium text-gray-700">
                   上傳分店照片
                 </label>
                 <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 bg-gray-200 border-dashed rounded-md">
@@ -81,7 +80,7 @@
                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                       <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <div class="flex text-m ">
+                    <div class="flex text-sm ">
                       <%= form.label :image, '點此上傳分店照片', class:"text-gray-200" %>
                       <%= form.file_field :image, id: :store_image %>
                     </div>
@@ -92,10 +91,10 @@
                 </div>
               </div>
             </div>
-            <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-              <%= form.submit value="送出", class:"inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-m font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+            <div class="px-6 py-6 bg-gray-50 text-right">
+              <%= form.submit value="送出", class:"inline-flex justify-center py-4 px-6 border border-transparent shadow-sm text-md font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %>
 
-              <%= link_to "取消", backend_company_path(params[:company_id]), class:"inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-m font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" %>
+              <%= link_to "取消", backend_company_path(params[:company_id]), class:"inline-flex justify-center py-4 px-6 border border-transparent shadow-sm text-md font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ml-5" %>
             </div>
           </div>
         <% end %>
