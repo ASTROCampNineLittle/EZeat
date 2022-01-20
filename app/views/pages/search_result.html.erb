@@ -19,10 +19,10 @@
 								<%= f.label :store_food_type_eq, "餐廳類型", class: "text-xs font-semibold text-gray-600 block" %>
         				<%= f.select :store_food_type_eq, Store.food_types.to_a.map { |w| [w[0].humanize, w[1]] }, {include_blank: true}, class: "w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
 							</div>
-							<div class="mx-1 md:w-1/12">
-								<%= f.label :open_dates_availible_date, "預定日期", class: "text-xs font-semibold text-gray-600 block" %>
-        				<%= f.search_field :open_dates_availible_date, placeholder: "日期", class: "w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
-							</div>
+							<!-- <div class="mx-1 md:w-1/12">
+								<%#= f.label :open_dates_availible_date, "預定日期", class: "text-xs font-semibold text-gray-600 block" %>
+        				<%#= f.search_field :open_dates_availible_date, placeholder: "日期", class: "w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
+							</div> -->
 							<div class="mx-1 md:w-1/12">
 								<%= f.submit "搜尋", class: "xs:w-full  p-2 mt-5 text-xs font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-md focus:outline-none hover:bg-yellow-600 hover:shadow-none rounded-lg" %>
 							</div>
@@ -38,9 +38,9 @@
 					<div class="md:w-1/12 sm:w-full p-2">
 						<%= sort_link(@q, :store_food_type_eq, "類型", { class: "" })%>
 					</div>
-					<div class="md:w-2/12 sm:w-full p-2">
-						<%= sort_link(@q, :open_dates_availible_date, "日期")%>
-					</div>
+					<!-- <div class="md:w-2/12 sm:w-full p-2">
+						<%#= sort_link(@q, :open_dates_availible_date, "日期")%>
+					</div> -->
 					<div class="md:w-4/12 sm:w-full p-2">
 						<div class="">時間</div>
 					</div>
@@ -60,9 +60,9 @@
 						<div class="md:w-1/12 sm:w-full p-2 text-gray-800">
 							<%= dish.store.food_type %>
 						</div>
-						<div class="md:w-2/12 sm:w-full p-2 text-orange-500">
-							<%= date.availible_date %>
-						</div>
+						<!-- <div class="md:w-2/12 sm:w-full p-2 text-orange-500">
+							<%#= date.availible_date %>
+						</div> -->
 						<div class="flex md:w-4/12 sm:w-full p-2">
 							<% date.offers.take(3).each do |time| %>
 							<button type="submit" class="w-full mx-1 text-orange-500 bg-white shadow-sm hover:bg-orange-500 hover:text-white hover:shadow-none rounded-lg border border-orange-50">

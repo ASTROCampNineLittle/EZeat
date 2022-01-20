@@ -3,8 +3,7 @@ namespace :db do
   desc "產生假分店"
   task :new_stores => :environment do
 
-    # 目前無法產生圖片
-
+    # 這rake 無法產生圖片
     c = Company.random
     5.times do |i|
       c.stores.create(name: Faker::Restaurant.name,
