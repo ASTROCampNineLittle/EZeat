@@ -38,7 +38,7 @@ zh-TW:
           pending: '等待驗證中'
     profile:
       edit: '修改檔案'
-      order: '我的訂單'
+      order: '我的票券'
       welcome: '歡迎再次使用EZeat！您上次的登入日期為：'
       welcome_registered: '歡迎加入EZeat！'
   authenticate:
@@ -52,9 +52,9 @@ zh-TW:
         japanese: '日文版'
   notice:
     error_pages:
-      not_found_404_title: '哈囉？有人在嗎？！？'
-      not_found_404_content: '這沒你想像中的可怕，只是你搜尋的頁面找不到而已；也許這是2021年的<span> 惡夢 </span>呢！？<br>
-      要不要回<a href="/" class="underline hover:no-underline decoration-yellow">首頁</a>或<a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">上一頁</a>呢？'
+      not_found_404_title: '哈囉！這裡沒有好吃的美食...'
+      not_found_404_content: '別緊張，僅是搜尋頁面找不到而已！<br>
+      請回<a href="/" class="underline hover:no-underline decoration-yellow">首頁</a>或<a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">上一頁</a>繼續尋找屬於您的美好食刻。'
   hello: 'Hi, %{name}'
   activerecord:
     models:

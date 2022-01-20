@@ -137,31 +137,7 @@
             </span>
           </div>
 
-          <hr class="mt-6 border-b-1 border-gray-400">
-          <h6 class="text-lg mt-6 mb-3 font-bold uppercase">可訂位時段及人數</h6>
 
-          <div data-controller="date-form", class= "">
-            <div class="flex">
-              <div class="w-4/12 px-4">
-                <div class="relative w-full mb-3">
-                  <%= form.label :start_time, '開始時間', class: 'block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password' %>
-                  <%= form.time_select :start_time, {:minute_step => 30}, class: 'border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
-                </div>
-              </div>
-              <div class="w-4/12 px-4">
-                <div class="relative w-full mb-3">
-                  <%= form.label :end_time, '結束時間', class: 'block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password' %>
-                  <%= form.time_select :end_time, {:minute_step => 30}, class: 'border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150' %>
-                </div>
-              </div>
-              <div class="w-4/12 px-4">
-                <div class="relative w-full mb-3">
-                  <%= form.label :people_amount, '[開始-結束]時間區間,可訂位人數', class: 'block uppercase text-gray-600 text-m font-bold mb-2" htmlfor="grid-password' %>
-                  <%= form.select(:people_amount, [["10"], ["20","20"], ["30"], ["40"], ["50"], ["60"], ["70"], ["80"], ["90"], ["100"], ["120"], ["140"], ["160"], ["180"], ["200"]], {selected: "20"}, { :class => 'border-0 px-3 py-3 placeholder-gray-300 text-gray-600 bg-white rounded text-lg shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150'})%>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <template data-target="date-form.template">
           </template>
