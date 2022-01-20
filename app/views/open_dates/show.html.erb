@@ -90,9 +90,9 @@
 			<div class="mx-auto">
 				<div class='flex flex-wrap justify-start'>
 					<% @offers.each do |offers| %>
-						<div class="w-30">
-							<%= form.radio_button(:order_time, offers.availible_time, checked: true, class:"ml-7")%>
-							<%= form.label(:order_time, offers.availible_time.strftime("%H：%M"), value: offers.availible_time, class:"m-2 py-1.5 px-5 text-white text-sm rounded-md border-b-4 border-orange-600 bg-orange-500 bg-white hover:bg-orange-400 w-1/10 inline-block")%>
+						<div class="w-30 ml-5">
+							<%= form.radio_button(:order_time, offers.availible_time, checked: true, class:"hidden timeCheck")%>
+							<%= form.label(:order_time, offers.availible_time.strftime("%H：%M"), value: offers.availible_time, class:"timeTag m-2 py-1.5 px-5 text-white text-sm rounded-md border-b-4 border-orange-600 bg-orange-500 bg-white hover:bg-orange-400 w-1/10 inline-block")%>
 						</div>
 					<% end %>
 				</div>

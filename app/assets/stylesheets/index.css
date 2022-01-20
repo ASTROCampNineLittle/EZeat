@@ -5,3 +5,7 @@
 .index-scroll .hide-scroll-bar::-webkit-scrollbar {
   display: none;
 }
+
+.timeCheck:checked ~ .timeTag {
+  background-color: orangered;
+}
