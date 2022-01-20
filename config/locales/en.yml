@@ -19,6 +19,9 @@ en:
       backend_management: 'Backend Management'
       blog: 'Blog'
       profile: 'Profile'
+      privacy_policy: 'Privacy Policy'
+    body:
+      starred_restaurant: 'Restaurants for You'
     footer:
       content:
         yummy: 'Yummmmmmy'
@@ -61,6 +64,19 @@ en:
         male: 'Male'
         female: 'Female'
         prefer_not_to_disclose: 'Prefer not to disclose'
+      store:
+        food_types:
+          ch: Chinese Cuisine
+          jp: Japanese Cuisine
+          ko: Korean Cuisine
+          in: Indian Cuisine
+          it: Italian Cuisine
+          br: British Cuisine
+          us: American Cuisine
+          fr: French Cuisine
+          de: Germany Cuisine
+          mx: Mexican Cuisine
+          ot: Other Cuisine
   helpers:
     placeholder:
       message:

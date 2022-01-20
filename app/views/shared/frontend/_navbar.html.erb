@@ -4,10 +4,10 @@
       <div class="self-center w-40">
           <%= link_to image_tag("https://ezeat.s3.ap-northeast-1.amazonaws.com/ezeat_logo.png", border: 10), root_path, {class: 'dock-item ' } %>
       </div>
-      <div class="self-center w-full">
+      <div class="self-center w-full mr-10">
         <div class="flex justify-end self-center">
           <div class="dropDown" id="navTarget">
-            <button class="inline-flex rounded-t-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-100 focus:ring-orange-200 font-mono">
+            <button class="inline-flex rounded-t-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-md font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-100 focus:ring-orange-200">
 
               <% if signed_in? %>
                   <%= t(:hello, name: current_user.name) %>
@@ -19,40 +19,42 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="navDropDown" class="hidden z-50 absolute text-base bg-orange-50 rounded-b-md divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 font-mono">
+            <div id="navDropDown" class="hidden z-50 absolute text-base bg-orange-50 rounded-b-md divide-y divide-white shadow dark:bg-gray-700 dark:divide-gray-600">
               <% if signed_in? %>
-                <div class="py-3 px-4 text-gray-900 dark:text-white">
-                  <span class="block text-md py-1 text-orange-600 font-bold"><%= current_user.name %></span>
+                <div class="py-2 px-4 text-gray-900 dark:text-white">
+                  <span class="block text-xl py-1 text-orange-600 font-bold"><%= current_user.name %></span>
                   <span class="block text-xs font-bold py-1 text-orange-600"><%= current_user.email %></span>
                 </div>
               <% end %>
               <ul class="py-1">
                 <li>
                   <% if signed_in? %>
-                    <%= link_to(t('common.navigation.profile'), user_root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
-                    <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"block py-2 px-4 text-sm text-gray-700 hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                    <%= link_to(t('common.navigation.profile'), user_root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                    <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                   <% else %>
-                    <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
-                    <%= link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                    <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                    <%= link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                   <% end %>
                 </li>
               </ul>
               <ul class="py-1">
                 <li>
-                  <%= link_to(t('common.navigation.home_page'), root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                  <%= link_to(t('common.navigation.home_page'), root_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                 </li>
+                <% if signed_in? %>
                 <li>
-                  <%= link_to( '我的票券', myorders_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                  <%= link_to( '我的票券', myorders_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                 </li>
+                <% end %>
                 <li>
                   <% if has_company %>
-                    <%= link_to(t('common.navigation.backend_management'), backend_company_path(current_user.company.id), class:"block py-2 px-4 text-sm text-gray-700 hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                    <%= link_to(t('common.navigation.backend_management'), backend_company_path(current_user.company.id), class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                   <% else %>
-                    <%= link_to(t('common.navigation.become_our_partners'), new_backend_company_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                    <%= link_to(t('common.navigation.become_our_partners'), new_backend_company_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to( '網站隱私權聲明', privacy_policy_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                  <%= link_to(t('common.navigation.privacy_policy'), privacy_policy_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-orange-300 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                 </li>
               </ul>
               <ul class="py-1">
@@ -63,7 +65,7 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                   </button>
-                  <div id="navDropDownLg" class="hidden z-50 absolute right-25 text-base bg-orange-100 rounded-b-md divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                  <div id="navDropDownLg" class="hidden z-50 absolute right-25 text-base bg-orange-100 rounded-b-md divide-y divide-white shadow dark:bg-gray-700 dark:divide-gray-600">
                     <ul class="py-1">
                       <li class="py-2 px-3 text-sm text-gray-700 hover:bg-orange-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
                         <%= link_to(t('common.site_languages.Chinese'), :locale => "zh-TW") %>
