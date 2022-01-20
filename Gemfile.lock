@@ -73,7 +73,7 @@ GEM
     barby (0.6.8)
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootsnap (1.9.3)
+    bootsnap (1.9.4)
       msgpack (~> 1.0)
     builder (3.2.4)
     bullet (7.0.0)
@@ -113,7 +113,7 @@ GEM
     excon (0.89.0)
     faker (2.19.0)
       i18n (>= 1.6, < 2)
-    faraday (1.9.1)
+    faraday (1.9.3)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -129,14 +129,14 @@ GEM
     faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-httpclient (1.0.1)
-    faraday-multipart (1.0.1)
+    faraday-multipart (1.0.3)
       multipart-post (>= 1.2, < 3)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
-    faraday-retry (1.0.2)
-    ffi (1.15.4)
+    faraday-retry (1.0.3)
+    ffi (1.15.5)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     fog-aws (3.12.0)
@@ -206,7 +206,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.5.8)
-    nokogiri (1.12.5-x86_64-darwin)
+    nokogiri (1.13.0-x86_64-darwin)
       racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -354,9 +354,7 @@ GEM
     zeitwerk (2.5.3)
 
 PLATFORMS
-  arm64-darwin-20
   x86_64-darwin-20
-  x86_64-linux
 
 DEPENDENCIES
   aasm (~> 5.2)
