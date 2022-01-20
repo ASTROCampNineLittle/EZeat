@@ -19,6 +19,9 @@ ja:
       backend_management: '店舗管理ページ'
       blog: 'ブログ'
       profile: 'プロフィール'
+      privacy_policy: 'Privacy Policy'
+    body:
+      starred_restaurant: '精選餐廳'
     footer:
       content:
         yummy: 'いつでもどこでも予約できる'
