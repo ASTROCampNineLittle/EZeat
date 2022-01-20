@@ -21,9 +21,9 @@ class Backend::TemplateController < ApplicationController
     # 設定各個區域變數為params
     start_date = params[:start_date]
     end_date = params[:end_date]
-    start_time = (params["start_time(4i)"]+":"+params["start_time(5i)"]).to_time
-    end_time = (params["end_time(4i)"]+":"+params["end_time(5i)"]).to_time
-    seat_capacity = params[:people_amount]
+    # start_time = (params["start_time(4i)"]+":"+params["start_time(5i)"]).to_time
+    # end_time = (params["end_time(4i)"]+":"+params["end_time(5i)"]).to_time
+    # seat_capacity = params[:people_amount]
 
     # 處理dish 的opendate 日期
     date_range = (Date.parse(start_date)).upto(Date.parse(end_date))
@@ -47,31 +47,31 @@ class Backend::TemplateController < ApplicationController
     # end
 
     # 處理offer 時間和人數
-    seat_capacity = params[:people_amount]
-    time_interval = (end_time.to_i - start_time.to_i)/1800
-    @seat_capacity = (seat_capacity.to_f / (time_interval.to_f+1.0)).ceil
-    time_array = []
+    # seat_capacity = params[:people_amount]
+    # time_interval = (end_time.to_i - start_time.to_i)/1800
+    # @seat_capacity = (seat_capacity.to_f / (time_interval.to_f+1.0)).ceil
+    # time_array = []
 
     # 每30 分鐘寫入一筆可訂位人數
-    until start_time > end_time
-      time_array << start_time
-      start_time = start_time+1800
-    end
+    # until start_time > end_time
+    #   time_array << start_time
+    #   start_time = start_time+1800
+    # end
 
-    time_array = time_array.collect { |n| n.strftime("%H:%M") }
+    # time_array = time_array.collect { |n| n.strftime("%H:%M") }
 
     # p time_array
     # p open_date_ids_array
 
     # 根據open_date_id、選擇的時間、人數轉成可用來create 的params
-    @offer_attributes = []
+    # @offer_attributes = []
     # open_date_ids_array.each do |date_id|
     # time_array.each do |av_time|
     # @offer_attributes << ({ availible_time: av_time, capacity: seat_capacity})
     # end
-    time_array.each do |av_time|
-      @offer_attributes <<  av_time
-      end
+    # time_array.each do |av_time|
+    #   @offer_attributes <<  av_time
+    #   end
     # end
 
   end
