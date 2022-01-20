@@ -49,7 +49,7 @@
 		</div>
 	</div>
 
-	<section class=" w-full container mx-auto drop-shadow-lg">
+	<section class="w-full container mx-auto drop-shadow-lg">
 		<div class="shadow-lg mb-10">
 			<div class="text-left text-2xl font-medium border-gray-400 pl-8 bg-white py-5 border-b-4"><%= @store.name %></div>
 			<div class="flex items-center justify-between bg-green-100 pl-8 py-2 border-b-2 border-green-200">
@@ -88,10 +88,10 @@
 			<%= form.hidden_field :order_date, value: @open_date.availible_date %>
 
 			<div class="mx-auto">
-				<div class='flex flex-wrap justify-center w-full'>
+				<div class='flex flex-wrap justify-start'>
 					<% @offers.each do |offers| %>
-						<div class="w-40">
-							<%= form.radio_button(:order_time, offers.availible_time, checked: true)%>
+						<div class="w-30">
+							<%= form.radio_button(:order_time, offers.availible_time, checked: true, class:"ml-7")%>
 							<%= form.label(:order_time, offers.availible_time.strftime("%H：%M"), value: offers.availible_time, class:"m-2 py-1.5 px-5 text-white text-sm rounded-md border-b-4 border-orange-600 bg-orange-500 bg-white hover:bg-orange-400 w-1/10 inline-block")%>
 						</div>
 					<% end %>

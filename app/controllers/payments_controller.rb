@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
                                           newebpay_card6no: @response.newebpay_card6no)
       @order.succed!
       @order.update(ticket: "未使用") if @order.succed?
-      # UserMailer.after_payment(@order.user).deliver_now
+      #UserMailer.after_payment(@order.user).deliver_now
     else
       @order.fail!
     end

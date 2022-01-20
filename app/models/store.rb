@@ -10,4 +10,9 @@ class Store < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   validates :name, :food_type, :tel, :address, :intro, presence: true
+
+  def self.search(search_term)
+    return all unless search_term.present?
+      where(['name LIKE ?', "%#{search_term}%"])
+  end
 end

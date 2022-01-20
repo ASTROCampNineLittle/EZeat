@@ -18,7 +18,7 @@
           <div class="text-lg sm:text-xl font-light tracking-widest text-left">
             <%= @user_order.order_time.to_datetime.strftime"%H:%M" %> / <%= @user_order.order_people %> 人
           </div>
-          <div class="text-3xl sm:text-4xl py-0.5 font-bold text-left"><%= @user_order.open_date.dish.store.name %></div>
+          <div class="text-3xl sm:text-3xl py-0.5 font-bold text-left"><%= @user_order.open_date.dish.store.name %></div>
           <div class="text-lg sm:text-xl font-light tracking-widest text-left"><%= @user_order.order_dish %></div>
         </div>
         <% if @user_order.ticket === "未使用" %>
@@ -28,27 +28,27 @@
               <span class="relative tracking-widest"><%= @user_order.ticket %></span>
             </span>
           </div>
-        <% elsif @user_order.ticket === "已使用" %>
+        <% elsif @user_order.ticket === "已核銷" %>
           <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
             <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-red-900">
               <span aria-hidden class="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
               <span class="relative tracking-widest"><%= @user_order.ticket %></span>
             </span>
           </div>
-        <% elsif @user_order.ticket="" %>
+        <% else @user_order.ticket === nil %>
           <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
             <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-white">
               <span aria-hidden class="absolute inset-0 bg-gray-400 opacity-50 rounded-full"></span>
               <span class="relative tracking-widest">未付款</span>
             </span>
           </div>
-        <% else %>
-          <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
+        <%# else %>
+          <%# <div class="w-full lg:w-3/12 mt-10 lg:mt-0 text-center">
             <span class="relative inline-block w-11/12 sm:w-1/2 py-2 font-semibold text-white">
               <span aria-hidden class="absolute inset-0 bg-black opacity-50 rounded-full"></span>
               <span class="relative tracking-widest">已逾期</span>
             </span>
-          </div>
+          </div> %>
         <% end%>
       </div>
 
@@ -69,7 +69,10 @@
             </div>
           </div>
         </div>
-      </div>
+      <% else %>
+      <% end %>
+
+
     </div>
 
     <div class="items-center justify-between bg-orange-200 py-2">
