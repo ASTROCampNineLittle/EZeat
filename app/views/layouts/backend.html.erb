@@ -12,10 +12,9 @@
   </head>
 
   <body>
-    <%= render 'shared/backend/flash_message' if notice %>
     <%= render 'shared/backend/navbar' %>
+    <%= render 'shared/backend/flash_message' %>
     <%= yield %>
-    <div class="mb-96"></div>
     <%= render 'shared/footer' %>
   </body>
 
