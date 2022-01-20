@@ -8,7 +8,7 @@
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
           <%= t 'common.phrase.or' %>
-          <%= link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class:"font-medium text-indigo-600 hover:text-indigo-500") %>
+          <%= link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class:"font-medium text-orange-600 hover:text-orange-800") %>
         </p>
       </div>
         <div class="rounded-md">
@@ -16,42 +16,47 @@
             <%= render "users/shared/error_messages", resource: resource %>
             <div class="field">
                 <%= f.label :email %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-2" %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="field">
                 <%= f.label :password %>
-                <%= f.password_field :password, autocomplete: "current-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-2" %>
+                <%= f.password_field :password, autocomplete: "current-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="flex items-center justify-between">
               <div class="items-center">
                 <% if devise_mapping.rememberable? %>
-                  <div class="flex h-4 w-48 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                  <div class="flex h-4 w-48 text-orange-600 focus:ring-orange-500 border-gray-300 rounded">
                     <%= f.check_box :remember_me, class: "mt-1" %>
                     <%= f.label :remember_me, class: "ml-2 text-sm text-gray-900" %>
                   </div>
                 <% end %>
               </div>
               <div class="text-sm">
-                <%= link_to(t('devise.shared.links.forgot_your_password'), new_password_path(resource_name), class:"font-medium text-indigo-600 hover:text-indigo-500") %>
+                <%= link_to(t('devise.shared.links.forgot_your_password'), new_password_path(resource_name), class:"font-medium text-orange-600 hover:text-orange-500") %>
               </div>
             </div>
             <div class="group relative w-full mt-2 flex justify-center">
               <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <svg class="h-5 w-5 text-white group-hover:text-orange-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                 </svg>
               </span>
-              <%= f.submit t('devise.sessions.new.sign_in'), class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer" %>
+              <%= f.submit t('devise.sessions.new.sign_in'), class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 cursor-pointer" %>
             </div>
         </div>
         <% end %>
+
       <div class="w-full">
         <% if devise_mapping.omniauthable? %>
-          <% resource_class.omniauth_providers.each do |provider| %>
-            <div class="flex justify-center">
-              <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-300 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block my-2 cursor-pointer #{provider}"%>
+
+          <%= link_to "Facebook", user_facebook_omniauth_authorize_path, method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium text-center rounded-md text-white bg-blue-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 inline-block my-2 cursor-pointer"%>
+
+          <%= link_to "Google", user_google_oauth2_omniauth_authorize_path, method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium text-center rounded-md text-white bg-red-300 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 inline-block my-2 cursor-pointer"%>
+          <%# resource_class.omniauth_providers.each do |provider| %>
+            <!-- <div class="flex justify-center">
+              <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-300 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block my-2 cursor-pointer #{provider}"%>
             </div>
-          <% end %>
+          <%# end %> -->
         <% end %>
       </div>
     </div>

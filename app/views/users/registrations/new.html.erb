@@ -8,7 +8,7 @@
         </h2>
         <p class="mt-2 text-center text-sm text-gray-600">
           <%= t 'common.phrase.or' %>
-          <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"font-medium text-indigo-600 hover:text-indigo-500") %>
+          <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"font-medium text-orange-600 hover:text-orange-800") %>
         </p>
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -16,52 +16,58 @@
           <div class="rounded-md shadow-sm -space-y-px">
             <div class="field">
               <%= f.label :name %>
-              <%= f.text_field :name, autofocus: true, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+              <%= f.text_field :name, autofocus: true, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="field">
               <%= f.label :tel %>
-              <%= f.text_field :tel, autofocus: true, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+              <%= f.text_field :tel, autofocus: true, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="gender">
               <%= f.label :gender %>
               <div class="flex mx-auto h-6 space-x-3">
-                <%= f.radio_button :gender, 0, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.male' %>
-                <%= f.radio_button :gender, 1, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.female' %>
-                <%= f.radio_button :gender, 2, :checked => true, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.prefer_not_to_disclose' %>
+                <%= f.radio_button :gender, 0, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-600 checked:border-orange-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.male' %>
+                <%= f.radio_button :gender, 1, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-500 checked:border-orange-500 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.female' %>
+                <%= f.radio_button :gender, 2, :checked => true, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-500 checked:border-orange-500 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.prefer_not_to_disclose' %>
               </div>
             </div>
             <div class="field">
               <%= f.label :email %>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="field">
               <%= f.label :password %>
               <% if @minimum_password_length %>
                 <em><%= t'devise.shared.minimum_password_length', count: @minimum_password_length %></em>
               <% end %>
-                <%= f.password_field :password, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+                <%= f.password_field :password, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="field">
               <%= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
           </div>
             <div class="group relative w-full mt-2 flex justify-center">
               <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <svg class="h-5 w-5 text-white group-hover:text-orange-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                   <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
                 </svg>
               </span>
-              <%= f.submit class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+              <%= f.submit class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 cursor-pointer" %>
             </div>
         <% end %>
-        <div>
-          <% if devise_mapping.omniauthable? %>
-            <% resource_class.omniauth_providers.each do |provider| %>
-              <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: "post" %><br>
-            <% end %>
-          <% end %>
-        </div>
+        <div class="w-full">
+        <% if devise_mapping.omniauthable? %>
+
+          <%= link_to "Facebook", user_facebook_omniauth_authorize_path, method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium text-center rounded-md text-white bg-blue-300 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 inline-block my-2 cursor-pointer"%>
+
+          <%= link_to "Google", user_google_oauth2_omniauth_authorize_path, method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium text-center rounded-md text-white bg-red-300 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 inline-block my-2 cursor-pointer"%>
+          <%# resource_class.omniauth_providers.each do |provider| %>
+            <!-- <div class="flex justify-center">
+              <%#= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: "post" , class:"w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-300 hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 inline-block my-2 cursor-pointer #{provider}"%>
+            </div>
+          <%# end %> -->
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

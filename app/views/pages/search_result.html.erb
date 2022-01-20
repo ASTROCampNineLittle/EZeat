@@ -39,13 +39,13 @@
 						<%= sort_link(@q, :store_food_type_eq, "類型", { class: "" })%>
 					</div>
 					<div class="md:w-2/12 sm:w-full p-2">
-						<div class="">日期</div>
+						<%= sort_link(@q, :open_dates_availible_date, "日期")%>
 					</div>
 					<div class="md:w-4/12 sm:w-full p-2">
 						<div class="">時間</div>
 					</div>
 					<div class="md:w-2/12 sm:w-full p-2">
-						<%= sort_link(@q, :store_address_cont_any, "餐廳地址", { class: "" })%>
+						<%= sort_link(@q, :store_address_cont_any, "餐廳地址")%>
 					</div>
 				</div>
 

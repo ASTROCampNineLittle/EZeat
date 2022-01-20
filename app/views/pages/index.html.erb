@@ -1,18 +1,18 @@
 <%# banner %>
-<div class="absolute z-40 pt-20 px-20 w-full">
+<div class="absolute z-40 pt-20 px-20 w-full mt-10">
   <!-- component -->
   <%= render 'pages/search' %>
 </div>
 
 
 <div class="h-128 bg-stone-1000">
-  <img class="object-cover h-full ml-8" src="https://ezeat.s3.ap-northeast-1.amazonaws.com/lunar_banner.jpg" alt="">
+  <img class="object-cover h-full" src="https://ezeat.s3.ap-northeast-1.amazonaws.com/lunar_banner.jpg" alt="">
 <div>
 
 <%# 關於餐廳 %>
 <div class="w-full h-full mb-10 pt-10">
   <h2 class="text-center pb-5 px-5 mx-5 font-bold text-4xl text-gray-800 tracking-widest">
-    精選餐廳
+    <%= t 'common.body.starred_restaurant' %>
   </h2>
 
 <div class=" h-full m-auto">

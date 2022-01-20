@@ -19,6 +19,9 @@ zh-TW:
       backend_management: '廠商管理後台'
       blog: '部落格文章'
       profile: '個人檔案'
+      privacy_policy: '隱私權聲明'
+    body:
+      starred_restaurant: '精選餐廳'
     footer:
       content:
         yummy: '滿足您的精彩食刻'
@@ -38,7 +41,7 @@ zh-TW:
           pending: '等待驗證中'
     profile:
       edit: '修改檔案'
-      order: '我的訂單'
+      order: '我的票券'
       welcome: '歡迎再次使用EZeat！您上次的登入日期為：'
       welcome_registered: '歡迎加入EZeat！'
   authenticate:
@@ -52,19 +55,33 @@ zh-TW:
         japanese: '日文版'
   notice:
     error_pages:
-      not_found_404_title: '哈囉？有人在嗎？！？'
-      not_found_404_content: '這沒你想像中的可怕，只是你搜尋的頁面找不到而已；也許這是2021年的<span> 惡夢 </span>呢！？<br>
-      要不要回<a href="/" class="underline hover:no-underline decoration-yellow">首頁</a>或<a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">上一頁</a>呢？'
+      not_found_404_title: '哈囉！這裡沒有好吃的美食...'
+      not_found_404_content: '別緊張，僅是搜尋頁面找不到而已！<br>
+      請回<a href="/" class="underline hover:no-underline decoration-yellow">首頁</a>或<a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">上一頁</a>繼續尋找屬於您的美好食刻。'
   hello: 'Hi, %{name}'
   activerecord:
     models:
       user: '使用者'
+      store: '餐廳'
     attributes:
       user:
         temp: 'divider'
         male: '男'
         female: '女'
         prefer_not_to_disclose: '不表示'
+      store:
+        food_types:
+          ch: 中式美饌
+          jp: 日式料理
+          ko: 韓式料理
+          in: 印度料理
+          it: 義式料理
+          br: 英式料理
+          us: 美式料理
+          fr: 法式料理
+          de: 德式料理
+          mx: 墨西哥料理
+          ot: 其他料理
     errors:
       messages:
         record_invalid: '校驗失敗: %{errors}'
@@ -85,7 +102,6 @@ zh-TW:
     - 周五
     - 周六
     abbr_month_names:
-    -
     - 1月
     - 2月
     - 3月
@@ -111,7 +127,6 @@ zh-TW:
       long: '%Y年%m月%d日'
       short: '%m月%d日'
     month_names:
-    -
     - 一月
     - 二月
     - 三月
