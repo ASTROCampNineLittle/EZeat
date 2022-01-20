@@ -19,9 +19,12 @@ ja:
       backend_management: '店舗管理ページ'
       blog: 'ブログ'
       profile: 'プロフィール'
+      privacy_policy: 'Privacy Policy'
+    body:
+      starred_restaurant: '精選餐廳'
     footer:
       content:
-        yummy: '美味しいよ'
+        yummy: 'いつでもどこでも予約できる'
         subscribe: 'ファローする'
       links:
         inner_link: '網內連結'
@@ -40,7 +43,7 @@ ja:
       edit: 'プロフィールを編集'
       order: '予約一覧'
       welcome: 'EZeatへようこそ！前回ログイン：'
-      welcome_registered: '歡迎加入EZeat！'
+      welcome_registered: 'EZeatへようこそ！'
   authenticate:
     signed_in_checker:
       common: 'この機能は会員限定のため、会員登録しログインしてください'
@@ -55,7 +58,7 @@ ja:
       not_found_404_title: 'やっほー？誰かいませんか？！？'
       not_found_404_content: 'いやいやいや、焦らないでください、検索したページが見つからないだけですよ；2021年の<span> いやみ </span>だわ！？<br>
       <a href="/" class="underline hover:no-underline decoration-yellow">ホームページ</a>へ戻りますか？或いは<a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">前のページ</a>へ？'
-  hello: '%{name}，こんにちは'
+  hello: 'やっほー %{name}'
   activerecord:
     models:
       user: 'ユーザー'

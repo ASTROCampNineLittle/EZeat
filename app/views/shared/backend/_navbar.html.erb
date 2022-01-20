@@ -45,6 +45,10 @@
               </div>
               <% end %>
 
+              <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
+                <%= link_to "首頁", root_path %>
+              </div>
+
               <% if signed_in? %>
                 <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
                 <% else %>

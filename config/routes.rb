@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
-  get 'channel', to: 'pages#channel'
+  # get 'channel', to: 'pages#channel'
+  get 'privacy_policy', to: 'pages#privacy_policy'
 
   resources :pages do
     collection do

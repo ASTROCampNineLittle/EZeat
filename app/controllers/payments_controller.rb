@@ -8,12 +8,11 @@ class PaymentsController < ApplicationController
   def confirm
     @response = Newebpay::Mpgresponse.new(params[:TradeInfo])
     @order = Order.find_by(order_number: @response.order_number)
-    @ticket = Order.find_by(order_number: @response.order_number)
     trade_result_update = @order.update(newebpay_amount: @response.newebpay_amount.to_i,
                                         newebpay_time: @response.newebpay_time,
                                         newebpay_card6no: @response.newebpay_card6no)
-    sign_in @order.user
-    UserMailer.after_payment(@order.user).deliver_now
+    #sign_in @order.user
+    #UserMailer.after_payment(@order.user).deliver_now
 
     if @response.status === "SUCCESS" && @order.order_status === "pending"
       @order.succed!
