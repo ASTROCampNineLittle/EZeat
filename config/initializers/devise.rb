@@ -279,7 +279,7 @@ Devise.setup do |config|
 
   config.omniauth :google_oauth2, ENV['google_client_id'], ENV['google_client_secret'],
   {
-    scope: 'userinfo.email, userinfo.profile, http://gdata.youtube.com'
+    scope: 'userinfo.email, userinfo.profile'
   }
 
   # ==> Warden configuration
