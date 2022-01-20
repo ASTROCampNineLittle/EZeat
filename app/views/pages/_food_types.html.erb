@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "rollbar.css" %>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  中式美饌
+  <%= t 'activerecord.attributes.store.food_types.ch' %>
 </h1>
 
 <!-- Swiper -->
@@ -28,7 +28,7 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  日式料理
+   <%= t 'activerecord.attributes.store.food_types.jp' %>
 </h1>
 
 <!-- Swiper -->
@@ -55,7 +55,7 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  韓式料理
+   <%= t 'activerecord.attributes.store.food_types.ko' %>
 </h1>
 
 <!-- Swiper -->
@@ -82,7 +82,7 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  印度料理
+   <%= t 'activerecord.attributes.store.food_types.in' %>
 </h1>
 
 <!-- Swiper -->
@@ -109,7 +109,7 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  義式料理
+   <%= t 'activerecord.attributes.store.food_types.it' %>
 </h1>
 
 <!-- Swiper -->
@@ -136,7 +136,7 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  英式料理
+   <%= t 'activerecord.attributes.store.food_types.br' %>
 </h1>
 
 <!-- Swiper -->
@@ -163,7 +163,7 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  美式料理
+   <%= t 'activerecord.attributes.store.food_types.us' %>
 </h1>
 
 <!-- Swiper -->
@@ -190,7 +190,7 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  法式料理
+   <%= t 'activerecord.attributes.store.food_types.fr' %>
 </h1>
 
 <!-- Swiper -->
@@ -217,7 +217,7 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  德式料理
+   <%= t 'activerecord.attributes.store.food_types.de' %>
 </h1>
 
 <!-- Swiper -->
@@ -244,7 +244,7 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  墨西哥料理
+   <%= t 'activerecord.attributes.store.food_types.mx' %>
 </h1>
 
 <!-- Swiper -->
@@ -272,7 +272,7 @@
 
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  其它料理
+   <%= t 'activerecord.attributes.store.food_types.ot' %>
 </h1>
 
 <!-- Swiper -->
@@ -303,12 +303,14 @@
 
 <!-- Initialize Swiper -->
 <script>
-  var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 4,
-    spaceBetween: 15,
-    slidesPerGroup: 3,
-    loop: true,
-    loopFillGroupWithBlank: true,
+
+const swiper = new Swiper('.swiper', {
+  // Default parameters
+  slidesPerView: 4,
+  spaceBetween: 10,
+  slidesPerGroup: 3,
+  loop: true,
+  loopFillGroupWithBlank: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -317,5 +319,24 @@
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-  });
+  // Responsive breakpoints
+  breakpoints: {
+    // when window width is >= 320px
+    480: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    // when window width is >= 480px
+    640: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    },
+    // when window width is >= 640px
+    960: {
+      slidesPerView: 4,
+      spaceBetween: 40
+    }
+  }
+})
+
 </script>
