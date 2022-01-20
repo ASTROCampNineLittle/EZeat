@@ -4,15 +4,8 @@ class MyordersController < ApplicationController
   require 'barby/outputter/png_outputter'
 
   def index
-    @user_order = Order.where(user_id: current_user.id).order(order_date: :desc).where.not(ticket: nil)
-
-    # @ticket_overdue = Order.where(order_date: overdue? )
-    # if @user_order.order_date < Time.now
-    #   @user_order.update(ticket: "已逾期")
-    # end
-    # @ticket_overdue = @user_order.where(ticket: "已逾期")
     @q = Order.ransack(params[:q])
-    @orders_result = @q.result.includes(:store).where(user_id: current_user.id)
+    @orders_result = @q.result.includes(:store).where(user_id: current_user.id).order(created_at: :desc).where.not(ticket: nil)
   end
 
   def show
@@ -33,11 +26,7 @@ class MyordersController < ApplicationController
     @q = Order.ransack(params[:q])
   end
 
-  def before_today
-    self < Time.now
-  end
+  # def before_today
+  #   self < Time.now
+  # end
 end
-
-# 當票卷超過今天的日期,票卷就會轉為逾期
-# 顯示邏輯, 如果ticket 是 nil 就不顯示
-# 票卷判斷, 定位的日期 < 今天的日期 逾期

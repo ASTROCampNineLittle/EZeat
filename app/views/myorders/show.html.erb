@@ -52,32 +52,34 @@
         <% end%>
       </div>
 
-      <div class="inline-block w-full lg:w-1/2 md:w-10/12 rounded-xl text-center items-center text-lg bg-orange-200 pt-3 shadow my-7">核 銷 編 號
-        <div class="py-5 flex flex-col items-center rounded-b-lg bg-orange-400">
-          <div class="w-full text-center">
-            <p class="text-3xl font-mono tracking-normal"><%= @user_order.order_number %></p>
-            <span class="text-sm text-white tracking-widest">請 出 示 此 畫 面 給 店 家</span>
-          </div>
-          <div data-controller="qrcode">
-            <div class="text-sm text-stone-600">
-              <button id="qrcodeBtn", class="", data-qrcode-target="qrcodeBtn", data-action= "click->qrcode#generateQrcode">
-                ⤵ 點一下給店家掃描 ⤵
-              </button>
-              <div id="qrcodePng" class="hidden" data-qrcode-target="qrcodePng">
-                <%= image_tag(url_for({:controller => 'myorders', :action => 'show', :format => 'png' }), class: "" ) %>
+      <% if @user_order.ticket === "未使用" %>
+        <div class="inline-block w-full lg:w-1/2 md:w-10/12 rounded-xl text-center items-center text-lg bg-orange-200 pt-3 shadow my-7">核 銷 編 號
+          <div class="py-5 flex flex-col items-center rounded-b-lg bg-orange-400">
+            <div class="w-full text-center">
+              <p class="text-3xl font-mono tracking-normal"><%= @user_order.order_number %></p>
+              <span class="text-sm text-white tracking-widest">請 出 示 此 畫 面 給 店 家</span>
+            </div>
+            <div data-controller="qrcode">
+              <div class="text-sm text-stone-600">
+                <button id="qrcodeBtn", class="", data-qrcode-target="qrcodeBtn", data-action= "click->qrcode#generateQrcode">
+                  ⤵ 點一下給店家掃描 ⤵
+                </button>
+                <div id="qrcodePng" class="hidden" data-qrcode-target="qrcodePng">
+                  <%= image_tag(url_for({:controller => 'myorders', :action => 'show', :format => 'png' }), class: "" ) %>
+                </div>
               </div>
             </div>
           </div>
         </div>
       <% else %>
       <% end %>
-
-
     </div>
+
 
     <div class="items-center justify-between bg-orange-200 py-2">
       <h3 class="text-center text-xl font-medium py-2 tracking-widest">餐 廳 資 訊</h3>
     </div>
+
     <div class="flex flex-wrap justify-evenly">
       <div class="py-5 lg:w-5/12 md:w-3/4 w-11/12">
         <div class="pl-1.5 md:pl-3 py-2">
@@ -104,5 +106,6 @@
         </iframe>
       </div>
     </div>
+
   </div>
 </div>
