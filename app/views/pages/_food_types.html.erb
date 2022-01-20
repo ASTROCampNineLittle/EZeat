@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "rollbar.css" %>
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  中式美饌
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+  <%= t 'activerecord.attributes.store.food_types.ch' %>
 </h1>
 
 <!-- Swiper -->
@@ -9,7 +9,7 @@
   <div class="swiper-wrapper">
           <% @foodtype0_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
@@ -27,8 +27,8 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  日式料理
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.jp' %>
 </h1>
 
 <!-- Swiper -->
@@ -36,7 +36,7 @@
   <div class="swiper-wrapper">
           <% @foodtype1_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
@@ -54,8 +54,8 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  韓式料理
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.ko' %>
 </h1>
 
 <!-- Swiper -->
@@ -63,7 +63,7 @@
   <div class="swiper-wrapper">
           <% @foodtype2_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
@@ -81,8 +81,8 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  印度料理
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.in' %>
 </h1>
 
 <!-- Swiper -->
@@ -90,7 +90,7 @@
   <div class="swiper-wrapper">
           <% @foodtype3_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
@@ -108,8 +108,8 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  義式料理
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.it' %>
 </h1>
 
 <!-- Swiper -->
@@ -117,7 +117,7 @@
   <div class="swiper-wrapper">
           <% @foodtype4_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
@@ -135,8 +135,8 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  英式料理
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.br' %>
 </h1>
 
 <!-- Swiper -->
@@ -144,7 +144,7 @@
   <div class="swiper-wrapper">
           <% @foodtype5_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
@@ -162,8 +162,8 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  美式料理
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.us' %>
 </h1>
 
 <!-- Swiper -->
@@ -171,7 +171,7 @@
   <div class="swiper-wrapper">
           <% @foodtype6_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
@@ -189,8 +189,8 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  法式料理
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.fr' %>
 </h1>
 
 <!-- Swiper -->
@@ -198,7 +198,7 @@
   <div class="swiper-wrapper">
           <% @foodtype7_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
@@ -216,8 +216,8 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  德式料理
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.de' %>
 </h1>
 
 <!-- Swiper -->
@@ -225,7 +225,7 @@
   <div class="swiper-wrapper">
           <% @foodtype8_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
@@ -243,8 +243,8 @@
   <div class="swiper-pagination"></div>
 </div>
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  墨西哥料理
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.mx' %>
 </h1>
 
 <!-- Swiper -->
@@ -252,7 +252,7 @@
   <div class="swiper-wrapper">
           <% @foodtype9_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
@@ -271,8 +271,8 @@
 </div>
 
 
-<h1 class="flex justify-center p-5 px-10 lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-4 border-orange-300 border-dashed">
-  其它料理
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.ot' %>
 </h1>
 
 <!-- Swiper -->
@@ -280,7 +280,7 @@
   <div class="swiper-wrapper">
           <% @foodtype10_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out hover:border-orange-200 hover:bg-orange-50" >
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
                 <div class="object-cover h-40">
                   <%= image_tag store.image_url if store.image_url.present? %>
