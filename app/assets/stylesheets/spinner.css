@@ -1,0 +1,12 @@
+@-webkit-keyframes rotation{
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(360deg);}
+}
+.spinner{
+  -webkit-transform: rotate(360deg);
+  animation: rotation 5s linear infinite;
+  -moz-animation: rotation 5s linear infinite;
+  -webkit-animation: rotation 5s linear infinite;
+  -o-animation: rotation 5s linear infinite;
+  border-radius: 250px;
+}

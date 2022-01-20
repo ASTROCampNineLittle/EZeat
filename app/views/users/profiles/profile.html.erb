@@ -1,9 +1,11 @@
+<%= stylesheet_link_tag "spinner.css" %>
+
 <section class="text-gray-600 body-font">
   <div class="container mx-auto flex py-12 items-center justify-center flex-col">
     <h2 class="my-2 text-3xl font-extrabold text-gray-900">
       <%= t 'common.navigation.profile' %>
     </h2>
-    <img class="lg:w-2/6 md:w-3/6 sm:w-3/6 my-10 object-cover object-center rounded" alt="hero" src="https://ezeat.s3.ap-northeast-1.amazonaws.com/profile_pics/05.png">
+    <img class="spinner lg:w-2/6 md:w-3/6 sm:w-3/6 my-10 object-cover object-center rounded" alt="hero" src="https://ezeat.s3.ap-northeast-1.amazonaws.com/profile_pics/05.png">
     <div class="text-center lg:w-2/3 w-full">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 font-mono">
         <%= t(current_user.name) %>
