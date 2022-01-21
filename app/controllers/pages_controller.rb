@@ -15,12 +15,13 @@ class PagesController < ApplicationController
     @foodtype9_stores = @stores.where(food_type: "墨西哥")
     @foodtype10_stores = @stores.where(food_type: "其它")
 
-    @q = Dish.includes(:store, :open_dates).ransack(params[:q])
+    # @q = OpenDate.where("availible_date LIKE ?", params).joins(:store, :offer).where( params) params)
+    # @q = Dish.includes(:store, :open_dates).ransack(params[:q])
+    @q = Store.ransack(params[:q])
     # @q = Store.includes(:dishes).includes(:open_dates).ransack(params[:q])
     # @q = Dish.includes(:store).ransack(params[:q])
     # @q = Store.ransack(params[:q])
     # @store = Store.where("name LIKE ?", "O%")
-
   end
 
   def search_result
@@ -30,7 +31,8 @@ class PagesController < ApplicationController
     # @search_result = Store.where(name LIKE ? 'Spice%')
     # @q = Store.ransack(params[:q])
     # @q = Store.includes(:dishes).joins(:open_dates).ransack(params[:q])
-    @q = Dish.includes(:store, :open_dates).ransack(params[:q])
+    @q = Store.ransack(params[:q])
+    # @q = Dish.includes(:store, :open_dates).ransack(params[:q])
     # @q.sorts = 'open_dates_availible_date desc' if @q.sorts.empty?
     # search_result = @q.result(distinct: true).includes(:dishes).joins(:open_dates)
     search_result = @q.result(distinct: true)
