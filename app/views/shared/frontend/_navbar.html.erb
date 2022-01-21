@@ -2,13 +2,13 @@
   <div class="h-20">
     <div class="flex h-full mx-10">
       <div class="self-center w-40">
-          <%= link_to image_tag("https://ezeat.s3.ap-northeast-1.amazonaws.com/ezeat_logo.png", border: 10), root_path, {class: 'dock-item ' } %>
+          <%= link_to image_tag("https://ezeat.s3.ap-northeast-1.amazonaws.com/ezeat_logo.png", border: 10), root_path, { class: 'dock-item' } %>
       </div>
       <div class="self-center w-full mr-10">
         <div class="flex justify-end self-center">
           <div data-controller="navbar">
             <div clas="" >
-              <button data-navbar-target="navBtn" data-action="mouseover->navbar#show" class="inline-flex rounded-t-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-md font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-100 focus:ring-orange-200">
+              <button data-navbar-target="navBtn" data-action="mouseenter->navbar#show" class="inline-flex rounded-t-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-md font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-100 focus:ring-orange-200">
 
                 <% if signed_in? %>
                     <%= t(:hello, name: current_user.name) %>
@@ -20,7 +20,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-              <div data-navbar-target="navDrop" class="hidden z-50 absolute text-base bg-orange-50 rounded-b-md divide-y divide-white shadow dark:bg-gray-700 dark:divide-gray-600">
+              <div data-action="mouseleave->navbar#close" id="navdrop" class="hidden z-50 absolute text-base bg-orange-50 rounded-b-md divide-y divide-white shadow dark:bg-gray-700 dark:divide-gray-600">
                 <% if signed_in? %>
                   <div class="py-2 px-4 text-gray-900 dark:text-white">
                     <span class="block text-xl py-1 text-orange-600 font-bold"><%= current_user.name %></span>
@@ -59,14 +59,14 @@
                   </li>
                 </ul>
                 <ul class="py-1">
-                  <div class="dropDown" id="navTargetLg">
-                    <button class="inline-flex w-full px-4 py-2 bg-orange-100 text-sm font-medium text-gray-700 hover:bg-orange-200 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-orange-100 focus:ring-orange-200">
+                  <div class="" >
+                    <button id="navLgBtn" data-action="mouseenter->navbar#showLg" class="inline-flex w-full px-4 py-2 bg-orange-100 text-sm font-medium text-gray-700 hover:bg-orange-200 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-orange-100 focus:ring-orange-200">
                       <%= t 'common.navigation.site_language' %>
                       <svg class="ml-2 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                       </svg>
                     </button>
-                    <div id="navDropDownLg" class="hidden z-50 absolute right-25 text-base bg-orange-100 rounded-b-md divide-y divide-white shadow dark:bg-gray-700 dark:divide-gray-600">
+                    <div id="navDropLg" data-action="mouseleave->navbar#closeLg" class="hidden z-50 absolute right-25 text-base bg-orange-100 rounded-b-md divide-y divide-white shadow dark:bg-gray-700 dark:divide-gray-600">
                       <ul class="py-1">
                         <li class="py-2 px-3 text-sm text-gray-700 hover:bg-orange-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" >
                           <%= link_to(t('common.site_languages.Chinese'), :locale => "zh-TW") %>
