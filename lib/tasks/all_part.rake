@@ -181,13 +181,13 @@ namespace :db do
 
     dish_name = ["午間套餐","午間商業套餐","方案名稱","平日晚間套餐","平日舒壓套餐","朋友聚餐方案","冒險多人套餐","皇家紅茶套餐","特選套餐","商業聚餐","情人精緻晚餐","晚上約會套餐","晚餐浪漫約會方案","創業者海陸大餐","週末精緻晚餐","農曆新年專屬方案","過年特別方案","道地英式下午茶套餐","團體聚餐方案","闔家精緻晚餐"]
 
-    store_number = Store.count
-    1.upto(store_number) do |n|
-      Dish.create(name: dish_name.sample,
-                  price: [399, 599, 699, 799, 999, 1024, 1999].sample,
-                  status: 1,
-                  store_id: n)
-    end
+    # store_number = Store.count
+    # 1.upto(store_number) do |n|
+    #   Dish.create(name: dish_name.sample,
+    #               price: [399, 599, 699, 799, 999, 1024, 1999].sample,
+    #               status: 1,
+    #               store_id: n)
+    # end
 
     # p "初步建立方案完畢"
 
@@ -358,9 +358,9 @@ namespace :db do
 
     other_store = Store.where(food_type: 10)
     if other_store.present?
-      other_store.each do
-        other_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant"})
-      end
+      # other_store.each do
+      #   other_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant"})
+      # end
       other_store.each do |n|
         n.update(intro: other_store_intro.sample)
       end
