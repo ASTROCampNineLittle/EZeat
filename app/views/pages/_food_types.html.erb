@@ -1,13 +1,13 @@
 <%= stylesheet_link_tag "rollbar.css" %>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-  <%= t 'activerecord.attributes.store.food_types.ch' %>
+   <%= t 'activerecord.attributes.store.food_types.jp' %>
 </h1>
 
 <!-- Swiper -->
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
-          <% @foodtype0_stores.last(9).each do |store| %>
+          <% @foodtype1_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
             <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
@@ -28,13 +28,40 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-   <%= t 'activerecord.attributes.store.food_types.jp' %>
+   <%= t 'activerecord.attributes.store.food_types.us' %>
 </h1>
 
 <!-- Swiper -->
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
-          <% @foodtype1_stores.last(9).each do |store| %>
+          <% @foodtype6_stores.last(9).each do |store| %>
+          <div class="inline-block swiper-slide">
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
+              <%= link_to store_path(store) do %>
+                <div class="object-cover h-40">
+                  <%= image_tag store.image_url if store.image_url.present? %>
+                </div>
+                <div class="text-lg font-bold"><%= store.name %></div>
+                <!-- 用truncate helper 限制最多顯示的字元 -->
+                <div class="text-sm text-gray-500 px-3"><%= truncate(store.intro, :length => 50) %></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+   <%= t 'activerecord.attributes.store.food_types.de' %>
+</h1>
+
+<!-- Swiper -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+          <% @foodtype8_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
             <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>
@@ -109,6 +136,33 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
+  <%= t 'activerecord.attributes.store.food_types.ch' %>
+</h1>
+
+<!-- Swiper -->
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+          <% @foodtype0_stores.last(9).each do |store| %>
+          <div class="inline-block swiper-slide">
+            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
+              <%= link_to store_path(store) do %>
+                <div class="object-cover h-40">
+                  <%= image_tag store.image_url if store.image_url.present? %>
+                </div>
+                <div class="text-lg font-bold"><%= store.name %></div>
+                <!-- 用truncate helper 限制最多顯示的字元 -->
+                <div class="text-sm text-gray-500 px-3"><%= truncate(store.intro, :length => 50) %></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
    <%= t 'activerecord.attributes.store.food_types.it' %>
 </h1>
 
@@ -163,33 +217,6 @@
 </div>
 
 <h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-   <%= t 'activerecord.attributes.store.food_types.us' %>
-</h1>
-
-<!-- Swiper -->
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-          <% @foodtype6_stores.last(9).each do |store| %>
-          <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
-              <%= link_to store_path(store) do %>
-                <div class="object-cover h-40">
-                  <%= image_tag store.image_url if store.image_url.present? %>
-                </div>
-                <div class="text-lg font-bold"><%= store.name %></div>
-                <!-- 用truncate helper 限制最多顯示的字元 -->
-                <div class="text-sm text-gray-500 px-3"><%= truncate(store.intro, :length => 50) %></div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-  </div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
    <%= t 'activerecord.attributes.store.food_types.fr' %>
 </h1>
 
@@ -197,33 +224,6 @@
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
           <% @foodtype7_stores.last(9).each do |store| %>
-          <div class="inline-block swiper-slide">
-            <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
-              <%= link_to store_path(store) do %>
-                <div class="object-cover h-40">
-                  <%= image_tag store.image_url if store.image_url.present? %>
-                </div>
-                <div class="text-lg font-bold"><%= store.name %></div>
-                <!-- 用truncate helper 限制最多顯示的字元 -->
-                <div class="text-sm text-gray-500 px-3"><%= truncate(store.intro, :length => 50) %></div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-  </div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<h1 class="flex justify-center p-5  lg:mx-40 md:mx-20 mx-5 my-10 mt-10 font-bold text-4xl tracking-widest text-gray-800 border-b-2 border-orange-300 border-dashed">
-   <%= t 'activerecord.attributes.store.food_types.de' %>
-</h1>
-
-<!-- Swiper -->
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-          <% @foodtype8_stores.last(9).each do |store| %>
           <div class="inline-block swiper-slide">
             <div class="w-full h-64 max-w-xs overflow-hidden rounded-lg shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out border hover:border-orange-200 hover:bg-orange-50" >
               <%= link_to store_path(store) do %>

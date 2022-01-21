@@ -89,7 +89,7 @@
   </div>
 
   <!-- 互動按鈕 !-->
-  <%  @dishes.each do |dish|  %>
+  <%  @dishes.reverse.each do |dish|  %>
     <div class="m-auto p-8 border border-gray-300 rounded-md my-5 shadow-xl">
       <div class=" flex py-2 ">
         <div class="font-bold text-3xl pt-1  pr-3 text-gray-800"> <%= dish.name %></div>
