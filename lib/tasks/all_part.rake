@@ -366,25 +366,27 @@ namespace :db do
     #   end
     # end
 
-    american_store = Store.where(food_type: 6)
-    if american_store.present?
-      # american_store.each do
-      #   american_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,american"})
-      # end
-      # american_store.each do |n|
-      #   n.update(intro: american_store_intro.sample)
-      # end
-    end
+    # american_store = Store.where(food_type: 6)
+    # if american_store.present?
+    #   # american_store.each do
+    #   #   american_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,american"})
+    #   # end
+    #   # american_store.each do |n|
+    #   #   n.update(intro: american_store_intro.sample)
+    #   # end
+    # end
 
-    french_store = Store.where(food_type: 7)
-    if french_store.present?
-      french_store.each do
-        french_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,french"})
-      end
-      # french_store.each do |n|
-      #   n.update(intro: french_store_intro.sample)
-      # end
-    end
+    # french_store = Store.where(food_type: 7)
+    # if french_store.present?
+    #   french_store.each do
+    #     french_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,french"})
+    #   end
+    #   # french_store.each do |n|
+    #   #   n.update(intro: french_store_intro.sample)
+    #   # end
+    # end
+
+    p "Ger"
 
     germany_store = Store.where(food_type: 8)
     if germany_store.present?
@@ -396,6 +398,8 @@ namespace :db do
       # end
     end
 
+    p "Mex"
+
     mexican_store = Store.where(food_type: 9)
     if mexican_store.present?
       mexican_store.each do
@@ -405,6 +409,8 @@ namespace :db do
       #   n.update(intro: mexican_store_intro.sample)
       # end
     end
+
+    p "ind"
 
     indian_store = Store.where(food_type: 3)
     if indian_store.present?
