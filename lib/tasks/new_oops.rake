@@ -4,15 +4,15 @@ namespace :db do
   task :new_oops => :environment do
 
     # 產生假分店1: 先建立各種food_type
-    # comp = Company.last
-    # 200.times do
-    #   comp.stores.create(name: Faker::Restaurant.name,
-    #                     food_type: (0..10).to_a.sample,
-    #                     address: Faker::Address.full_address,
-    #                     tel: Faker::PhoneNumber.cell_phone,
-    #                     intro: Faker::Restaurant.description
-    #                     )
-    # end
+    comp = Company.last
+    5.times do
+      comp.stores.create(name: Faker::Restaurant.name,
+                        food_type: (0..10).to_a.sample,
+                        address: Faker::Address.full_address,
+                        tel: Faker::PhoneNumber.cell_phone,
+                        intro: Faker::Restaurant.description
+                        )
+    end
 
   # # 產生假分店: 根據food_type 塞假照片
   #   s0 = Store.where(food_type: 0)
@@ -83,33 +83,31 @@ namespace :db do
   #   end
 
     # # 產生假方案
-    5.times do
       sto = Store.all.sample
-      7.times do |i|
+      2.times do |i|
         sto.dishes.create(name: Faker::Food.ethnic_category,
                           price: (100..1000).to_a.sample,
                           status: 1,
                           intro: Faker::Food.description)
       end
-    end
 
     # 產生假時段
       date_pick = []
       nob = 1
-      while nob < 45
+      while nob < 5
         date_pick << (Time.now+nob.day).to_date
       nob = nob + 1
       end
 
       dis = Dish.all.sample
-      10.times do |i|
+      1.times do |i|
         dis.open_dates.create(availible_date: date_pick.sample)
       end
 
     # 產生假餐券
     time_pick = ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"]
     opend = OpenDate.all.sample
-    5.times do |i|
+    1.times do |i|
       opend.offers.create(availible_time: time_pick.sample,
                           capacity: (1..10).to_a.sample)
     end
