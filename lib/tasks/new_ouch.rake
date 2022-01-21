@@ -23,5 +23,6 @@ namespace :db do
                   capacity: (1..10).to_a.sample,
                   open_date_id: n)
     end
+
   end
 end
