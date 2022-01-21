@@ -47,12 +47,12 @@ class Backend::DishesController < ApplicationController
   private
     def dish_params
       params.require(:dish).permit(:name,
-                                   :price, 
-                                   :start_date, 
-                                   :end_date, 
-                                   :status, 
-                                   :intro, 
-                                   images_attributes: [ :image ], 
+                                   :price,
+                                   :start_date,
+                                   :end_date,
+                                   :status,
+                                   :intro,
+                                   images_attributes: [ :image, :remote_image_url ],
                                    open_dates_attributes: [ :id, :availible_date, :_destroy ])
     end
 
