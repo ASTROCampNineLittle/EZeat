@@ -343,9 +343,9 @@ address = ["台北市中山區松江路76號1F","台中市西屯區朝富路99�
 
   korean_store = Store.where(food_type: 2)
   if korean_store.present?
-    korean_store.each do
-      korean_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,korean"})
-    end
+    # korean_store.each do
+    #   korean_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,korean"})
+    # end
     korean_store.each do |n|
       n.update(intro: korean_store_intro.sample)
     end
