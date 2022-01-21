@@ -19,9 +19,9 @@ ja:
       backend_management: '店舗管理ページ'
       blog: 'ブログ'
       profile: 'プロフィール'
-      privacy_policy: 'Privacy Policy'
+      privacy_policy: 'プライバシーポリシー'
     body:
-      starred_restaurant: '精選餐廳'
+      starred_restaurant: 'オススメ'
     footer:
       content:
         yummy: 'いつでもどこでも予約できる'
@@ -62,12 +62,26 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      store: 'レストラン'
     attributes:
       user:
         temp: 'divider'
         male: '男'
         female: '女'
         prefer_not_to_disclose: '非表示'
+      store:
+        food_types:
+          ch: 中華料理
+          jp: 日本料理
+          ko: 韓国料理
+          in: インド料理
+          it: イタリアン
+          br: イギリス料理
+          us: アメリカ料理
+          fr: フレンチ
+          de: ドイツ料理
+          mx: メキシコ料理
+          ot: その他の異国料理
     errors:
       messages:
         record_invalid: '認証失敗: %{errors}'
@@ -114,7 +128,6 @@ ja:
       long: '%Y年%m月%d日'
       short: '%m月%d日'
     month_names:
-    -
     - 一月
     - 二月
     - 三月
