@@ -57,7 +57,7 @@ zh-TW:
     error_pages:
       not_found_404_title: '哈囉！這裡沒有好吃的美食...'
       not_found_404_content: '別緊張，僅是搜尋頁面找不到而已！<br>
-      請回<a href="/" class="underline hover:no-underline decoration-yellow">首頁</a>或<a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">上一頁</a>繼續尋找屬於您的美好食刻。'
+      請回 <a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">上一頁</a> 繼續尋找屬於您的美好食刻。'
   hello: 'Hi, %{name}'
   activerecord:
     models:
