@@ -28,7 +28,7 @@ ja:
         subscribe: 'ファローする'
       links:
         inner_link: '網內連結'
-        temp_link: '暫用連結'
+        temp_link: '餐廳管理後台'
         contact_us: 'お問い合わせ'
     phrase:
       or: '或いは'
