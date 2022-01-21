@@ -5,7 +5,7 @@
         <div class="flex border-gray-100 h-full">
           <div class="self-center w-3/12">
             <div class="w-1/10">
-              <% if current_user.company %>
+              <% if current_user.company.present? %>
                 <%= link_to "EZeat餐廳管理系統", backend_company_path(current_user.company), class:"text-white text-2xl subpixel-antialiased " %>
               <% else %>
                 <%= link_to "EZeat餐廳管理系統", new_backend_company_path(current_user), class:"text-white text-2xl subpixel-antialiased " %>
@@ -23,38 +23,44 @@
 
 
               <div class="dropDown" id="navTarget">
-              <% if signed_in? && has_company %>
-                <button class="inline-flex rounded-md border border-gray-300 shadow-sm p-2 m-1 bg-white font-medium text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-100 focus:ring-orange-200">
-                  切換分店
-                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-              <% end %>
+                <% if signed_in? && has_company %>
+                  <button class="inline-flex rounded-md border border-gray-300 shadow-sm p-2 m-1 bg-white font-medium text-gray-500 hover:bg-gray-50 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-gray-100 focus:ring-orange-200">
+                    切換分店
+                    <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </button>
+                <% end %>
 
-              <% if signed_in? && current_user.company %>
-                <div id="navDropDown" class="hidden z-30 absolute right-25 text-base bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                  <ul class="py-1">
-                    <% current_user.company.stores.each do |store| %>
-                      <li>
-                        <%= link_to "#{store.name}", backend_store_path(store), class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
-                      </li>
-                    <%end%>
-                  </ul>
+                <% if signed_in? && current_user.company %>
+                  <div id="navDropDown" class="hidden z-30 absolute right-25 text-base bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                    <ul class="py-1">
+                      <% current_user.company.stores.each do |store| %>
+                        <li>
+                          <%= link_to "#{store.name}", backend_store_path(store), class:"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
+                        </li>
+                      <%end%>
+                    </ul>
+                  </div>
+                <% end %>
+              </div>
+
+                <div class=" text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
+                  <%= link_to "首頁", root_path %>
                 </div>
-              </div>
-              <% end %>
 
-              <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
-                <%= link_to "首頁", root_path %>
-              </div>
-
-              <% if signed_in? %>
-                <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
-                <% else %>
-                <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
-                <%= link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
-              <% end %>
+                <% if signed_in? %>
+                  <div class=" text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
+                    <%= link_to(t('devise.sessions.new.sign_out'), destroy_user_session_path, method: 'delete', class:"") %>
+                  </div>
+                  <% else %>
+                  <div>
+                  <%= link_to(t('devise.sessions.new.sign_in'), user_session_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
+                  </div>
+                  <div>
+                  <%= link_to(t('devise.registrations.new.sign_up'), new_user_registration_path, class:"whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md") %>
+                  </div>
+                <% end %>
             </div>
 
 
