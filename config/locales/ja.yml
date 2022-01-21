@@ -15,23 +15,27 @@ ja:
       site_language: '言語'
       home_page: 'トップページ'
       faq: 'よくある問題'
-      become_our_partners: '店舗運営者の方へ'
+      become_our_partners: '店舗管理ページ'
       backend_management: '店舗管理ページ'
       blog: 'ブログ'
       profile: 'プロフィール'
       privacy_policy: 'プライバシーポリシー'
+      search: '検索'
     body:
-      starred_restaurant: 'オススメ'
+      starred_restaurant: 'オススメ厳選レストラン'
     footer:
       content:
         yummy: 'いつでもどこでも予約できる'
         subscribe: 'ファローする'
       links:
         inner_link: '網內連結'
-        temp_link: '暫用連結'
+        temp_link: '店舗運営者の方へ'
         contact_us: 'お問い合わせ'
     phrase:
       or: '或いは'
+  search:
+    search_btn: '検索'
+    search_title: 'レストランを探そう'
   devise:
     patch:
       registrations:
@@ -70,6 +74,10 @@ ja:
         female: '女'
         prefer_not_to_disclose: '非表示'
       store:
+        name: '店名'
+        address: '住所'
+        foodtypes: 'ジャンル'
+        date: '予約日'
         food_types:
           ch: 中華料理
           jp: 日本料理
@@ -81,7 +89,7 @@ ja:
           fr: フレンチ
           de: ドイツ料理
           mx: メキシコ料理
-          ot: その他の異国料理
+          ot: その他異国料理
     errors:
       messages:
         record_invalid: '認証失敗: %{errors}'
