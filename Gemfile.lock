@@ -194,8 +194,6 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.1-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.1-x86_64-linux)
-      racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
       jwt (>= 1.0, < 3.0)
@@ -340,17 +338,7 @@ GEM
     zeitwerk (2.5.3)
 
 PLATFORMS
-<<<<<<< HEAD
   x86_64-darwin-20
-=======
-<<<<<<< HEAD
-  arm64-darwin-20
-  x86_64-darwin-20
-=======
-  arm64-darwin-21
->>>>>>> a7f73608892b46a16060a3efca96274af8a24b7d
->>>>>>> dev
-  x86_64-linux
 
 DEPENDENCIES
   aasm (~> 5.2)
