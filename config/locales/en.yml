@@ -20,14 +20,19 @@ en:
       blog: 'Blog'
       profile: 'Profile'
       privacy_policy: 'Privacy Policy'
+      my_ticket: "My Tickets"
     body:
       starred_restaurant: 'Restaurants for You'
+      status: Status
+      store: Store
+      dish_name: Dish
+      expected_date: Expected date
     footer:
       content:
         yummy: 'Yummmmmmy'
         subscribe: 'Subscribe'
       links:
-        inner_link: 'Inner links'
+        inner_link: 'Navigational links'
         temp_link: 'Friendly links'
         contact_us: 'Contact us'
         yimails: '<a href="https://yimails.com/" class="text-gray-500">Yimails</a>'
