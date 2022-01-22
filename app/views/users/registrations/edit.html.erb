@@ -43,24 +43,18 @@
             </div>
             <div class="field">
                 <%= f.label :password %>
-                <% if @minimum_password_length %>
-                  <em class="text-sm" >
-                    <%= t'devise.shared.minimum_password_length', count: @minimum_password_length %>
-                    <%= t'devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' %>
-                  </em>
-                <% end %>
+                <%= t'devise.shared.minimum_password_length', count: @minimum_password_length %>
+                <!-- <%# if @minimum_password_length %>
+                <em class="text-sm" >
+                <%#= t'devise.shared.minimum_password_length', count: @minimum_password_length %>
+                <%#= t'devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it' %>
+                </em>
+                <%# end %> -->
                 <%= f.password_field :password, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="field">
                 <%= f.label :password_confirmation %>
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
-            </div>
-            <div class="field">
-                <%= f.label :current_password %>
-                  <em class="text-sm" >
-                    <%= t 'devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes' %>
-                  </em>
-                <%= f.password_field :current_password, autocomplete: "current-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
           </div>
           <div class="group relative w-full flex justify-center">
