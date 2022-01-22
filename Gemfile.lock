@@ -73,7 +73,7 @@ GEM
     barby (0.6.8)
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootsnap (1.10.1)
+    bootsnap (1.10.2)
       msgpack (~> 1.2)
     builder (3.2.4)
     bullet (7.0.1)
@@ -186,25 +186,19 @@ GEM
     mime-types-data (3.2022.0105)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.7.1)
     minitest (5.15.0)
-    msgpack (1.4.3)
+    msgpack (1.4.4)
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.5.8)
-<<<<<<< HEAD
+    nokogiri (1.13.1)
+      mini_portile2 (~> 2.7.0)
+      racc (~> 1.4)
     nokogiri (1.13.1-x86_64-darwin)
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-    nokogiri (1.12.5-x86_64-darwin)
-=======
-    nokogiri (1.13.1-arm64-darwin)
->>>>>>> 4d69234fa2fa73a01362ef5073566db82e2020f6
-=======
-    nokogiri (1.13.1-x86_64-darwin)
->>>>>>> 470c8a6f4adc5435d6f64a32c57deb3652963780
->>>>>>> dev
+      racc (~> 1.4)
+    nokogiri (1.13.1-x86_64-linux)
       racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -350,8 +344,9 @@ GEM
     zeitwerk (2.5.3)
 
 PLATFORMS
-  arm64-darwin-20
+  ruby
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   aasm (~> 5.2)
