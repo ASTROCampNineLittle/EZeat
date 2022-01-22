@@ -32,6 +32,9 @@ en:
         contact_us: 'Contact us'
     phrase:
       or: 'or'
+  search:
+    search_btn: 'Search'
+    search_title: 'Time to have a decent meal!'
   devise:
     patch:
       registrations:
@@ -65,6 +68,10 @@ en:
         female: 'Female'
         prefer_not_to_disclose: 'Prefer not to disclose'
       store:
+        name: 'Store name'
+        address: 'Store address'
+        foodtypes: 'Store food-types'
+        date: 'Expected Date'
         food_types:
           ch: Chinese Cuisine
           jp: Japanese Cuisine

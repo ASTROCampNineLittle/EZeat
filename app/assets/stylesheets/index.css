@@ -7,5 +7,7 @@
 }
 
 .timeCheck:checked ~ .timeTag {
-  background-color: orangered;
+  background-color: white;
+  color: #f97315;
+  border: 1px, #f97315;
 }
