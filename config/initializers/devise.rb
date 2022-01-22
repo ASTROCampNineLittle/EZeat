@@ -179,8 +179,8 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  # 暫訂1碼即可註冊
-  config.password_length = 1..128
+  # 現在需要8 碼才能註冊
+  config.password_length = 8..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly

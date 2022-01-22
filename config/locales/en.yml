@@ -32,6 +32,9 @@ en:
         contact_us: 'Contact us'
     phrase:
       or: 'or'
+  search:
+    search_btn: 'Search'
+    search_title: 'Time to have a decent meal!'
   devise:
     patch:
       registrations:
@@ -53,7 +56,7 @@ en:
     error_pages:
       not_found_404_title: 'Hello?? Is somebody there?!?'
       not_found_404_content: 'We know it’s scary, but the page you’re trying to reach can’t be found. Perhaps it was just a<span> bad </span>link dream?<br>
-      How about going back to <a href="/" class="underline hover:no-underline decoration-yellow">Home Page</a> or <a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">previous one</a> ?'
+      How about going back to the <a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">previous one</a> ?'
   hello: 'Hello, %{name}'
   activerecord:
     models:
@@ -65,6 +68,10 @@ en:
         female: 'Female'
         prefer_not_to_disclose: 'Prefer not to disclose'
       store:
+        name: 'Store name'
+        address: 'Store address'
+        foodtypes: 'Store food-types'
+        date: 'Expected Date'
         food_types:
           ch: Chinese Cuisine
           jp: Japanese Cuisine
