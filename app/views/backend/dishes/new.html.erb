@@ -1,18 +1,19 @@
-<div class="mb-6 ">
-  <h1 class='block text-black-500 text-3xl font-bold text-center tracking-widest'>新增方案</h1>
-</div>
-
 <div class="w-10/12  m-auto my-10">
+  <div class="my-6">
+    <h1 class='block text-black-500 text-3xl font-bold text-center tracking-widest'>新增方案</h1>
+  </div>
+
   <div class="md:grid md:gap-6 ">
-    <div class="mt-5 md:mt-0 ">
-      <%= form_with model: [:backend,:store, @dish], class: " " do |form| %>
-        <div class="shadow sm:rounded-md sm:overflow-hidden">
-          <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
-            <div class="grid w-full">
-              <div class="col-span-3 w-full">
-                <%= form.label :name, '方案名稱', class:"block text-sm font-medium text-gray-700"%>
-                <div class="mt-1 flex rounded-md shadow-sm">
-                  <%= form.text_field :name, class:"focus:ring-blue-500 focus:bd-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+      <div class="mt-5 md:mt-0 ">
+        <%= form_with model: [:backend,:store, @dish], class: " " do |form| %>
+          <div class="shadow sm:rounded-md sm:overflow-hidden">
+            <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+              <div class="grid w-full">
+                <div class="col-span-3 w-full">
+                  <%= form.label :name, '方案名稱', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.text_field :name, class:"focus:ring-blue-500 focus:bd-blue-50 block w-full h-10 rounded-md text-md border border-gray-300"%>
+                  </div>
                 </div>
               </div>
             </div>
@@ -35,11 +36,12 @@
               </div>
             </div>
 
-            <div class="grid">
-              <div class="col-span-3">
-                <%= form.label :price, '開放狀態', class:"block text-sm font-medium text-gray-700"%>
-                <div class="mt-1 flex rounded-md shadow-sm">
-                  <%= form.select(:status, [['未開放', false], ['開放中', true]], {},  { class:'focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-r-md text-md bprder border-gray-300'})  %>
+              <div class="grid">
+                <div class="col-span-3">
+                  <%= form.label :price, '開放狀態', class:"block text-sm font-medium text-gray-700"%>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <%= form.select(:status, [['未開放', false], ['開放中', true]], {},  { class:'focus:ring-blue-500 focus:bg-blue-50 block w-full h-10 rounded-md text-md border border-gray-300'})  %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -75,4 +77,3 @@
     </div>
   </div>
 </div>
-

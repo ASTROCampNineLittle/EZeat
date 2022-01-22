@@ -2,7 +2,7 @@
 <section class="antialiased text-gray-600 w-full m-auto my-10">
 	<div class="flexjustify-center h-full">
 		<!-- Table -->
-			<div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-md border border-gray-200 sm:w-11/12 xs:w-11/12">
+			<div class="w-full max-w-5xl mx-auto bg-white shadow-lg rounded-md border border-gray-200 sm:w-11/12 xs:w-11/12">
 				<div class="px-2 py-4 border-b  border-gray-100">
 					<div class="font-semibold text-gray-800">
 						<%= search_form_for @q, url: search_result_pages_path do |f| %>
@@ -51,13 +51,15 @@
 					<% store.dishes.each do |dish| %>
 					<%# dish.open_dates.each do |date| %>
 					<%# date.offers.take(3).each do |offer| %>
-					<div class="text-sm font-medium ">
+					<div class="text-md font-medium ">
 					<%= link_to(store_path(store.id)) do %>
-					<div class="md:flex md:w-full text-center border border-dashed border-orange-50 rounded-sm my-1 hover:bg-orange-100">
-						<div class="md:w-1/12 sm:w-full p-2 text-gray-800">
+					<div class="md:flex md:w-full text-center border border-dashed border-orange-50 rounded-sm my-1 hover:bg-orange-100 items-center">
+						<div class="md:w-2/12 sm:w-full p-2 text-gray-800 flex justify-center">
+							<div>
 							<%= image_tag store.image_url if store.image_url.present? %>
+							</div>
 						</div>
-						<div class="md:w-5/12 sm:w-full p-2 text-gray-800">
+						<div class="md:w-4/12 sm:w-full p-2 text-gray-800 font-semibold text-lg">
 							<%= store.name %>
 						</div>
 						<div class="md:w-2/12 sm:w-full p-2 text-gray-800">
@@ -76,7 +78,7 @@
 							</button> -->
 							<%# end %>
 						<!-- </div> -->
-						<div class="md:w-4/12 sm:w-full p-2  text-orange-500 text-xs">
+						<div class="md:w-4/12 sm:w-full p-2  text-orange-500 text-sm">
 							<%= store.address %>
 						</div>
 					</div>
