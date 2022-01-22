@@ -7,11 +7,34 @@ class User < ApplicationRecord
   devise :confirmable
   devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
-  validates :name, presence: true
-  validates :email, uniqueness: true, if: -> { self.email.present? }
-
   has_one :company
   has_many :orders
+
+  validates :name, presence: true
+  validates :email, uniqueness: true, if: -> { self.email.present? }
+  validates :tel, presence: true, on: [:update]
+
+  PASSWORD_FORMAT = /\A
+  (?=.{6,})          # Must contain 6 or more characters
+  (?=.*\d)           # Must contain a digit
+  (?=.*[a-z])        # Must contain a lower case character
+  (?=.*[A-Z])        # Must contain an upper case character
+  /x
+
+  validates :password,
+    presence: true,
+    length: { in: Devise.password_length },
+    format: { with: PASSWORD_FORMAT },
+    confirmation: true,
+    on: :create
+
+  validates :password,
+    allow_nil: true,
+    length: { in: Devise.password_length },
+    format: { with: PASSWORD_FORMAT },
+    confirmation: true,
+    on: :update
+
 
   def self.create_from_provider_data(provider_data)
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |user|

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :store_user_location!, if: :storable_location?
   around_action :switch_locale
   helper_method :has_company
+  helper_method :store_user_location!, :storable_location?
 
   private
 
