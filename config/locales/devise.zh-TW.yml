@@ -112,6 +112,7 @@ zh-TW:
       update_needs_confirmation: 您已經成功的更新帳號資訊，但我們仍需確認您的電子信箱，請至新信箱收信並點擊連結以確認您的新電子郵件帳號。
       updated: 您已經成功的更新帳號資訊。
       updated_but_not_signed_in: 您已經成功的更新帳號資訊。但因為您變更了密碼，請重新登入。
+      yimails: '（沒有信箱嗎？歡迎到<a href="https://yimails.com" class="underline hover:no-underline decoration-yellow">Yimails</a> 註冊）'
     sessions:
       already_signed_out: 成功登出了。
       new:
@@ -128,7 +129,7 @@ zh-TW:
         sign_in: 登入
         sign_in_with_provider: 用 %{provider} 登入
         sign_up: 註冊
-      minimum_password_length: "（最少%{count}個英數字元）"
+      minimum_password_length: "（最少%{count}個英數混合字元，必須包含一大寫、一小寫）"
     unlocks:
       new:
         resend_unlock_instructions: 重發解鎖說明信件

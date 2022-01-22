@@ -112,6 +112,7 @@ ja:
       update_needs_confirmation: アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。
       updated: アカウント情報を変更しました。
       updated_but_not_signed_in: あなたのアカウントは正常に更新されましたが、パスワードが変更されたため、再度ログインしてください。
+      yimails: '（メールアドレス持ってないですか？<a href="https://yimails.com" class="underline hover:no-underline decoration-yellow">Yimails</a>で新規作成しましょう）'
     sessions:
       already_signed_out: 既にログアウト済みです。
       new:
@@ -127,7 +128,7 @@ ja:
         sign_in: ログイン
         sign_in_with_provider: "%{provider}でログイン"
         sign_up: アカウント登録
-      minimum_password_length: "（%{count}字以上）"
+      minimum_password_length: "（最低%{count}桁の英数字、それぞれ1字以上含めてください）"
     unlocks:
       new:
         resend_unlock_instructions: アカウントのロック解除方法を再送する

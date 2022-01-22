@@ -24,7 +24,7 @@
             </div>
             <div class="gender">
               <%= f.label :gender %>
-              <div class="flex mx-auto h-6 space-x-3">
+              <div class="flex mx-auto h-8 space-x-3">
                 <%= f.radio_button :gender, 0, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-600 checked:border-orange-600 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.male' %>
                 <%= f.radio_button :gender, 1, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-500 checked:border-orange-500 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.female' %>
                 <%= f.radio_button :gender, 2, :checked => true, class: "rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-500 checked:border-orange-500 focus:outline-none transition duration-200 mt-1 mr-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %><%= t 'activerecord.attributes.user.prefer_not_to_disclose' %>
@@ -32,13 +32,12 @@
             </div>
             <div class="field">
               <%= f.label :email %>
+              <em><%= raw(t 'devise.registrations.yimails') %></em>
               <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="field">
               <%= f.label :password %>
-              <% if @minimum_password_length %>
                 <em><%= t'devise.shared.minimum_password_length', count: @minimum_password_length %></em>
-              <% end %>
                 <%= f.password_field :password, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-orange-500 focus:border-orange-500 focus:z-10 sm:text-sm my-2" %>
             </div>
             <div class="field">
