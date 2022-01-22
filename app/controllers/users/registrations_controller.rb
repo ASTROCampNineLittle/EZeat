@@ -26,4 +26,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     def permitted_params_for_update
       devise_parameter_sanitizer.permit(:account_update, keys: [:tel, :gender, :role, :name])
     end
+
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
 end

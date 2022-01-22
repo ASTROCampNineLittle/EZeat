@@ -21,14 +21,19 @@ ja:
       profile: 'プロフィール'
       privacy_policy: 'プライバシーポリシー'
       search: '検索'
+      my_ticket: マイチケット
     body:
       starred_restaurant: 'オススメ厳選レストラン'
+      status: 状態
+      store: 店名
+      dish_name: プラン名
+      expected_date: 予約日
     footer:
       content:
         yummy: 'いつでもどこでも予約できる'
         subscribe: 'ファローする'
       links:
-        inner_link: '網內連結'
+        inner_link: 'ガイド'
         temp_link: 'フレンドリー'
         contact_us: 'お問い合わせ'
         yimails: '<a href="https://yimails.com/" class="text-gray-500">Yimails</a>'

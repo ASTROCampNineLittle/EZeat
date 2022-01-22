@@ -19,7 +19,7 @@
   <%# 精選餐廳 %>
   <div class="w-11/12 m-auto p-8 border border-gray-300 rounded-md my-5 shadow-xl">
     <div class="md:flex md:flex-wrap mt-2">
-      <% @stores.last(9).each do |store| %>
+      <% @stores.sample(9).each do |store| %>
         <div class=" lg:w-1/3 md:w-1/2  md:p-3 mt-5">
           <%= link_to store_path(store) do %>
             <div class="rounded overflow-hidden border bg-white mx-3 md:mx-0 lg:mx-0 hover:border-orange-200 hover:bg-orange-50">

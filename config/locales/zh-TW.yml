@@ -20,14 +20,19 @@ zh-TW:
       blog: '部落格文章'
       profile: '個人檔案'
       privacy_policy: '隱私權聲明'
+      my_ticket: "我的票券"
     body:
       starred_restaurant: '精選餐廳'
+      status: 狀態
+      store: 餐廳
+      dish_name: 方案名稱
+      expected_date: 預訂日期
     footer:
       content:
         yummy: '滿足您的精彩食刻'
         subscribe: '訂閱我們'
       links:
-        inner_link: '網內連結'
+        inner_link: '導覽連結'
         temp_link: '友站連結'
         contact_us: '聯絡我們'
         yimails: '<a href="https://yimails.com/" class="text-gray-500">Yimails</a>'

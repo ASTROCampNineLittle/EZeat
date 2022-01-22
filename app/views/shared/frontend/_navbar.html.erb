@@ -44,7 +44,7 @@
                   </li>
                   <% if signed_in? %>
                   <li>
-                    <%= link_to( '我的票券', myorders_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                    <%= link_to(t('common.navigation.my_ticket'), myorders_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                   </li>
                   <% end %>
                   <li>
