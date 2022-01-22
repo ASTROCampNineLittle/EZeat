@@ -48,7 +48,7 @@
 					<% @search_result_two.each do |store| %>
 						<div class="text-lg font-medium ">
 							<%= link_to(store_path(store.id)) do %>
-								<div class="md:flex md:w-full text-center border border-dashed border-orange-50 rounded-sm my-1 hover:bg-orange-100">
+								<div class="md:flex items-center md:w-full text-center border border-dashed border-orange-50 rounded-sm my-1 hover:bg-orange-100">
 									<div class="md:w-1/12 sm:w-full p-2 text-gray-800">
 										<%= image_tag store.image_url if store.image_url.present? %>
 									</div>
@@ -69,7 +69,7 @@
 					<% @search_result.each do |store| %>
 						<div class="text-lg font-medium ">
 							<%= link_to(store_path(store.id)) do %>
-								<div class="md:flex md:w-full text-center border border-dashed border-orange-50 rounded-sm my-1 hover:bg-orange-100">
+								<div class="md:flex md:w-full text-center border border-dashed border-orange-50 rounded-sm my-1 hover:bg-orange-100 items-center">
 									<div class="md:w-1/12 sm:w-full p-2 text-gray-800">
 										<%= image_tag store.image_url if store.image_url.present? %>
 									</div>
