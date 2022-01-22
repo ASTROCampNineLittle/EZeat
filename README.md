@@ -8,7 +8,10 @@
 
 # 功能說明：
 
-### 1. 搜 尋 功 能 - 錄影(等nav修好)
+### 1. 搜 尋 功 能
+![search_store](https://user-images.githubusercontent.com/92966004/150638889-75a7b391-73bb-48e8-8d1b-1bd56200f883.gif)
+</br>
+</br>
 
 ### 2. 即 時 訂 位
 ![Buy_order_flow](https://user-images.githubusercontent.com/92966004/150624823-ddd357b3-08ef-4085-b70f-7b44491570fa.gif)
