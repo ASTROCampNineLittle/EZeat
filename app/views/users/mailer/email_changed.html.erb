@@ -1,7 +1,13 @@
-<p>Hello <%= @email %>!</p>
-
+<p>您好： <%= @email %>!</p>
 <% if @resource.try(:unconfirmed_email?) %>
-  <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
+<p>歡迎使用EZeat的服務，請確認您是否有修改信箱：<%= @resource.unconfirmed_email %></p>
 <% else %>
-  <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
+<p>歡迎使用EZeat的服務，請點擊以下連結修改信箱：<%= @resource.unconfirmed_email %></p>
 <% end %>
+<br>
+<br>
+<div style="border-bottom: 1px solid gray;">
+<a href="https://ezeat888.com/" style="text-decoration-line: none;">
+  <div style="color:#f97315; font-size: 24px; font-weight: bold;">EZeat<span style="color:#676767; font-size: 22px; font-weight: bold;">。滿足您的美好食刻</span></div>
+</a>
+</div>
