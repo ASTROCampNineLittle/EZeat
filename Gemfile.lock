@@ -192,7 +192,11 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.5.8)
+<<<<<<< HEAD
     nokogiri (1.12.5-x86_64-darwin)
+=======
+    nokogiri (1.13.1-arm64-darwin)
+>>>>>>> 4d69234fa2fa73a01362ef5073566db82e2020f6
       racc (~> 1.4)
     oauth2 (1.4.7)
       faraday (>= 0.8, < 2.0)
@@ -343,8 +347,11 @@ PLATFORMS
   x86_64-darwin-20
 =======
   arm64-darwin-21
+<<<<<<< HEAD
 >>>>>>> a7f73608892b46a16060a3efca96274af8a24b7d
   x86_64-linux
+=======
+>>>>>>> 4d69234fa2fa73a01362ef5073566db82e2020f6
 
 DEPENDENCIES
   aasm (~> 5.2)

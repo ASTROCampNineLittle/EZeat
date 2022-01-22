@@ -1,5 +1,7 @@
 class ChecksController < ApplicationController
   before_action :signed_in_checker
+  before_action :validate_tel, only: [:create]
+  around_action :store_user_location!, if: :storable_location?, only: [:create]
 
   def index
   end
@@ -25,9 +27,16 @@ class ChecksController < ApplicationController
     end
   end
 
+  def validate_tel
+    @user = current_user
+    if @user.tel.blank?
+      redirect_to edit_user_registration_path, notice: "請先更新電話才能購買票券！"
+    end
+  end
+
   private
   def order_params
-    params.require(:order).permit(:open_date_id, :name, :tel, :email, :order_dish, :order_number, :order_date, :order_time, :order_people, :ezeat_amount, :order_status, :user_id, :store_id)
+    params.require(:order).permit(:open_date_id, :name, :tel, :email, :order_dish, :order_number, :order_date, :order_time, :order_people, :ezeat_amount, :order_status, :user_id, :store_id, :user_email)
   end
 
   def ezeat_random_number
