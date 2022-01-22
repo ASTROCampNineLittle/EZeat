@@ -28,8 +28,11 @@ en:
         subscribe: 'Subscribe'
       links:
         inner_link: 'Inner links'
-        temp_link: 'Temporary links'
+        temp_link: 'Friendly links'
         contact_us: 'Contact us'
+        yimails: '<a href="https://yimails.com/" class="text-gray-500">Yimails</a>'
+        celsastro: '<a href="https://www.celastroairlines.com/" class="text-gray-500">CelAstro</a>'
+        gotrips: '<a href="https://gotriptw.com/" class="text-gray-500">GoTrip</a>'
     phrase:
       or: 'or'
     site_languages:

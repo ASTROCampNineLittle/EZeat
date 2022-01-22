@@ -31,6 +31,9 @@ ja:
         inner_link: '網內連結'
         temp_link: '店舗運営者の方へ'
         contact_us: 'お問い合わせ'
+        yimails: '<a href="https://yimails.com/" class="text-gray-500">Yimails</a>'
+        celsastro: '<a href="https://www.celastroairlines.com/" class="text-gray-500">CelAstro</a>'
+        gotrips: '<a href="https://gotriptw.com/" class="text-gray-500">GoTrip</a>'
     phrase:
       or: '或いは'
     site_languages:
