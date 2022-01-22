@@ -9,7 +9,7 @@
 # 功能說明：
 
 ### 1. 搜 尋 功 能
-![search_store](https://user-images.githubusercontent.com/92966004/150647001-a0df4b95-dda3-459d-a799-0b16dc3590ae.gif)
+![search_store](https://user-images.githubusercontent.com/92966004/150647579-e2b75c68-8974-48ea-92fb-b35cae769bd2.gif)
 </br>
 </br>
 
