@@ -28,10 +28,13 @@ zh-TW:
         subscribe: '訂閱我們'
       links:
         inner_link: '網內連結'
-        temp_link: '暫用連結'
+        temp_link: '餐廳管理後台'
         contact_us: '聯絡我們'
     phrase:
       or: '或'
+  search:
+    search_btn: '搜尋'
+    search_title: '找尋您的美好食刻'
   devise:
     patch:
       registrations:
@@ -50,14 +53,14 @@ zh-TW:
       become_partner: '欲成為餐廳夥伴，敬請先註冊並登入會員'
       proceed_to_payment: '確認訂單資料前，敬請先註冊並登入會員'
     site_languages:
-        chinese: '中文版'
+        chinese: '中文'
         english: 'English'
-        japanese: '日文版'
+        japanese: '日本語'
   notice:
     error_pages:
       not_found_404_title: '哈囉！這裡沒有好吃的美食...'
       not_found_404_content: '別緊張，僅是搜尋頁面找不到而已！<br>
-      請回<a href="/" class="underline hover:no-underline decoration-yellow">首頁</a>或<a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">上一頁</a>繼續尋找屬於您的美好食刻。'
+      請回 <a href="javascript:history.back()" class="underline hover:no-underline decoration-yellow">上一頁</a> 繼續尋找屬於您的美好食刻。'
   hello: 'Hi, %{name}'
   activerecord:
     models:
@@ -70,6 +73,10 @@ zh-TW:
         female: '女'
         prefer_not_to_disclose: '不表示'
       store:
+        name: '餐廳名稱'
+        address: '餐廳地址'
+        foodtypes: '餐廳類型'
+        date: '預定日期'
         food_types:
           ch: 中式美饌
           jp: 日式料理

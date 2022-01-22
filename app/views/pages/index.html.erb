@@ -28,7 +28,7 @@
               </div>
 
               <div class="px-6 py-4">
-                <div class="font-bold text-xl mb-2 h-8"><%= store.name %></div>
+                <div class="font-bold text-xl mb-2 h-8"><%= truncate(store.name, :length => 15) %></div>
                 <!-- 用truncate helper 限制最多顯示的字元 -->
                 <div class="text-gray-700 text-base h-32"><%= truncate(store.intro, :length => 110) %></div>
               </div>

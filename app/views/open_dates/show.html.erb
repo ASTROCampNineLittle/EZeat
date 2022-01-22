@@ -88,7 +88,7 @@
 			<%= form.hidden_field :order_date, value: @open_date.availible_date %>
 
 			<div class="mx-auto">
-				<div class='flex flex-wrap justify-start'>
+				<div class='flex flex-wrap justify-center'>
 					<% @offers.order(availible_time: :asc).each do |offers| %>
 						<div class="w-30 ml-5">
 							<%= form.radio_button(:order_time, offers.availible_time, checked: true, class:"hidden timeCheck")%>
