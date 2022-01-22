@@ -245,15 +245,14 @@ namespace :db do
 
     # # time_pick = ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"]
     # time_pick = ["11:30", "12:30", "13:30", "14:30", "15:30", "16:30", "17:30", "18:30", "19:30", "20:30", "21:30"]
-    time_pick = ["11:30", "12:30", "13:30", "14:30", "15:30", "16:30", "17:30", "18:30", "19:30", "20:30" ]
+    time_pick = ["11:45", "12:45", "13:45", "14:45", "15:45", "16:45", "17:45", "18:45", "19:45", "20:45" ]
     # capacity_pick = [5, 10, 15, 20, 25, 30]
 
     opendate_number = OpenDate.count
-    1.times do
-      1.upto(opendate_number) do
-        Offer.create(availible_time: time_pick.sample,
-                      open_date_id: capacity_pick.sample)
-      end
+    1.upto(opendate_number) do |n|
+      Offer.create(availible_time: time_pick.sample,
+                  open_date_id: n,
+                  capacity: capacity_pick.sample)
     end
 
     p "所有offer 至少都有1 時間"
