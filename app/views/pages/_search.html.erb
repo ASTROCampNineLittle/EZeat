@@ -1,6 +1,6 @@
 <div class="xl:3/12 lg:w-5/12 md:w-7/12 sm:10/12 xs:11/12">
-  <div class="p-5 bg-white rounded shadow-md uppercase">
-    <h1 class="text-lg font-semibold tracking-widest text-center my-2"><%= t 'search.search_title'%></h1>
+  <div class="p-5 bg-white rounded shadow-md uppercase  text-center">
+    <h1 class="text-lg font-semibold tracking-widest my-2"><%= t 'search.search_title'%></h1>
 
     <%= search_form_for @q, url: search_result_pages_path do |f| %>
 
@@ -19,24 +19,10 @@
         <%= f.select :food_type_eq, Store.food_types.to_a.map { |w| [w[0].humanize, w[1]] }, {include_blank: true}, class: "w-full p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
       </div>
 
-      <!-- <div class="flex justify-between">
-        <%#= f.label :open_dates_availible_date, "預定日期", class: "w-20 mt-4 text-xs font-semibold text-gray-600" %>
-        <%#= f.search_field :open_dates_availible_date, placeholder: "日期", class: "w-full p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded", data: { action: "click->search#add_date" } %>
-      </div>
-
       <div class="flex justify-between">
-        <%#= f.label :open_dates_offers_availible_time, "預定時間", class: "w-20 mt-4 text-xs font-semibold text-gray-600" %>
-        <%#= f.search_field :open_dates_offers_availible_time, placeholder: "時間", class: "w-full p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" %>
-      </div> -->
-
-      <!-- <div class="flex 測試中">
-        <template data-target="search-form.template">
-          <%#= f.search_field :open_dates_availible_date, child_index: "ADD_DATE" do |date|%>
-          <%#= render "search_fields", form: date %>
-          <%# end %>
-        </template>
-        <div class="">
-      -->
+        <label class="w-20 mt-4 text-xs font-semibold text-gray-600">預定日期</label>
+        <input type='date' name='date' class="w-full p-2 mt-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded" >
+      </div>
 
       <%= f.submit t('search.search_btn'), class: "w-full py-2 mt-6 font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-lg focus:outline-none hover:bg-yellow-600 hover:shadow-none rounded-lg" %>
     <% end %>
