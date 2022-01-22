@@ -1,12 +1,12 @@
 <section class="antialiased text-gray-600 w-full m-auto my-10">
-	<div class="flexjustify-center h-full">
+	<div class="flex justify-center h-full">
 		<!-- Table -->
-			<div class="w-full max-w-5xl mx-auto bg-white shadow-lg rounded-md border border-gray-200 sm:w-11/12 xs:w-11/12">
-				<div class="px-2 py-4 border-b  border-gray-100">
-					<div class="font-semibold text-gray-800">
-						<%= search_form_for @q, url: search_result_pages_path do |f| %>
-						<div class="md:flex justify-between">
-							<div class="mx-1 md:w-4/12">
+		<div class="w-full max-w-5xl mx-auto bg-white shadow-lg rounded-md border border-gray-200 sm:w-11/12 xs:w-11/12">
+			<div class="px-2 py-4 border-b  border-gray-100">
+				<div class="font-semibold text-gray-800">
+					<%= search_form_for @q, url: search_result_pages_path do |f| %>
+					<div class="md:flex justify-between">
+						<div class="mx-1 md:w-4/12">
 								<%= f.label :name_cont, t('activerecord.attributes.store.name'), class: "text-xs font-semibold text-gray-600 block" %>
 								<%= f.search_field :name_cont, placeholder: t('activerecord.attributes.store.select.name'), class: "xs:w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200  focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
 							</div>
@@ -16,29 +16,16 @@
 							</div>
 							<div class="mx-1 md:w-2/12">
 								<%= f.label :food_type_eq, t('activerecord.attributes.store.foodtypes'), class: "text-xs font-semibold text-gray-600 block" %>
-        				<%= f.select :food_type_eq, Store.food_types.to_a.map { |w| [w[0].humanize, w[1]] }, {:include_blank => t('activerecord.attributes.store.select.foodtypes')}, class: "w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
+        				<%= f.select :food_type_eq, Store.food_types.to_a.map { |w| [w[0].humanize, w[1]] }, {:include_blank => t('activerecord.attributes.store.select.foodtypes')}, class: "w-full mt-1 p-2 text-gray-400 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
 							</div>
-							<div class="mx-1 md:w-5/12">
+							<div class="mx-1 md:w-3/12">
 								<label class="text-xs font-semibold text-gray-600 block">
 									<%= t 'activerecord.attributes.store.date' %>
 								</label>
 								<input type='date' name='date' class="w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" >
 							</div>
-							<!-- <div class="mx-1 md:w-1/12">
-								<%#= f.label :open_dates_availible_date, "預定日期", class: "text-xs font-semibold text-gray-600 block" %>
-        				<%#= f.search_field :open_dates_availible_date, placeholder: "日期", class: "w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
-							</div> -->
 							<div class="mx-1 md:w-1/12">
 								<%= f.submit t('search.search_btn'), class: "xs:w-full  p-2 mt-5 text-xs font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-md focus:outline-none hover:bg-yellow-600 hover:shadow-none rounded-lg" %>
-							</div>
-						<% end %>
-						</div>
-						<!-- <div class="mx-1 md:w-1/12">
-							<%#= f.label :open_dates_availible_date, "預定日期", class: "text-xs font-semibold text-gray-600 block" %>
-							<%#= f.search_field :open_dates_availible_date, placeholder: "日期", class: "w-full mt-1 p-2 text-gray-700 text-xs bg-gray-200 focus:outline-none focus:bg-orange-100 focus:shadow-inner rounded font-semibold" %>
-						</div> -->
-						<div class="mx-1 md:w-1/12">
-							<%= f.submit "搜尋", class: "xs:w-full  p-2 mt-5 text-xs font-medium tracking-widest text-white uppercase bg-yellow-500 shadow-md focus:outline-none hover:bg-yellow-600 hover:shadow-none rounded-lg" %>
 						</div>
 					<% end %>
 					</div>
@@ -52,11 +39,8 @@
 					<div class="md:w-2/12 sm:w-full p-2">
 						<%= sort_link(@q, :food_type_eq, t('activerecord.attributes.store.foodtypes'), { class: "" })%>
 					</div>
-					<!-- <div class="md:w-2/12 sm:w-full p-2">
-						<%#= sort_link(@q, :open_dates_availible_date, "日期")%>
-					</div> -->
 					<div class="md:w-4/12 sm:w-full p-2">
-						<%= sort_link(@q, :address_cont_any, t('activerecord.attributes.store.address'))%>
+						<%= sort_link(@q, :address_cont_any, t('activerecord.attributes.store.address')) %>
 					</div>
 				</div>
 
@@ -95,7 +79,7 @@
 									<div class="md:w-2/12 sm:w-full p-2 text-gray-800">
 										<%= store.food_type %>
 									</div>
-									<div class="md:w-4/12 sm:w-full p-2  text-orange-500 text-md">
+									<div class="md:w-4/12 sm:w-full p-2 text-orange-500 text-md">
 										<%= store.address %>
 									</div>
 								</div>

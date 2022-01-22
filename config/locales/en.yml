@@ -76,8 +76,8 @@ en:
         female: 'Female'
         prefer_not_to_disclose: 'Prefer not to disclose'
       store:
-        name: 'tore name'
-        address: 'tore address'
+        name: 'store name'
+        address: 'store address'
         foodtypes: 'food-types'
         date: 'expected date'
         select:
