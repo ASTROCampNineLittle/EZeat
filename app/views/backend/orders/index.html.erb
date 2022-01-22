@@ -91,41 +91,41 @@
   </div>
 
 
-  <table class="min-w-full border-collapse block md:table">
-		<% @order_summary.each do |order| %>
-      <thead class="block md:table-header-group">
-        <tr class="border border-gray-500 md:border-none block md:table-row absolute -top-full md:top-auto -left-full md:left-auto  md:relative ">
-          <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">訂位日期</th>
-          <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">訂位時段</th>
-          <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">方案名稱</th>
-          <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">訂位人姓名</th>
-          <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">訂位人電話</th>
-				  <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">訂位人數</th>
-          <th class="bg-gray-600 p-2 text-white font-bold md:border md:border-gray-500 text-left block md:table-cell">核銷</th>
-        </tr>
-      </thead>
+  <div class="">
+      <div class="relative">
+        <div class="sticky top-0 border border-gray-400 md:border-none text-center w-full md:flex item-center bg-gray-600 font-bold text-white self-center">
+          <div class="md:w-1/12 p-2 md:border md:border-gray-500">訂位日期</div>
+          <div class="md:w-1/12 p-2 md:border md:border-gray-500">訂位時段</div>
+          <div class="md:w-2/12 p-2 md:border md:border-gray-500">方案名稱</div>
+          <div class="md:w-2/12 p-2 md:border md:border-gray-500">訂位人姓名</div>
+          <div class="md:w-2/12 p-2 md:border md:border-gray-500">訂位人電話</div>
+				  <div class="md:w-1/12 p-2 md:border md:border-gray-500">訂位人數</div>
+          <div class="md:w-3/12 p-2 md:border md:border-gray-500">核銷</div>
+        </div>
+      </div>
 
-      <tbody class="block md:table-row-group">
-        <tr class="bg-white-300 border border-gray-500 md:border-none block md:table-row">
-          <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位日期</span>
+		<% @order_summary.each do |order| %>
+      <div class="">
+        <div class="p-2 border border-gray-500 md:flex flex-wrap w-full self-center items-center text-center ">
+          <div class="md:w-1/12 self-center mb-2">
             <%= order.order_date %>
-          </td>
-          <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位時段</span>
+          </div>
+          <div class="md:w-1/12 mb-2">
             <%= order.order_time.to_datetime.strftime("%H:%M") %>
-          </td>
-          <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">方案名稱</span>
+          </div>
+          <div class="md:w-2/12 mb-2">
 						<%= order.order_dish %>
-					</td>
-          <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位人姓名</span>
+					</div>
+          <div class="md:w-2/12 mb-2">
 						<%= order.name %>
-					</td>
-          <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位人電話</span>
+					</div>
+          <div class="md:w-2/12 mb-2">
             <%= order.tel %>
-          </td>
-			    <td class="p-2 md:border md:border-gray-500 text-left block md:table-cell"><span class="inline-block w-1/3 md:hidden font-bold">訂位人電話</span>
+          </div>
+			    <div class="md:w-1/12 mb-2">
             <%= order.order_people %>
-          </td>
-          <td class="pl-4 py-2 md:border md:border-gray-500 text-left block md:table-cell">
+          </div>
+          <div class="md:w-3/12 mb-2">
 						<%if order.ticket === "已核銷"%>
 							<div class="bg-green-100 text-gray-600 font-bold w-32 text-center py-2 px-4 rounded">核銷完成</div>
 						<% else %>
@@ -135,8 +135,8 @@
 								<div><%= form.submit '確認核銷' %></div>
 							<% end %>
 						<% end %>
-          </td>
-        </tr>
-    </tbody>
+          </div>
+        </div>
+    </div>
 	<% end %>
-  </table>
+  </div>
