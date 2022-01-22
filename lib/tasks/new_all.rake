@@ -326,9 +326,9 @@ namespace :db do
 
     chinese_store = Store.where(food_type: 0)
     if chinese_store.present?
-      # chinese_store.each do
-      #   chinese_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,chinese"})
-      # end
+      chinese_store.each do
+        chinese_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,chinese"})
+      end
       chinese_store.each do |n|
         n.update(intro: chinese_store_intro.sample)
       end
@@ -336,9 +336,9 @@ namespace :db do
 
     japanese_store = Store.where(food_type: 1)
     if japanese_store.present?
-      # japanese_store.each do
-      #   japanese_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,japanese"})
-      # end
+      japanese_store.each do
+        japanese_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,japanese"})
+      end
       japanese_store.each do |n|
         n.update(intro: japanese_store_intro.sample)
       end
@@ -346,9 +346,9 @@ namespace :db do
 
     korean_store = Store.where(food_type: 2)
     if korean_store.present?
-      # korean_store.each do
-      #   korean_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,korean"})
-      # end
+      korean_store.each do
+        korean_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,korean"})
+      end
       korean_store.each do |n|
         n.update(intro: korean_store_intro.sample)
       end
@@ -356,9 +356,9 @@ namespace :db do
 
     other_store = Store.where(food_type: 10)
     if other_store.present?
-      # other_store.each do
-      #   other_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant"})
-      # end
+      other_store.each do
+        other_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant"})
+      end
       other_store.each do |n|
         n.update(intro: other_store_intro.sample)
       end
@@ -366,9 +366,9 @@ namespace :db do
 
     american_store = Store.where(food_type: 6)
     if american_store.present?
-      # american_store.each do
-      #   american_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,american"})
-      # end
+      american_store.each do
+        american_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,american"})
+      end
       american_store.each do |n|
         n.update(intro: american_store_intro.sample)
       end
@@ -376,9 +376,9 @@ namespace :db do
 
     french_store = Store.where(food_type: 7)
     if french_store.present?
-      # french_store.each do
-      #   french_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,french"})
-      # end
+      french_store.each do
+        french_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,french"})
+      end
       french_store.each do |n|
         n.update(intro: french_store_intro.sample)
       end
@@ -386,9 +386,9 @@ namespace :db do
 
     germany_store = Store.where(food_type: 8)
     if germany_store.present?
-      # germany_store.each do
-      #   germany_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,germany"})
-      # end
+      germany_store.each do
+        germany_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,germany"})
+      end
       germany_store.each do |n|
         n.update(intro: germany_store_intro.sample)
       end
@@ -396,9 +396,9 @@ namespace :db do
 
     mexican_store = Store.where(food_type: 9)
     if mexican_store.present?
-      # mexican_store.each do
-      #   mexican_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,mexican"})
-      # end
+      mexican_store.each do
+        mexican_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,mexican"})
+      end
       mexican_store.each do |n|
         n.update(intro: mexican_store_intro.sample)
       end
@@ -406,9 +406,9 @@ namespace :db do
 
     indian_store = Store.where(food_type: 3)
     if indian_store.present?
-      # indian_store.each do
-      #   indian_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,indian"})
-      # end
+      indian_store.each do
+        indian_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,indian"})
+      end
       indian_store.each do |n|
         n.update(intro: indian_store_intro.sample)
       end
@@ -416,9 +416,9 @@ namespace :db do
 
     italian_store = Store.where(food_type: 4)
     if italian_store.present?
-      # italian_store.each do
-      #   italian_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,italian"})
-      # end
+      italian_store.each do
+        italian_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,italian"})
+      end
       italian_store.each do |n|
         n.update(intro: italian_store_intro.sample)
       end
@@ -426,9 +426,9 @@ namespace :db do
 
     british_store = Store.where(food_type: 5)
     if british_store.present?
-      # british_store.each do
-      #   british_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,british"})
-      # end
+      british_store.each do
+        british_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,british"})
+      end
       british_store.each do |n|
         n.update(intro: british_store_intro.sample)
       end
@@ -518,9 +518,9 @@ namespace :db do
 
     chinese_dish = Dish.joins(:store).where(store: {food_type: 0}).distinct
     if chinese_dish.present?
-      # chinese_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,chinese"})
-      # end
+      chinese_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,chinese"})
+      end
       chinese_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
@@ -528,9 +528,9 @@ namespace :db do
 
     other_dish = Dish.joins(:store).where(store: {food_type: 10}).distinct
     if other_dish.present?
-      # other_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,restaurants"})
-      # end
+      other_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,restaurants"})
+      end
       other_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
@@ -538,9 +538,9 @@ namespace :db do
 
     japanese_dish = Dish.joins(:store).where(store: {food_type: 1}).distinct
     if japanese_dish.present?
-      # japanese_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,japanese"})
-      # end
+      japanese_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,japanese"})
+      end
       japanese_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
@@ -548,9 +548,9 @@ namespace :db do
 
     korean_dish = Dish.joins(:store).where(store: {food_type: 2}).distinct
     if korean_dish.present?
-      # korean_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,korean"})
-      # end
+      korean_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,korean"})
+      end
       korean_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
@@ -558,9 +558,9 @@ namespace :db do
 
     american_dish = Dish.joins(:store).where(store: {food_type: 6}).distinct
     if american_dish.present?
-      # american_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,american"})
-      # end
+      american_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,american"})
+      end
       american_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
@@ -568,9 +568,9 @@ namespace :db do
 
     french_dish = Dish.joins(:store).where(store: {food_type: 7}).distinct
     if french_dish.present?
-      # french_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,french"})
-      # end
+      french_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,french"})
+      end
       french_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
@@ -578,9 +578,9 @@ namespace :db do
 
     germany_dish = Dish.joins(:store).where(store: {food_type: 8}).distinct
     if germany_dish.present?
-      # germany_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,germany"})
-      # end
+      germany_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,germany"})
+      end
       germany_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
@@ -588,9 +588,9 @@ namespace :db do
 
     mexican_dish = Dish.joins(:store).where(store: {food_type: 9}).distinct
     if mexican_dish.present?
-      # mexican_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,mexican"})
-      # end
+      mexican_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,mexican"})
+      end
       mexican_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
@@ -598,9 +598,9 @@ namespace :db do
 
     indian_dish = Dish.joins(:store).where(store: {food_type: 3}).distinct
     if indian_dish.present?
-      # indian_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,indian"})
-      # end
+      indian_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,indian"})
+      end
       indian_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
@@ -608,9 +608,9 @@ namespace :db do
 
     italian_dish = Dish.joins(:store).where(store: {food_type: 4}).distinct
     if italian_dish.present?
-      # italian_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,italian"})
-      # end
+      italian_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,italian"})
+      end
       italian_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
@@ -618,9 +618,9 @@ namespace :db do
 
     british_dish = Dish.joins(:store).where(store: {food_type: 5}).distinct
     if british_dish.present?
-      # british_dish.each do |n|
-      #   n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,british"})
-      # end
+      british_dish.each do |n|
+        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,british"})
+      end
       british_dish.each do |n|
         n.update(intro: dish_intro.sample)
       end
