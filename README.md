@@ -1,7 +1,7 @@
 # [EZeat。滿足您的美好食刻](https://ezeat888.com)
 
 Google PageSpeed 效能評分：77
-![unknown](https://user-images.githubusercontent.com/92966004/150624029-158b9c3c-e481-4901-9672-c64fc7fcd745.png)
+![unknown](https://user-images.githubusercontent.com/92966004/150624029-158b9c3c-e481-4901-9672-c64fc7fcd745.png | width=200)
 
 
 >EZeat是一個讓 `使用者` 與 `餐廳` 媒合訂購餐卷的的網站</br>
