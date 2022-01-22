@@ -33,6 +33,10 @@ ja:
         contact_us: 'お問い合わせ'
     phrase:
       or: '或いは'
+    site_languages:
+        chinese: '中国語'
+        english: 'English'
+        japanese: '日本語'
   search:
     search_btn: '検索'
     search_title: 'レストランを探そう'
@@ -53,10 +57,6 @@ ja:
       common: 'この機能は会員限定のため、会員登録しログインしてください'
       become_partner: '店舗運営者の方、会員登録しログインしてください'
       proceed_to_payment: 'オーダーを確認する前、会員登録しログインしてください'
-    site_languages:
-        chinese: '中国語'
-        english: 'English'
-        japanese: '日本語'
   notice:
     error_pages:
       not_found_404_title: 'やっほー？誰かいませんか？！？'
@@ -78,6 +78,11 @@ ja:
         address: '住所'
         foodtypes: 'ジャンル'
         date: '予約日'
+        select:
+          name: ' 店名を入力してください'
+          address: ' 住所を入力してください'
+          foodtypes: 'ジャンルを選択してください'
+          date: '予約日を選択してください'
         food_types:
           ch: 中華料理
           jp: 日本料理

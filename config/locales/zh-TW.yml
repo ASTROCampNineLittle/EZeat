@@ -32,6 +32,10 @@ zh-TW:
         contact_us: '聯絡我們'
     phrase:
       or: '或'
+    site_languages:
+        chinese: '中文'
+        english: 'English'
+        japanese: '日本語'
   search:
     search_btn: '搜尋'
     search_title: '找尋您的美好食刻'
@@ -52,10 +56,6 @@ zh-TW:
       common: '該功能僅限會員使用，敬請先註冊並登入會員'
       become_partner: '欲成為餐廳夥伴，敬請先註冊並登入會員'
       proceed_to_payment: '確認訂單資料前，敬請先註冊並登入會員'
-    site_languages:
-        chinese: '中文'
-        english: 'English'
-        japanese: '日本語'
   notice:
     error_pages:
       not_found_404_title: '哈囉！這裡沒有好吃的美食...'
@@ -77,6 +77,11 @@ zh-TW:
         address: '餐廳地址'
         foodtypes: '餐廳類型'
         date: '預定日期'
+        select:
+          name: ' 請輸入餐廳名稱'
+          address: ' 請輸入餐廳地址'
+          foodtypes: '下拉選擇餐廳類型'
+          date: '請選擇預定日期'
         food_types:
           ch: 中式美饌
           jp: 日式料理

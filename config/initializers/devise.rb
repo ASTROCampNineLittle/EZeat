@@ -132,7 +132,7 @@ Devise.setup do |config|
   # config.send_email_changed_notification = false
 
   # Send a notification email when the user's password is changed.
-  # config.send_password_change_notification = false
+  config.send_password_change_notification = true
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -144,7 +144,7 @@ Devise.setup do |config|
   # Default is 0.days, meaning the user cannot access the website without
   # confirming their account.
   # 未驗證的帳號可先登入2 天
-  config.allow_unconfirmed_access_for = 2.days
+  config.allow_unconfirmed_access_for = 3.days
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
@@ -152,7 +152,7 @@ Devise.setup do |config|
   # their account can't be confirmed with the token any more.
   # Default is nil, meaning there is no restriction on how long a user can take
   # before confirming their account.
-  config.confirm_within = 3.days
+  config.confirm_within = 7.days
 
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
@@ -179,8 +179,8 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  # 現在需要8 碼才能註冊
-  config.password_length = 8..128
+  # 現在需要6 碼才能註冊
+  config.password_length = 6..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
@@ -221,12 +221,12 @@ Devise.setup do |config|
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-  # config.reset_password_keys = [:email]
+  config.reset_password_keys = [:email]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
-  config.reset_password_within = 6.hours
+  config.reset_password_within = 12.hours
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
