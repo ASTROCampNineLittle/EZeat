@@ -179,22 +179,43 @@ namespace :db do
 
     # p "初步產生假分店結束，開始建立方案"
 
-    dish_name = ["午間套餐","午間商業套餐","方案名稱","平日晚間套餐","平日舒壓套餐","朋友聚餐方案","冒險多人套餐","皇家紅茶套餐","特選套餐","商業聚餐","情人精緻晚餐","晚上約會套餐","晚餐浪漫約會方案","創業者海陸大餐","週末精緻晚餐","農曆新年專屬方案","過年特別方案","道地英式下午茶套餐","團體聚餐方案","闔家精緻晚餐"]
+    # dish_name = ["午間套餐","午間商業套餐","方案名稱","平日晚間套餐","平日舒壓套餐","朋友聚餐方案","冒險多人套餐","皇家紅茶套餐","特選套餐","商業聚餐","情人精緻晚餐","晚上約會套餐","晚餐浪漫約會方案","創業者海陸大餐","週末精緻晚餐","農曆新年專屬方案","過年特別方案","道地英式下午茶套餐","團體聚餐方案","闔家精緻晚餐"]
 
-    # store_number = Store.count
-    # 1.upto(store_number) do |n|
-    #   Dish.create(name: dish_name.sample,
-    #               price: [399, 599, 699, 799, 999, 1024, 1999].sample,
-    #               status: 1,
-    #               store_id: n)
+    # # store_number = Store.count
+    # # 1.upto(store_number) do |n|
+    # #   Dish.create(name: dish_name.sample,
+    # #               price: [399, 599, 699, 799, 999, 1024, 1999].sample,
+    # #               status: 1,
+    # #               store_id: n)
+    # # end
+
+    # p "0122 - 更新營業時間"
+
+    # open_time_pick = [ "8:00", "9:00", "10:00", "12:00", "13:00"]
+    # close_time_pick = [ "19:00", "20:00", "21:00", "22:00" ]
+
+    # all_store = Store.all
+
+    # all_store.each do |n|
+    #   n.update(open_time: open_time_pick.sample,
+    #             close_time: close_time_pick.sample)
+
+    # # store_number = Store.count
+    # # 1.upto(store_number) do |n|
+    # #   Dish.create(name: dish_name.sample,
+    # #               price: [399, 599, 699, 799, 999, 1024, 1999].sample,
+    # #               status: 1,
+    # #               store_id: n)
     # end
 
-    # p "初步建立方案完畢"
+    # # p "初步建立方案完畢"
+
+    # p "商店更新完畢，開始更新可訂日期......"
 
     # date_pick = []
     #   nob = 1
-    #   while nob < 45
-    #     date_pick << (Time.now+nob.day).to_date
+    #   while nob < 30
+    #     date_pick << (Time.now+45.day+nob.day).to_date
     #   nob = nob + 1
     #   end
 
@@ -222,31 +243,32 @@ namespace :db do
 
     # p "已完成建立部分方案能有多天"
 
-    # time_pick = ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"]
+    # # time_pick = ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"]
+    # # time_pick = ["11:30", "12:30", "13:30", "14:30", "15:30", "16:30", "17:30", "18:30", "19:30", "20:30", "21:30"]
+    # time_pick = ["11:45", "12:45", "13:45", "14:45", "15:45", "16:45", "17:45", "18:45", "19:45", "20:45" ]
     # capacity_pick = [5, 10, 15, 20, 25, 30]
 
     # opendate_number = OpenDate.count
-    # 1.times do
-    #   1.upto(opendate_number) do
-    #     Offer.create(availible_time: time_pick.sample,
-    #                   open_date_id: capacity_pick.sample)
-    #   end
+    # 1.upto(opendate_number) do |n|
+    #   Offer.create(availible_time: time_pick.sample,
+    #               open_date_id: n,
+    #               capacity: capacity_pick.sample)
     # end
 
     # p "所有offer 至少都有1 時間"
 
-    # 2.times do
-    #   1.upto(opendate_number) do
-    #     Offer.create(availible_time: time_pick.sample,
-    #                   open_date_id: rand(1..opendate_number))
-    #   end
-    # end
+    # # 2.times do
+    # #   1.upto(opendate_number) do
+    # #     Offer.create(availible_time: time_pick.sample,
+    # #                   open_date_id: rand(1..opendate_number))
+    # #   end
+    # # end
 
-    # p "已完成間裡部分offer 有多個時間"
+    # # p "已完成間裡部分offer 有多個時間"
 
-    # p "開始根據分店food_type 塞假照片及說明......"
+    # # p "開始根據分店food_type 塞假照片及說明......"
 
-    # ！！！這區要更新！！！
+    # # ！！！這區要更新！！！
     # chinese_store_intro = [ "漉，完封精華之意。
     # 從嚴選食材來源到獨特蒸氣烹煮方式
     # 將大海珍貴的美味完整封存
@@ -322,9 +344,9 @@ namespace :db do
 
     # mexican_store_intro = [ "艾迪墨西哥餐廳源於2007年,那時只是一間在淡水老街賣墨西哥捲餅的小攤販。雖然生意很好，但艾迪跟他妻子Jo經過一番討論後，決定經營一間可以提供給客人更多墨西哥風格道地美食的餐廳，於是他們搬離了夜市，開了一間小餐廳。餐廳有著更多元的菜單、少許的座位，希望能讓來到餐廳的客人感受到彷彿置身於墨西哥般的舒適。所有艾迪墨西哥餐廳的食譜都是代代相傳下來的。我們的使命是提供給每位踏進餐廳的客人最真實、最具有家鄉味的手工墨西哥料理。我們想要給任何願意嘗試墨西哥料理的顧客試試我們岡薩雷茲(Gonzalez) 家傳的墨西哥風味料理。","艾迪墨西哥餐廳所使用的所有餅皮都是現點現做，莎莎醬也是每天採用當地食材新鮮製作而成，只為確保我們能提供最高品質的墨西哥料理。所有的料理都不含防腐劑，讓您跟您的家人吃得安心、吃得健康。我們一直致力於提供新鮮、健康、美味的墨西哥美食給所有客人，快來一同吃吃看吧!","位於靠近仁愛圓環的巷弄內，從忠孝敦化站步行約5分鐘，星期日～二營業時間是11:30–22:00，星期三～六為11:30–23:00，下午沒休息，餐間想要找個休息的地方也可以來，我們那天就是下午四點左右來的，店內只有兩組外國人，避開用餐尖峰時段空間很舒服。店名〈Teotihuacan〉中文可直譯為「特奧蒂瓦坎」，是一個位於墨西哥谷旁的印第安古文明，大約與瑪雅文明同期，其建築遺蹟所在地「聖胡安特奧蒂瓦坎 San Juan Teotihuacan」也是因此命名。平日低消為200元，假日300元，這個標準還挺好達到的，雖然寫限用餐兩個小時，但如果還有空位的話想要多留沒問題。順道一提，〈Teotihuacan〉的老闆娘應該是墨西哥人，服務生中文、英文、西班牙文都可以通，菜單有英文，很適合帶外國朋友來喔！" ]
 
-    # other_store_intro = [ "誠記越南麵食館 創立於1980年創始人是越南華僑杜氏夫婦，草創時期在台北市永康街的一角以麵攤方式販售道地的越南河粉及簡單小菜，老闆娘笑稱剛開始擺攤的時候雖然只有五張板凳，而且賣的東西台灣人沒聽過也沒吃過，但是只要路上還有一個人即使已是深夜她也不願意熄燈，就怕錯過了生意機會。有時生意做到一半警察還會來開罰單，當天就白做了。另外30幾年前的路邊攤普遍都是一整天用一桶水洗碗及清潔，天生就愛乾淨的老闆娘雖然生意不是太好，但還是忍痛跟旁邊的店家租了一根水龍頭，因為這樣就有自來水洗抹布及洗碗，而且老闆娘也堅持將麵攤各處擦的乾乾淨淨的，抹布也是洗的白白的之後才開始做生意，因為她想我賣的東西客人不知道吃的習不習慣，但是我的衛生起碼要做得比別人好；就因為堅持衛生所以慢慢有附近的媽媽下課時，願意帶小孩來嘗鮮，於是讓原本只是勉強維生的小攤販終於漸漸開始好轉。如此日夜打拚兢兢業業的態度加上實在的用料及獨特的口味讓許許多多的街坊客人一試成主顧。誠記的道地招牌河粉系列清燉、鮮牛肉河粉外還有乾拌、咖哩、沙茶等家鄉南洋口味的河粉讓老饕口碑相傳，讓食客聞香而至因顧客口耳相傳始杜氏夫婦生意越來越好，故在永康街6巷1號開出第一家店鋪。","","自家店自行烘豆","","捷克公寓是隱身在台北巷弄的一間 捷克餐廳（捷克餐酒館）。 是捷克文劇院的意思，這裡有我們親手做的捷克口味餐點，而且喝得到Pilsner捷克生啤酒 ，未來將不定期舉辦電影放映與私派對，目前我們的開放時間為 星期一到星期六17:30 – 00:00， 星期日17:30 – 22:00， 星期一休息。歡迎下班後來找我們小酌聊！","","","一本忘年之交哲學文學交融的文學鉅著，一部經典黑白老電影，一位極具傳奇色彩大智隱於市的礦工詩人，一個結合人文音樂美食的好地方——希臘左巴。1998年7月31日，三位志同道合的「左巴人」，承襲了希臘的巷弄美食文化，成立了「希臘左巴」，希望將對身心最無負擔的「地中海飲食法」——一種以食材「相互提味」的料理系統——介紹給國人，體驗歐洲人士的家常菜。店名「希臘左巴」，取自經典文學名著希臘左巴之諧音以及「走吧！來去希臘」之意涵，以「人文音樂美食」為基調，落實「生活藝術化、藝術生活化」的理念，讓藝文輕輕鬆鬆地走入每一個日常⋯⋯","體驗正宗波斯料理, 感受神祕面紗下的中東魅力為台灣穆斯林教友提供正統清真料理Authentic Persian Taste (Halal food provided).Share your exclusive tales of 1001 nights with us.","歷史悠久的傳統料理俄羅斯飲食的發展是在15世紀莫斯科成為其首都才開始的，當時俄羅斯文化受到西歐文化的強烈影響，飲食文化方面俄羅斯的貴族比較崇尚法國，所以俄式菜受法式菜的影響比較大，後來俄式菜也逐漸吸收了義大利等國菜式的特點，並且融合自身的飲身習慣，從而形成了較具特色的俄式菜。俄羅斯菜較油膩，由於俄羅斯大部分地區氣候比較寒冷俄羅斯菜較油膩，由於俄羅斯大部分地區氣候比較寒冷，人們需要更多的熱能，所以，許多菜做完後要淋上少量油。直到上個世紀六七十年代，才逐漸改善，俄式菜也逐漸趨於清淡，但仍有部分菜式保留這個特點。" ]
+    other_store_intro = [ "誠記越南麵食館 創立於1980年創始人是越南華僑杜氏夫婦，草創時期在台北市永康街的一角以麵攤方式販售道地的越南河粉及簡單小菜，老闆娘笑稱剛開始擺攤的時候雖然只有五張板凳，而且賣的東西台灣人沒聽過也沒吃過，但是只要路上還有一個人即使已是深夜她也不願意熄燈，就怕錯過了生意機會。有時生意做到一半警察還會來開罰單，當天就白做了。另外30幾年前的路邊攤普遍都是一整天用一桶水洗碗及清潔，天生就愛乾淨的老闆娘雖然生意不是太好，但還是忍痛跟旁邊的店家租了一根水龍頭，因為這樣就有自來水洗抹布及洗碗，而且老闆娘也堅持將麵攤各處擦的乾乾淨淨的，抹布也是洗的白白的之後才開始做生意，因為她想我賣的東西客人不知道吃的習不習慣，但是我的衛生起碼要做得比別人好；就因為堅持衛生所以慢慢有附近的媽媽下課時，願意帶小孩來嘗鮮，於是讓原本只是勉強維生的小攤販終於漸漸開始好轉。如此日夜打拚兢兢業業的態度加上實在的用料及獨特的口味讓許許多多的街坊客人一試成主顧。誠記的道地招牌河粉系列清燉、鮮牛肉河粉外還有乾拌、咖哩、沙茶等家鄉南洋口味的河粉讓老饕口碑相傳，讓食客聞香而至因顧客口耳相傳始杜氏夫婦生意越來越好，故在永康街6巷1號開出第一家店鋪。","捷克公寓是隱身在台北巷弄的一間 捷克餐廳（捷克餐酒館）。 是捷克文劇院的意思，這裡有我們親手做的捷克口味餐點，而且喝得到Pilsner捷克生啤酒 ，未來將不定期舉辦電影放映與私派對，目前我們的開放時間為 星期一到星期六17:30 – 00:00， 星期日17:30 – 22:00， 星期一休息。歡迎下班後來找我們小酌聊！","一本忘年之交哲學文學交融的文學鉅著，一部經典黑白老電影，一位極具傳奇色彩大智隱於市的礦工詩人，一個結合人文音樂美食的好地方——希臘左巴。1998年7月31日，三位志同道合的「左巴人」，承襲了希臘的巷弄美食文化，成立了「希臘左巴」，希望將對身心最無負擔的「地中海飲食法」——一種以食材「相互提味」的料理系統——介紹給國人，體驗歐洲人士的家常菜。店名「希臘左巴」，取自經典文學名著希臘左巴之諧音以及「走吧！來去希臘」之意涵，以「人文音樂美食」為基調，落實「生活藝術化、藝術生活化」的理念，讓藝文輕輕鬆鬆地走入每一個日常⋯⋯","體驗正宗波斯料理, 感受神祕面紗下的中東魅力為台灣穆斯林教友提供正統清真料理Authentic Persian Taste (Halal food provided).Share your exclusive tales of 1001 nights with us.","歷史悠久的傳統料理俄羅斯飲食的發展是在15世紀莫斯科成為其首都才開始的，當時俄羅斯文化受到西歐文化的強烈影響，飲食文化方面俄羅斯的貴族比較崇尚法國，所以俄式菜受法式菜的影響比較大，後來俄式菜也逐漸吸收了義大利等國菜式的特點，並且融合自身的飲身習慣，從而形成了較具特色的俄式菜。俄羅斯菜較油膩，由於俄羅斯大部分地區氣候比較寒冷俄羅斯菜較油膩，由於俄羅斯大部分地區氣候比較寒冷，人們需要更多的熱能，所以，許多菜做完後要淋上少量油。直到上個世紀六七十年代，才逐漸改善，俄式菜也逐漸趨於清淡，但仍有部分菜式保留這個特點。" ]
 
-    p "Updating Images......"
+    p "Updating intro of stores"
 
     # chinese_store = Store.where(food_type: 0)
     # if chinese_store.present?
@@ -356,285 +378,285 @@ namespace :db do
     #   end
     # end
 
-    # other_store = Store.where(food_type: 10)
-    # if other_store.present?
-    #   # other_store.each do
-    #   #   other_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant"})
-    #   # end
-    #   other_store.each do |n|
-    #     n.update(intro: other_store_intro.sample)
-    #   end
-    # end
+    other_store = Store.where(food_type: 10)
+    if other_store.present?
+      # other_store.each do
+      #   other_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant"})
+      # end
+      other_store.each do |n|
+        n.update(intro: other_store_intro.sample)
+      end
+    end
 
     # american_store = Store.where(food_type: 6)
     # if american_store.present?
     #   # american_store.each do
     #   #   american_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,american"})
     #   # end
-    #   # american_store.each do |n|
-    #   #   n.update(intro: american_store_intro.sample)
-    #   # end
+    #   american_store.each do |n|
+    #     n.update(intro: american_store_intro.sample)
+    #   end
     # end
 
     # french_store = Store.where(food_type: 7)
     # if french_store.present?
-    #   french_store.each do
-    #     french_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,french"})
-    #   end
-    #   # french_store.each do |n|
-    #   #   n.update(intro: french_store_intro.sample)
+    #   # french_store.each do
+    #   #   french_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,french"})
     #   # end
+    #   french_store.each do |n|
+    #     n.update(intro: french_store_intro.sample)
+    #   end
     # end
 
-    p "Ger"
+    # p "Ger"
 
-    germany_store = Store.where(food_type: 8)
-    if germany_store.present?
-      germany_store.each do
-        germany_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,germany"})
-      end
-      # germany_store.each do |n|
-      #   n.update(intro: germany_store_intro.sample)
-      # end
-    end
+    # germany_store = Store.where(food_type: 8)
+    # if germany_store.present?
+    #   # germany_store.each do
+    #   #   germany_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,germany"})
+    #   # end
+    #   germany_store.each do |n|
+    #     n.update(intro: germany_store_intro.sample)
+    #   end
+    # end
 
-    p "Mex"
+    # p "Mex"
 
-    mexican_store = Store.where(food_type: 9)
-    if mexican_store.present?
-      mexican_store.each do
-        mexican_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,mexican"})
-      end
-      # mexican_store.each do |n|
-      #   n.update(intro: mexican_store_intro.sample)
-      # end
-    end
+    # mexican_store = Store.where(food_type: 9)
+    # if mexican_store.present?
+    #   # mexican_store.each do
+    #   #   mexican_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,mexican"})
+    #   # end
+    #   mexican_store.each do |n|
+    #     n.update(intro: mexican_store_intro.sample)
+    #   end
+    # end
 
-    p "ind"
+    # p "ind"
 
-    indian_store = Store.where(food_type: 3)
-    if indian_store.present?
-      indian_store.each do
-        indian_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,indian"})
-      end
-      # indian_store.each do |n|
-      #   n.update(intro: indian_store_intro.sample)
-      # end
-    end
+    # indian_store = Store.where(food_type: 3)
+    # if indian_store.present?
+    #   # indian_store.each do
+    #   #   indian_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,indian"})
+    #   # end
+    #   indian_store.each do |n|
+    #     n.update(intro: indian_store_intro.sample)
+    #   end
+    # end
 
-    italian_store = Store.where(food_type: 4)
-    if italian_store.present?
-      italian_store.each do
-        italian_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,italian"})
-      end
-      # italian_store.each do |n|
-      #   n.update(intro: italian_store_intro.sample)
-      # end
-    end
+    # italian_store = Store.where(food_type: 4)
+    # if italian_store.present?
+    #   # italian_store.each do
+    #   #   italian_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,italian"})
+    #   # end
+    #   italian_store.each do |n|
+    #     n.update(intro: italian_store_intro.sample)
+    #   end
+    # end
 
-    british_store = Store.where(food_type: 5)
-    if british_store.present?
-      british_store.each do
-        british_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,british"})
-      end
-      # british_store.each do |n|
-      #   n.update(intro: british_store_intro.sample)
-      # end
-    end
+    # british_store = Store.where(food_type: 5)
+    # if british_store.present?
+    #   # british_store.each do
+    #   #   british_store.update({remote_image_url: "https://loremflickr.com/300/200/restaurant,british"})
+    #   # end
+    #   british_store.each do |n|
+    #     n.update(intro: british_store_intro.sample)
+    #   end
+    # end
 
-    p "更新分店圖片、介紹完畢"
+    # p "更新分店圖片、介紹完畢"
 
-    # ！！！這區要更新！！！
-    dish_intro = [ "【獨家方案】
-    ★ 平日午晚餐吃到飽 優惠價$592/人
-    ★ 假日午晚餐吃到飽 優惠價$647/人
-    ★ 假日下午茶吃到飽 優惠價$592/人
-    ➤ 以上價格皆內含服務費
-    ➤ 本優惠之相關活動辦法、未盡事項或變更，餐廳保有活動變更之權利及活動最終解釋權。
-    ➤ 訂位人數6人以上，可能會有拆桌，依照現場安排。", "★ 預付享單點品項9折（現場有雙人套餐75折起），6人以下訂位
-    ★ 預付享單點品項9折（現場有雙人套餐75折起），7人以上訂位
-    ➤ 如現場有額外優惠，現場方案與預付方案擇一使用
-    ➤ 現場備有免費「豆腐」
-    ➤ 預付金額可抵現場消費（請於結帳時出示序號，方可抵扣）
-    ➤ 預付優惠與現場方案擇一使用", "【獨家方案】
-    ★ 預付兩人(含)以上用餐每桌贈原味豬五花一份(價值$300)，預付 $450 /人
+    # # ！！！這區要更新！！！
+    # dish_intro = [ "【獨家方案】
+    # ★ 平日午晚餐吃到飽 優惠價$592/人
+    # ★ 假日午晚餐吃到飽 優惠價$647/人
+    # ★ 假日下午茶吃到飽 優惠價$592/人
+    # ➤ 以上價格皆內含服務費
+    # ➤ 本優惠之相關活動辦法、未盡事項或變更，餐廳保有活動變更之權利及活動最終解釋權。
+    # ➤ 訂位人數6人以上，可能會有拆桌，依照現場安排。", "★ 預付享單點品項9折（現場有雙人套餐75折起），6人以下訂位
+    # ★ 預付享單點品項9折（現場有雙人套餐75折起），7人以上訂位
+    # ➤ 如現場有額外優惠，現場方案與預付方案擇一使用
+    # ➤ 現場備有免費「豆腐」
+    # ➤ 預付金額可抵現場消費（請於結帳時出示序號，方可抵扣）
+    # ➤ 預付優惠與現場方案擇一使用", "【獨家方案】
+    # ★ 預付兩人(含)以上用餐每桌贈原味豬五花一份(價值$300)，預付 $450 /人
 
-    【壽星方案】
-    ★ 當月壽星預付預付兩人(含)以上用餐每桌贈原味豬五花一份(價值$300)，預付 $450 /人，另贈慶生烤肉蛋糕一份
-    ➤ 用餐當日請攜帶個人證件查驗，恕不接受社群平台生日驗證。
-    ➤ 餐廳保有一切解釋的權利。
-    ➤ 用餐時間為 120 分鐘，訂位時間將為您保留10分鐘
-    ➤ 每桌至多 6 人，小孩位視同大人位
-    ➤ 每桌基本消費為單點兩份肉品或一份套餐
-    ➤ 現場提供嬰兒椅，座位需依現場人員安排為主
-    ➤ 請務必確認用餐人數後訂位
-    ➤ 最後點餐時間：週一～週五 午餐為:14:30 晚餐為:21:00、週六～週日 全天供餐至21:00最後點餐", "【獨家方案】
-    ★ 平日午餐吃到飽 $878/人
-    ★ 平日下午茶吃到飽 $768/人
-    ★ 平日晚餐吃到飽 $988/人
+    # 【壽星方案】
+    # ★ 當月壽星預付預付兩人(含)以上用餐每桌贈原味豬五花一份(價值$300)，預付 $450 /人，另贈慶生烤肉蛋糕一份
+    # ➤ 用餐當日請攜帶個人證件查驗，恕不接受社群平台生日驗證。
+    # ➤ 餐廳保有一切解釋的權利。
+    # ➤ 用餐時間為 120 分鐘，訂位時間將為您保留10分鐘
+    # ➤ 每桌至多 6 人，小孩位視同大人位
+    # ➤ 每桌基本消費為單點兩份肉品或一份套餐
+    # ➤ 現場提供嬰兒椅，座位需依現場人員安排為主
+    # ➤ 請務必確認用餐人數後訂位
+    # ➤ 最後點餐時間：週一～週五 午餐為:14:30 晚餐為:21:00、週六～週日 全天供餐至21:00最後點餐", "【獨家方案】
+    # ★ 平日午餐吃到飽 $878/人
+    # ★ 平日下午茶吃到飽 $768/人
+    # ★ 平日晚餐吃到飽 $988/人
 
-    ★ 假日午餐吃到飽 $988/人
-    ★ 假日下午茶吃到飽 $878/人
-    ★ 假日晚餐吃到飽 $1098/人
+    # ★ 假日午餐吃到飽 $988/人
+    # ★ 假日下午茶吃到飽 $878/人
+    # ★ 假日晚餐吃到飽 $1098/人
 
-    ➤ 以上價格皆內含服務費
-    ➤ 訂位人數6人以上，可能會有拆桌，依照現場安排
-    ➤ 若需變更用餐人數，請聯繫EZezt客服團隊修改訂單
-    ➤ 本優惠之相關活動辦法、未盡事項或變更，餐廳保有活動變更之權利及活動最終解釋權", "★ 浪漫約會, 商業聚餐, 家庭聚餐, 團體聚餐, 朋友聚餐, 生日慶祝
-    ★ 預付享單點品項9折（現場有雙人套餐75折起），7人以上訂位
+    # ➤ 以上價格皆內含服務費
+    # ➤ 訂位人數6人以上，可能會有拆桌，依照現場安排
+    # ➤ 若需變更用餐人數，請聯繫EZezt客服團隊修改訂單
+    # ➤ 本優惠之相關活動辦法、未盡事項或變更，餐廳保有活動變更之權利及活動最終解釋權", "★ 浪漫約會, 商業聚餐, 家庭聚餐, 團體聚餐, 朋友聚餐, 生日慶祝
+    # ★ 預付享單點品項9折（現場有雙人套餐75折起），7人以上訂位
 
-    ➤ 如現場有額外優惠，現場方案與預付方案擇一使用
-    ➤ 現場備有免費「印度紗麗」可自行體驗拍照
+    # ➤ 如現場有額外優惠，現場方案與預付方案擇一使用
+    # ➤ 現場備有免費「印度紗麗」可自行體驗拍照
 
-    ➤ 預付金額可抵現場消費（請於結帳時出示序號，方可抵扣）
-    ➤ 預付優惠與現場方案擇一使用", "【獨家方案】
-    ★ 預付享平日$550商業午餐任選(羊排不適用)，預付$500 /人
-    ★ 預付享平日晚餐可折抵現場消費$600/人，預付$500 /人
-    ★ 預付可折抵現場消費$1100/人(除特殊節日外不分平假日全餐期適用)，預付$1000 /人
-    ★ 預付享特殊節日獨家保留位！預付$500 /人", "【畢業季限定｜解渴開胃做伙來】
-    下訂時間：即日起～2021/7/18
-    用餐時間：2021/6/4～2021/7/18
-    ★ 畢業揪青春，凡用餐人數8人以上(需出示學生證或教師證)，即招待無酒精雞尾酒or台灣生啤酒每人乙杯、甜點or雞翅每桌兩份，再加碼開胃菜香酥莎莎醬玉米脆片/桌(總價值最高$2,000) ，7人以上訂位，預付$325/桌(每人低消$400，不含10%服務費)", "【獨家搶先訂】
-    ★ 主餐超值A方案吃到飽 特別優惠價 $977/人
-    ★ 主餐超值B方案吃到飽 特別優惠價 $1197/人
+    # ➤ 預付金額可抵現場消費（請於結帳時出示序號，方可抵扣）
+    # ➤ 預付優惠與現場方案擇一使用", "【獨家方案】
+    # ★ 預付享平日$550商業午餐任選(羊排不適用)，預付$500 /人
+    # ★ 預付享平日晚餐可折抵現場消費$600/人，預付$500 /人
+    # ★ 預付可折抵現場消費$1100/人(除特殊節日外不分平假日全餐期適用)，預付$1000 /人
+    # ★ 預付享特殊節日獨家保留位！預付$500 /人", "【畢業季限定｜解渴開胃做伙來】
+    # 下訂時間：即日起～2021/7/18
+    # 用餐時間：2021/6/4～2021/7/18
+    # ★ 畢業揪青春，凡用餐人數8人以上(需出示學生證或教師證)，即招待無酒精雞尾酒or台灣生啤酒每人乙杯、甜點or雞翅每桌兩份，再加碼開胃菜香酥莎莎醬玉米脆片/桌(總價值最高$2,000) ，7人以上訂位，預付$325/桌(每人低消$400，不含10%服務費)", "【獨家搶先訂】
+    # ★ 主餐超值A方案吃到飽 特別優惠價 $977/人
+    # ★ 主餐超值B方案吃到飽 特別優惠價 $1197/人
 
-    ➤ 單人用餐現場需加價 $110
-    ➤ 到店付款恕不使用任意餐卷、優惠卷等結帳，請刷卡或付現
-    ➤ 選擇成人人數進行訂位，若欲與孩童一同前往，於「特殊需求」另備註孩童人數即可。孩童餐費則於用餐當天現場付費。
-    ➤ 預付額不適用百貨停車折抵消費服務，盡請見諒", "【獨家方案】
-    ★ 預付兩人(含)以上用餐每桌贈原味豬五花一份(價值$300)，預付 $450 /人
+    # ➤ 單人用餐現場需加價 $110
+    # ➤ 到店付款恕不使用任意餐卷、優惠卷等結帳，請刷卡或付現
+    # ➤ 選擇成人人數進行訂位，若欲與孩童一同前往，於「特殊需求」另備註孩童人數即可。孩童餐費則於用餐當天現場付費。
+    # ➤ 預付額不適用百貨停車折抵消費服務，盡請見諒", "【獨家方案】
+    # ★ 預付兩人(含)以上用餐每桌贈原味豬五花一份(價值$300)，預付 $450 /人
 
-    【壽星方案】
-    ★ 當月壽星預付預付兩人(含)以上用餐每桌贈原味豬五花一份(價值$300)，預付 $450 /人，另贈慶生烤肉蛋糕一份
-    ➤ 用餐當日請攜帶個人證件查驗，恕不接受社群平台生日驗證。
-    ➤ 餐廳保有一切解釋的權利。
+    # 【壽星方案】
+    # ★ 當月壽星預付預付兩人(含)以上用餐每桌贈原味豬五花一份(價值$300)，預付 $450 /人，另贈慶生烤肉蛋糕一份
+    # ➤ 用餐當日請攜帶個人證件查驗，恕不接受社群平台生日驗證。
+    # ➤ 餐廳保有一切解釋的權利。
 
-    ➤ 用餐時間為 120 分鐘，訂位時間將為您保留10分鐘
-    ➤ 每桌至多 6 人，小孩位視同大人位
-    ➤ 每桌基本消費為單點兩份肉品或一份套餐
-    ➤ 現場提供嬰兒椅，座位需依現場人員安排為主
-    ➤ 請務必確認用餐人數後訂位
-    ➤ 最後點餐時間：週一～週五 午餐為:14:30 晚餐為:21:00、週六～週日 全天供餐至21:00最後點餐", "【預付享EZCASH 5%回饋】
-    ★ 預付享提拉米蘇乙份(價值$198)，6人以下訂位，預付$200/桌
-    ★ 預付享提拉米蘇兩份(價值$396)，7人以上訂位，預付$500/桌
+    # ➤ 用餐時間為 120 分鐘，訂位時間將為您保留10分鐘
+    # ➤ 每桌至多 6 人，小孩位視同大人位
+    # ➤ 每桌基本消費為單點兩份肉品或一份套餐
+    # ➤ 現場提供嬰兒椅，座位需依現場人員安排為主
+    # ➤ 請務必確認用餐人數後訂位
+    # ➤ 最後點餐時間：週一～週五 午餐為:14:30 晚餐為:21:00、週六～週日 全天供餐至21:00最後點餐", "【預付享EZCASH 5%回饋】
+    # ★ 預付享提拉米蘇乙份(價值$198)，6人以下訂位，預付$200/桌
+    # ★ 預付享提拉米蘇兩份(價值$396)，7人以上訂位，預付$500/桌
 
-    ➤ 均消參考：$500/人
-    ➤ 預付金額可抵現場消費（請於結帳時出示序號，方可抵扣）
-    ➤ 預付優惠與現場方案擇一使用" ]
+    # ➤ 均消參考：$500/人
+    # ➤ 預付金額可抵現場消費（請於結帳時出示序號，方可抵扣）
+    # ➤ 預付優惠與現場方案擇一使用" ]
 
-    p "開始建立各方案搭配1 張圖片及方案介紹"
+    # p "開始建立各方案搭配1 張圖片及方案介紹"
 
-    chinese_dish = Dish.joins(:store).where(store: {food_type: 0}).distinct
-    if chinese_dish.present?
-      chinese_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,chinese"})
-      end
-      chinese_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # chinese_dish = Dish.joins(:store).where(store: {food_type: 0}).distinct
+    # if chinese_dish.present?
+    #   chinese_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,chinese"})
+    #   end
+    #   chinese_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    other_dish = Dish.joins(:store).where(store: {food_type: 10}).distinct
-    if other_dish.present?
-      other_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,restaurants"})
-      end
-      other_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # other_dish = Dish.joins(:store).where(store: {food_type: 10}).distinct
+    # if other_dish.present?
+    #   other_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,restaurants"})
+    #   end
+    #   other_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    japanese_dish = Dish.joins(:store).where(store: {food_type: 1}).distinct
-    if japanese_dish.present?
-      japanese_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,japanese"})
-      end
-      japanese_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # japanese_dish = Dish.joins(:store).where(store: {food_type: 1}).distinct
+    # if japanese_dish.present?
+    #   japanese_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,japanese"})
+    #   end
+    #   japanese_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    korean_dish = Dish.joins(:store).where(store: {food_type: 2}).distinct
-    if korean_dish.present?
-      korean_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,korean"})
-      end
-      korean_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # korean_dish = Dish.joins(:store).where(store: {food_type: 2}).distinct
+    # if korean_dish.present?
+    #   korean_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,korean"})
+    #   end
+    #   korean_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    american_dish = Dish.joins(:store).where(store: {food_type: 6}).distinct
-    if american_dish.present?
-      american_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,american"})
-      end
-      american_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # american_dish = Dish.joins(:store).where(store: {food_type: 6}).distinct
+    # if american_dish.present?
+    #   american_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,american"})
+    #   end
+    #   american_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    french_dish = Dish.joins(:store).where(store: {food_type: 7}).distinct
-    if french_dish.present?
-      french_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,french"})
-      end
-      french_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # french_dish = Dish.joins(:store).where(store: {food_type: 7}).distinct
+    # if french_dish.present?
+    #   french_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,french"})
+    #   end
+    #   french_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    germany_dish = Dish.joins(:store).where(store: {food_type: 8}).distinct
-    if germany_dish.present?
-      germany_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,germany"})
-      end
-      germany_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # germany_dish = Dish.joins(:store).where(store: {food_type: 8}).distinct
+    # if germany_dish.present?
+    #   germany_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,germany"})
+    #   end
+    #   germany_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    mexican_dish = Dish.joins(:store).where(store: {food_type: 9}).distinct
-    if mexican_dish.present?
-      mexican_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,mexican"})
-      end
-      mexican_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # mexican_dish = Dish.joins(:store).where(store: {food_type: 9}).distinct
+    # if mexican_dish.present?
+    #   mexican_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,mexican"})
+    #   end
+    #   mexican_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    indian_dish = Dish.joins(:store).where(store: {food_type: 3}).distinct
-    if indian_dish.present?
-      indian_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,indian"})
-      end
-      indian_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # indian_dish = Dish.joins(:store).where(store: {food_type: 3}).distinct
+    # if indian_dish.present?
+    #   indian_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,indian"})
+    #   end
+    #   indian_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    italian_dish = Dish.joins(:store).where(store: {food_type: 4}).distinct
-    if italian_dish.present?
-      italian_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,italian"})
-      end
-      italian_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # italian_dish = Dish.joins(:store).where(store: {food_type: 4}).distinct
+    # if italian_dish.present?
+    #   italian_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,italian"})
+    #   end
+    #   italian_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    british_dish = Dish.joins(:store).where(store: {food_type: 5}).distinct
-    if british_dish.present?
-      british_dish.each do |n|
-        n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,british"})
-      end
-      british_dish.each do |n|
-        n.update(intro: dish_intro.sample)
-      end
-    end
+    # british_dish = Dish.joins(:store).where(store: {food_type: 5}).distinct
+    # if british_dish.present?
+    #   british_dish.each do |n|
+    #     n.images.update({remote_image_url: "https://loremflickr.com/300/200/foods,british"})
+    #   end
+    #   british_dish.each do |n|
+    #     n.update(intro: dish_intro.sample)
+    #   end
+    # end
 
-    p "更新方案圖片、介紹完畢，種子資料建立完成...byebye"
+    # p "更新方案圖片、介紹完畢，種子資料建立完成...byebye"
 
   end
 end
