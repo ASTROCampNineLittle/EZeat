@@ -39,13 +39,13 @@ gem 'activerecord-session_store', '~> 2.0'
 gem 'foreman', '~> 0.87.2'
 
 # Create pretty URLs and work with human-friendly strings as if they were numeric ids
-gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+# gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
 # A flexible authentication
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
 # Object oriented authorization
-gem 'pundit', '~> 2.1', '>= 2.1.1'
+# gem 'pundit', '~> 2.1', '>= 2.1.1'
 
 # Enum-like behavior
 gem 'ruby-enum', '~> 0.9.0'
@@ -57,7 +57,7 @@ gem 'aasm', '~> 5.2'
 gem 'ransack', '~> 2.5'
 
 # As the paginator
-gem 'kaminari', '~> 1.2', '>= 1.2.1'
+# gem 'kaminari', '~> 1.2', '>= 1.2.1'
 
 # Translations for the devise gem
 gem 'devise-i18n', '~> 1.10', '>= 1.10.1'

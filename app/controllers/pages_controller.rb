@@ -2,7 +2,6 @@ class PagesController < ApplicationController
   def index
     @stores = Store.all
 
-    # 各式餐廳類型的實體變數,先全部寫出來,未來用不到會再刪掉
     @foodtype0_stores = @stores.where(food_type: "中式")
     @foodtype1_stores = @stores.where(food_type: "日式")
     @foodtype2_stores = @stores.where(food_type: "韓式")
@@ -15,28 +14,16 @@ class PagesController < ApplicationController
     @foodtype9_stores = @stores.where(food_type: "墨西哥")
     @foodtype10_stores = @stores.where(food_type: "其它")
 
-    # @q = OpenDate.where("availible_date LIKE ?", params).joins(:store, :offer).where( params) params)
-    # @q = Dish.includes(:store, :open_dates).ransack(params[:q])
     @q = Store.ransack(params[:q])
-    # @q = Store.includes(:dishes).includes(:open_dates).ransack(params[:q])
-    # @q = Dish.includes(:store).ransack(params[:q])
-    # @q = Store.ransack(params[:q])
-    # @store = Store.where("name LIKE ?", "O%")
   end
 
   def search_result
-
-    # @store_search = Store.search(params[:name]).all
-    # @dish_search = Dish.search(params[:name]).all
-    # @search_result = Store.where(name LIKE ? 'Spice%')
-    # @q = Store.ransack(params[:q])
-    # @q = Store.includes(:dishes).joins(:open_dates).ransack(params[:q])
     @q = Store.ransack(params[:q])
-    # @q = Dish.includes(:store, :open_dates).ransack(params[:q])
-    # @q.sorts = 'open_dates_availible_date desc' if @q.sorts.empty?
-    # search_result = @q.result(distinct: true).includes(:dishes).joins(:open_dates)
-    search_result = @q.result(distinct: true)
-    @search_result = search_result
+    @search_result = @q.result
+
+    if params[:date].present?
+      @search_result_two = @search_result.includes(dishes: :open_dates).where(dishes: { open_dates: { availible_date: params[:date] } })
+    end
   end
 
   def privacy_policy

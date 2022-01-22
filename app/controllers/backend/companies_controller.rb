@@ -19,7 +19,7 @@ class Backend::CompaniesController < ApplicationController
     if company.save
       redirect_to backend_company_path(current_user.company.id), notice: '新增公司成功'
     else
-      render :new
+      redirect_to new_backend_company_path(current_user), notice: '請填寫所有欄位'
     end
   end
 
