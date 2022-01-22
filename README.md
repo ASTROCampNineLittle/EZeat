@@ -1,8 +1,8 @@
 # [EZeat。滿足您的美好食刻](https://ezeat888.com)
 
-TravisCI ： Build Status
+Google PageSpeed 效能評分：77
+![unknown](https://user-images.githubusercontent.com/92966004/150624029-158b9c3c-e481-4901-9672-c64fc7fcd745.png)
 
-OOO效能評分:
 
 >EZeat是一個讓 `使用者` 與 `餐廳` 媒合訂購餐卷的的網站</br>
 >`使用者`：瀏覽各國美食餐廳，無論是中式/日式/美式...都能找到心儀的餐卷，滿足您的美好食刻。</br>
@@ -30,7 +30,6 @@ OOO效能評分:
 資料庫：PostgreSQL </br>
 部署：Heroku </br>
 版本控制：Git / GitHub </br>
-程式碼持續整合：Travis CI</br>
 API串接：Google Map / Amazon S3 / 藍新金流</br>
 專案規劃：Whimsical / Notion </br>
 
