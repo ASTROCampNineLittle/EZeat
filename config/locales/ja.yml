@@ -29,11 +29,7 @@ ja:
         subscribe: 'ファローする'
       links:
         inner_link: '網內連結'
-<<<<<<< HEAD
-        temp_link: '餐廳管理後台'
-=======
         temp_link: '店舗運営者の方へ'
->>>>>>> f69ecff1317aa2f51047ae64d38f073cb6144a01
         contact_us: 'お問い合わせ'
     phrase:
       or: '或いは'
