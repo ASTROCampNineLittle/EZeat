@@ -179,73 +179,74 @@ namespace :db do
 
     # p "初步產生假分店結束，開始建立方案"
 
-    dish_name = ["午間套餐","午間商業套餐","方案名稱","平日晚間套餐","平日舒壓套餐","朋友聚餐方案","冒險多人套餐","皇家紅茶套餐","特選套餐","商業聚餐","情人精緻晚餐","晚上約會套餐","晚餐浪漫約會方案","創業者海陸大餐","週末精緻晚餐","農曆新年專屬方案","過年特別方案","道地英式下午茶套餐","團體聚餐方案","闔家精緻晚餐"]
+    # dish_name = ["午間套餐","午間商業套餐","方案名稱","平日晚間套餐","平日舒壓套餐","朋友聚餐方案","冒險多人套餐","皇家紅茶套餐","特選套餐","商業聚餐","情人精緻晚餐","晚上約會套餐","晚餐浪漫約會方案","創業者海陸大餐","週末精緻晚餐","農曆新年專屬方案","過年特別方案","道地英式下午茶套餐","團體聚餐方案","闔家精緻晚餐"]
 
-    # store_number = Store.count
-    # 1.upto(store_number) do |n|
-    #   Dish.create(name: dish_name.sample,
-    #               price: [399, 599, 699, 799, 999, 1024, 1999].sample,
-    #               status: 1,
-    #               store_id: n)
+    # # store_number = Store.count
+    # # 1.upto(store_number) do |n|
+    # #   Dish.create(name: dish_name.sample,
+    # #               price: [399, 599, 699, 799, 999, 1024, 1999].sample,
+    # #               status: 1,
+    # #               store_id: n)
+    # # end
+
+    # p "0122 - 更新營業時間"
+
+    # open_time_pick = [ "8:00", "9:00", "10:00", "12:00", "13:00"]
+    # close_time_pick = [ "19:00", "20:00", "21:00", "22:00" ]
+
+    # all_store = Store.all
+
+    # all_store.each do |n|
+    #   n.update(open_time: open_time_pick.sample,
+    #             close_time: close_time_pick.sample)
+
+    # # store_number = Store.count
+    # # 1.upto(store_number) do |n|
+    # #   Dish.create(name: dish_name.sample,
+    # #               price: [399, 599, 699, 799, 999, 1024, 1999].sample,
+    # #               status: 1,
+    # #               store_id: n)
     # end
 
-    p "0122 - 更新營業時間"
+    # # p "初步建立方案完畢"
 
-    open_time_pick = [ "8:00", "9:00", "10:00", "12:00", "13:00"]
-    close_time_pick = [ "19:00", "20:00", "21:00", "22:00" ]
+    # p "商店更新完畢，開始更新可訂日期......"
 
-    all_store = Store.all
+    # date_pick = []
+    #   nob = 1
+    #   while nob < 30
+    #     date_pick << (Time.now+45.day+nob.day).to_date
+    #   nob = nob + 1
+    #   end
 
-    all_store.each do |n|
-      n.update(open_time: open_time_pick.sample,
-                close_time: close_time_pick.sample)
+    # dish_number = Dish.count
+    # 1.upto(dish_number) do |n|
+    #   OpenDate.create(availible_date: date_pick.sample,
+    #                   dish_id: n)
+    # end
 
-    # store_number = Store.count
-    # 1.upto(store_number) do |n|
-    #   Dish.create(name: dish_name.sample,
-    #               price: [399, 599, 699, 799, 999, 1024, 1999].sample,
-    #               status: 1,
-    #               store_id: n)
-    end
+    # p "所有方案至少都有1 日期"
 
-    # p "初步建立方案完畢"
+    # 1.times do
+    #   1.upto(dish_number) do
+    #     OpenDate.create(availible_date: date_pick.sample,
+    #                     dish_id: rand(dish_number))
+    #   end
+    # end
 
-    p "商店更新完畢，開始更新可訂日期......"
+    # 2.times do
+    #   1.upto(dish_number) do
+    #     OpenDate.create(availible_date: date_pick.sample,
+    #                     dish_id: rand(1..dish_number))
+    #   end
+    # end
 
-    date_pick = []
-      nob = 1
-      while nob < 30
-        date_pick << (Time.now+45.day+nob.day).to_date
-      nob = nob + 1
-      end
+    # p "已完成建立部分方案能有多天"
 
-    dish_number = Dish.count
-    1.upto(dish_number) do |n|
-      OpenDate.create(availible_date: date_pick.sample,
-                      dish_id: n)
-    end
-
-    p "所有方案至少都有1 日期"
-
-    1.times do
-      1.upto(dish_number) do
-        OpenDate.create(availible_date: date_pick.sample,
-                        dish_id: rand(dish_number))
-      end
-    end
-
-    2.times do
-      1.upto(dish_number) do
-        OpenDate.create(availible_date: date_pick.sample,
-                        dish_id: rand(1..dish_number))
-      end
-    end
-
-    p "已完成建立部分方案能有多天"
-
-    # time_pick = ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"]
-    time_pick = ["11:30", "12:30", "13:30", "14:30", "15:30", "16:30", "17:30", "18:30", "19:30", "20:30", "21:30"]
-    capacity_pick = [5, 10, 15, 20, 25, 30]
+    # # time_pick = ["11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00"]
+    # time_pick = ["11:30", "12:30", "13:30", "14:30", "15:30", "16:30", "17:30", "18:30", "19:30", "20:30", "21:30"]
+    time_pick = ["11:30", "12:30", "13:30", "14:30", "15:30", "16:30", "17:30", "18:30", "19:30", "20:30" ]
+    # capacity_pick = [5, 10, 15, 20, 25, 30]
 
     opendate_number = OpenDate.count
     1.times do
@@ -257,18 +258,18 @@ namespace :db do
 
     p "所有offer 至少都有1 時間"
 
-    2.times do
-      1.upto(opendate_number) do
-        Offer.create(availible_time: time_pick.sample,
-                      open_date_id: rand(1..opendate_number))
-      end
-    end
+    # 2.times do
+    #   1.upto(opendate_number) do
+    #     Offer.create(availible_time: time_pick.sample,
+    #                   open_date_id: rand(1..opendate_number))
+    #   end
+    # end
 
-    p "已完成間裡部分offer 有多個時間"
+    # p "已完成間裡部分offer 有多個時間"
 
-    p "開始根據分店food_type 塞假照片及說明......"
+    # p "開始根據分店food_type 塞假照片及說明......"
 
-    ！！！這區要更新！！！
+    # ！！！這區要更新！！！
     chinese_store_intro = [ "漉，完封精華之意。
     從嚴選食材來源到獨特蒸氣烹煮方式
     將大海珍貴的美味完整封存
