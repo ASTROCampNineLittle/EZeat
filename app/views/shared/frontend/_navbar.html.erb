@@ -51,7 +51,7 @@
                     <% if has_company %>
                       <%= link_to(t('common.navigation.backend_management'), backend_company_path(current_user.company.id), class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                     <% else %>
-                      <%= link_to(t('common.navigation.become_our_partners'), new_backend_company_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
+                      <%= link_to(t('common.navigation.backend_management'), new_backend_company_path, class:"block py-2 px-4 text-sm text-gray-700 hover:bg-yellow-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white") %>
                     <% end %>
                   </li>
                   <li>
