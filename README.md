@@ -9,7 +9,9 @@
 # 功能說明：
 
 ### 1. 搜 尋 功 能
-![search_store](https://user-images.githubusercontent.com/92966004/150638889-75a7b391-73bb-48e8-8d1b-1bd56200f883.gif)
+![search_store](https://user-images.githubusercontent.com/92966004/150647579-e2b75c68-8974-48ea-92fb-b35cae769bd2.gif)
+</br>
+</br>
 </br>
 </br>
 
@@ -17,9 +19,13 @@
 ![Buy_order_flow](https://user-images.githubusercontent.com/92966004/150624823-ddd357b3-08ef-4085-b70f-7b44491570fa.gif)
 </br>
 </br>
+</br>
+</br>
 
 ### 3. 後 台 管 理
 ![Backend_manage](https://user-images.githubusercontent.com/92966004/150624341-0d6831c1-20e6-424b-a38b-bc8e1525921d.gif)
+</br>
+</br>
 </br>
 </br>
 
@@ -27,9 +33,14 @@
 ![writeoff_ticket](https://user-images.githubusercontent.com/92966004/150625484-a8cb94e7-eedc-4552-9ad0-2f8188f3c7e9.gif)
 </br>
 </br>
+</br>
+</br>
 
-### 5. 多 國 語 言 - 圖片(等nav修好)
-
+### 5. 多 國 語 言
+![image](https://user-images.githubusercontent.com/92966004/150646556-1f6a49b7-ccbf-4f53-8dbd-38f75c029840.png)
+</br>
+</br>
+</br>
 </br>
 
 ---
