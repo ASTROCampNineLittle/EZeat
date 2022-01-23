@@ -203,7 +203,7 @@
                   <div class="bg-yellow-200 text-gray-500 font-bold py-1 px-2 border border-yellow-500 rounded text-center">該日已有訂位</div>
                 <% else %>
                 <div class=" flex justify-center">
-                <%= link_to "刪除日期", backend_dish_path(@dish), method: :delete, data: { confirm: "Are you sure?" }, class:"bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded" %>
+                <%= link_to "刪除日期", backend_open_date_path(open_date), method: :delete, data: { confirm: "Are you sure?" }, class:"bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded" %>
                 </div>
                 <% end %>
               </div>
