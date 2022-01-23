@@ -55,8 +55,9 @@
 版本控制：Git / GitHub </br>
 API串接：Google Map / Amazon S3 / 藍新金流</br>
 專案規劃：Whimsical / Notion </br>
-Google PageSpeed 效能評分：77
-![](https://user-images.githubusercontent.com/92966004/150624029-158b9c3c-e481-4901-9672-c64fc7fcd745.png)
+Google PageSpeed 效能評分：91
+![image](https://user-images.githubusercontent.com/53686629/150663638-b46be3ad-bc34-4221-873a-0e4869be341b.png)
+
 
 </br>
 
