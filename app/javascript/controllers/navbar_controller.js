@@ -24,5 +24,9 @@ export default class extends Controller {
     const navLgTarget = document.querySelector("#navDropLg")
     navLgTarget.classList.toggle("show");
   }
+
+  connect(){
+    console.log('triggered by touch:',this.triggeredByTouch ? 'yes' : 'no')
+  }
 }
 
