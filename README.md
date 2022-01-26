@@ -6,6 +6,11 @@
 >`餐　廳`：建立自己的餐廳 / 餐卷 / 開放日期 / 開放時間 / 人數，即時更新餐廳訂位狀態，輕鬆管理餐廳大小事。</br>
 </br>
 
+# DEMO Day 介紹：
+
+[<img alt="https://www.youtube.com/watch?v=BL4ny6dsMO8" src="https://user-images.githubusercontent.com/53686629/151094593-aa8fce87-a1bb-491b-9996-05ac81357ea5.png" />](https://www.youtube.com/watch?v=BL4ny6dsMO8)
+</br>
+
 # 功能說明：
 
 ### 1. 搜 尋 功 能
