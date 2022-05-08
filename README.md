@@ -77,10 +77,10 @@ Google PageSpeed 效能評分：91
 </br>
 </br>
 
-|成員|**許晴**|**賴益楚**|**董仲書**|**蔡傑名**|
+|成員|**華原子夏**|**賴益楚**|**董仲書**|**蔡傑名**|
 |--|--|--|--|--|
-|**github**|[ching227](https://github.com/ching227)|[Laichu](https://github.com/LaichuLai)|[sethxd88](https://github.com/sethxd88)|[Tsaijeming](https://github.com/Tsaijieming)|
-|**e-mail**|ching22h7@gmail.com|cozzichilli@gmail.com|soistdaslife@gmail.com|dreamorange830@gmail.com|
+|**github**|[Naaa](https://github.com/naaa7)|[Laichu](https://github.com/LaichuLai)|[sethxd88](https://github.com/sethxd88)|[Tsaijeming](https://github.com/Tsaijieming)|
+|**e-mail**|naaa22tsu7@gmail.com|cozzichilli@gmail.com|soistdaslife@gmail.com|dreamorange830@gmail.com|
 
 </br>
 </br>
